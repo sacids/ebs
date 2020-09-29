@@ -5,6 +5,7 @@ from django.db.models.deletion import CASCADE, RESTRICT
 QUESTION_TYPE = (
     ('SELECT',"Select One"),
     ('CHECKBOX',"Select Multiple"),
+    ('NUMBER', 'Number'),
     ('TEXTAREA',"Free Text"),
 )
 
@@ -59,6 +60,7 @@ class Respondent(models.Model):
 
 #categories
 class Category(models.Model):
+    code = models.PositiveIntegerField(null=True) 
     title = models.CharField(max_length=255)
     description = models.TextField(null=True)
 
@@ -82,4 +84,20 @@ class Question(models.Model):
         verbose_name_plural = "Questions"
 
     def __str__(self):
-        return self.title    
+        return self.title  
+
+
+#answer
+class Answer(models.Model):
+    #respondent  = models.ForeignKey(User, related_name="respondents", on_delete=models.SET_DEFAULT, default=1)
+    question    = models.ForeignKey(Question, related_name="answers", on_delete=models.CASCADE)
+    answer      = models.CharField(max_length=200, null=False)
+    remarks     = models.TextField()
+    created_at  = models.DateTimeField(auto_now_add=True, editable=False)   
+
+    class Meta:
+        db_table = "answers"
+        verbose_name_plural = "Answers"
+
+    def __str__(self):
+        return self.question

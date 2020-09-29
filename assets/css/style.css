@@ -115,7 +115,7 @@ navigation menu
 .page-header {
     width: 100%;
     padding: 10px;
-    background-color: #f1f1f1;
+    background-color: #ffffff;
     border: 1px solid #ddd;
 }
 
@@ -399,6 +399,38 @@ Buttons
     font-weight: 600;
     background-color: #f1f1f1;
     border-color: #f1f1f1;
+}
+
+/*==============================================
+Accordion
+==============================================*/
+.myaccordion {
+  width: 100%;
+  margin-top: 40px;
+  background-color: #eeeeee;
+  border: 1px solid #eeeeee;
+}
+
+.myaccordion .card,
+.myaccordion .card:last-child .card-header {
+    border: none;
+}
+
+.myaccordion .card-header {
+    font-size:16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #212121;
+    border-bottom-color: #eeeeee;
+    background: transparent;
+}
+
+.myaccordion .card-header a:hover{
+    text-decoration: none;
+}
+
+.myaccordion li + li {
+  margin-top: 10px;
 }
 
 /*===============================================
