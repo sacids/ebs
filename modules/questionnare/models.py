@@ -8,7 +8,8 @@ QUESTION_TYPE = (
     ('SELECT', "Select One"),
     ('CHECKBOX', "Select Multiple"),
     ('NUMBER', 'Number'),
-    ('TEXTAREA', "Free Text"),
+    ('TEXT', "Norma Text"),
+    ('TEXTAREA', "Text Area"),
 )
 
 ANSWER = (
