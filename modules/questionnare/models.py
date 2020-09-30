@@ -1,12 +1,14 @@
 from django.db import models
 from django.db.models.deletion import CASCADE, RESTRICT
+from django.db.models.fields.related import ForeignKey
 
 # Create your models here.
 QUESTION_TYPE = (
-    ('SELECT',"Select One"),
-    ('CHECKBOX',"Select Multiple"),
+    ('NONE', "None"),
+    ('SELECT', "Select One"),
+    ('CHECKBOX', "Select Multiple"),
     ('NUMBER', 'Number'),
-    ('TEXTAREA',"Free Text"),
+    ('TEXTAREA', "Free Text"),
 )
 
 ANSWER = (
@@ -16,6 +18,8 @@ ANSWER = (
 )
 
 # countries
+
+
 class Country(models.Model):
     """A class to create country table."""
     title = models.CharField(max_length=100)
@@ -28,7 +32,9 @@ class Country(models.Model):
     def __str__(self):
         return self.title
 
-#institutions
+# institutions
+
+
 class Institution(models.Model):
     """A class to create institutions table."""
     title = models.CharField(max_length=255)
@@ -37,14 +43,16 @@ class Institution(models.Model):
     country = models.ForeignKey(Country, on_delete=RESTRICT)
     logo = models.ImageField(upload_to='photos', null=True)
 
-    class Meta: 
+    class Meta:
         db_table = "institutions"
         verbose_name_plural = "Institutions"
 
     def __str__(self):
-        return self.title    
+        return self.title
 
-#Respondent
+# Respondent
+
+
 class Respondent(models.Model):
     name = models.CharField(max_length=200)
     designation = models.CharField(max_length=150)
@@ -55,45 +63,66 @@ class Respondent(models.Model):
         verbose_name_plural = "Respondents"
 
     def __str__(self):
-        return self.name  
+        return self.name
 
 
-#categories
+# categories
 class Category(models.Model):
-    code = models.PositiveIntegerField(null=True) 
+    code = models.PositiveIntegerField(null=True)
     title = models.CharField(max_length=255)
     description = models.TextField(null=True)
 
     class Meta:
-        db_table ="categories"
+        db_table = "categories"
         verbose_name_plural = "Categories"
 
     def __str__(self):
         return self.title
 
 
-#questions
+# questions
 class Question(models.Model):
-    category = models.ForeignKey(Category, related_name="questions", on_delete=CASCADE)
+    category = models.ForeignKey(
+        Category, related_name="questions", on_delete=CASCADE)
     title = models.TextField(null=False)
-    code = models.CharField(max_length=5, null=False)
-    qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='SELECT')
-    
+    code = models.CharField(max_length=10, null=False)
+    has_sub = models.CharField(
+        choices=ANSWER, verbose_name="Has sub question?", max_length=10, null=True, default="NO")
+    qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
+
     class Meta:
         db_table = "questions"
         verbose_name_plural = "Questions"
 
     def __str__(self):
-        return self.title  
+        return self.title
 
 
-#answer
+
+# sub question
+class SubQuestion(models.Model):
+    question = ForeignKey(
+        Question, related_name="sub_questions", on_delete=CASCADE)
+    title = models.TextField(null=False)
+    code = models.CharField(max_length=10, null=False)
+    qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
+
+    class Meta:
+        db_table = "sub_questions"
+        verbose_name_plural = "Sub Questions"
+
+    def __str__(self):
+        return self.title
+
+
+# answer
 class Answer(models.Model):
     #respondent  = models.ForeignKey(User, related_name="respondents", on_delete=models.SET_DEFAULT, default=1)
-    question    = models.ForeignKey(Question, related_name="answers", on_delete=models.CASCADE)
-    answer      = models.CharField(max_length=200, null=False)
-    remarks     = models.TextField()
-    created_at  = models.DateTimeField(auto_now_add=True, editable=False)   
+    question = models.ForeignKey(
+        Question, related_name="answers", on_delete=models.CASCADE)
+    answer = models.CharField(max_length=200, null=False)
+    remarks = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True, editable=False)
 
     class Meta:
         db_table = "answers"

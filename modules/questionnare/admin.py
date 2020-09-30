@@ -31,3 +31,13 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'description']
     ordering = ("id",)  
     inlines = [QuestionInline]
+
+class SubQuestionInline(admin.StackedInline):
+    model = SubQuestion  
+
+@admin.register(Question)
+class QuestionAdmin(admin.ModelAdmin):
+    list_display = ['title', 'has_sub']
+    list_filter = ['category', 'has_sub']
+    ordering = ("id",)
+    inlines = [SubQuestionInline]

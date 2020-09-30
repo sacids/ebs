@@ -14,7 +14,8 @@ class QuestionListView(generic.ListView):
         context = super(QuestionListView, self).get_context_data(**kwargs)
         context['countries'] = Country.objects.all()
         context['institutions'] = Institution.objects.all()
-        categories = Category.objects.prefetch_related("questions").all()
+
+        categories = Category.objects.prefetch_related("questions", "questions__sub_questions").order_by('id').all()
         context['categories'] = categories
 
         return context

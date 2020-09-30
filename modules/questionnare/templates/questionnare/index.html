@@ -160,15 +160,22 @@
                                                                         value="{{ question.id }}" />
                                                                     <tr>
                                                                         <td>{{ question.code }}</td>
-                                                                        <td>{{ question.title }}</td>
+
+                                                                        {% if question.has_sub == "YES" %}
+                                                                        <td colspan="3" style="font-weight: 600;">{{ question.title }}</td>
+                                                                        {% for sub_qn in question.sub_questions.all %}
+                                                                        <input type="hidden" name="sub_question_id"
+                                                                            value="{{ sub_qn.id }}" />
+                                                                    <tr>
+                                                                        <td>{{ sub_qn.code}}</td>
+                                                                        <td>{{ sub_qn.title}}</td>
                                                                         <td>
                                                                             <div class="row">
                                                                                 <div
                                                                                     class="col-lg-12 col-md-12 col-sm-12 col-12">
                                                                                     <div class="form-group mb-0">
-                                                                                        {% if question.qn_type == "SELECT" %}
-                                                                                        <select name="answer"
-                                                                                            id="answer"
+                                                                                        {% if sub_qn.qn_type == "SELECT" %}
+                                                                                        <select name="answer" id="answer"
                                                                                             class="form-control">
                                                                                             <option value="YES">Yes
                                                                                             </option>
@@ -177,11 +184,11 @@
                                                                                             <option value="NA">Not
                                                                                                 Applicable</option>
                                                                                         </select>
-                                                                                        {% elif question.qn_type == "NUMBER" %}
-                                                                                        <input type="number"
-                                                                                            name="answer" id="answer"
+                                                                                        {% elif sub_qn.qn_type == "NUMBER" %}
+                                                                                        <input type="number" name="answer"
+                                                                                            id="answer"
                                                                                             class="form-control" />
-                                                                                        {% elif question.qn_type == "TEXTAREA" %}
+                                                                                        {% elif sub_qn.qn_type == "TEXTAREA" %}
                                                                                         <textarea rows="4" cols="40"
                                                                                             name="answer"
                                                                                             class="textarea form-control"
@@ -211,6 +218,61 @@
                                                                             </div>
                                                                             <!--./row-->
                                                                         </td>
+                                                                    </tr>
+                                                                    {% endfor %}
+
+                                                                    {% elif question.has_sub == "NO"  %}
+                                                                    <td>{{ question.title }}</td>
+                                                                    <td>
+                                                                        <div class="row">
+                                                                            <div
+                                                                                class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                                                <div class="form-group mb-0">
+                                                                                    {% if question.qn_type == "SELECT" %}
+                                                                                    <select name="answer" id="answer"
+                                                                                        class="form-control">
+                                                                                        <option value="YES">Yes
+                                                                                        </option>
+                                                                                        <option value="NO">No
+                                                                                        </option>
+                                                                                        <option value="NA">Not
+                                                                                            Applicable</option>
+                                                                                    </select>
+                                                                                    {% elif question.qn_type == "NUMBER" %}
+                                                                                    <input type="number" name="answer"
+                                                                                        id="answer"
+                                                                                        class="form-control" />
+                                                                                    {% elif question.qn_type == "TEXTAREA" %}
+                                                                                    <textarea rows="4" cols="40"
+                                                                                        name="answer"
+                                                                                        class="textarea form-control"
+                                                                                        id="answer"></textarea>
+                                                                                    {% endif %}
+                                                                                </div>
+                                                                                <!--./form-group-->
+                                                                            </div>
+                                                                            <!--./col-->
+                                                                        </div>
+                                                                        <!--./row-->
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="row">
+                                                                            <div
+                                                                                class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                                                <div class="form-group mb-0">
+                                                                                    <textarea rows="2" cols="40"
+                                                                                        name="remarks"
+                                                                                        class="form-control"
+                                                                                        placeholder="Write remarks..."
+                                                                                        id="remarks"></textarea>
+                                                                                </div>
+                                                                                <!--./form-group-->
+                                                                            </div>
+                                                                            <!--./col-->
+                                                                        </div>
+                                                                        <!--./row-->
+                                                                    </td>
+                                                                    {% endif %}
                                                                     </tr>
                                                                     {% endfor %}
                                                                 </tbody>
