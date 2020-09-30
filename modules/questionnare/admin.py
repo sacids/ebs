@@ -37,7 +37,7 @@ class SubQuestionInline(admin.StackedInline):
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ['title', 'has_sub']
+    list_display = ['code','title', 'has_sub']
     list_filter = ['category', 'has_sub']
-    ordering = ("id",)
+    ordering = ("sort_order",)
     inlines = [SubQuestionInline]

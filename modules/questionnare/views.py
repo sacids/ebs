@@ -17,8 +17,8 @@ class QuestionListView(generic.ListView):
         context['institutions'] = Institution.objects.all()
 
         categories = Category.objects.prefetch_related(
-            Prefetch('questions', queryset=Question.objects.order_by('code')), 
-            Prefetch('questions__sub_questions', queryset=SubQuestion.objects.order_by('code'))).order_by('id').all()
+            Prefetch('questions', queryset=Question.objects.order_by('sort_order')), 
+            Prefetch('questions__sub_questions', queryset=SubQuestion.objects.order_by('sort_order'))).order_by('id').all()
         context['categories'] = categories
 
         return context

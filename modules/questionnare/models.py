@@ -90,6 +90,7 @@ class Question(models.Model):
     has_sub = models.CharField(
         choices=ANSWER, verbose_name="Has sub question?", max_length=10, null=True, default="NO")
     qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
+    sort_order = models.IntegerField(default=1)
 
     class Meta:
         db_table = "questions"
@@ -107,6 +108,7 @@ class SubQuestion(models.Model):
     title = models.TextField(null=False)
     code = models.CharField(max_length=10, null=False)
     qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
+    sort_order = models.IntegerField(default=1)
 
     class Meta:
         db_table = "sub_questions"
