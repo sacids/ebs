@@ -1,3 +1,4 @@
+from django.db.models.query import Prefetch
 from django.http import request
 from django.shortcuts import redirect, render
 from django.views import generic
@@ -15,7 +16,9 @@ class QuestionListView(generic.ListView):
         context['countries'] = Country.objects.all()
         context['institutions'] = Institution.objects.all()
 
-        categories = Category.objects.prefetch_related("questions", "questions__sub_questions").order_by('id').all()
+        categories = Category.objects.prefetch_related(
+            Prefetch('questions', queryset=Question.objects.order_by('code')), 
+            Prefetch('questions__sub_questions', queryset=SubQuestion.objects.order_by('code'))).order_by('id').all()
         context['categories'] = categories
 
         return context
