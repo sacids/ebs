@@ -101,33 +101,7 @@ class QuestionListView(generic.ListView):
             Prefetch('questions', queryset=Question.objects.order_by('sort_order')),
             Prefetch('questions__sub_questions', queryset=SubQuestion.objects.order_by('sort_order'))).order_by('id').all()
         context['categories'] = categories
-
         return context
-
-    def post(self, request, *args, **kwargs):
-        if request.method == "POST":
-
-            if request.POST.get('question_id'):
-                question_id = request.POST.getlist('question_id', '')
-                answer = request.POST.getlist('answer', '')
-                remarks = request.POST.getlist('remarks', '')
-
-                # zipped
-                zipped = zip(question_id, answer, remarks)
-
-                for question_id, answer, remarks in zipped:
-                    qn_answer = Answer()
-                    qn_answer.question_id = question_id
-                    qn_answer.answer = answer
-                    qn_answer.remarks = remarks
-                    qn_answer.save()  # save
-                messages.add_message(
-                    request, messages.SUCCESS, 'Success! Saved Successfully!')
-            return redirect("/")
-        else:
-            form_class = RespondentForm
-            return render(request, 'questionnare/index.html', {'form': form_class, })
-
 
 # success
 def success(request):
