@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.deletion import CASCADE, RESTRICT, SET_NULL
+from django.db.models.deletion import CASCADE, SET_NULL
 from django.db.models.fields.related import ForeignKey
 
 # Create your models here.
@@ -52,7 +52,7 @@ class Institution(models.Model):
     title = models.CharField(max_length=255)
     initial = models.CharField(max_length=25, null=True)
     description = models.TextField(null=True)
-    country = models.ForeignKey(Country, on_delete=RESTRICT)
+    country = models.ForeignKey(Country, on_delete=SET_NULL, null=True)
     logo = models.ImageField(upload_to='photos', null=True)
 
     class Meta:
@@ -70,7 +70,7 @@ class Respondent(models.Model):
     council = models.ForeignKey(Council, on_delete=SET_NULL, null=True)
     country = models.ForeignKey(Country, on_delete=SET_NULL, null=True)
     designation = models.CharField(max_length=150)
-    institution = models.ForeignKey(Institution, on_delete=RESTRICT)
+    institution = models.ForeignKey(Institution, on_delete=SET_NULL, null=True)
 
     class Meta:
         db_table = "respondents"
