@@ -2,9 +2,16 @@ from django.contrib import admin
 from .models import *
 
 # Register your models here.
+@admin.register(Council)
+class CouncilAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title']
+    search_fields = ['title__startwith']
+    ordering = ("id",)
+
+
 @admin.register(Country)
 class CountryAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'code']
+    list_display = ['id', 'title']
     search_fields = ['title__startwith']
     ordering = ("id",)
 

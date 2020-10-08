@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.deletion import CASCADE, RESTRICT
+from django.db.models.deletion import CASCADE, RESTRICT, SET_NULL
 from django.db.models.fields.related import ForeignKey
 
 # Create your models here.
@@ -18,13 +18,24 @@ ANSWER = (
     ('UNKNOWN', "Unknown"),
 )
 
+#councils
+class Council(models.Model):
+    """A class to create council table"""
+    title =  models.CharField(max_length=255)
+    description = models.TextField(null=True, blank=True)
+
+    class Meta:
+        db_table = "councils"
+        verbose_name_plural = "Councils"
+
+    def __str__(self):
+        return self.title    
+
 # countries
-
-
 class Country(models.Model):
     """A class to create country table."""
     title = models.CharField(max_length=100)
-    code = models.CharField(max_length=10, null=True)
+    council = models.ForeignKey(Council, on_delete=SET_NULL, null=True)
 
     class Meta:
         db_table = "contries"
@@ -56,6 +67,8 @@ class Institution(models.Model):
 
 class Respondent(models.Model):
     name = models.CharField(max_length=200)
+    council = models.ForeignKey(Council, on_delete=SET_NULL, null=True)
+    country = models.ForeignKey(Country, on_delete=SET_NULL, null=True)
     designation = models.CharField(max_length=150)
     institution = models.ForeignKey(Institution, on_delete=RESTRICT)
 
@@ -120,9 +133,10 @@ class SubQuestion(models.Model):
 
 # answer
 class Answer(models.Model):
-    #respondent  = models.ForeignKey(User, related_name="respondents", on_delete=models.SET_DEFAULT, default=1)
+    respondent  = models.ForeignKey(Respondent, related_name="respondents", on_delete=models.SET_NULL, null=True)
     question = models.ForeignKey(
         Question, related_name="answers", on_delete=models.CASCADE)
+    sub_question = models.ForeignKey(SubQuestion, on_delete=SET_NULL, null=True)
     answer = models.CharField(max_length=200, null=False)
     remarks = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True, editable=False)

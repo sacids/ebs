@@ -23,6 +23,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <!--custom js-->
+    <script src="{% static 'js/custom.js' %}"></script>
+
 </head>
 
 <body>
@@ -39,24 +42,16 @@
     <!-- /fixed navbar -->
 
     <div class="page-header">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="float-left">
+                <div class="col-md-12">
+                    <div class="text-center">
                         <img src="{% static 'img/africacdc.png' %}" alt="AfricaCDC" height="80" />&nbsp;&nbsp;
-                        <img src="{% static 'img/sua-logo.svg' %}" height="80" alt="SUA" />
+                        <!-- <img src="{% static 'img/sua-logo.svg' %}" height="80" alt="SUA" /> -->
                     </div>
                     <!--./pull-left-->
                 </div>
-                <!--./col-md-6-->
-                <div class="col-md-6">
-                    <div class="float-right">
-                        <img src="{% static 'img/sacids.jpeg' %}" alt="" height="80" />&nbsp;&nbsp;
-                        <img src="{% static 'img/ecsa-logo.png' %}" alt="" height="80" />
-                    </div>
-                    <!--./pull-left-->
-                </div>
-                <!--./col-md-6-->
+                <!--./col-md-12-->
             </div>
             <!--./row-->
         </div>

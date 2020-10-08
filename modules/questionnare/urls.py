@@ -1,8 +1,12 @@
 from django.urls import path
 from . import views
-from .views import *
+from .views import (get_countries, success)
 
 app_name = 'questionnare'
 urlpatterns = [
-    path("", views.QuestionListView.as_view(), name="questionnare"),
+    path("", views.RespondentCreateView.as_view(), name="questionnare"),
+    #success
+    path('success/', success, name='success'),
+    #filters
+    path('get_countries/', get_countries, name='get_countries'),
 ]

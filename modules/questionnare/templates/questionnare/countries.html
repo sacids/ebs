@@ -1,0 +1,8 @@
+<select name="district_id" id="district_id">
+    <option value="">-- --</option>
+    {% for country in countries %}
+    <option value="{{ country.id}}">
+        {{ country.title}}
+    </option>
+    {% endfor %}
+</select>

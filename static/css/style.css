@@ -43,7 +43,7 @@ navigation menu
 ===============================================*/
 @media only screen and (min-device-width: 768px){
     .navbar{ 
-        background-color: #088c4a;
+        background-color: #1565C0;
     }
 }
 
@@ -57,7 +57,7 @@ navigation menu
 }
 
 .navbar .navbar-toggle .icon-bar {
-    background-color: #088c4a;
+    background-color: #1565C0;
 }
 
 .navbar-header {
@@ -115,8 +115,7 @@ navigation menu
 .page-header {
     width: 100%;
     padding: 10px;
-    background-color: #eeeded;
-    border: 1px solid #ddd;
+    background-color: #ffffff;
 }
 
 .page-header-content {
@@ -293,11 +292,11 @@ Cards
 Text sizes and colors
 =============================================*/
 .text-primary {
-    color: #088c4a;
+    color: #1565C0;
 }
 
 .text-primary[href]:hover, .text-primary[href]:focus {
-    color: #088c4a;
+    color: #1565C0;
 }
 
 .text-white {
@@ -316,7 +315,7 @@ Text sizes and colors
 Background colors
 ===============================================*/
 .bg-primary {
-    background-color: #088c4a !important;
+    background-color: #1565C0 !important;
     color: #ffffff;
 }
 
@@ -358,21 +357,21 @@ Buttons
 
 .btn-primary {
     color: #ffffff;
-    background-color: #088c4a;
-    border-color: #088c4a;
+    background-color: #1565C0;
+    border-color: #1565C0;
 }
 
 .btn-outline-primary {
-    color: #088c4a;
+    color: #1565C0;
     background-color: transparent;
     background-image: none;
-    border-color: #088c4a;
+    border-color: #1565C0;
 }
 
 .btn-outline-primary:hover {
     color: #fff;
-    background-color: #088c4a;
-    border-color: #088c4a;
+    background-color: #1565C0;
+    border-color: #1565C0;
 }
 
 .btn-secondary {
@@ -401,6 +400,38 @@ Buttons
     border-color: #f1f1f1;
 }
 
+/*==============================================
+Accordion
+==============================================*/
+.myaccordion {
+  width: 100%;
+  margin-top: 40px;
+  background-color: #eeeeee;
+  border: 1px solid #eeeeee;
+}
+
+.myaccordion .card,
+.myaccordion .card:last-child .card-header {
+    border: none;
+}
+
+.myaccordion .card-header {
+    font-size:16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #212121;
+    border-bottom-color: #eeeeee;
+    background: transparent;
+}
+
+.myaccordion .card-header a:hover{
+    text-decoration: none;
+}
+
+.myaccordion li + li {
+  margin-top: 10px;
+}
+
 /*===============================================
 Forms
 ===============================================*/
@@ -409,70 +440,78 @@ Forms
     font-size: 13px;
 }
 
-.form-group ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.form-group input[type=text], input[type=email], input[type=password], input[type=number], textarea {
+    width: 100%;
+    border: 1px solid #cacaca;
+    font-size: 13px;
 }
 
-.form-group ul li{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.form-group select {
+    width: 100%;
+    border: 1px solid #cacaca;
+    background: #ffffff;
+    font-size: 13px;
 }
 
 .form-group span.red {
     color: #CC0000;
 }
 
-.asteriskField {
-    color: #CC0000;
-    padding-left: 5px;
-}
-
 /*===============================================
-Icons
+Tables
 ===============================================*/
-i.fa-coat-of-arm {
-    content: "";
-    background-image: url("../img/CoatofArms_Lg.png");
-    width: 36px;
-    height: 36px;
-    display: inline-block;
-    background-size: cover;
+
+table.table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 10px 0 1em 1px;
+    width: 100%;
 }
 
-/*====================================================
-  Form Wizard tabs
- ===================================================*/
-/* Mark input boxes that gets an error on validation: */
-.invalid {
-    background-color: #ffdddd;
+table.table th {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    color: #424242;
+    padding: 8px !important;
+    background: #f1f1f1;
+    border-bottom: 1px solid #E3E3E3;
 }
 
-/* Hide all steps by default: */
-.tab {
-    display: none;
+table.table td {
+    font-size: 13px;
+    vertical-align: top;
+    background: #FFF;
+    color: #212121;
+    font-weight: 500;
+    border-bottom: 1px solid #E3E3E3;
+    padding: 8px !important;
 }
 
-/* Make circles that indicate the steps of the form: */
-.step {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbbbbb;
-    border: none;
-    border-radius: 50%;
-    display: inline-block;
-    opacity: 0.5;
+table.table td a {
+    text-decoration: none !important;
+    font-weight: normal !important;
 }
 
-/* Mark the active step: */
-.step.active {
-    opacity: 1;
+table.table th a {
+    text-align: right;
+    text-decoration: none !important;
+    font-weight: normal !important;
 }
 
-/* Mark the steps that are finished and valid: */
-.step.finish {
-    background-color: #4CAF50;
+table.table td i {
+    font-size: 14x;
+    font-weight: 500;
 }
+
+/*.table tr:nth-child(odd) td {*/
+
+/*background-color: #FAFAFA;*/
+
+/*}*/
+
+/*.table tr:nth-child(even) td {*/
+
+/*background-color: #FFF;*/
+
+/*}*/
