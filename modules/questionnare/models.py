@@ -70,7 +70,7 @@ class Respondent(models.Model):
     council = models.ForeignKey(Council, on_delete=SET_NULL, null=True)
     country = models.ForeignKey(Country, on_delete=SET_NULL, null=True)
     designation = models.CharField(max_length=150)
-    institution = models.ForeignKey(Institution, on_delete=SET_NULL, null=True)
+    institution = models.CharField(max_length=255, null=True)
 
     class Meta:
         db_table = "respondents"

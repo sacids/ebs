@@ -10,17 +10,14 @@ class RespondentForm(forms.ModelForm):
 
     country = forms.ModelChoiceField(
         widget=forms.Select(attrs={'class': 'form-control'}),
-        queryset=Country.objects.all(), empty_label="-- Select--")
-
-    institution = forms.ModelChoiceField(
-        widget=forms.Select(attrs={'class': 'form-control'}),
-        queryset=Institution.objects.all(), empty_label="-- Select--")    
+        queryset=Country.objects.all(), empty_label="-- Select--")  
 
     class Meta:
         model = Respondent
         fields = ('__all__')
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Write full name...'}),
+            'institution': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Write institution...'}),
             'designation': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Write designation...'}),
 
         }
