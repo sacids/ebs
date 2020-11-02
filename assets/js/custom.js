@@ -26,4 +26,24 @@ $(document).ready(function () {
             e.preventDefault();
         }
     });
+
+    //toggle modal
+    $(".qn-modal").on('click', function (e) {
+        var qn_id = $(this).attr('question-id');
+        var base_url = window.location.origin;
+
+        $.ajax({
+            url: base_url + "/show_question/?question_id=" + qn_id,
+            type: "get",
+            dataType: "json",
+
+            //success
+            success: function (data) {
+                $('#qnModalBody').text(data.placeholder)
+            }
+        });
+
+        // show modal
+        $("#qnModal").modal('show');
+    });
 });

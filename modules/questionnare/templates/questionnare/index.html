@@ -4,288 +4,135 @@
 
 {% block content %}
 <!-- Page content -->
-<div class="page-content bg-white">
+<div class="page-content bg-grey">
     <div class="container">
         <!-- Main content -->
         <div class="content-wrapper">
             <!-- Content area -->
             <div class="content">
-                <!-- Basic card -->
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title text-uppercase text-center font-weight-bold">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="" method="post">
+                            {% csrf_token %}
 
-                        </h5>
-                    </div>
-                    <!--./card-header -->
+                            {% if categories|length > 0 %}
+                            <div class="row">
+                                <div class="col-md-8 offset-md-2">
+                                    <div id="accordion" class="myaccordion">
+                                        {% for category in categories %}
 
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form action="" method="post">
-                                    {% csrf_token %}
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <table class="table table-bordered" width="100%">
-                                                <tr>
-                                                    <td><b>Supporting Regional Cordinating Centre (RCC)</b></td>
-                                                    <td>
-                                                        <div class="form-group mb-0">
-                                                            {{ form.council}}
-                                                        </div>
-                                                        <!--./form-group-->
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td width="50%"><b>Name of the Country</b></td>
-                                                    <td>
-                                                        <div class="form-group mb-0">
-                                                            {{ form.country }}
-                                                        </div>
-                                                        <!--./form-group-->
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td><b>Respondent Name</b></td>
-                                                    <td>
-                                                        <div class="form-group mb-0">
-                                                            {{ form.name}}
-                                                        </div>
-                                                        <!--./form-group-->
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td><b>Respondent Institution</b></td>
-                                                    <td>
-                                                        <div class="form-group mb-0">
-                                                            {{ form.institution}}
-                                                        </div>
-                                                        <!--./form-group-->
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td><b>Respondent Designation</b></td>
-                                                    <td>
-                                                        <div class="form-group mb-0">
-                                                            {{ form.designation }}
-                                                        </div>
-                                                        <!--./form-group-->
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                        <div class="card-title">
+                                            <a class="card-link" data-toggle="collapse"
+                                                href="#collapse_{{ category.id }}">
+                                                {{ category.code|stringformat:"i"|add:". "|add:category.title }}
+                                            </a>
                                         </div>
-                                        <!--./col-md-12-->
-                                    </div>
-                                    <!--./row-->
 
-                                    {% if categories|length > 0 %}
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div id="accordion" class="myaccordion">
-                                                {% for category in categories %}
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <a class="card-link" data-toggle="collapse"
-                                                            href="#collapse_{{ category.id }}">
-                                                            {{ category.code }}. {{ category.title }}
-                                                        </a>
-                                                    </div>
-                                                    <!--./card-header-->
-                                                    <div id="collapse_{{ category.id }}"
-                                                        class="collapse {% if category.id == 1 %} show {% endif %}"
-                                                        data-parent="#accordion">
-                                                        <div class="card-body">
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                    <tr valign="top">
-                                                                        <th width="3%" valign="top">#</th>
-                                                                        <th width="40%" valign="top">Question</th>
-                                                                        <th width="20%" valign="top">Yes/No</th>
-                                                                        <th width="30%" valign="top">Remarks</th>
-                                                                    </tr>
-                                                                </thead>
+                                        <div id="collapse_{{ category.id }}"
+                                            class="collapse {% if category.id == 1 %} show {% endif %}"
+                                            data-parent="#accordion">
+                                            {% for question in category.questions.all %}
+                                            <input type="hidden" name="question_id" value="{{ question.id }}" />
+                                            {% if question.has_sub == "YES" %}
 
-                                                                <tbody>
-                                                                    {% for question in category.questions.all %}
-                                                                    <input type="hidden" name="question_id"
-                                                                        value="{{ question.id }}" />
-                                                                    <tr>
-                                                                        <td>{{ question.code }}</td>
-
-                                                                        {% if question.has_sub == "YES" %}
-                                                                        <td colspan="3" style="font-weight: 600;">
-                                                                            {{ question.title }}</td>
-                                                                        {% for sub_qn in question.sub_questions.all %}
-                                                                        <input type="hidden" name="sub_question_id"
-                                                                            value="{{ sub_qn.id }}" />
-                                                                    <tr>
-                                                                        <td>{{ sub_qn.code}}</td>
-                                                                        <td>{{ sub_qn.title}}</td>
-                                                                        <td>
-                                                                            <div class="row">
-                                                                                <div
-                                                                                    class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                                                    <div class="form-group mb-0">
-                                                                                        {% if sub_qn.qn_type == "SELECT" %}
-                                                                                        <select name="sub_qn_answer"
-                                                                                            id="answer"
-                                                                                            class="form-control">
-                                                                                            <option value="YES">Yes
-                                                                                            </option>
-                                                                                            <option value="NO">No
-                                                                                            </option>
-                                                                                            <option value="NA">Not
-                                                                                                Applicable</option>
-                                                                                        </select>
-                                                                                        {% elif sub_qn.qn_type == "NUMBER" %}
-                                                                                        <input type="number"
-                                                                                            name="sub_qn_answer" id="answer"
-                                                                                            class="form-control" />
-                                                                                        {% elif sub_qn.qn_type == "TEXT" %}
-                                                                                        <input type="text" name="sub_qn_answer"
-                                                                                            id="answer"
-                                                                                            class="form-control">
-                                                                                        {% elif sub_qn.qn_type == "TEXTAREA" %}
-                                                                                        <textarea rows="4" cols="40"
-                                                                                            name="sub_qn_answer"
-                                                                                            class="textarea form-control"
-                                                                                            id="answer"></textarea>
-                                                                                        {% endif %}
-                                                                                    </div>
-                                                                                    <!--./form-group-->
-                                                                                </div>
-                                                                                <!--./col-->
-                                                                            </div>
-                                                                            <!--./row-->
-                                                                        </td>
-                                                                        <td>
-                                                                            <div class="row">
-                                                                                <div
-                                                                                    class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                                                    <div class="form-group mb-0">
-                                                                                        <textarea rows="2" cols="40"
-                                                                                            name="sub_qn_remarks"
-                                                                                            class="form-control"
-                                                                                            placeholder="{{sub_qn.placeholder}}"
-                                                                                            id="remarks"></textarea>
-                                                                                    </div>
-                                                                                    <!--./form-group-->
-                                                                                </div>
-                                                                                <!--./col-->
-                                                                            </div>
-                                                                            <!--./row-->
-                                                                        </td>
-                                                                    </tr>
-                                                                    {% endfor %}
-
-                                                                    {% elif question.has_sub == "NO"  %}
-                                                                    <td>{{ question.title }}</td>
-                                                                    <td>
-                                                                        <div class="row">
-                                                                            <div
-                                                                                class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                                                <div class="form-group mb-0">
-                                                                                    {% if question.qn_type == "SELECT" %}
-                                                                                    <select name="answer" id="answer"
-                                                                                        class="form-control">
-                                                                                        <option value="YES">Yes
-                                                                                        </option>
-                                                                                        <option value="NO">No
-                                                                                        </option>
-                                                                                        <option value="NA">Not
-                                                                                            Applicable</option>
-                                                                                    </select>
-                                                                                    {% elif question.qn_type == "NUMBER" %}
-                                                                                    <input type="number" name="answer"
-                                                                                        id="answer"
-                                                                                        class="form-control" />
-                                                                                    {% elif question.qn_type == "TEXT" %}
-                                                                                    <input type="text" name="answer"
-                                                                                        id="answer"
-                                                                                        class="form-control">
-                                                                                    {% elif question.qn_type == "TEXTAREA" %}
-                                                                                    <textarea rows="4" cols="40"
-                                                                                        name="answer"
-                                                                                        class="textarea form-control"
-                                                                                        id="answer"></textarea>
-                                                                                    {% endif %}
-                                                                                </div>
-                                                                                <!--./form-group-->
-                                                                            </div>
-                                                                            <!--./col-->
-                                                                        </div>
-                                                                        <!--./row-->
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="row">
-                                                                            <div
-                                                                                class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                                                                <div class="form-group mb-0">
-                                                                                    <textarea rows="2" cols="40"
-                                                                                        name="remarks"
-                                                                                        class="form-control"
-                                                                                        placeholder="{{ question.placeholder }}"
-                                                                                        id="remarks"></textarea>
-                                                                                </div>
-                                                                                <!--./form-group-->
-                                                                            </div>
-                                                                            <!--./col-->
-                                                                        </div>
-                                                                        <!--./row-->
-                                                                    </td>
-                                                                    {% endif %}
-                                                                    </tr>
-                                                                    {% endfor %}
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                        <!--./card-body-->
-                                                    </div>
-                                                    <!--./collaple-->
-                                                </div>
-                                                <!--./card-->
-                                                {% endfor %}
-                                            </div>
-                                            <!--./accordion-->
-                                        </div>
-                                        <!--./col-md-12-->
-                                    </div>
-                                    <!--./row-->
-                                    {% else %}
-                                    <span>No questions</span>
-                                    {% endif %}
-
-                                    <div class="row mt-3">
-                                        <div class="col-md-12 col-12">
-                                            <div class="float-left">
+                                            {% elif question.has_sub == "NO"  %}
+                                            <div class="card-questions">
                                                 <div class="form-group">
-                                                    <input type="submit" class="btn btn-primary btn-xs"
-                                                        value="Submit" />
+                                                    <label>{{ question.code }}.
+                                                        {{ question.title }}</label>
+                                                    {% if question.qn_type == "SELECT" %}
+                                                    <p>
+                                                        <input id="answer" name="answer" type="radio" class=""
+                                                            value="YES" />
+                                                        <label for="answer" class="">&nbsp;Yes</label>
+                                                        <br />
+
+                                                        <input id="answer" name="answer" type="radio" class=""
+                                                            value="NO" />
+                                                        <label for="answer" class="">&nbsp;No</label>
+                                                    </p>
+                                                    {% elif question.qn_type == "NUMBER" %}
+                                                    <input type="number" name="answer" id="answer"
+                                                        class="form-control" />
+                                                    {% elif question.qn_type == "TEXT" %}
+                                                    <input type="text" name="answer" id="answer" class="form-control">
+                                                    {% elif question.qn_type == "TEXTAREA" %}
+                                                    <textarea rows="4" cols="40" name="answer"
+                                                        class="textarea form-control" id="answer"></textarea>
+                                                    {% endif %}
+
+                                                </div>
+                                                <!--./form-group-->
+
+                                                <div class="form-group">
+                                                    <label>Remarks </label>
+                                                    <div class="float-right hints">
+                                                        <!-- Button trigger modal -->
+                                                        <a href="#" class="qn-modal" question-id="{{ question.id }}">Hints</a>
+                                                    </div><!--./float-right-->
+                                                    <textarea rows="3" cols="40" name="remarks" class="form-control"
+                                                        placeholder="Write remarks..."
+                                                        id="remarks"></textarea>
                                                 </div>
                                                 <!--./form-group-->
                                             </div>
-                                            <!--./pull-right -->
+                                            <!--./-->
+                                            {% endif %}
+                                            {% endfor %}
                                         </div>
-                                        <!--./col-md-12 -->
-                                    </div>
-                                    <!--./row -->
-                                </form>
+                                        <!--./collaple-->
 
+                                        {% endfor %}
+                                    </div>
+                                    <!--./accordion-->
+                                </div>
+                                <!--./col-md-12-->
                             </div>
-                            <!--./col-md-12 -->
-                        </div>
-                        <!--./row -->
+                            <!--./row-->
+                            {% else %}
+                            <span>No questions</span>
+                            {% endif %}
+
+                            <div class="row mt-3">
+                                <div class="col-md-12 col-12">
+                                    <div class="float-left">
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-primary btn-xs" value="Submit" />
+                                        </div>
+                                        <!--./form-group-->
+                                    </div>
+                                    <!--./pull-right -->
+                                </div>
+                                <!--./col-md-12 -->
+                            </div>
+                            <!--./row -->
+                        </form>
+
                     </div>
-                    <!--./card-body -->
-                </div><!-- /basic card -->
+                    <!--./col-md-12 -->
+                </div>
+                <!--./row -->
             </div><!-- /content area -->
         </div><!-- /main content -->
     </div>
     <!--./container-->
 </div><!-- /page content -->
+
+<!-- Modal -->
+<div class="modal fade" id="qnModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="qnModalTitle">Remarks Hint</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div><!--./modal-body-->
+        <div class="modal-body" id="qnModalBody">
+          ...
+        </div><!--./modal-body-->
+      </div><!--./modal-content-->
+    </div><!--./modal dialog-->
+  </div><!--./modal-->
+
 {% endblock %}

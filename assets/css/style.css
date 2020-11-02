@@ -38,6 +38,10 @@ p {
     line-height: 1.5;
 }
 
+.font-weight-600{
+    font-weight: 600;
+}
+
 /*===============================================
 navigation menu
 ===============================================*/
@@ -228,65 +232,6 @@ flex box
   }
 
 
-/*===========================================
-Cards
-=============================================*/
-.card {
-    border: 0;
-    padding: 10px;
-}
-
-.card .card-header {
-    width: 100%;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-}
-
-    .card-header h5.card-title {
-        padding: 0;
-        font-weight: 600;
-        text-transform: uppercase;
-    }
-
-.card .card-body {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
-
-.card .card-footer {
-    border-radius: 0 !important;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-    border: 0;
-}
-
-@media (max-width: 480px) {
-    .card {
-        border-radius: 0 !important;
-        box-shadow: none !important;
-        padding: 0 8px 0 8px;
-        margin: 0;
-    }
-
-    .card-header {
-        padding: 0;
-        margin: 0;
-    }
-
-    .card-header h5.card-title {
-        padding: 0;
-        font-weight: 600;
-        text-transform: uppercase;
-    }
-
-    .card-body {
-        padding: 0;
-    }
-}
 
 /*===========================================
 Text sizes and colors
@@ -406,16 +351,9 @@ Accordion
 .myaccordion {
   width: 100%;
   margin-top: 40px;
-  background-color: #eeeeee;
-  border: 1px solid #eeeeee;
 }
 
-.myaccordion .card,
-.myaccordion .card:last-child .card-header {
-    border: none;
-}
-
-.myaccordion .card-header {
+.myaccordion .card-title {
     font-size:16px;
     text-transform: uppercase;
     font-weight: 600;
@@ -424,12 +362,22 @@ Accordion
     background: transparent;
 }
 
-.myaccordion .card-header a:hover{
+.myaccordion .card-title a:hover{
     text-decoration: none;
 }
 
-.myaccordion li + li {
-  margin-top: 10px;
+.myaccordion .card-title a:active{
+    text-decoration: none;
+    color: #1565C0;
+}
+
+.card-questions{
+    border: 1px solid #f5f5f5;
+    border-radius: 5px;
+    background: #fafafa;
+    padding: 10px 20px;
+    border-left: 5px solid #1565C0;
+    margin-top: 15px;
 }
 
 /*===============================================
@@ -444,21 +392,37 @@ Forms
 }
 
 .form-group label {
-    font-weight: 600;
-    font-size: 12px;
+    font-weight: 500;
+    font-size: 1.3em;
+}
+
+.form-group .hints a{
+    font-size: 1.3em;
+    color: #666666;
+}
+
+.form-group .hints a:hover, a:active{
+    text-decoration: none;
 }
 
 .form-group input[type=text], input[type=email], input[type=password], input[type=number], textarea {
     width: 100%;
     border: 1px solid #cacaca;
-    font-size: 13px;
+    color: #666666;
+    font-size: 1.3em;
+}
+
+.form-group textarea{
+    color: #666666;
+    font-size: 1.3em;
 }
 
 .form-group select {
     width: 100%;
     border: 1px solid #cacaca;
+    color: #666666;
     background: #ffffff;
-    font-size: 13px;
+    font-size: 1.3em;
 }
 
 .form-group span.red {

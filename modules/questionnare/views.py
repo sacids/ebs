@@ -1,3 +1,4 @@
+import json
 from modules.dashboard.views import dashboard
 from modules.questionnare.forms import RespondentForm
 from django.db.models.query import Prefetch
@@ -9,6 +10,7 @@ from ..dashboard import *
 from django.contrib import messages
 from .models import *
 from .forms import RespondentForm
+from django.http import JsonResponse
 
 # Create your views here.
 class QuestionnareCreateView(generic.CreateView):
@@ -122,3 +124,12 @@ def get_countries(request):
 
         # return response.
         return render(None, 'questionnare/countries.html', {'countries': countries})
+
+#get 
+def show_question(request):
+    if request.method == 'GET':
+        qn_id = request.GET.get('question_id')
+        question = Question.objects.get(pk=qn_id)
+
+        #return response
+        return JsonResponse({'id': question.id, 'placeholder': question.placeholder})
