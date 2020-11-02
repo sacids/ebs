@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     # custom apps
     'modules.questionnare',
     'modules.dashboard',
-    'modules.respondents'
+    'modules.respondents',
+    'modules.users'
 ]
 
 MIDDLEWARE = [
@@ -152,3 +153,6 @@ MESSAGE_TAGS = {
 #media url
 MEDIA_ROOT = str(BASE_DIR / "assets/media")
 MEDIA_URL = "/assets/media/"
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/dashboard'

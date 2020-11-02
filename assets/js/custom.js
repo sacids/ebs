@@ -15,4 +15,15 @@ $(document).ready(function () {
             }
         });
     });
+
+    //delete
+    $("a.delete").click(function (e) {
+        var confirmDelete = confirm("Are you sure you want to delete?");
+
+        if (confirmDelete) {
+            return true;
+        } else {
+            e.preventDefault();
+        }
+    });
 });

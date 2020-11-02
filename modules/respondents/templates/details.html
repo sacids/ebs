@@ -1,0 +1,69 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+{% block title %} Events Based Surveillance - Dashboard {% endblock %}
+
+{% block content %}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h5 class="mb-2 text-gray-800">Respondent</h5>
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary"><i class="fas fa-print fa-sm text-white-50"></i>
+      Print Report</a>
+  </div>
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info"
+        aria-selected="true">Personal Information</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="questionnare-tab" data-toggle="tab" href="#questionnare" role="tab"
+        aria-controls="questionnare" aria-selected="false">Questionnare</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="info mt-4">
+            <p>Respondent Name
+              <span>{{respondent.name}} </span>
+            </p>
+            <p>Respondent Designation <span>{{respondent.designation}}</span></p>
+            <p>Institution <span>{{ respondent.institution}}</span></p>
+            <p>Country <span>{{respondent.country.title}} </span></p>
+            <p>Council <span>{{respondent.council.title}}</span></p>
+            <p>Date <span></span></p>
+          </div>
+          <!--./info -->
+        </div>
+        <!--./col-md-12-->
+      </div>
+      <!--./row-->
+    </div>
+    <!--./personal information-->
+
+    <div class="tab-pane fade" id="questionnare" role="tabpanel" aria-labelledby="questionnare-tab">
+      <div class="row">
+        <div class="col-md-12">
+
+        </div>
+        <!--./col-md-12-->
+      </div>
+      <!--./row-->
+
+    </div>
+    <!--./questionnare-->
+  </div>
+  <!--./tab-content -->
+
+</div>
+<!-- /.container-fluid -->
+</div>
+<!-- End of Main Content -->
+
+
+{% endblock %}

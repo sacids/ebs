@@ -1,20 +1,18 @@
 //jquery
 $(document).ready(function () {
-    //show department users
-    $('#council').on('change', function () {
+    //show council
+    $('#id_council').on('change', function () {
         council = $(this).val();
-        alert(council)
-
         base_url = window.location.origin;
 
+        //ajax get
         $.ajax({
-            url: base_url + "/users/departments/" + department_id,
+            url: base_url + "/get_countries/?council_id=" + council,
             type: "get",
 
             success: function (data) {
-                $('#supervisor_ids').html(data);
+                $('#id_country').html(data);
             }
         });
     });
-
-}
+});

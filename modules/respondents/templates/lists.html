@@ -1,0 +1,61 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+{% block title %} Events Based Surveillance - Dashboard {% endblock %}
+
+{% block content %}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <h5 class="mb-2 text-gray-800">Respondents</h5>
+
+  {% if respondents|length > 0 %}
+  <div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <thead>
+        <tr>
+          <th width="3%">#</th>
+          <th width="20%">Full Name</th>
+          <th width="18%">Designation</th>
+          <th width="15%">Institution</th>
+          <th width="15%">Council</th>
+          <th width="15%">Country</th>
+          <th width="5%">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for val in respondents %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ val.name }}</td>
+          <td>{{ val.designation}}</td>
+          <td>{{ val.institution }}</td>
+          <td>{{ val.council.title }}</td>
+          <td>{{ val.country.title }}</td>
+          <td>
+            <a href="/respondents/{{val.id}}"><i class="fas fa-question-circle"></i></a>&nbsp;&nbsp;
+            <a href="/respondents/delete/{{val.id}}" class="delete"><i
+                class="fas fa-trash-alt text-danger"></i></a>&nbsp;
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% if is_paginated %}
+    {% include "backend/_pagination.html" %}
+    {% endif %}
+  </div>
+  {% else %}
+  <div class="alert alert-warning">No repondent found</div>
+  {% endif %}
+  <!--./table responsive-->
+
+
+</div>
+<!-- /.container-fluid -->
+</div>
+<!-- End of Main Content -->
+
+
+{% endblock %}

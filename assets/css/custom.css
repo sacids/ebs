@@ -1,0 +1,245 @@
+/*!
+ * User: Renfrid Ngolongolo
+ */
+
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #212121;
+}
+
+a {
+    color: #1565C0;
+}
+
+a:hover, a:focus {
+    color: #1565C0;
+}
+
+.font-weight-600{
+    font-weight: 600 !important;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+hr.grey {
+    border-bottom: 1px solid #D0D0D0;
+}
+
+.text-faded {
+    color: rgba(255, 255, 255, .7);
+}
+
+.text-primary {
+    color: #1565C0 !important;
+}
+
+.text-black {
+    color: #000000 !important;
+}
+
+.text-white {
+    color: #ffffff !important;
+}
+
+/*===============================================
+Tables
+===============================================*/
+table.table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 10px 0 1em 1px;
+    width: 100%;
+}
+
+table.table th {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    color: #424242;
+    padding: 8px !important;
+    background: #f1f1f1;
+    border-bottom: 1px solid #E3E3E3;
+}
+
+table.table td {
+    font-size: 13px;
+    vertical-align: top;
+    background: #FFF;
+    color: #212121;
+    font-weight: 500;
+    border-bottom: 1px solid #E3E3E3;
+    padding: 8px !important;
+}
+
+table.table td a {
+    text-decoration: none !important;
+    font-weight: normal !important;
+}
+
+table.table th a {
+    text-align: right;
+    text-decoration: none !important;
+    font-weight: normal !important;
+}
+
+table.table td i {
+    font-size: 14x;
+    font-weight: 500;
+}
+
+/*.table tr:nth-child(odd) td {*/
+
+/*background-color: #FAFAFA;*/
+
+/*}*/
+
+/*.table tr:nth-child(even) td {*/
+
+/*background-color: #FFF;*/
+
+/*}*/
+
+/** background colors **/
+
+.bg-graph {
+    background-color: #fafafa;
+}
+
+.bg-primary {
+    background-color: #1565C0 !important;
+    color: #ffffff !important;
+}
+
+.bg-secondary {
+    background-color: #1565c0;
+    color: #ffffff;
+}
+
+.bg-success {
+    background-color: #5cb85c;
+    color: #ffffff;
+}
+
+.bg-yellow {
+    background-color: #FCC649;
+    color: #ffffff;
+}
+
+.bg-info {
+    background-color: #5bc0de;
+    color: #ffffff;
+}
+
+.bg-warning {
+    background-color: #f0ad4e;
+    color: #ffffff;
+}
+
+.bg-danger {
+    background-color: #d9534f;
+    color: #ffffff;
+}
+
+.bg-dark-200 {
+    background-color: #2f4050;
+    color: #ffffff;
+}
+
+.bg-dark-100 {
+    background-color: #293846;
+    color: #ffffff;
+}
+
+.bg-dark-50 {
+    background-color: #556270;
+    color: #ffffff;
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.bg-grey {
+    background-color: #eeeeee;
+}
+
+.bg-light-grey {
+    background-color: #fafafa;
+}
+
+/*info*/
+.info p {
+    font-size: 13px !important;
+}
+
+.info p span {
+    display: block;
+    font-weight: 600;
+}
+
+/*===============================================
+Tables
+===============================================*/
+
+table.table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 10px 0 1em 1px;
+    width: 100%;
+}
+
+table.table th {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    color: #424242;
+    padding: 8px !important;
+    background: #f1f1f1;
+    border-bottom: 1px solid #E3E3E3;
+}
+
+table.table td {
+    font-size: 13px;
+    vertical-align: top;
+    background: #FFF;
+    color: #212121;
+    font-weight: 500;
+    border-bottom: 1px solid #E3E3E3;
+    padding: 8px !important;
+}
+
+table.table td a {
+    text-decoration: none !important;
+    font-weight: normal !important;
+}
+
+table.table th a {
+    text-align: right;
+    text-decoration: none !important;
+    font-weight: normal !important;
+}
+
+table.table td i {
+    font-size: 14x;
+    font-weight: 500;
+}
+
+.table tr:nth-child(odd) td {
+background-color: #FAFAFA;
+}
+
+.table tr:nth-child(even) td {
+background-color: #FFF;
+}

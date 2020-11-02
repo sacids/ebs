@@ -67,8 +67,8 @@ class Institution(models.Model):
 
 class Respondent(models.Model):
     name = models.CharField(max_length=200)
-    council = models.ForeignKey(Council, on_delete=SET_NULL, null=True)
-    country = models.ForeignKey(Country, on_delete=SET_NULL, null=True)
+    council = models.ForeignKey(Council, related_name="council", on_delete=SET_NULL, null=True)
+    country = models.ForeignKey(Country, related_name="country", on_delete=SET_NULL, null=True)
     designation = models.CharField(max_length=150)
     institution = models.CharField(max_length=255, null=True)
 
@@ -100,6 +100,7 @@ class Question(models.Model):
         Category, related_name="questions", on_delete=CASCADE)
     title = models.TextField(null=False)
     code = models.CharField(max_length=10, null=False)
+    placeholder = models.TextField(null=True)
     has_sub = models.CharField(
         choices=ANSWER, verbose_name="Has sub question?", max_length=10, null=True, default="NO")
     qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
@@ -120,6 +121,7 @@ class SubQuestion(models.Model):
         Question, related_name="sub_questions", on_delete=CASCADE)
     title = models.TextField(null=False)
     code = models.CharField(max_length=10, null=False)
+    placeholder = models.TextField(null=True)
     qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
     sort_order = models.IntegerField(default=1)
 

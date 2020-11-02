@@ -6,7 +6,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Events Based Surveillance Situational analysis questionnaire</title>
+    <meta name="description" content="Events Based Surveillance Situational analysis questionnaire">
+    <meta name="author" content="Renfrid">
+    <title>{% block title %}{% endblock%}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{% static 'img/favicon-32x32.png' %}">
 
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,100,500,700,900" rel="stylesheet"
@@ -46,8 +51,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-center">
-                        <img src="{% static 'img/africacdc.png' %}" alt="AfricaCDC" height="80" />&nbsp;&nbsp;
-                        <!-- <img src="{% static 'img/sua-logo.svg' %}" height="80" alt="SUA" /> -->
+                        <a href="/">
+                            <img src="{% static 'img/africacdc.png' %}" alt="AfricaCDC" height="80" />
+                        </a>
                     </div>
                     <!--./pull-left-->
                 </div>
