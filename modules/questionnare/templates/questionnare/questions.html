@@ -1,0 +1,130 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% block title %} Events Based Surveillance Situational analysis questionnaire {% endblock %}
+
+{% block content %}
+<!-- Page content -->
+<div class="page-content bg-grey">
+    <div class="container">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content">
+                <div class="row">
+                    <div class="offset-2 col-md-8">
+
+                        {% if categories|length > 0 %}
+                        <form id="msform">
+                            <!-- progressbar -->
+                            <ul id="progressbar">
+                                {% for category in categories %}
+                                <li id="question"></li>
+                                {% endfor %}
+                            </ul> <!-- fieldsets -->
+
+                            {% for category in categories %}
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="font-weight-600">
+                                            {{ category.code|stringformat:"i"|add:". "|add:category.title }}
+                                        </h5>
+                                    </div>
+                                    <!--./col-->
+                                </div>
+                                <!--./row-->
+
+                                {% for question in category.questions.all %}
+                                <input type="hidden" name="question_id" value="{{ question.id }}" />
+                                {% if question.has_sub == "YES" %}
+
+                                {% elif question.has_sub == "NO"  %}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="font-weight-600">{{ question.code }}.
+                                                {{ question.title }}</label><br />
+                                            {% if question.qn_type == "SELECT" %}
+                                            <input id="answer" name="answer" type="radio" class="" value="YES" />
+                                            <label for="answer" class="">&nbsp;Yes</label>
+                                            <br />
+                                            <input id="answer" name="answer" type="radio" class="" value="NO" />
+                                            <label for="answer" class="">&nbsp;No</label>
+
+                                            {% elif question.qn_type == "NUMBER" %}
+                                            <input type="number" name="answer" id="answer" class="form-control" />
+                                            {% elif question.qn_type == "TEXT" %}
+                                            <input type="text" name="answer" id="answer" class="form-control">
+                                            {% elif question.qn_type == "TEXTAREA" %}
+                                            <textarea rows="4" cols="40" name="answer" class="textarea form-control"
+                                                id="answer"></textarea>
+                                            {% endif %}
+                                        </div>
+                                        <!--./form-group-->
+                                    </div>
+                                    <!--./col-->
+                                </div>
+                                <!--./row-->
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Remarks </label>
+                                            <div class="float-right hints">
+                                                <!-- Button trigger modal -->
+                                                <a href="#" class="qn-modal" question-id="{{ question.id }}">Hints</a>
+                                            </div>
+                                            <!--./float-right-->
+                                            <textarea rows="3" cols="40" name="remarks" class="form-control"
+                                                placeholder="Write remarks..." id="remarks"></textarea>
+                                        </div>
+                                        <!--./form-group-->
+                                    </div>
+                                    <!--./col-->
+                                </div>
+                                <!--./row-->
+                                {% endif %}
+                                {% endfor %}
+
+                                <input type="button" name="next" class="next action-button" value="Save" />
+                            </fieldset>
+                            {% endfor %}
+                        </form>
+                        {% else %}
+                        <div class="alert alert-warning">No any questions</span>
+                            {% endif %}
+
+                        </div>
+                        <!--./col-md-12 -->
+                    </div>
+                    <!--./row -->
+                </div><!-- /content area -->
+            </div><!-- /main content -->
+        </div>
+        <!--./container-->
+    </div><!-- /page content -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="qnModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="qnModalTitle">Remarks Hint</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--./modal-body-->
+                <div class="modal-body" id="qnModalBody">
+                    ...
+                </div>
+                <!--./modal-body-->
+            </div>
+            <!--./modal-content-->
+        </div>
+        <!--./modal dialog-->
+    </div>
+    <!--./modal-->
+
+    {% endblock %}

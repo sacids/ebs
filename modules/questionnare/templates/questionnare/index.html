@@ -11,103 +11,44 @@
             <!-- Content area -->
             <div class="content">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="offset-3 col-md-6">
+                        <p>
+                            <b>Note: </b>
+                            Write respondent email and and click continue for verification of respondent.
+                        </p>
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert {{ message.tags }}">
+                            {{ message }}
+                        </div>
+                        <!--./alert-->
+                        {% endfor %}
+                        {% endif %}
+
                         <form action="" method="post">
                             {% csrf_token %}
-
-                            {% if categories|length > 0 %}
                             <div class="row">
-                                <div class="col-md-8 offset-md-2">
-                                    <div id="accordion" class="myaccordion">
-                                        {% for category in categories %}
-
-                                        <div class="card-title">
-                                            <a class="card-link" data-toggle="collapse"
-                                                href="#collapse_{{ category.id }}">
-                                                {{ category.code|stringformat:"i"|add:". "|add:category.title }}
-                                            </a>
-                                        </div>
-
-                                        <div id="collapse_{{ category.id }}"
-                                            class="collapse {% if category.id == 1 %} show {% endif %}"
-                                            data-parent="#accordion">
-                                            {% for question in category.questions.all %}
-                                            <input type="hidden" name="question_id" value="{{ question.id }}" />
-                                            {% if question.has_sub == "YES" %}
-
-                                            {% elif question.has_sub == "NO"  %}
-                                            <div class="card-questions">
-                                                <div class="form-group">
-                                                    <label>{{ question.code }}.
-                                                        {{ question.title }}</label>
-                                                    {% if question.qn_type == "SELECT" %}
-                                                    <p>
-                                                        <input id="answer" name="answer" type="radio" class=""
-                                                            value="YES" />
-                                                        <label for="answer" class="">&nbsp;Yes</label>
-                                                        <br />
-
-                                                        <input id="answer" name="answer" type="radio" class=""
-                                                            value="NO" />
-                                                        <label for="answer" class="">&nbsp;No</label>
-                                                    </p>
-                                                    {% elif question.qn_type == "NUMBER" %}
-                                                    <input type="number" name="answer" id="answer"
-                                                        class="form-control" />
-                                                    {% elif question.qn_type == "TEXT" %}
-                                                    <input type="text" name="answer" id="answer" class="form-control">
-                                                    {% elif question.qn_type == "TEXTAREA" %}
-                                                    <textarea rows="4" cols="40" name="answer"
-                                                        class="textarea form-control" id="answer"></textarea>
-                                                    {% endif %}
-
-                                                </div>
-                                                <!--./form-group-->
-
-                                                <div class="form-group">
-                                                    <label>Remarks </label>
-                                                    <div class="float-right hints">
-                                                        <!-- Button trigger modal -->
-                                                        <a href="#" class="qn-modal" question-id="{{ question.id }}">Hints</a>
-                                                    </div><!--./float-right-->
-                                                    <textarea rows="3" cols="40" name="remarks" class="form-control"
-                                                        placeholder="Write remarks..."
-                                                        id="remarks"></textarea>
-                                                </div>
-                                                <!--./form-group-->
-                                            </div>
-                                            <!--./-->
-                                            {% endif %}
-                                            {% endfor %}
-                                        </div>
-                                        <!--./collaple-->
-
-                                        {% endfor %}
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <input type="email" name="email" placeholder="Write respondent email..."
+                                            class="form-control" required />
                                     </div>
-                                    <!--./accordion-->
+                                    <!--./form-group-->
                                 </div>
-                                <!--./col-md-12-->
+                                <!--./col-md-4-->
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary btn-xs" value="Continue" />
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-md-4-->
                             </div>
                             <!--./row-->
-                            {% else %}
-                            <span>No questions</span>
-                            {% endif %}
 
-                            <div class="row mt-3">
-                                <div class="col-md-12 col-12">
-                                    <div class="float-left">
-                                        <div class="form-group">
-                                            <input type="submit" class="btn btn-primary btn-xs" value="Submit" />
-                                        </div>
-                                        <!--./form-group-->
-                                    </div>
-                                    <!--./pull-right -->
-                                </div>
-                                <!--./col-md-12 -->
-                            </div>
-                            <!--./row -->
                         </form>
-
+                        <!--./form-->
                     </div>
                     <!--./col-md-12 -->
                 </div>
@@ -117,22 +58,4 @@
     </div>
     <!--./container-->
 </div><!-- /page content -->
-
-<!-- Modal -->
-<div class="modal fade" id="qnModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="qnModalTitle">Remarks Hint</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div><!--./modal-body-->
-        <div class="modal-body" id="qnModalBody">
-          ...
-        </div><!--./modal-body-->
-      </div><!--./modal-content-->
-    </div><!--./modal dialog-->
-  </div><!--./modal-->
-
 {% endblock %}

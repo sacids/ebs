@@ -12,15 +12,36 @@ from .models import *
 from .forms import RespondentForm
 from django.http import JsonResponse
 
+# default
+
+
+def default(request):
+    if request.method == 'POST':
+        inputEmail = request.POST.get('email')
+
+        # check if email exists
+        respondent = Respondent.objects.get(email=inputEmail)
+
+        if(respondent):
+            return redirect('questions/%s' % respondent.id)
+        else:
+            messages.add_message(request, messages.ERROR,
+                                 'Email address does not exist')
+
+    return render(request, 'questionnare/index.html', {})
+
+
 # Create your views here.
+
+
 class QuestionnareCreateView(generic.CreateView):
     models = Respondent
     form_class = RespondentForm
     context_object_name = 'questions'
-    template_name = "questionnare/index.html"
+    template_name = "questionnare/questions.html"
     success_url = reverse_lazy('questionnare:success')
 
-    def get(self, request):
+    def get(self, request, **kwargs):
         if request.user.is_authenticated:
             return redirect(dashboard)
         else:
@@ -38,14 +59,8 @@ class QuestionnareCreateView(generic.CreateView):
         form = self.get_form()
         # Verify form is valid
         if form.is_valid():
-            # respondent
-            respondent = Respondent()
-            respondent.name = form.cleaned_data['name']
-            respondent.designation = form.cleaned_data['designation']
-            respondent.council = form.cleaned_data['council']
-            respondent.country = form.cleaned_data['country']
-            respondent.institution = form.cleaned_data['institution']
-            respondent.save()  # finaly save
+            #respondent 
+            respondent_id = self.kwargs['pk']
 
             # insert answers
             if request.POST.get('question_id'):
@@ -61,7 +76,7 @@ class QuestionnareCreateView(generic.CreateView):
 
                     qn_answer = Answer()
                     if(qn_object.has_sub == "NO"):
-                        qn_answer.respondent_id = respondent.id
+                        qn_answer.respondent_id = respondent_id
                         qn_answer.question_id = question_id
                         qn_answer.answer = answer
                         qn_answer.remarks = remark
@@ -79,7 +94,7 @@ class QuestionnareCreateView(generic.CreateView):
                                          sub_qn_answers, sub_qn_remarks)
 
                         for sub_qn_id, sub_qn_answer, sub_qn_remark in sub_zipped:
-                            qn_answer.respondent_id = respondent.id
+                            qn_answer.respondent_id = respondent_id
                             qn_answer.question_id = question_id
                             qn_answer.sub_question_id = sub_qn_id
                             qn_answer.answer = sub_qn_answer
@@ -113,10 +128,14 @@ class QuestionListView(generic.ListView):
         return context
 
 # success
+
+
 def success(request):
     return render(None, "questionnare/success.html", {})
 
 # get countries
+
+
 def get_countries(request):
     if request.method == 'GET':
         council_id = request.GET.get('council_id')
@@ -125,11 +144,13 @@ def get_countries(request):
         # return response.
         return render(None, 'questionnare/countries.html', {'countries': countries})
 
-#get 
+# get
+
+
 def show_question(request):
     if request.method == 'GET':
         qn_id = request.GET.get('question_id')
         question = Question.objects.get(pk=qn_id)
 
-        #return response
+        # return response
         return JsonResponse({'id': question.id, 'placeholder': question.placeholder})

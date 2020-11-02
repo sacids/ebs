@@ -18,10 +18,12 @@ ANSWER = (
     ('UNKNOWN', "Unknown"),
 )
 
-#councils
+# councils
+
+
 class Council(models.Model):
     """A class to create council table"""
-    title =  models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
 
     class Meta:
@@ -29,9 +31,11 @@ class Council(models.Model):
         verbose_name_plural = "Councils"
 
     def __str__(self):
-        return self.title    
+        return self.title
 
 # countries
+
+
 class Country(models.Model):
     """A class to create country table."""
     title = models.CharField(max_length=100)
@@ -67,8 +71,11 @@ class Institution(models.Model):
 
 class Respondent(models.Model):
     name = models.CharField(max_length=200)
-    council = models.ForeignKey(Council, related_name="council", on_delete=SET_NULL, null=True)
-    country = models.ForeignKey(Country, related_name="country", on_delete=SET_NULL, null=True)
+    email = models.EmailField(max_length=200, null=True)
+    council = models.ForeignKey(
+        Council, related_name="council", on_delete=SET_NULL, null=True)
+    country = models.ForeignKey(
+        Country, related_name="country", on_delete=SET_NULL, null=True)
     designation = models.CharField(max_length=150)
     institution = models.CharField(max_length=255, null=True)
 
@@ -103,7 +110,8 @@ class Question(models.Model):
     placeholder = models.TextField(null=True)
     has_sub = models.CharField(
         choices=ANSWER, verbose_name="Has sub question?", max_length=10, null=True, default="NO")
-    qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
+    qn_type = models.CharField(
+        choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
     sort_order = models.IntegerField(default=1)
 
     class Meta:
@@ -114,7 +122,6 @@ class Question(models.Model):
         return self.title
 
 
-
 # sub question
 class SubQuestion(models.Model):
     question = ForeignKey(
@@ -122,7 +129,8 @@ class SubQuestion(models.Model):
     title = models.TextField(null=False)
     code = models.CharField(max_length=10, null=False)
     placeholder = models.TextField(null=True)
-    qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
+    qn_type = models.CharField(
+        choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
     sort_order = models.IntegerField(default=1)
 
     class Meta:
@@ -135,10 +143,12 @@ class SubQuestion(models.Model):
 
 # answer
 class Answer(models.Model):
-    respondent  = models.ForeignKey(Respondent, related_name="respondents", on_delete=models.SET_NULL, null=True)
+    respondent = models.ForeignKey(
+        Respondent, related_name="respondents", on_delete=models.SET_NULL, null=True)
     question = models.ForeignKey(
         Question, related_name="answers", on_delete=models.CASCADE)
-    sub_question = models.ForeignKey(SubQuestion, on_delete=SET_NULL, null=True)
+    sub_question = models.ForeignKey(
+        SubQuestion, on_delete=SET_NULL, null=True)
     answer = models.CharField(max_length=200, null=False)
     remarks = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
