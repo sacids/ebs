@@ -17,18 +17,6 @@ from django.core.exceptions import ObjectDoesNotExist
 
 
 def default(request):
-    # f = open('/Users/renfrid/Desktop/ebs_section_new_1.csv', 'r')  
-    # for line in f:  
-    #     line =  line.split(';')  
-
-    #     #print(line)
-    #     question = QuestionList()
-    #     question.code = line[0]
-    #     question.title = line[1]
-    #     question.hints = line[2]
-    #     question.save()
-    # f.close() 
-
     if request.method == 'POST':
         inputEmail = request.POST.get('email')
 
