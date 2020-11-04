@@ -30,21 +30,42 @@ class RespondentAdmin(admin.ModelAdmin):
     search_fields = ['name__startwith']
     ordering = ("name",)
 
-class QuestionInline(admin.StackedInline):
-    model = Question   
+# class QuestionInline(admin.StackedInline):
+#     model = Question   
 
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+# @admin.register(Category)
+# class CategoryAdmin(admin.ModelAdmin):
+#     list_display = ['title', 'description']
+#     ordering = ("id",)  
+#     inlines = [QuestionInline]
+
+# class SubQuestionInline(admin.StackedInline):
+#     model = SubQuestion  
+
+# @admin.register(Question)
+# class QuestionAdmin(admin.ModelAdmin):
+#     list_display = ['code','title', 'has_sub']
+#     list_filter = ['category', 'has_sub']
+#     ordering = ("sort_order",)
+#     inlines = [SubQuestionInline]
+
+#section
+@admin.register(Section)
+class SectionAdmin(admin.ModelAdmin):
     list_display = ['title', 'description']
     ordering = ("id",)  
-    inlines = [QuestionInline]
 
-class SubQuestionInline(admin.StackedInline):
-    model = SubQuestion  
 
-@admin.register(Question)
-class QuestionAdmin(admin.ModelAdmin):
+#Question List
+@admin.register(QuestionList)
+class QuestionListAdmin(admin.ModelAdmin):
     list_display = ['code','title', 'has_sub']
-    list_filter = ['category', 'has_sub']
+    list_filter = ['has_sub']
     ordering = ("sort_order",)
-    inlines = [SubQuestionInline]
+
+
+#Question Bank  
+@admin.register(QuestionBank)
+class QuestionBankAdmin(admin.ModelAdmin):
+    list_display = ['section', 'question']  
+    list_filter  = ['section']

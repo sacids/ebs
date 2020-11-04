@@ -36,7 +36,63 @@
 
                                 {% for question in category.questions.all %}
                                 <input type="hidden" name="question_id" value="{{ question.id }}" />
+
                                 {% if question.has_sub == "YES" %}
+
+                                <td colspan="3" style="font-weight: 600;">
+                                    {{ question.title }}</td>
+                                {% for sub_qn in question.sub_questions.all %}
+                                <input type="hidden" name="sub_question_id" value="{{ sub_qn.id }}" />
+                                <tr>
+                                    <td>{{ sub_qn.code}}</td>
+                                    <td>{{ sub_qn.title}}</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <div class="form-group mb-0">
+                                                    {% if sub_qn.qn_type == "SELECT" %}
+                                                    <select name="sub_qn_answer" id="answer" class="form-control">
+                                                        <option value="YES">Yes
+                                                        </option>
+                                                        <option value="NO">No
+                                                        </option>
+                                                        <option value="NA">Not
+                                                            Applicable</option>
+                                                    </select>
+                                                    {% elif sub_qn.qn_type == "NUMBER" %}
+                                                    <input type="number" name="sub_qn_answer" id="answer"
+                                                        class="form-control" />
+                                                    {% elif sub_qn.qn_type == "TEXT" %}
+                                                    <input type="text" name="sub_qn_answer" id="answer"
+                                                        class="form-control">
+                                                    {% elif sub_qn.qn_type == "TEXTAREA" %}
+                                                    <textarea rows="4" cols="40" name="sub_qn_answer"
+                                                        class="textarea form-control" id="answer"></textarea>
+                                                    {% endif %}
+                                                </div>
+                                                <!--./form-group-->
+                                            </div>
+                                            <!--./col-->
+                                        </div>
+                                        <!--./row-->
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <div class="form-group mb-0">
+                                                    <label>{{ sub_qn.placeholder }}</label>
+                                                    <textarea rows="2" cols="40" name="sub_qn_remarks"
+                                                        class="form-control" placeholder="{{sub_qn.placeholder}}"
+                                                        id="remarks"></textarea>
+                                                </div>
+                                                <!--./form-group-->
+                                            </div>
+                                            <!--./col-->
+                                        </div>
+                                        <!--./row-->
+                                    </td>
+                                </tr>
+                                {% endfor %}
 
                                 {% elif question.has_sub == "NO"  %}
                                 <div class="row">
@@ -85,7 +141,6 @@
                                 <!--./row-->
                                 {% endif %}
                                 {% endfor %}
-
                                 <input type="button" name="next" class="next action-button" value="Save" />
                             </fieldset>
                             {% endfor %}

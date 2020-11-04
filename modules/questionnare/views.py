@@ -11,6 +11,7 @@ from django.contrib import messages
 from .models import *
 from .forms import RespondentForm
 from django.http import JsonResponse
+from django.core.exceptions import ObjectDoesNotExist
 
 # default
 
@@ -19,21 +20,20 @@ def default(request):
     if request.method == 'POST':
         inputEmail = request.POST.get('email')
 
-        # check if email exists
-        respondent = Respondent.objects.get(email=inputEmail)
-
-        if(respondent):
-            return redirect('questions/%s' % respondent.id)
-        else:
+        try:
+            respondent = Respondent.objects.get(email=inputEmail)
+        except ObjectDoesNotExist:
             messages.add_message(request, messages.ERROR,
                                  'Email address does not exist')
+        else:
+            # redirect
+            return redirect('questions/%s' % respondent.id)
 
+    # render view
     return render(request, 'questionnare/index.html', {})
 
 
-# Create your views here.
-
-
+#question create view
 class QuestionnareCreateView(generic.CreateView):
     models = Respondent
     form_class = RespondentForm
@@ -59,7 +59,7 @@ class QuestionnareCreateView(generic.CreateView):
         form = self.get_form()
         # Verify form is valid
         if form.is_valid():
-            #respondent 
+            # respondent
             respondent_id = self.kwargs['pk']
 
             # insert answers
