@@ -30,6 +30,7 @@ class Council(models.Model):
     class Meta:
         db_table = "councils"
         verbose_name_plural = "Councils"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -45,6 +46,7 @@ class Country(models.Model):
     class Meta:
         db_table = "contries"
         verbose_name_plural = "Countries"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -63,6 +65,7 @@ class Institution(models.Model):
     class Meta:
         db_table = "institutions"
         verbose_name_plural = "Institutions"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -83,6 +86,7 @@ class Respondent(models.Model):
     class Meta:
         db_table = "respondents"
         verbose_name_plural = "Respondents"
+        managed = True
 
     def __str__(self):
         return self.name
@@ -97,6 +101,7 @@ class Category(models.Model):
     class Meta:
         db_table = "categories"
         verbose_name_plural = "Categories"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -118,6 +123,7 @@ class Question(models.Model):
     class Meta:
         db_table = "questions"
         verbose_name_plural = "Questions"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -137,6 +143,7 @@ class SubQuestion(models.Model):
     class Meta:
         db_table = "sub_questions"
         verbose_name_plural = "Sub Questions"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -158,6 +165,7 @@ class Answer(models.Model):
     class Meta:
         db_table = "answers"
         verbose_name_plural = "Answers"
+        managed = True
 
     def __str__(self):
         return self.question
@@ -172,6 +180,7 @@ class Section(models.Model):
     class Meta:
         db_table = "sections"
         verbose_name_plural = "Sections"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -193,6 +202,7 @@ class QuestionList(models.Model):
     class Meta:
         db_table = "question_lists"
         verbose_name_plural = "Questions"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -211,6 +221,7 @@ class QuestionBank(models.Model):
     class Meta:
         db_table = "question_banks"
         verbose_name_plural = "Question Banks"
+        managed = True
 
     def __str__(self):
         return self.section.title + str(self.question.id)
