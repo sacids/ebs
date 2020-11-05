@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.fields.related import ForeignKey
+from authtools.models import User
 
 # Create your models here.
 QUESTION_TYPE = (
@@ -30,6 +31,7 @@ class Council(models.Model):
     class Meta:
         db_table = "councils"
         verbose_name_plural = "Councils"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -45,6 +47,7 @@ class Country(models.Model):
     class Meta:
         db_table = "contries"
         verbose_name_plural = "Countries"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -63,6 +66,7 @@ class Institution(models.Model):
     class Meta:
         db_table = "institutions"
         verbose_name_plural = "Institutions"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -83,6 +87,7 @@ class Respondent(models.Model):
     class Meta:
         db_table = "respondents"
         verbose_name_plural = "Respondents"
+        managed = True
 
     def __str__(self):
         return self.name
@@ -97,6 +102,7 @@ class Category(models.Model):
     class Meta:
         db_table = "categories"
         verbose_name_plural = "Categories"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -118,6 +124,7 @@ class Question(models.Model):
     class Meta:
         db_table = "questions"
         verbose_name_plural = "Questions"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -137,6 +144,7 @@ class SubQuestion(models.Model):
     class Meta:
         db_table = "sub_questions"
         verbose_name_plural = "Sub Questions"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -158,6 +166,7 @@ class Answer(models.Model):
     class Meta:
         db_table = "answers"
         verbose_name_plural = "Answers"
+        managed = True
 
     def __str__(self):
         return self.question
@@ -172,6 +181,7 @@ class Section(models.Model):
     class Meta:
         db_table = "sections"
         verbose_name_plural = "Sections"
+        managed = True
 
     def __str__(self):
         return self.title
@@ -193,6 +203,7 @@ class QuestionList(models.Model):
     class Meta:
         db_table = "question_lists"
         verbose_name_plural = "Questions"
+        managed = True
 
     def __str__(self):
         return self.code + ": " + self.title
@@ -212,6 +223,38 @@ class QuestionBank(models.Model):
     class Meta:
         db_table = "question_banks"
         verbose_name_plural = "Question Banks"
+        managed = True
 
     def __str__(self):
         return self.section.title + str(self.question.id)
+
+
+class AnsBank(models.Model):
+    created_by  = models.ForeignKey(User,related_name="created_by", on_delete=models.DO_NOTHING, blank=True, null=True)
+    country     = models.ForeignKey(Country,related_name="ans_country", on_delete=models.DO_NOTHING, blank=True, null=True)
+    question    = models.ForeignKey(Question, on_delete=models.CASCADE)
+    answer      = models.CharField(max_length=200, null=False)
+    remarks     = models.TextField()
+    created_at  = models.DateTimeField(auto_now_add=True, editable=False)
+
+    class Meta:
+        db_table            = "ansbank"
+        verbose_name_plural = "Answers"
+        managed             = True
+        unique_together     = ('country', 'question',)
+
+    def __str__(self):
+        return self.question.answer
+
+def get_upload_to(instance, filename):
+    return 'attachments/%d/%s' % (instance.ansbank.country.title, filename)
+class Attachments(models.Model):
+    ansbank     = models.ForeignKey(AnsBank, related_name="uploads", on_delete=models.CASCADE)
+    uploads     = models.FileField(upload_to=get_upload_to)
+    class Meta:
+        db_table = "attachments"
+        verbose_name_plural = "attachments"
+        managed = True
+
+    def __str__(self):
+        return self.id

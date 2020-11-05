@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'modules.questionnare',
     'modules.dashboard',
     'modules.respondents',
+    'modules.profiles',
 ]
 
 MIDDLEWARE = [
