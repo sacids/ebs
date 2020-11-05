@@ -237,9 +237,10 @@ class AnsBank(models.Model):
     created_at  = models.DateTimeField(auto_now_add=True, editable=False)
 
     class Meta:
-        db_table = "ansbank"
+        db_table            = "ansbank"
         verbose_name_plural = "Answers"
-        managed = True
+        managed             = True
+        unique_together     = ('country', 'question',)
 
     def __str__(self):
         return self.question.answer
