@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.fields.related import ForeignKey
+from authtools.models import User
 
 # Create your models here.
 QUESTION_TYPE = (
@@ -225,3 +226,33 @@ class QuestionBank(models.Model):
 
     def __str__(self):
         return self.section.title + str(self.question.id)
+
+
+class AnsBank(models.Model):
+    created_by  = models.ForeignKey(User,related_name="created_by", on_delete=models.DO_NOTHING, blank=True, null=True)
+    country     = models.ForeignKey(Country,related_name="ans_country", on_delete=models.DO_NOTHING, blank=True, null=True)
+    question    = models.ForeignKey(Question, on_delete=models.CASCADE)
+    answer      = models.CharField(max_length=200, null=False)
+    remarks     = models.TextField()
+    created_at  = models.DateTimeField(auto_now_add=True, editable=False)
+
+    class Meta:
+        db_table = "ansbank"
+        verbose_name_plural = "Answers"
+        managed = True
+
+    def __str__(self):
+        return self.question.answer
+
+def get_upload_to(instance, filename):
+    return 'attachments/%d/%s' % (instance.ansbank.country.title, filename)
+class Attachments(models.Model):
+    ansbank     = models.ForeignKey(AnsBank, related_name="uploads", on_delete=models.CASCADE)
+    uploads     = models.FileField(upload_to=get_upload_to)
+    class Meta:
+        db_table = "attachments"
+        verbose_name_plural = "attachments"
+        managed = True
+
+    def __str__(self):
+        return self.id
