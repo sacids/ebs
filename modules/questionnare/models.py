@@ -196,7 +196,7 @@ class QuestionList(models.Model):
     has_sub = models.CharField(
         choices=ANSWER, verbose_name="Has sub question?", max_length=10, null=True, default="NO")
     sort_order = models.IntegerField(default=1)
-    hints  = models.TextField(null=True)
+    hints  = models.TextField(null=True, blank=True)
     has_upload = models.CharField(choices=ANSWER, max_length=10, default="NO")
 
     class Meta:
@@ -205,7 +205,7 @@ class QuestionList(models.Model):
         managed = True
 
     def __str__(self):
-        return self.title
+        return self.code + " " + self.title
 
 
 
