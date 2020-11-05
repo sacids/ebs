@@ -15,8 +15,8 @@ QUESTION_TYPE = (
 )
 
 ANSWER = (
-    ('YES', "Yes"),
-    ('NO', "No")
+    ("YES", "Yes"),
+    ("NO", "No")
 )
 
 # councils
@@ -182,7 +182,7 @@ class QuestionList(models.Model):
     code = models.CharField(max_length=10, null=False)
     title = models.TextField(null=False)
     qn_type = models.CharField(
-        choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
+        choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='RADIO')
     required = models.CharField(choices=ANSWER, max_length=10, default="NO")
     has_sub = models.CharField(
         choices=ANSWER, verbose_name="Has sub question?", max_length=10, null=True, default="NO")
@@ -195,18 +195,19 @@ class QuestionList(models.Model):
         verbose_name_plural = "Questions"
 
     def __str__(self):
-        return self.code + " " + self.title
+        return self.code + ": " + self.title
 
 
 
 # questions banks
 class QuestionBank(models.Model):
+    sort_order = models.IntegerField(default=1)
     section = models.ForeignKey(
-        Section, related_name="sections", on_delete=models.CASCADE)
+        Section, related_name="questions", on_delete=models.CASCADE)
     question = models.OneToOneField(
-        QuestionList, related_name="questions", on_delete=CASCADE)
+        QuestionList, on_delete=CASCADE)
     sub_questions = models.ManyToManyField(
-        QuestionList, related_name="sub_questions", null=True, blank=True)
+        QuestionList, related_name="sub_questions", blank=True)
 
     class Meta:
         db_table = "question_banks"

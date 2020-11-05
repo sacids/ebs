@@ -67,5 +67,6 @@ class QuestionListAdmin(admin.ModelAdmin):
 #Question Bank  
 @admin.register(QuestionBank)
 class QuestionBankAdmin(admin.ModelAdmin):
-    list_display = ['section', 'question']  
+    list_display = ['sort_order','question',]  
     list_filter  = ['section']
+    ordering = ("sort_order",)

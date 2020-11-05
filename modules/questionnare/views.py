@@ -33,27 +33,32 @@ def default(request):
     return render(request, 'questionnare/index.html', {})
 
 
-#question create view
+# question create view
 class QuestionnareCreateView(generic.CreateView):
-    models = Respondent
-    form_class = RespondentForm
     context_object_name = 'questions'
     template_name = "questionnare/questions.html"
     success_url = reverse_lazy('questionnare:success')
 
     def get(self, request, **kwargs):
-        if request.user.is_authenticated:
-            return redirect(dashboard)
-        else:
-            # form
-            form = self.form_class(initial=self.initial)
-            # categories
-            categories = Category.objects.prefetch_related(
-                Prefetch(
-                    'questions', queryset=Question.objects.order_by('sort_order')),
-                Prefetch('questions__sub_questions', queryset=SubQuestion.objects.order_by('sort_order'))).order_by('id').all()
+        # if request.user.is_authenticated:
+        #     return redirect("")
+        # else:
 
-            return render(request, self.template_name, {'form': form, 'categories': categories})
+        # question bank
+        question_banks = QuestionBank.objects.order_by(
+            'sort_order').select_related('question')
+
+        # sections
+        sections = Section.objects.prefetch_related(
+            Prefetch('questions', queryset=question_banks)).order_by('id').all()
+
+        # categories
+        # categories = Category.objects.prefetch_related(
+        #         Prefetch(
+        #             'questions', queryset=Question.objects.order_by('sort_order')),
+        #         Prefetch('questions__sub_questions', queryset=SubQuestion.objects.order_by('sort_order'))).order_by('id').all()
+
+        return render(request, self.template_name, {'sections': sections})
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()

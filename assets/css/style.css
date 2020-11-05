@@ -291,58 +291,6 @@ Background colors
     background-color: #fafafa;
 }
 
-/*===============================================
-Buttons
-===============================================*/
-.btn {
-    font-weight: 500;
-}
-
-.btn-primary {
-    color: #ffffff;
-    background-color: #1565C0;
-    border-color: #1565C0;
-}
-
-.btn-outline-primary {
-    color: #1565C0;
-    background-color: transparent;
-    background-image: none;
-    border-color: #1565C0;
-}
-
-.btn-outline-primary:hover {
-    color: #fff;
-    background-color: #1565C0;
-    border-color: #1565C0;
-}
-
-.btn-secondary {
-    color: #ffffff;
-    background-color: #2f4050;
-    border-color: #2f4050;
-}
-
-.btn-outline-secondary {
-    color: #2f4050;
-    background-color: transparent;
-    background-image: none;
-    border-color: #2f4050;
-}
-
-.btn-outline-secondary:hover {
-    color: #fff;
-    background-color: #2f4050;
-    border-color: #2f4050;
-}
-
-.btn-tertiary {
-    color: #3F3F3F;
-    font-weight: 600;
-    background-color: #f1f1f1;
-    border-color: #f1f1f1;
-}
-
 /*==============================================
 Accordion
 ==============================================*/
@@ -378,54 +326,6 @@ Accordion
     margin-top: 15px;
 }
 
-/*===============================================
-Forms
-===============================================*/
-.pure-form {
-    width: 100%;
-    margin: 10px;
-    padding: 20px;
-    background: #f5f5f5;
-    border-radius: 0;
-}
-
-.form-group label {
-    font-size: 1.3em;
-    line-height: 1.5;
-}
-
-.form-group .hints a{
-    font-size: 1.3em;
-    color: #666666;
-}
-
-.form-group .hints a:hover, a:active{
-    text-decoration: none;
-}
-
-.form-group input[type=text], input[type=email], input[type=password], input[type=number], textarea {
-    width: 100%;
-    border: 1px solid #cacaca;
-    color: #666666;
-    font-size: 1.3em;
-}
-
-.form-group textarea{
-    color: #666666;
-    font-size: 1.3em;
-}
-
-.form-group select {
-    width: 100%;
-    border: 1px solid #cacaca;
-    color: #666666;
-    background: #ffffff;
-    font-size: 1.3em;
-}
-
-.form-group span.red {
-    color: #CC0000;
-}
 
 /*===============================================
 Tables
@@ -486,77 +386,7 @@ table.table td i {
 
 /*}*/
 
-
-/* form wizard */
-#msform {
-    margin-top: 20px;
-}
-
-#msform fieldset .form-card {
-    background: white;
-    border: 0 none;
-    border-radius: 0px;
-}
-
-#msform fieldset {
-    background: white;
-    border: 0 none;
-    border-radius: 0;
-    width: 100%;
-    margin: 0;
-    padding: 10px;
-}
-
-#msform fieldset:not(:first-of-type) {
-    display: none
-}
-
-#msform .action-button {
-    width: 100px;
-    background: #1565C0;
-    font-weight: bold;
-    color: white;
-    border: 0 none;
-    border-radius: 0px;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px
-}
-
-#msform .action-button:hover,
-#msform .action-button:focus {
-    background: #1565C0;
-}
-
-#msform .action-button-previous {
-    width: 100px;
-    background: #616161;
-    font-weight: bold;
-    color: white;
-    border: 0 none;
-    border-radius: 0px;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px
-}
-
-#msform .action-button-previous:hover,
-#msform .action-button-previous:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
-}
-
-select.list-dt {
-    border: none;
-    outline: 0;
-    border-bottom: 1px solid #ccc;
-    padding: 2px 5px 3px 5px;
-    margin: 2px
-}
-
-select.list-dt:focus {
-    border-bottom: 2px solid skyblue
-}
-
+/* progress */
 #progressbar {
     margin-bottom: 30px;
     overflow: hidden;
@@ -608,4 +438,123 @@ select.list-dt:focus {
 #progressbar li.active:before,
 #progressbar li.active:after {
     background: #1565C0;
+}
+
+
+/* form wizard */
+#msform {
+    margin-top: 20px;
+}
+
+#msform fieldset {
+    width: 100%;
+    margin: 0;
+}
+
+#msform fieldset .form-card {
+    margin: 10px 0;
+    padding: 20px 0;
+    border-radius: 10px;
+    background: white;
+}
+
+
+#msform fieldset:not(:first-of-type) {
+    display: none
+}
+
+#msform .action-button {
+    min-width: 100px;
+    width: auto;
+    background: #1565C0;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 0 none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+    background: #1565C0;
+    color: #fff;
+}
+
+#msform .action-button-previous {
+    min-width: 100px;
+    width: auto;
+    background: #616161;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 0 none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+    background: #616161;
+    color: #fff;
+}
+
+/*===============================================
+Forms
+===============================================*/
+.pure-form {
+    width: 100%;
+    margin: 10px;
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 0;
+}
+
+.form-group label {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.form-group > p.small{
+    font-size: 1em;
+    font-style: italic;
+    line-height: 1.5;  
+}
+
+.form-group ::placeholder{
+    font-size: 1em;
+    line-height: 1.5;  
+}
+
+.form-group .hints a{
+    font-size: 1.3em;
+    color: #666666;
+}
+
+.form-group .hints a:hover, a:active{
+    text-decoration: none;
+}
+
+.form-group input[type=text], input[type=email], input[type=password], input[type=number], textarea {
+    width: 100%;
+    border: 1px solid #cacaca;
+    color: #666666;
+    font-size: 1.3em;
+}
+
+.form-group textarea{
+    color: #666666;
+    font-size: 1.3em;
+}
+
+.form-group select {
+    width: 100%;
+    border: 1px solid #cacaca;
+    color: #666666;
+    background: #ffffff;
+    font-size: 1.3em;
+}
+
+.form-group span.red {
+    color: #CC0000;
 }
