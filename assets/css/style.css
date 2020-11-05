@@ -453,7 +453,7 @@ table.table td i {
 
 #msform fieldset .form-card {
     margin: 10px 0;
-    padding: 20px 0;
+    padding: 10px;
     border-radius: 10px;
     background: white;
 }
@@ -464,11 +464,10 @@ table.table td i {
 }
 
 #msform .action-button {
-    min-width: 100px;
     width: auto;
     background: #1565C0;
     color: #fff;
-    font-weight: 600;
+    font-weight: 400;
     border-radius: 5px;
     border: 0 none;
     cursor: pointer;
@@ -482,11 +481,10 @@ table.table td i {
 }
 
 #msform .action-button-previous {
-    min-width: 100px;
     width: auto;
     background: #616161;
     color: #fff;
-    font-weight: 600;
+    font-weight: 400;
     border-radius: 5px;
     border: 0 none;
     cursor: pointer;
@@ -553,6 +551,10 @@ Forms
     color: #666666;
     background: #ffffff;
     font-size: 1.3em;
+}
+
+.form-group input[type=radio]{
+    color: #666666; 
 }
 
 .form-group span.red {

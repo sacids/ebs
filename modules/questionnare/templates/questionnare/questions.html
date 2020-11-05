@@ -14,7 +14,7 @@
                     <div class="offset-2 col-md-8">
 
                         {% if sections|length > 0 %}
-                        <form id="msform">
+                        <form id="msform" action="">
 
                             {% for section in sections %}
                             <fieldset>
@@ -33,54 +33,112 @@
 
                                 <!--start-->
 
-                                <div class="row form-card">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>{{ qn_bank.question.code }}.
-                                                {{ qn_bank.question.title }}</label>
-                                            <p class="small">
-                                                {{ qn_bank.question.hints }}
-                                            </p>
-
-                                            {% if qn_bank.question.qn_type == "RADIO" %}
-                                            <input id="answer" name="answer" type="radio" class="" value="YES" />
-                                            <label for="answer" class="">&nbsp;Yes</label>
-                                            <br />
-                                            <input id="answer" name="answer" type="radio" class="" value="NO" />
-                                            <label for="answer" class="">&nbsp;No</label>
-
-                                            {% elif qn_bank.question.qn_type == "NUMBER" %}
-                                            <input type="number" name="answer" id="answer" class="form-control" />
-                                            {% elif qn_bank.question.qn_type == "TEXT" %}
-                                            <input type="text" name="answer" id="answer" class="form-control">
-                                            {% elif qn_bank.question.qn_type == "TEXTAREA" %}
-                                            <textarea rows="4" cols="40" name="answer" class="textarea form-control"
-                                                id="answer"></textarea>
-                                            {% endif %}
+                                <div class="form-card">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>{{ qn_bank.question.code }}.
+                                                    {{ qn_bank.question.title }} jj</label>
+                                                <p class="small">
+                                                    {{ qn_bank.question.hints }}
+                                                </p>
+                                            </div>
+                                            <!--./form-group-->
                                         </div>
-                                        <!--./form-group-->
+                                        <!--./col-->
                                     </div>
-                                    <!--./col-->
+                                    <!--./row-->
 
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>Remarks </label>
-                                            <!--./float-right-->
-                                            <textarea rows="3" cols="40" name="remarks" class="form-control"
-                                                placeholder="Write remarks..." id="remarks"></textarea>
+                                    {% if qn_bank.question.has_sub == "NO" %}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <!--question type-->
+                                                {% if qn_bank.question.qn_type == "RADIO" %}
+                                                <input id="answer" name="answer" type="radio" class="" value="YES" />
+                                                <label for="answer" class="">&nbsp;Yes</label>
+                                                <br />
+                                                <input id="answer" name="answer" type="radio" class="" value="NO" />
+                                                <label for="answer" class="">&nbsp;No</label>
+
+                                                {% elif qn_bank.question.qn_type == "NUMBER" %}
+                                                <input type="number" name="answer" id="answer" class="form-control" />
+                                                {% elif qn_bank.question.qn_type == "TEXT" %}
+                                                <input type="text" name="answer" id="answer" class="form-control">
+                                                {% elif qn_bank.question.qn_type == "TEXTAREA" %}
+                                                <textarea rows="4" cols="40" name="answer" class="textarea form-control"
+                                                    id="answer"></textarea>
+                                                {% endif %}
+                                                <!--./question type-->
+                                            </div>
+                                            <!--./form-group-->
                                         </div>
-                                        <!--./form-group-->
+                                        <!--./col-->
+
+                                        <div class="col-md-12" style="margin-top: -15px;">
+                                            <div class="form-group">
+                                                <label>Remarks </label>
+                                                <!--./float-right-->
+                                                <textarea rows="3" cols="40" name="remarks" class="form-control"
+                                                    placeholder="Write remarks..." id="remarks"></textarea>
+                                            </div>
+                                            <!--./form-group-->
+                                        </div>
+                                        <!--./col-->
                                     </div>
-                                    <!--./col-->
+                                    <!--./row-->
+
+                                    {% elif qn_bank.question.has_sub == "YES" %}
+                                    <div class="row">
+                                        {% for sub_qn in qn_bank.question.sub_questions.all %}
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>{{ sub_qn.question.code }}.
+                                                    {{ sub_qn.title }}</label>
+                                                <p class="small">
+                                                    {{ sub_qn.question.hints }}
+                                                </p>
+                                            </div>
+                                            <!--./form-group-->
+                                        </div>
+                                        <!--./col-->
+
+                                        <!--start inner loop-->
+                                        {% if sub_qn.question.has_sub == "NO" %}
+                                        lll
+
+                                        {% elif sub_qn.question.has_sub == "YES" %}
+                                        {% for inner_qn in sub_qn.sub_questions.all %}
+                                        
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>{{ inner_qn.title }}</label>
+                                                <p class="small">
+                                                    {{ inner_qn.hints }}
+                                                </p>
+                                            </div>
+                                            <!--./form-group-->
+                                        </div>
+                                        <!--./col-->
+                                        {% endfor %}
+                                        <!--./endfor-->
+
+                                        {%endif%}
+                                        <!--end inner loop-->
+                                        {% endfor %}
+                                    </div>
+                                    <!--./row-->
+                                    {% endif %}
                                 </div>
-                                <!--./row-->
+                                <!--./form-card-->
 
                                 <!--end-->
                                 {% endfor %}
 
                                 <!--./buttons -->
-                                <input type="button" name="exit" class="exit action-button-previous" value="Save and Exit" /> &nbsp;&nbsp;
-                                <input type="button" name="next" class="next action-button" value="Save and Continue" />
+                                <input type="" name="post_exit" class="action-button-previous" value="Save and Exit" />
+                                <input type="button" name="post_next" class="next action-button"
+                                    value="Save and Continue" />
                             </fieldset>
                             {% endfor %}
                         </form>
