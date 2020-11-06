@@ -12,13 +12,20 @@
             <div class="content">
                 <div class="row">
                     <div class="offset-3 col-md-6">
-
-                    {% for country in countries %}
-                    <div class="d-flex">
-                        <div>{{country.title}}</div>
-                        <div>{{last_update|get_by_index:country.id}}</div>
-                    </div>
-                    {% endfor %}
+                        <div class="d-flex border-bottom font-weight-bold">
+                            <div class="mr-auto p-2">Country</div>
+                            <div class="p-2">Last Update</div>
+                            <div class="p-2">Status</div>
+                            <div class="p-2">Action</div>
+                        </div>
+                        {% for country in countries %}
+                        <div class="d-flex border-bottom">
+                            <div class="mr-auto p-2 pt-3">{{country.title}}</div>
+                            <div class="p-2 pt-3">{{last_update|get_by_index:country.id}}</div>
+                            <div class="p-2 pt-3"><span class="badge badge-danger">Danger</span></div>
+                            <div class="p-2"><button type="button" class="btn btn-primary btn-sm">View</button></div>
+                        </div>
+                        {% endfor %}
 
                     </div>
 
