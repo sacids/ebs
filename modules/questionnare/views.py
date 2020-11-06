@@ -44,13 +44,24 @@ class QuestionnareCreateView(generic.CreateView):
         #     return redirect("")
         # else:
 
-        # question bank
-        question_banks = QuestionBank.objects.order_by(
-            'sort_order').select_related('question')
-
-        # sections
+        # # sections
         sections = Section.objects.prefetch_related(
-            Prefetch('questions', queryset=question_banks)).order_by('id').all()
+            Prefetch('questions', queryset=QuestionBank.objects.order_by('sort_order'))).all()
+
+        for section in sections:
+            for qn_bank in section.questions.all():              
+                if(qn_bank.question.has_sub == 'YES'):
+                    for sub_qn_bank in qn_bank.question.sub_questions.all():
+                        #print(str(sub_qn_bank.question.id) + sub_qn_bank.question.title)
+                        if(sub_qn_bank.question.has_sub == 'YES'):
+                            print(sub_qn_bank.id)
+                            print(sub_qn_bank.question)
+                            for inner_qn in sub_qn_bank.sub_questions.all():
+                                #print("hello")
+                                #print(str(inner_qn.id) + ": " + inner_qn.title)
+                                for xx in inner_qn.sub_questions.all():
+                                    #print("hello")
+                                    print(str(xx.id) + ": " + xx.question.title)
 
         # categories
         # categories = Category.objects.prefetch_related(
@@ -64,8 +75,11 @@ class QuestionnareCreateView(generic.CreateView):
         form = self.get_form()
         # Verify form is valid
         if form.is_valid():
+
             # respondent
-            respondent_id = self.kwargs['pk']
+            user_id = kwargs['pk']
+
+            # todo: query user
 
             # insert answers
             if request.POST.get('question_id'):
@@ -77,37 +91,14 @@ class QuestionnareCreateView(generic.CreateView):
                 zipped = zip(question_ids, answers, remarks)
 
                 for question_id, answer, remark in zipped:
-                    qn_object = Question.objects.get(pk=question_id)
+                    #create or update
+                    AnsBank.objects.update_or_create(
+                        created_by_id=user_id, question_id=question_id, answer=answer, remarks=remark
+                    )
 
-                    qn_answer = Answer()
-                    if(qn_object.has_sub == "NO"):
-                        qn_answer.respondent_id = respondent_id
-                        qn_answer.question_id = question_id
-                        qn_answer.answer = answer
-                        qn_answer.remarks = remark
-                        qn_answer.save()  # save
-                    elif(qn_object.has_sub == "YES"):
-                        sub_question_ids = request.POST.getlist(
-                            'sub_question_id', '')
-                        sub_qn_answers = request.POST.getlist(
-                            'sub_qn_answer', '')
-                        sub_qn_remarks = request.POST.getlist(
-                            'sub_qn_remarks', '')
-
-                        # sub zipped
-                        sub_zipped = zip(sub_question_ids,
-                                         sub_qn_answers, sub_qn_remarks)
-
-                        for sub_qn_id, sub_qn_answer, sub_qn_remark in sub_zipped:
-                            qn_answer.respondent_id = respondent_id
-                            qn_answer.question_id = question_id
-                            qn_answer.sub_question_id = sub_qn_id
-                            qn_answer.answer = sub_qn_answer
-                            qn_answer.remarks = sub_qn_remark
-                            qn_answer.save()  # save
-
-            # Redirect to success page
-            return redirect('success/')
+            # Redirect to to a page after save and exit
+            if request.POST.get('exit'):
+                return redirect('success/')
         # Form is invalid
         # Set object to None, since class-based view expects model record object
         self.object = None

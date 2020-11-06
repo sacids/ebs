@@ -17,7 +17,8 @@ QUESTION_TYPE = (
 
 ANSWER = (
     ("YES", "Yes"),
-    ("NO", "No")
+    ("NO", "No"),
+    ("NONE", "None")
 )
 
 # councils
@@ -194,8 +195,7 @@ class QuestionList(models.Model):
     qn_type = models.CharField(
         choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='RADIO')
     required = models.CharField(choices=ANSWER, max_length=10, default="NO")
-    has_sub = models.CharField(
-        choices=ANSWER, verbose_name="Has sub question?", max_length=10, null=True, default="NO")
+    has_sub = models.CharField(choices=ANSWER, verbose_name="Sub Question", max_length=10, null=True, default="NO")
     sort_order = models.IntegerField(default=1)
     hints  = models.TextField(null=True, blank=True)
     has_upload = models.CharField(choices=ANSWER, max_length=10, default="NO")

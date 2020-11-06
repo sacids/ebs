@@ -59,21 +59,14 @@ class SectionAdmin(admin.ModelAdmin):
 #Question List
 @admin.register(QuestionList)
 class QuestionListAdmin(admin.ModelAdmin):
-    list_display = ['id', 'code','title', 'has_sub']
-    list_filter = ['has_sub']
-    ordering = ("sort_order",)
+    list_display = ['code','title', 'qn_type', 'has_sub']
+    list_filter = ['code']
+    ordering = ("code",)
 
 
 #Question Bank  
 @admin.register(QuestionBank)
 class QuestionBankAdmin(admin.ModelAdmin):
-    list_display = ['sort_order','question',]  
+    list_display = ['sort_order','question']  
     list_filter  = ['section']
-    ordering = ("sort_order",)
-
-
-
-@admin.register(AnsBank)
-class AnsBankAdmin(admin.ModelAdmin):
-    list_display = ['country','question','answer']  
-    list_filter  = ['country']
+    ordering = ("section", "sort_order")
