@@ -132,6 +132,33 @@ class QuestionListView(generic.ListView):
         context['categories'] = categories
         return context
 
+
+
+
+
+
+
+class CountryList(generic.ListView):
+    model               = Country
+    context_object_name = 'countries'
+    template_name       = "manage/country_response.html"
+    
+    def get_context_data(self, **kwargs):
+        context                 = super(CountryList, self).get_context_data(**kwargs)
+        last_update             = AnsBank.objects.all().order_by('country', '-created_at').distinct('country').values()
+        context['countries']    = Country.objects.all().order_by('title').values()
+
+        tmp     = [0] * 100
+        for update in last_update:
+            tmp[update['country_id']]  = update['created_at']
+        
+        context['last_update'] = tmp
+        print(context['countries'])
+        return context
+
+
+
+
 # success
 
 

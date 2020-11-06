@@ -70,3 +70,10 @@ class QuestionBankAdmin(admin.ModelAdmin):
     list_display = ['sort_order','question',]  
     list_filter  = ['section']
     ordering = ("sort_order",)
+
+
+
+@admin.register(AnsBank)
+class AnsBankAdmin(admin.ModelAdmin):
+    list_display = ['country','question','answer']  
+    list_filter  = ['country']
