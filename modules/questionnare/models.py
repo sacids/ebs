@@ -199,6 +199,7 @@ class Section(models.Model):
 
 # questions
 class QuestionList(models.Model):
+    section = models.ForeignKey(Section, on_delete=models.CASCADE, null=True)
     code = models.CharField(max_length=10, null=False)
     title = models.TextField(null=False)
     qn_type = models.CharField(

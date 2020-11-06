@@ -36,7 +36,7 @@ def default(request):
 # question create view
 class QuestionnareCreateView(generic.CreateView):
     context_object_name = 'questions'
-    template_name = "questionnare/questions.html"
+    template_name = "questionnare/questionsM.html"
     success_url = reverse_lazy('questionnare:success')
 
     def get(self, request, **kwargs):
@@ -45,44 +45,37 @@ class QuestionnareCreateView(generic.CreateView):
         # else:
 
         # # sections
-        sections = Section.objects.prefetch_related(
-            Prefetch('question_banks', queryset=QuestionBank.objects.order_by('sort_order'))).all()
+        # sections = Section.objects.prefetch_related(
+        #     Prefetch('question_banks', queryset=QuestionBank.objects.order_by('sort_order'))).all()
 
-        return render(request, self.template_name, {'sections': sections})
+        # questions lists
+        questions = QuestionList.objects.all()
+
+        # render view
+        return render(request, self.template_name, {'questions': questions})
 
     def post(self, request, *args, **kwargs):
-        form = self.get_form()
-        # Verify form is valid
-        if form.is_valid():
+        # respondent
+        user_id = kwargs['pk']
 
-            # respondent
-            user_id = kwargs['pk']
+        # if post next => save
+        if request.POST.get('post_next'):
+            section_id = request.POST.get('section_id')
 
-            # todo: query user
+            # query questions
+            questions = QuestionList.objects.filter(
+                section_id=section_id).order_by('sort_order', 'code')
 
-            # if post next => save
-            if request.POST.get('post_next'):
-                question_ids = request.POST.getlist('question_id', '')
-                answers = request.POST.getlist('answer', '')
-                remarks = request.POST.getlist('remarks', '')
+            for question in questions:
+                answer = request.POST.get('answer[' + str(question.id) + ']')
+                remarks = request.POST.get('remarks[' + str(question.id) + ']')
 
-                # zipped
-                zipped = zip(question_ids, answers, remarks)
-
-                for question_id, answer, remark in zipped:
-                    #create or update
+                if answer is not None:
                     AnsBank.objects.update_or_create(
-                        created_by_id=user_id, question_id=question_id, answer=answer, remarks=remark
+                        created_by_id=1, country_id=1, question_id=question.id, answer=answer, remarks=remarks
                     )
-
-            # Redirect to to a page after save and exit
-            if request.POST.get('post_exit'):
-                return redirect('success/')
-        # Form is invalid
-        # Set object to None, since class-based view expects model record object
-        self.object = None
         # Return class-based view form_invalid to generate form with errors
-        return self.form_invalid(form)
+        return render(request, self.template_name, {})
 
 
 class QuestionListView(generic.ListView):
@@ -103,30 +96,24 @@ class QuestionListView(generic.ListView):
         return context
 
 
-
-
-
-
-
 class CountryList(generic.ListView):
-    model               = Country
+    model = Country
     context_object_name = 'countries'
-    template_name       = "manage/country_response.html"
-    
-    def get_context_data(self, **kwargs):
-        context                 = super(CountryList, self).get_context_data(**kwargs)
-        last_update             = AnsBank.objects.all().order_by('country', '-created_at').distinct('country').values()
-        context['countries']    = Country.objects.all().order_by('title').values()
+    template_name = "manage/country_response.html"
 
-        tmp     = [0] * 100
+    def get_context_data(self, **kwargs):
+        context = super(CountryList, self).get_context_data(**kwargs)
+        last_update = AnsBank.objects.all().order_by(
+            'country', '-created_at').distinct('country').values()
+        context['countries'] = Country.objects.all().order_by('title').values()
+
+        tmp = [0] * 100
         for update in last_update:
-            tmp[update['country_id']]  = update['created_at']
-        
+            tmp[update['country_id']] = update['created_at']
+
         context['last_update'] = tmp
         print(context['countries'])
         return context
-
-
 
 
 # success

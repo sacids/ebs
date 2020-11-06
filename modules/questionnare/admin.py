@@ -60,8 +60,8 @@ class SectionAdmin(admin.ModelAdmin):
 @admin.register(QuestionList)
 class QuestionListAdmin(admin.ModelAdmin):
     list_display = ['code','title', 'qn_type', 'has_sub']
-    list_filter = ['code']
-    ordering = ("code",)
+    list_filter = ['section','code']
+    ordering = ("section","code",)
 
 
 #Question Bank  

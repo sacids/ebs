@@ -52,12 +52,13 @@ $(document).ready(function () {
     var opacity;
 
     $(".next").click(function () {
-
         current_fs = $(this).parent();
         next_fs = $(this).parent().next();
 
         //Add Class Active
-        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+        //$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+        //submit data
 
         //show the next fieldset
         next_fs.show();
