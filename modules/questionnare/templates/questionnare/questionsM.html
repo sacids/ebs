@@ -1,0 +1,35 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% block title %} Events Based Surveillance Situational analysis questionnaire {% endblock %}
+
+{% block content %}
+<!-- Page content -->
+<div class="page-content bg-grey">
+    <div class="container">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content">
+                <div class="row">
+                    <div class="offset-2 col-md-8">
+
+                        <form id="msform" action="">
+                            {% include 'questionnare/sectionOne.html' %}
+                            {% include 'questionnare/sectionTwo.html' %}
+                            {% include 'questionnare/sectionThree.html' %}
+                            {% include 'questionnare/sectionFour.html' %}
+                            {% include 'questionnare/sectionFive.html' %}
+                            {% include 'questionnare/sectionSix.html' %}
+                        </form>
+
+                    </div>
+                    <!--./col-md-8 -->
+                </div>
+                <!--./row -->
+            </div><!-- /content area -->
+        </div><!-- /main content -->
+    </div>
+    <!--./container-->
+</div><!-- /page content -->
+
+{% endblock %}

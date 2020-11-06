@@ -36,7 +36,7 @@ def default(request):
 # question create view
 class QuestionnareCreateView(generic.CreateView):
     context_object_name = 'questions'
-    template_name = "questionnare/questions1.html"
+    template_name = "questionnare/questions.html"
     success_url = reverse_lazy('questionnare:success')
 
     def get(self, request, **kwargs):
@@ -47,23 +47,6 @@ class QuestionnareCreateView(generic.CreateView):
         # # sections
         sections = Section.objects.prefetch_related(
             Prefetch('question_banks', queryset=QuestionBank.objects.order_by('sort_order'))).all()
-
-        for section in sections:
-            for qn_bank in section.question_banks.all():   
-                if(qn_bank.question.has_sub == 'SUB'):
-                    for sub_qn_bank in qn_bank.sub_questions.all():
-                        if(sub_qn_bank.has_sub == 'INNER'):
-                            inner_qn_banks = QuestionBank.objects.filter(question_id = sub_qn_bank.id)
-                            for inner_qn_bank in inner_qn_banks:
-                                for nn_bank in inner_qn_bank.sub_questions.all():
-                                    print(nn_bank.title)
-
-
-        # categories
-        # categories = Category.objects.prefetch_related(
-        #         Prefetch(
-        #             'questions', queryset=Question.objects.order_by('sort_order')),
-        #         Prefetch('questions__sub_questions', queryset=SubQuestion.objects.order_by('sort_order'))).order_by('id').all()
 
         return render(request, self.template_name, {'sections': sections})
 
@@ -77,8 +60,8 @@ class QuestionnareCreateView(generic.CreateView):
 
             # todo: query user
 
-            # insert answers
-            if request.POST.get('question_id'):
+            # if post next => save
+            if request.POST.get('post_next'):
                 question_ids = request.POST.getlist('question_id', '')
                 answers = request.POST.getlist('answer', '')
                 remarks = request.POST.getlist('remarks', '')
@@ -93,7 +76,7 @@ class QuestionnareCreateView(generic.CreateView):
                     )
 
             # Redirect to to a page after save and exit
-            if request.POST.get('exit'):
+            if request.POST.get('post_exit'):
                 return redirect('success/')
         # Form is invalid
         # Set object to None, since class-based view expects model record object

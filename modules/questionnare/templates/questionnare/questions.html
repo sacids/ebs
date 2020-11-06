@@ -1,5 +1,7 @@
 {% extends 'frontend/base.html' %}
 {% load static %}
+{% load ebs_tags %}
+
 {% block title %} Events Based Surveillance Situational analysis questionnaire {% endblock %}
 
 {% block content %}
@@ -13,13 +15,204 @@
                 <div class="row">
                     <div class="offset-2 col-md-8">
 
+                        {% if sections|length > 0 %}
                         <form id="msform" action="">
-             
-                            
-                            {% include 'questionnare/sectionFour.html' %}
-                            {% include 'questionnare/sectionFive.html' %}
-                            {% include 'questionnare/sectionSix.html' %}
+
+                            {% for section in sections %}
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="font-weight-600 text-center">
+                                            {{ section.title }}
+                                        </h5>
+                                    </div>
+                                    <!--./col-->
+                                </div>
+                                <!--./row-->
+
+                                {% for qn_bank in section.question_banks.all %}
+                                <!--start-->
+                                <div class="form-card">
+                                    {% if qn_bank.question.has_sub == "NO" %}
+                                    <input type="hidden" name="question_id[{{qn_bank.question.id}}]" value="{{ qn_bank.question.id }}" />
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>{{ qn_bank.question.code }}.
+                                                    {{ qn_bank.question.title }}</label>
+                                                <p class="small">
+                                                    {{ qn_bank.question.hints }}
+                                                </p>
+                                            </div>
+                                            <!--./form-group-->
+                                        </div>
+                                        <!--./col-->
+                                    </div>
+                                    <!--./row-->
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <!--question type-->
+                                                {% if qn_bank.question.qn_type == "RADIO" %}
+                                                <input id="answer" name="answer[{{qn_bank.question.id}}]" type="radio" class="" value="YES" />
+                                                <label for="answer" class="">&nbsp;Yes</label>
+                                                <br />
+                                                <input id="answer" name="answer[{{qn_bank.question.id}}]" type="radio" class="" value="NO" />
+                                                <label for="answer" class="">&nbsp;No</label>
+
+                                                {% elif qn_bank.question.qn_type == "NUMBER" %}
+                                                <input type="number" name="answer[{{qn_bank.question.id}}]" id="answer" class="form-control" />
+                                                {% elif qn_bank.question.qn_type == "TEXT" %}
+                                                <input type="text" name="answer[{{qn_bank.question.id}}]" id="answer" class="form-control">
+                                                {% elif qn_bank.question.qn_type == "TEXTAREA" %}
+                                                <textarea rows="4" cols="40" name="answer[{{qn_bank.question.id}}]"
+                                                    class="textarea form-control" id="answer"></textarea>
+                                                {% endif %}
+                                                <!--./question type-->
+                                            </div>
+                                            <!--./form-group-->
+                                        </div>
+                                        <!--./col-->
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Remarks </label>
+                                                <!--./float-right-->
+                                                <textarea rows="3" cols="40" name="remarks[{{qn_bank.question.id}}]" class="form-control"
+                                                    placeholder="Write remarks..." id="remarks"></textarea>
+                                            </div>
+                                            <!--./form-group-->
+                                        </div>
+                                        <!--./col-->
+                                    </div>
+                                    <!--./row-->
+
+                                    {% elif qn_bank.question.has_sub == "SUB" %}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>{{ qn_bank.question.code }}.
+                                                    {{ qn_bank.question.title }}</label>
+                                                <p class="small">
+                                                    {{ qn_bank.question.hints }}
+                                                </p>
+                                            </div>
+                                            <!--./form-group-->
+                                        </div>
+                                        <!--./col-->
+                                    </div>
+                                    <!--./row-->
+
+                                    <div class="row">
+                                        {% for sub_qn in qn_bank.sub_questions.all %}
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>{{ sub_qn.code }}.
+                                                    {{ sub_qn.title }}</label>
+                                                <p class="small">
+                                                    {{ sub_qn.hints }}
+                                                </p>
+                                            </div>
+                                            <!--./form-group-->
+                                        </div>
+                                        <!--./col-->
+
+                                        <!--start inner loop-->
+                                        {% if sub_qn.has_sub == "NO" %}
+                                        <input type="hidden" name="question_id[{{sub_qn.id}}]" value="{{ sub_qn.id }}" />
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <!--question type-->
+                                                {% if sub_qn.qn_type == "RADIO" %}
+                                                <input id="answer" name="answer[{{sub_qn.id}}]" type="radio" class="" value="YES" />
+                                                <label for="answer" class="">&nbsp;Yes</label>
+                                                <br />
+                                                <input id="answer" name="answer[{{sub_qn.id}}]" type="radio" class="" value="NO" />
+                                                <label for="answer" class="">&nbsp;No</label>
+
+                                                {% elif sub_qn.qn_type == "NUMBER" %}
+                                                <input type="number" name="answer[{{sub_qn.id}}]" id="answer" class="form-control" />
+
+                                                {% elif sub_qn.qn_type == "TEXT" %}
+                                                <input type="text" name="answer[{{sub_qn.id}}]" id="answer" class="form-control">
+
+                                                {% elif sub_qn.qn_type == "TEXTAREA" %}
+                                                <textarea rows="4" cols="40" name="answer[{{sub_qn.id}}]"
+                                                    class="textarea form-control" id="answer"></textarea>
+                                                {% endif %}
+                                                <!--./question type-->
+                                            </div>
+                                            <!--./form-group-->
+                                        </div>
+                                        <!--./col-->
+
+                                        {% elif sub_qn.has_sub == "INNER" %}
+                                        {% with my_lists=sub_qn.id|get_sub_questions %}
+                                        {% for lists in my_lists %}
+                                        {% for s_qn_bank in lists.sub_questions.all %}
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>{{ s_qn_bank.title }}</label>
+                                            </div>
+                                            <!--./form-group-->
+                                        </div>
+                                        <!--./col-->
+
+                                        <!--./form-hidden-->
+                                        <input type="hidden" name="question_id[{{s_qn_bank.id}}]" value="{{ s_qn_bank.id }}" />
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <!--question type-->
+                                                {% if s_qn_bank.qn_type == "RADIO" %}
+                                                <input id="answer" name="answer[{{s_qn_bank.id}}]" type="radio" class="" value="YES" />
+                                                <label for="answer" class="">&nbsp;Yes</label>
+                                                <br />
+                                                <input id="answer" name="answer[{{s_qn_bank.id}}]" type="radio" class="" value="NO" />
+                                                <label for="answer" class="">&nbsp;No</label>
+
+                                                {% elif s_qn_bank.qn_type == "NUMBER" %}
+                                                <input type="number" name="answer[{{s_qn_bank.id}}]" id="answer" class="form-control" />
+
+                                                {% elif s_qn_bank.qn_type == "TEXT" %}
+                                                <input type="text" name="answer[{{s_qn_bank.id}}]" id="answer" class="form-control">
+
+                                                {% elif s_qn_bank.qn_type == "TEXTAREA" %}
+                                                <textarea rows="4" cols="40" name="answer[{{s_qn_bank.id}}]"
+                                                    class="textarea form-control" id="answer"></textarea>
+                                                {% endif %}
+                                                <!--./question type-->
+                                            </div>
+                                            <!--./form-group-->
+                                        </div>
+                                        <!--./col-->
+                                        {% endfor %}
+                                        {% endfor %}
+                                        {% endwith %}
+                                        {%endif%}
+                                        <!--end inner loop-->
+                                        {% endfor %}
+                                    </div>
+                                    <!--./row-->
+                                    {% endif %}
+                                </div>
+                                <!--./form-card-->
+                                <!--end-->
+                                {% endfor %}
+
+                                <!--./buttons -->
+                                <input type="" name="post_exit" class="action-button-previous" value="Save and Exit" />
+                                <input type="button" name="post_next" class="next action-button"
+                                    value="Save and Continue" />
+                            </fieldset>
+                            {% endfor %}
                         </form>
+                        {% else %}
+                        <div class="alert alert-warning">No any questions</div>
+                        {% endif %}
 
                     </div>
                     <!--./col-md-8 -->
