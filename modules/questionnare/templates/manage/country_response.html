@@ -1,0 +1,32 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% load ebs_tags %}
+
+{% block content %}
+<!-- Page content -->
+<div class="page-content bg-grey">
+    <div class="container">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content">
+                <div class="row">
+                    <div class="offset-3 col-md-6">
+
+                    {% for country in countries %}
+                    <div class="d-flex">
+                        <div>{{country.title}}</div>
+                        <div>{{last_update|get_by_index:country.id}}</div>
+                    </div>
+                    {% endfor %}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
