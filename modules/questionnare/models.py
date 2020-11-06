@@ -15,11 +15,20 @@ QUESTION_TYPE = (
     ('TEXTAREA', "Text Area"),
 )
 
+SUB_QUESTION_TYPES = (
+    ("NO", "No"),
+    ("SUB", "Sub"),
+    ("INNER", "Inner"),
+    ("END", "End")
+)
+
 ANSWER = (
     ("YES", "Yes"),
     ("NO", "No"),
     ("NONE", "None")
 )
+
+
 
 # councils
 
@@ -195,7 +204,7 @@ class QuestionList(models.Model):
     qn_type = models.CharField(
         choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='RADIO')
     required = models.CharField(choices=ANSWER, max_length=10, default="NO")
-    has_sub = models.CharField(choices=ANSWER, verbose_name="Sub Question", max_length=10, null=True, default="NO")
+    has_sub = models.CharField(choices=SUB_QUESTION_TYPES, verbose_name="Sub Question", max_length=10, null=True, default="NO")
     sort_order = models.IntegerField(default=1)
     hints  = models.TextField(null=True, blank=True)
     has_upload = models.CharField(choices=ANSWER, max_length=10, default="NO")
@@ -214,11 +223,11 @@ class QuestionList(models.Model):
 class QuestionBank(models.Model):
     sort_order = models.IntegerField(default=1)
     section = models.ForeignKey(
-        Section, related_name="questions", on_delete=models.CASCADE)
+        Section, related_name="question_banks", on_delete=models.CASCADE)
     question = models.OneToOneField(
-        QuestionList, on_delete=CASCADE)
+        QuestionList, related_name="sub_question_banks", on_delete=CASCADE)
     sub_questions = models.ManyToManyField(
-        QuestionList, related_name="sub_questions", blank=True)
+        QuestionList, blank=True)
 
     class Meta:
         db_table = "question_banks"

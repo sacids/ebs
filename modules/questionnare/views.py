@@ -36,7 +36,7 @@ def default(request):
 # question create view
 class QuestionnareCreateView(generic.CreateView):
     context_object_name = 'questions'
-    template_name = "questionnare/questions.html"
+    template_name = "questionnare/questions1.html"
     success_url = reverse_lazy('questionnare:success')
 
     def get(self, request, **kwargs):
@@ -46,22 +46,18 @@ class QuestionnareCreateView(generic.CreateView):
 
         # # sections
         sections = Section.objects.prefetch_related(
-            Prefetch('questions', queryset=QuestionBank.objects.order_by('sort_order'))).all()
+            Prefetch('question_banks', queryset=QuestionBank.objects.order_by('sort_order'))).all()
 
         for section in sections:
-            for qn_bank in section.questions.all():              
-                if(qn_bank.question.has_sub == 'YES'):
-                    for sub_qn_bank in qn_bank.question.sub_questions.all():
-                        #print(str(sub_qn_bank.question.id) + sub_qn_bank.question.title)
-                        if(sub_qn_bank.question.has_sub == 'YES'):
-                            print(sub_qn_bank.id)
-                            print(sub_qn_bank.question)
-                            for inner_qn in sub_qn_bank.sub_questions.all():
-                                #print("hello")
-                                #print(str(inner_qn.id) + ": " + inner_qn.title)
-                                for xx in inner_qn.sub_questions.all():
-                                    #print("hello")
-                                    print(str(xx.id) + ": " + xx.question.title)
+            for qn_bank in section.question_banks.all():   
+                if(qn_bank.question.has_sub == 'SUB'):
+                    for sub_qn_bank in qn_bank.sub_questions.all():
+                        if(sub_qn_bank.has_sub == 'INNER'):
+                            inner_qn_banks = QuestionBank.objects.filter(question_id = sub_qn_bank.id)
+                            for inner_qn_bank in inner_qn_banks:
+                                for nn_bank in inner_qn_bank.sub_questions.all():
+                                    print(nn_bank.title)
+
 
         # categories
         # categories = Category.objects.prefetch_related(
