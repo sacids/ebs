@@ -1,3 +1,5 @@
+{% load ebs_tags %}
+
 <fieldset>
     <div class="row">
         <div class="col-md-12">
@@ -14,7 +16,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>6.1. Which areas would you like to be supported to effectively roll out the implementation of the EBS in the Country?</label>
+                    <label>{{ 197|get_qn_title }}</label>
+                    <p class="small">
+                        {{ 197|get_qn_hint }}
+                    </p>
                 </div>
                 <!--./form-group-->
             </div>
@@ -25,12 +30,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Development of EBS strategy</label><br/>
+                    <label>{{ 198|get_qn_title }}</label><br/>
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
+                    <input id="answer" name="answer[198]" type="radio" class="" value="YES" />
                     <label for="answer" class="">&nbsp;Yes</label>
                     <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
+                    <input id="answer" name="answer[198]" type="radio" class="" value="NO" />
                     <label for="answer" class="">&nbsp;No</label>
                     <!--./question type-->
                 </div>
@@ -42,12 +47,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Development of roll out plan</label><br/>
+                    <label>{{ 199|get_qn_title }}</label><br/>
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
+                    <input id="answer" name="answer[199]" type="radio" class="" value="YES" />
                     <label for="answer" class="">&nbsp;Yes</label>
                     <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
+                    <input id="answer" name="answer[199]" type="radio" class="" value="NO" />
                     <label for="answer" class="">&nbsp;No</label>
                     <!--./question type-->
                 </div>
@@ -59,12 +64,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Training of TOTs for front-line health workers</label><br/>
+                    <label>{{ 200|get_qn_title }}</label><br/>
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
+                    <input id="answer" name="answer[200]" type="radio" class="" value="YES" />
                     <label for="answer" class="">&nbsp;Yes</label>
                     <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
+                    <input id="answer" name="answer[200]" type="radio" class="" value="NO" />
                     <label for="answer" class="">&nbsp;No</label>
                     <!--./question type-->
                 </div>
@@ -76,47 +81,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Step-down training</label><br/>
+                    <label>{{ 201|get_qn_title }}</label><br/>
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
+                    <input id="answer" name="answer[201]" type="radio" class="" value="YES" />
                     <label for="answer" class="">&nbsp;Yes</label>
                     <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
-                    <label for="answer" class="">&nbsp;No</label>
-                    <!--./question type-->
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div><!--./row-->
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>Community level training</label><br/>
-                    <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
-                    <label for="answer" class="">&nbsp;Yes</label>
-                    <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
-                    <label for="answer" class="">&nbsp;No</label>
-                    <!--./question type-->
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div><!--./row-->
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>Development of signals and priority events </label><br/>
-                    <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
-                    <label for="answer" class="">&nbsp;Yes</label>
-                    <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
+                    <input id="answer" name="answer[201]" type="radio" class="" value="NO" />
                     <label for="answer" class="">&nbsp;No</label>
                     <!--./question type-->
                 </div>
@@ -129,9 +99,44 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Others (list)</label><br/>
+                    <label>{{ 202|get_qn_title }}</label><br/>
                     <!--question type-->
-                    <textarea rows="4" cols="40" name="answer" class="textarea form-control"
+                    <input id="answer" name="answer[202]" type="radio" class="" value="YES" />
+                    <label for="answer" class="">&nbsp;Yes</label>
+                    <br />
+                    <input id="answer" name="answer[202]" type="radio" class="" value="NO" />
+                    <label for="answer" class="">&nbsp;No</label>
+                    <!--./question type-->
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div><!--./row-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 203|get_qn_title }} </label><br/>
+                    <!--question type-->
+                    <input id="answer" name="answer[203]" type="radio" class="" value="YES" />
+                    <label for="answer" class="">&nbsp;Yes</label>
+                    <br />
+                    <input id="answer" name="answer[203]" type="radio" class="" value="NO" />
+                    <label for="answer" class="">&nbsp;No</label>
+                    <!--./question type-->
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div><!--./row-->
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 204|get_qn_title }}</label><br/>
+                    <!--question type-->
+                    <textarea rows="4" cols="40" name="answer[204]" class="textarea form-control"
                     id="answer"></textarea>
                     <!--./question type-->
                 </div>
@@ -143,10 +148,8 @@
     </div>
     <!--./form-card-->
 
-
-
     <!--./buttons -->
     <input type="" name="post_exit" class="action-button-previous" value="Save and Exit" />
     <input type="button" name="post_next" class="next action-button"
-        value="Save and Continue" />
+        value="Save and Complete" />
 </fieldset>

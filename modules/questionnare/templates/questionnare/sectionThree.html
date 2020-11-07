@@ -1,3 +1,5 @@
+{% load ebs_tags %}
+
 <fieldset>
     <div class="row">
         <div class="col-md-12">
@@ -9,14 +11,14 @@
     </div>
     <!--./row-->
 
-       <!--start-->
-       <div class="form-card">
+    <!--start-->
+    <div class="form-card">
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>3.1. Does the government have a roll out plan for EBS? </label>
+                    <label>{{ 113|get_qn_title }}</label>
                     <p class="small">
-                        Provide a copy of the roll out plan. If under development provide details. Which sectors are involved?
+                        {{ 113|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -30,10 +32,10 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
+                    <input id="answer" name="answer[113]" type="radio" class="" value="YES" />
                     <label for="answer" class="">&nbsp;Yes</label>
                     <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
+                    <input id="answer" name="answer[113]" type="radio" class="" value="NO" />
                     <label for="answer" class="">&nbsp;No</label>
                     <!--./question type-->
                 </div>
@@ -41,12 +43,12 @@
             </div>
             <!--./col-->
 
-            <div class="col-md-12" style="margin-top: -15px;">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label>Remarks </label>
                     <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
-                        placeholder="Write remarks..." id="remarks"></textarea>
+                    <textarea rows="3" cols="40" name="remarks[113]" class="form-control" placeholder="Write remarks..."
+                        id="remarks"></textarea>
                 </div>
                 <!--./form-group-->
             </div>
@@ -56,7 +58,7 @@
                 <div class="form-group">
                     <label>Attachments </label>
                     <!--./float-right-->
-                    <input type="file" name="attachments" class="form-control" />
+                    <input type="file" name="attachments[113]" class="form-control" multiple />
                 </div>
                 <!--./form-group-->
             </div>
@@ -65,91 +67,15 @@
         <!--./row-->
     </div>
     <!--./form-card-->
-
-           <!--start-->
-           <div class="form-card">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>3.2. Has the MoH rolled out EBS at various levels of health care? </label>
-                        <p class="small">
-                            Provide evidence of the plan; Does the plan cover rolling out EBS to the whole country? 
-                        </p>
-                    </div>
-                    <!--./form-group-->
-                </div>
-                <!--./col-->
-            </div>
-            <!--./row-->
-    
-    
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <!--question type-->
-                        <input id="answer" name="answer" type="radio" class="" value="YES" />
-                        <label for="answer" class="">&nbsp;Yes</label>
-                        <br />
-                        <input id="answer" name="answer" type="radio" class="" value="NO" />
-                        <label for="answer" class="">&nbsp;No</label>
-                        <!--./question type-->
-                    </div>
-                    <!--./form-group-->
-                </div>
-                <!--./col-->
-    
-                <div class="col-md-12" style="margin-top: -15px;">
-                    <div class="form-group">
-                        <label>Remarks </label>
-                        <!--./float-right-->
-                        <textarea rows="3" cols="40" name="remarks" class="form-control"
-                            placeholder="Write remarks..." id="remarks"></textarea>
-                    </div>
-                    <!--./form-group-->
-                </div>
-                <!--./col-->
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Attachments </label>
-                        <!--./float-right-->
-                        <input type="file" name="attachments" class="form-control" />
-                    </div>
-                    <!--./form-group-->
-                </div>
-                <!--./col-->
-            </div>
-            <!--./row-->
-        </div>
-        <!--./form-card-->
-
-
-        <!--start-->
-       <div class="form-card">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>3.3. If yes, what is the scope of interventions and structures for EBS in each level of service delivery?</label>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-
-
-    </div>
-    <!--./form-card-->
-
 
     <!--start-->
     <div class="form-card">
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>3.4. Have coordination mechanisms between various levels of government and across relevant collaborating sectors including integration and use of data at all levels been established?</label>
+                    <label>{{ 114|get_qn_title }}</label>
                     <p class="small">
-                        Evidence of inter-sector data sharing schemes. Examples of inter-sectoral communication may be attached.
+                        {{ 114|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -163,10 +89,10 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
+                    <input id="answer" name="answer[114]" type="radio" class="" value="YES" />
                     <label for="answer" class="">&nbsp;Yes</label>
                     <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
+                    <input id="answer" name="answer[114]" type="radio" class="" value="NO" />
                     <label for="answer" class="">&nbsp;No</label>
                     <!--./question type-->
                 </div>
@@ -174,12 +100,12 @@
             </div>
             <!--./col-->
 
-            <div class="col-md-12" style="margin-top: -15px;">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label>Remarks </label>
                     <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
-                        placeholder="Write remarks..." id="remarks"></textarea>
+                    <textarea rows="3" cols="40" name="remarks[114]" class="form-control" placeholder="Write remarks..."
+                        id="remarks"></textarea>
                 </div>
                 <!--./form-group-->
             </div>
@@ -189,7 +115,7 @@
                 <div class="form-group">
                     <label>Attachments </label>
                     <!--./float-right-->
-                    <input type="file" name="attachments" class="form-control" />
+                    <input type="file" name="attachments[114]" class="form-control" />
                 </div>
                 <!--./form-group-->
             </div>
@@ -205,9 +131,30 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>3.5. Are other sectors beyond human health such as animal, agriculture, environment, customs, immigration, etc playing an active role in the EBS roll out? If None, skip to question 3.7</label>
+                    <label>{{ 115|get_qn_title }}</label>
                     <p class="small">
-                        If "Yes" provide evidence.
+                        {{ 115|get_qn_hint }}
+                    </p>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+
+
+    </div>
+    <!--./form-card-->
+
+
+    <!--start-->
+    <div class="form-card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 120|get_qn_title }}</label>
+                    <p class="small">
+                        {{ 120|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -221,10 +168,68 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
+                    <input id="answer" name="answer[120]" type="radio" class="" value="YES" />
                     <label for="answer" class="">&nbsp;Yes</label>
                     <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
+                    <input id="answer" name="answer[120]" type="radio" class="" value="NO" />
+                    <label for="answer" class="">&nbsp;No</label>
+                    <!--./question type-->
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Remarks </label>
+                    <!--./float-right-->
+                    <textarea rows="3" cols="40" name="remarks[120]" class="form-control" placeholder="Write remarks..."
+                        id="remarks"></textarea>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Attachments </label>
+                    <!--./float-right-->
+                    <input type="file" name="attachments[120]" class="form-control" multiple />
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+    </div>
+    <!--./form-card-->
+
+
+    <!--start-->
+    <div class="form-card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 121|get_qn_title }}</label>
+                    <p class="small">
+                        {{ 121|get_qn_hint }}
+                    </p>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <!--question type-->
+                    <input id="answer" name="answer[121]" type="radio" class="" value="YES" />
+                    <label for="answer" class="">&nbsp;Yes</label>
+                    <br />
+                    <input id="answer" name="answer[121]" type="radio" class="" value="NO" />
                     <label for="answer" class="">&nbsp;No</label>
                     <!--./question type-->
                 </div>
@@ -236,7 +241,7 @@
                 <div class="form-group">
                     <label>Attachments </label>
                     <!--./float-right-->
-                    <input type="file" name="attachments" class="form-control" />
+                    <input type="file" name="attachments[121]" class="form-control" multiple />
                 </div>
                 <!--./form-group-->
             </div>
@@ -252,9 +257,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>3.6. If involved, at what levels are they involved (community, health facility, intermediate, national levels?</label>
+                    <label>{{ 122|get_qn_title }}</label>
                     <p class="small">
-                        Indicate the nature of collaboration at the various levels of EBS implementation
+                        {{ 122|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -263,13 +268,32 @@
         </div>
         <!--./row-->
 
-
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
                     <!--question type-->
-                    <textarea rows="4" cols="40" name="answer" class="textarea form-control"
-                                                    id="answer"></textarea>
+                    <input id="answer" name="answer[122]" type="checkbox" class="" value="Community" />
+                    <label for="answer" class="">&nbsp;Community</label>
+                    <br />
+                    <input id="answer" name="answer[122]" type="checkbox" class="" value="Health facility" />
+                    <label for="answer" class="">&nbsp;Health facility</label>
+                    <br />
+                    <input id="answer" name="answer[122]" type="checkbox" class="" value="Intermediate" />
+                    <label for="answer" class="">&nbsp;Intermediate</label>
+                    <br />
+                    <input id="answer" name="answer[122]" type="checkbox" class="" value="National levels" />
+                    <label for="answer" class="">&nbsp;National levels</label>
+                    <!--./question type-->
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <!--question type-->
+                    <label>Remarks </label>
+                    <textarea rows="3" cols="40" name="remarks[]" class="textarea form-control" id="remarks"></textarea>
                     <!--./question type-->
                 </div>
                 <!--./form-group-->
@@ -286,9 +310,39 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>3.7. Have the roles and responsibilities of various stakeholders at the various levels of health system involved in the implementation of EBS been clearly outlined. </label>
+                    <label>{{ 123|get_qn_title }}</label>
                     <p class="small">
-                        Provide roles and responsibilities/terms of reference of the various levels; all may be part of the national guideline
+                        {{ 123|get_qn_hint }}
+                    </p>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <textarea rows="3" cols="40" name="answer[123]" class="textarea form-control"
+                        id="answer"></textarea>
+                </div>
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+    </div>
+    <!--./form-card-->
+
+
+    <!--start-->
+    <div class="form-card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 124|get_qn_title }}</label>
+                    <p class="small">
+                        {{ 124|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -302,10 +356,324 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
+                    <input id="answer" name="answer[124]" type="radio" class="" value="YES" />
                     <label for="answer" class="">&nbsp;Yes</label>
                     <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
+                    <input id="answer" name="answer[124]" type="radio" class="" value="NO" />
+                    <label for="answer" class="">&nbsp;No</label>
+                    <!--./question type-->
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Remarks </label>
+                    <!--./float-right-->
+                    <textarea rows="3" cols="40" name="remarks[124]" class="form-control" placeholder="Write remarks..."
+                        id="remarks"></textarea>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+    </div>
+    <!--./form-card-->
+
+
+    <!--start-->
+    <div class="form-card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 125|get_qn_title }}</label>
+                    <p class="small">
+                        {{ 125|get_qn_hint }}
+                    </p>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <!--question type-->
+                    <textarea rows="3" cols="40" name="answer[125]" class="form-control" placeholder="Write answer..."
+                        id="answer"></textarea>
+                    <!--./question type-->
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+    </div>
+    <!--./form-card-->
+
+
+    <!--start-->
+    <div class="form-card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 126|get_qn_title }}</label>
+                    <p class="small">
+                        {{ 126|get_qn_hint }}
+                    </p>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <!--question type-->
+                    <input id="answer" name="answer[126]" type="radio" class="" value="YES" />
+                    <label for="answer" class="">&nbsp;Yes</label>
+                    <br />
+                    <input id="answer" name="answer[126]" type="radio" class="" value="NO" />
+                    <label for="answer" class="">&nbsp;No</label>
+                    <!--./question type-->
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Remarks </label>
+                    <!--./float-right-->
+                    <textarea rows="3" cols="40" name="remarks[126]" class="form-control" placeholder="Write remarks..."
+                        id="remarks"></textarea>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+    </div>
+    <!--./form-card-->
+
+
+    <!--start-->
+    <div class="form-card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 127|get_qn_title }}</label>
+                    <p class="small">
+                        {{ 127|get_qn_hint }}
+                    </p>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <!--question type-->
+                    <input id="answer" name="answer[127]" type="radio" class="" value="YES" />
+                    <label for="answer" class="">&nbsp;Yes</label>
+                    <br />
+                    <input id="answer" name="answer[127]" type="radio" class="" value="NO" />
+                    <label for="answer" class="">&nbsp;No</label>
+                    <!--./question type-->
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Remarks </label>
+                    <!--./float-right-->
+                    <textarea rows="3" cols="40" name="remarks[127]" class="form-control" placeholder="Write remarks..."
+                        id="remarks"></textarea>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+    </div>
+    <!--./form-card-->
+
+
+    <!--start-->
+    <div class="form-card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 128|get_qn_title }}</label>
+                    <p class="small">
+                        {{ 128|get_qn_hint }}
+                    </p>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <!--question type-->
+                    <input id="answer" name="answer[128]" type="radio" class="" value="YES" />
+                    <label for="answer" class="">&nbsp;Yes</label>
+                    <br />
+                    <input id="answer" name="answer[128]" type="radio" class="" value="NO" />
+                    <label for="answer" class="">&nbsp;No</label>
+                    <!--./question type-->
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Remarks </label>
+                    <!--./float-right-->
+                    <textarea rows="3" cols="40" name="remarks[128]" class="form-control" placeholder="Write remarks..."
+                        id="remarks"></textarea>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+    </div>
+    <!--./form-card-->
+
+
+    <!--start-->
+    <div class="form-card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 129|get_qn_title }}</label>
+                    <p class="small">
+                        {{ 129|get_qn_hint }}
+                    </p>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+    </div>
+    <!--./form-card-->
+
+
+    <!--start-->
+    <div class="form-card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 135|get_qn_title }}</label>
+                    <p class="small">
+                        {{ 135|get_qn_hint }}
+                    </p>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <!--question type-->
+                    <input id="answer" name="answer[135]" type="radio" class="" value="YES" />
+                    <label for="answer" class="">&nbsp;Yes</label>
+                    <br />
+                    <input id="answer" name="answer[135]" type="radio" class="" value="NO" />
+                    <label for="answer" class="">&nbsp;No</label>
+                    <!--./question type-->
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+    </div>
+    <!--./form-card-->
+
+    <!--start-->
+    <div class="form-card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 136|get_qn_title }}</label>
+                    <p class="small">
+                        {{ 136|get_qn_hint }}
+                    </p>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <!--question type-->
+                    <input id="answer" name="answer[136]" type="radio" class="" value="YES" />
+                    <label for="answer" class="">&nbsp;Yes</label>
+                    <br />
+                    <input id="answer" name="answer[136]" type="radio" class="" value="NO" />
+                    <label for="answer" class="">&nbsp;No</label>
+                    <!--./question type-->
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+    </div>
+    <!--./form-card-->
+
+    <!--start-->
+    <div class="form-card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 137|get_qn_title }}</label>
+                    <p class="small">
+                        {{ 137|get_qn_hint }}
+                    </p>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <!--question type-->
+                    <input id="answer" name="answer[137]" type="radio" class="" value="YES" />
+                    <label for="answer" class="">&nbsp;Yes</label>
+                    <br />
+                    <input id="answer" name="answer[137]" type="radio" class="" value="NO" />
                     <label for="answer" class="">&nbsp;No</label>
                     <!--./question type-->
                 </div>
@@ -317,8 +685,8 @@
                 <div class="form-group">
                     <label>Remarks </label>
                     <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
-                        placeholder="Write remarks..." id="remarks"></textarea>
+                    <textarea rows="3" cols="40" name="remarks[137]" class="form-control" placeholder="Write remarks..."
+                        id="remarks"></textarea>
                 </div>
                 <!--./form-group-->
             </div>
@@ -328,203 +696,14 @@
     </div>
     <!--./form-card-->
 
-
     <!--start-->
     <div class="form-card">
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>3.8. Are there technical working groups at various levels of service delivery with responsibility to roll out EBS? (the TWGs need not be specific but existing TWGs may have the added role of EBS implementation)</label>
+                    <label>{{ 138|get_qn_title }}</label>
                     <p class="small">
-                        Provide evidence of meetings. Guidelines of their operation, if available.
-                    </p>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
-                    <label for="answer" class="">&nbsp;Yes</label>
-                    <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
-                    <label for="answer" class="">&nbsp;No</label>
-                    <!--./question type-->
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>Remarks </label>
-                    <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
-                        placeholder="Write remarks..." id="remarks"></textarea>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>Attachments </label>
-                    <!--./float-right-->
-                    <input type="file" name="attachments" class="form-control" />
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-    </div>
-    <!--./form-card-->
-
-
-    <!--start-->
-    <div class="form-card">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>3.9. If yes, to 3.7 above, are these TWG multi-sectoral? (indicate the sectors represented)</label>
-                    <p class="small">
-                        
-                    </p>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
-                    <label for="answer" class="">&nbsp;Yes</label>
-                    <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
-                    <label for="answer" class="">&nbsp;No</label>
-                    <!--./question type-->
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-
-            <div class="col-md-12" style="margin-top: -15px;">
-                <div class="form-group">
-                    <label>Remarks </label>
-                    <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
-                        placeholder="Write remarks..." id="remarks"></textarea>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-    </div>
-    <!--./form-card-->
-
-
-    <!--start-->
-    <div class="form-card">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>3.10. Has the country adopted/adapted the WHO AFRO IDSR technical guidelines (3rd edition of 2019). Explain which edition is currently in use</label>
-                    <p class="small">
-                        Provide a detailed list of priority diseases adopted by the country
-                    </p>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <!--question type-->
-                    <textarea rows="4" cols="40" name="answer" class="textarea form-control"
-                                                    id="answer"></textarea>
-                    <!--./question type-->
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-    </div>
-    <!--./form-card-->
-
-
-    <!--start-->
-    <div class="form-card">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>3.11. Has the country identied priority diseases for IDSR under the following categories (epidemic prone diseases, diseases targeted for eradication and elimination, diseases of public health importance including non-communicable diseases)</label>
-                    <p class="small">
-                        Provide a detailed list of priority diseases adopted by the country. Highlight those that are not included in the WHO AFRO IDSR guidelines and reasons for their inclusion in the country one.
-                    </p>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
-                    <label for="answer" class="">&nbsp;Yes</label>
-                    <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
-                    <label for="answer" class="">&nbsp;No</label>
-                    <!--./question type-->
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-
-            <div class="col-md-12" style="margin-top: -15px;">
-                <div class="form-group">
-                    <label>Remarks </label>
-                    <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
-                        placeholder="Write remarks..." id="remarks"></textarea>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-    </div>
-    <!--./form-card-->
-
-
-    <!--start-->
-    <div class="form-card">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>3.12. Has the National TWG prepared and agreed upon a list of priority signals for EBS?</label>
-                    <p class="small">
-                        Provide a list of detailed signals for early detection, by level
+                        {{ 138|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -537,101 +716,8 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
-                    <label for="answer" class="">&nbsp;Yes</label>
-                    <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
-                    <label for="answer" class="">&nbsp;No</label>
-                    <!--./question type-->
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-
-            <div class="col-md-12" style="margin-top: -15px;">
-                <div class="form-group">
-                    <label>Remarks </label>
-                    <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
-                        placeholder="Write remarks..." id="remarks"></textarea>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-    </div>
-    <!--./form-card-->
-
-
-    <!--start-->
-    <div class="form-card">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>3.13. Has the country developed signals that would allow for the early detection of events?</label>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
-                    <label for="answer" class="">&nbsp;Yes</label>
-                    <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
-                    <label for="answer" class="">&nbsp;No</label>
-                    <!--./question type-->
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-
-            <div class="col-md-12" style="margin-top: -15px;">
-                <div class="form-group">
-                    <label>Remarks </label>
-                    <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
-                        placeholder="Write remarks..." id="remarks"></textarea>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-    </div>
-    <!--./form-card-->
-
-
-    <!--start-->
-    <div class="form-card">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>3.14. For communities, have the signals translated to local language where implementation has been prioritized?</label>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
-                    <label for="answer" class="">&nbsp;Yes</label>
-                    <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
-                    <label for="answer" class="">&nbsp;No</label>
+                    <textarea rows="4" cols="40" name="answer[138]" class="textarea form-control"
+                        id="answer"></textarea>
                     <!--./question type-->
                 </div>
                 <!--./form-group-->
@@ -641,120 +727,8 @@
         <!--./row-->
     </div>
     <!--./form-card-->
-
-    <!--start-->
-    <div class="form-card">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>3.15. Has field testing of the signals been done before roll out of the implementation of EBS?</label>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
-                    <label for="answer" class="">&nbsp;Yes</label>
-                    <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
-                    <label for="answer" class="">&nbsp;No</label>
-                    <!--./question type-->
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-    </div>
-    <!--./form-card-->
-
-    <!--start-->
-    <div class="form-card">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>Has there been any level of engagement of community, </label>
-                    <p class="small">
-                        Have communities been sensitized on EBS? What is the country coverage of such sensitization?
-                    </p>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
-                    <label for="answer" class="">&nbsp;Yes</label>
-                    <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
-                    <label for="answer" class="">&nbsp;No</label>
-                    <!--./question type-->
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-
-            <div class="col-md-12" style="margin-top: -15px;">
-                <div class="form-group">
-                    <label>Remarks </label>
-                    <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
-                        placeholder="Write remarks..." id="remarks"></textarea>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-    </div>
-    <!--./form-card-->
-
-    <!--start-->
-    <div class="form-card">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>If EBS in the country is not rolled out yet, what are the challenges?</label>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <!--question type-->
-                    <textarea rows="4" cols="40" name="answer" class="textarea form-control"
-                    id="answer"></textarea>
-                    <!--./question type-->
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-    </div>
-    <!--./form-card-->
-
-
-
 
     <!--./buttons -->
     <input type="" name="post_exit" class="action-button-previous" value="Save and Exit" />
-    <input type="button" name="post_next" class="next action-button"
-        value="Save and Continue" />
+    <input type="button" name="post_next" class="next action-button" value="Save and Continue" />
 </fieldset>

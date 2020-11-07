@@ -1,3 +1,5 @@
+{% load ebs_tags %}
+
 <fieldset>
     <div class="row">
         <div class="col-md-12">
@@ -15,9 +17,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>4.1. Is there an annual budget for the National Institute of Public Health/Country to discharge its functions?</label>
+                    <label>{{ 139|get_qn_title }}</label>
                     <p class="small">
-                        Where the NHPI is not existent, is there a budget for that organ that coordinated EBS activities? Show evidence of the financial allocations  
+                        {{ 139|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -31,10 +33,10 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
+                    <input id="answer" name="answer[139]" type="radio" class="" value="YES" />
                     <label for="answer" class="">&nbsp;Yes</label>
                     <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
+                    <input id="answer" name="answer[139]" type="radio" class="" value="NO" />
                     <label for="answer" class="">&nbsp;No</label>
                     <!--./question type-->
                 </div>
@@ -42,11 +44,11 @@
             </div>
             <!--./col-->
 
-            <div class="col-md-12" style="margin-top: -15px;">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label>Remarks </label>
                     <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
+                    <textarea rows="3" cols="40" name="remarks[139]" class="form-control"
                         placeholder="Write remarks..." id="remarks"></textarea>
                 </div>
                 <!--./form-group-->
@@ -57,7 +59,7 @@
                 <div class="form-group">
                     <label>Attachments </label>
                     <!--./float-right-->
-                    <input type="file" name="attachments" class="form-control" />
+                    <input type="file" name="attachments[139]" class="form-control" />
                 </div>
                 <!--./form-group-->
             </div>
@@ -73,9 +75,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>4.2. Who are the financiers of the NPHI/Country Public Health functions (surveillance, preparedness and response etc)?</label>
+                    <label>{{ 140|get_qn_title }}</label>
                     <p class="small">
-                        Indicate the funding level - proportion of the total budget for EBS. Find status for at least the current and last financial years. Are there plans /promises for other funding sources.
+                        {{ 140|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -93,9 +95,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>4.3. Is there a dedicated line item to implement EBS in the country budget?</label>
+                    <label>{{ 146|get_qn_title }}</label>
                     <p class="small">
-                        What is the situation in the national and local governments where services and authority have been de-centralized 
+                        {{ 146|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -109,10 +111,10 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
+                    <input id="answer" name="answer[146]" type="radio" class="" value="YES" />
                     <label for="answer" class="">&nbsp;Yes</label>
                     <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
+                    <input id="answer" name="answer[146]" type="radio" class="" value="NO" />
                     <label for="answer" class="">&nbsp;No</label>
                     <!--./question type-->
                 </div>
@@ -120,11 +122,11 @@
             </div>
             <!--./col-->
 
-            <div class="col-md-12" style="margin-top: -15px;">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label>Remarks </label>
                     <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
+                    <textarea rows="3" cols="40" name="remarks[146]" class="form-control"
                         placeholder="Write remarks..." id="remarks"></textarea>
                 </div>
                 <!--./form-group-->
@@ -141,9 +143,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>4.4. Have the following resources been put in place to facilitate the implementation of EBS (this could be part of the ongoing surveillance planning) </label>
+                    <label>{{ 147|get_qn_title }}</label>
                     <p class="small">
-                        What is the status by level (national, intermediate, health facility and community)
+                        {{ 147|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -161,9 +163,28 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>4.5.  Has there been support obtained from the RCC to facilitate EBS roll out in the country</label>
+                    <label>{{ 156|get_qn_title }}</label>
                     <p class="small">
-                        State if there is any arrangement in pipeline, and if assistance may have covered other parts of the country and not others.
+                        {{ 156|get_qn_hint }}
+                    </p>
+                </div>
+                <!--./form-group-->
+            </div>
+            <!--./col-->
+        </div>
+        <!--./row-->
+    </div>
+    <!--./form-card-->
+
+
+    <!--start-->
+    <div class="form-card">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{ 160|get_qn_title }}</label>
+                    <p class="small">
+                        {{ 160|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -177,10 +198,10 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
+                    <input id="answer" name="answer[160]" type="radio" class="" value="YES" />
                     <label for="answer" class="">&nbsp;Yes</label>
                     <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
+                    <input id="answer" name="answer[160]" type="radio" class="" value="NO" />
                     <label for="answer" class="">&nbsp;No</label>
                     <!--./question type-->
                 </div>
@@ -188,11 +209,11 @@
             </div>
             <!--./col-->
 
-            <div class="col-md-12" style="margin-top: -15px;">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label>Remarks </label>
                     <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
+                    <textarea rows="3" cols="40" name="remarks[160]" class="form-control"
                         placeholder="Write remarks..." id="remarks"></textarea>
                 </div>
                 <!--./form-group-->
@@ -209,9 +230,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>4.6. Are there training physical facilities at the National Institute of Public Health that are available for training surveillance teams including EBS teams?</label>
+                    <label>{{ 161|get_qn_title }}</label>
                     <p class="small">
-                        If not what are the alternative systems for training in place
+                        {{ 161|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -225,10 +246,10 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
+                    <input id="answer" name="answer[161]" type="radio" class="" value="YES" />
                     <label for="answer" class="">&nbsp;Yes</label>
                     <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
+                    <input id="answer" name="answer[161]" type="radio" class="" value="NO" />
                     <label for="answer" class="">&nbsp;No</label>
                     <!--./question type-->
                 </div>
@@ -240,7 +261,7 @@
                 <div class="form-group">
                     <label>Remarks </label>
                     <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
+                    <textarea rows="3" cols="40" name="remarks[161]" class="form-control"
                         placeholder="Write remarks..." id="remarks"></textarea>
                 </div>
                 <!--./form-group-->
@@ -257,9 +278,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>4.7. Are there virtual training facilities at the NPHI and other levels of service delivery, video conference facilities, eLearning Platforms and other virtual platforms</label>
+                    <label>{{ 162|get_qn_title }}</label>
                     <p class="small">
-                        Indicate the training resources available at national level. Indicate arrangements for training at lower levels in the country.
+                        {{ 162|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -273,10 +294,10 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
+                    <input id="answer" name="answer[162]" type="radio" class="" value="YES" />
                     <label for="answer" class="">&nbsp;Yes</label>
                     <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
+                    <input id="answer" name="answer[162]" type="radio" class="" value="NO" />
                     <label for="answer" class="">&nbsp;No</label>
                     <!--./question type-->
                 </div>
@@ -284,11 +305,11 @@
             </div>
             <!--./col-->
 
-            <div class="col-md-12" style="margin-top: -15px;">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label>Remarks </label>
                     <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
+                    <textarea rows="3" cols="40" name="remarks[162]" class="form-control"
                         placeholder="Write remarks..." id="remarks"></textarea>
                 </div>
                 <!--./form-group-->
@@ -305,9 +326,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>4.8. Are the funding needs for EBS roll out met for the current year? </label>
+                    <label>{{ 163|get_qn_title }}</label>
                     <p class="small">
-                        Is there any support expected, but still in pipeline? What is the source?
+                        {{ 163|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -321,52 +342,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <!--question type-->
-                    <input id="answer" name="answer" type="radio" class="" value="YES" />
-                    <label for="answer" class="">&nbsp;Yes</label>
-                    <br />
-                    <input id="answer" name="answer" type="radio" class="" value="NO" />
-                    <label for="answer" class="">&nbsp;No</label>
-                    <!--./question type-->
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-
-            <div class="col-md-12" style="margin-top: -15px;">
-                <div class="form-group">
-                    <label>Remarks </label>
-                    <!--./float-right-->
-                    <textarea rows="3" cols="40" name="remarks" class="form-control"
-                        placeholder="Write remarks..." id="remarks"></textarea>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-    </div>
-    <!--./form-card-->
-
-
-    <!--start-->
-    <div class="form-card">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>4.8. If not what is the financial gap? </label>
-                </div>
-                <!--./form-group-->
-            </div>
-            <!--./col-->
-        </div>
-        <!--./row-->
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <!--question type-->
-                    <textarea rows="4" cols="40" name="answer" class="textarea form-control"
+                    <textarea rows="4" cols="40" name="answer[163]" class="textarea form-control"
                                                     id="answer"></textarea>
                     <!--./question type-->
                 </div>
@@ -384,9 +360,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>4.10. What are the areas/or components of EBS that are left uncovered or under funded?</label>
+                    <label>{{ 164|get_qn_title }}</label>
                     <p class="small">
-                        Indicate the areas in the plan that are unfunded/underfunded. Find out the situation at national and lower levels
+                        {{ 164|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -400,7 +376,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <!--question type-->
-                    <textarea rows="4" cols="40" name="answer" class="textarea form-control"
+                    <textarea rows="4" cols="40" name="answer[164]" class="textarea form-control"
                                                     id="answer"></textarea>
                     <!--./question type-->
                 </div>
@@ -418,9 +394,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>4.11. Is there a resource mobilization strategy to finance EBS activities?</label>
+                    <label>{{ 165|get_qn_title }}</label>
                     <p class="small">
-                        Both for national and lower levels
+                        {{ 165|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -434,7 +410,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <!--question type-->
-                    <textarea rows="4" cols="40" name="answer" class="textarea form-control"
+                    <textarea rows="4" cols="40" name="answer[165]" class="textarea form-control"
                                                     id="answer"></textarea>
                     <!--./question type-->
                 </div>

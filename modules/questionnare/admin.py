@@ -59,8 +59,8 @@ class SectionAdmin(admin.ModelAdmin):
 #Question List
 @admin.register(QuestionList)
 class QuestionListAdmin(admin.ModelAdmin):
-    list_display = ['code','title', 'qn_type', 'has_sub']
-    list_filter = ['section','code']
+    list_display = ['id','code','title', 'qn_type', 'has_sub']
+    list_filter = ['section']
     ordering = ("section","code",)
 
 

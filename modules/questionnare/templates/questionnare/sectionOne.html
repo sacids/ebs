@@ -1,3 +1,5 @@
+{% load ebs_tags %}
+
 <fieldset>
     <div class="row">
         <div class="col-md-12">
@@ -17,15 +19,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>1.1.
-                        Is there a legal or policy framework for establishing event-based
-                        surveillance (EBS) system in the country?</label>
+                    <label>{{ 73|get_qn_title }}</label>
                     <p class="small">
-                        Providet evidence of any policy document providing for
-                        implementation of disease surveillance for early warning purposes in
-                        the country. May include adoption of the IDSR strategy in the
-                        country. Ask if statute declaration is available or in the making.
-                        Atach mentioned copies if available.
+                        {{ 73|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -68,14 +64,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>1.2.
-                        Has the government developed a guidance document for establishing
-                        EBS in the country?</label>
+                    <label>{{ 74|get_qn_title }}</label>
                     <p class="small">
-                        &quot;Guidance document may include national strategy, technical
-                        guidelines or any other document that provides instructions to
-                        health workers on what should be done to implement EBS at any level.
-                        Attach copies available.&quot;
+                        {{ 74|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -120,15 +111,9 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label>1.3.
-                        &quot;If yes to question 1.2, does the guidance document cover
-                        sectors beyond human health-related such as animal, agriculture,
-                        environment, customs, immigration etc ?&quot;</label>
+                        {{ 75|get_qn_title }}</label>
                     <p class="small">
-                        &quot;Do the documents propose routine collaboration and sharing of
-                        information, beyond just mentioning
-                        &quot;&quot;multi-sectoral&quot;&quot; . Do they require health to
-                        involve other sectors and vice versa in collecting data on potential
-                        acute health events&quot;
+                        {{ 75|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -173,13 +158,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>1.4.
-                        Has the government appointed a national focal person for EBS or an
-                        officer In-charge of EBS identified?</label>
+                    <label>{{ 76|get_qn_title }}</label>
                     <p class="small">
-                        Is there a dedicated official who&#39;s responsible for EBS or early
-                        warning and response at national level. May be assigned the role in
-                        addition to other duties.
+                        {{ 76|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -224,11 +205,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>1.5.
-                        Has the government developed a roll-out plan for EBS in the
-                        country?</label>
+                    <label>{{ 77|get_qn_title }}</label>
                     <p class="small">
-                        &quot;Provide evidence of a plan with activities and timelines
+                        {{ 77|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -272,13 +251,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>1.6.
-                        Is there National Public Health Institute (NPHI) established in the
-                        country or a coordinating structure for the NPHI?</label>
+                    <label>{{ 78|get_qn_title }}</label>
                     <p class="small">
-                        &quot;It could be a fully-fledged institute, or could be some
-                        structure performing the duties of the NPHI. Describe what is
-                        available. &quot;
+                        {{ 78|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -322,11 +297,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>1.7.
-                        &quot;Is there established Emergency Operating Center (EOC) in the
-                        country? If No, go to question 1.9&quot;</label>
+                    <label>{{ 79|get_qn_title }}</label>
                     <p class="small">
-                        &quot;Is there a PHEOC
+                        {{ 79|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -370,12 +343,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>1.8.
-                        Does the EOC have the essential components to function
-                        effectively?</label>
+                    <label>{{ 80|get_qn_title }}</label>
                     <p class="small">
-                        Describe the status of: Availability and use of (i)written plans and
-                        procedures
+                        {{ 80|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -419,16 +389,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>1.9.
-                        Is there a established community structures for community based
-                        surveillance and community EBS (community health workers/volunteers
-                        structures in health care)?</label>
+                    <label>{{ 81|get_qn_title }}</label>
                     <p class="small">
-                        Evidence of policy/strategy/ for deploying cadres for detecting
-                        potential threats at community level. It is possible to have the
-                        function conducted without it being called EBS. Find out if there
-                        are community structures for detecting acute health events. Attach
-                        what is available.
+                        {{ 81|get_qn_hint }}
                     </p>
                 </div>
                 <!--./form-group-->
@@ -468,6 +431,6 @@
     <!--./form-card-->
 
     <!--./buttons -->
-    <input type="" name="post_exit" class="action-button-previous" value="Save and Exit" />
-    <input type="submit" name="post_next" class="action-button" value="Save and Continue" />
+    <input type="button" name="post_exit" class="action-button-previous" value="Save and Exit" />
+    <input type="button" name="post_next" class="next action-button" value="Save and Continue" />
 </fieldset>

@@ -59,7 +59,7 @@ class QuestionnareCreateView(generic.CreateView):
         user_id = kwargs['pk']
 
         # if post next => save
-        if request.POST.get('post_next'):
+        if request.POST.get('post_n'):
             section_id = request.POST.get('section_id')
 
             # query questions
