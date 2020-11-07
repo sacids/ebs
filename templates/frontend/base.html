@@ -39,28 +39,18 @@
 
 <body>
     <!-- Fixed navbar -->
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">Events Based Surveillance Situational analysis questionnaire</a>
-            </div>
-            <!--./navbar-header-->
-        </div>
-        <!--./container-fluid -->
-    </nav>
+   
     <!-- /fixed navbar -->
 
-    <div class="page-header">
+    <div class="page-header border-bottom  border-primary">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="text-center">
-                        <a href="/">
-                            <img src="{% static 'img/africacdc.png' %}" alt="AfricaCDC" height="80" />
-                        </a>
-                    </div>
-                    <!--./pull-left-->
+            <div class="d-flex flex-row ">
+                <div class="p-0 mr-auto">
+                    <a href="/">
+                        <img src="{% static 'img/africacdc.png' %}" alt="AfricaCDC" height="80" />
+                    </a>
                 </div>
+                <div class="pt-4"><h4>Events Based Surveillance Situational analysis questionnaire</h4></div>
                 <!--./col-md-12-->
             </div>
             <!--./row-->
@@ -69,7 +59,23 @@
     </div>
     <!-- /page header -->
 
-    {% block content %}{% endblock %}
+    
+    
+    
+    <!-- Page content -->
+    <div class="page-content bg-grey pt-3">
+        <div class="row px-5 mx-5">
+            <div class="col-md-8 offset-md-2 col-11">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+
+    </div>
+    
+    
+    
+    
 </body>
 
 </html>

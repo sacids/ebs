@@ -28,8 +28,12 @@ ANSWER = (
     ("NONE", "None")
 )
 
-
-
+STATUS = (
+    ("NEW", "New"),
+    ("INCOMPLETE", "Incomplete"),
+    ("SUBMITTED", "Submitted"),
+    ("VERIFIED", "Verified")
+)
 # councils
 
 
@@ -51,8 +55,9 @@ class Council(models.Model):
 
 class Country(models.Model):
     """A class to create country table."""
-    title = models.CharField(max_length=100)
+    title   = models.CharField(max_length=100)
     council = models.ForeignKey(Council, on_delete=models.SET_NULL, null=True)
+    status  = models.CharField(choices=STATUS, verbose_name="Has sub question?", max_length=10, null=True, default="NO")
 
     class Meta:
         db_table = "contries"
