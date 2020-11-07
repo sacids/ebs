@@ -5,7 +5,8 @@ from . import views
 
 app_name = 'questionnare'
 urlpatterns = [
-    path("questions/", views.QuestionnareCreateView.as_view(), name="questionnare"),
+    path("", views.default, name="index"),
+    path("questions/", views.QuestionnareCreateView.as_view(), name="questions"),
     path('success/', views.success, name='success'),
 
     # filters

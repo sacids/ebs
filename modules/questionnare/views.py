@@ -16,22 +16,10 @@ from django.contrib.auth.decorators import login_required
 
 # default
 
-
-# def default(request):
-#     if request.method == 'POST':
-#         inputEmail = request.POST.get('email')
-
-#         try:
-#             respondent = Respondent.objects.get(email=inputEmail)
-#         except ObjectDoesNotExist:
-#             messages.add_message(request, messages.ERROR,
-#                                  'Email address does not exist')
-#         else:
-#             # redirect
-#             return redirect('questions/%s' % respondent.id)
-
-#     # render view
-#     return render(request, 'questionnare/index.html', {})
+@login_required
+def default(request):
+    if request.user.is_authenticated:
+        return redirect('questions/')
 
 
 # question create view
