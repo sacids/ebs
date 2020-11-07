@@ -157,4 +157,4 @@ MEDIA_ROOT = str(BASE_DIR / "assets/media")
 MEDIA_URL = "/assets/media/"
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
-LOGIN_REDIRECT_URL = '/dashboard'
+LOGIN_REDIRECT_URL = '/questions'

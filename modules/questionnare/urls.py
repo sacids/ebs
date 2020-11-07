@@ -6,7 +6,7 @@ from . import views
 app_name = 'questionnare'
 urlpatterns = [
     path("", views.default, name="index"),
-    path("questions/<int:pk>", views.QuestionnareCreateView.as_view(), name="questionnare"),
+    path("questions/", views.QuestionnareCreateView.as_view(), name="questionnare"),
     path('success/', views.success, name='success'),
 
     # filters
