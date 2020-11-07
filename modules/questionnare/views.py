@@ -12,25 +12,26 @@ from .models import *
 from .forms import RespondentForm
 from django.http import JsonResponse
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.decorators import login_required
 
 # default
 
 
-def default(request):
-    if request.method == 'POST':
-        inputEmail = request.POST.get('email')
+# def default(request):
+#     if request.method == 'POST':
+#         inputEmail = request.POST.get('email')
 
-        try:
-            respondent = Respondent.objects.get(email=inputEmail)
-        except ObjectDoesNotExist:
-            messages.add_message(request, messages.ERROR,
-                                 'Email address does not exist')
-        else:
-            # redirect
-            return redirect('questions/%s' % respondent.id)
+#         try:
+#             respondent = Respondent.objects.get(email=inputEmail)
+#         except ObjectDoesNotExist:
+#             messages.add_message(request, messages.ERROR,
+#                                  'Email address does not exist')
+#         else:
+#             # redirect
+#             return redirect('questions/%s' % respondent.id)
 
-    # render view
-    return render(request, 'questionnare/index.html', {})
+#     # render view
+#     return render(request, 'questionnare/index.html', {})
 
 
 # question create view
@@ -40,19 +41,14 @@ class QuestionnareCreateView(generic.CreateView):
     success_url = reverse_lazy('questionnare:success')
 
     def get(self, request, **kwargs):
-        # if request.user.is_authenticated:
-        #     return redirect("")
-        # else:
-
-        # # sections
-        # sections = Section.objects.prefetch_related(
-        #     Prefetch('question_banks', queryset=QuestionBank.objects.order_by('sort_order'))).all()
-
         # questions lists
         questions = QuestionList.objects.all()
 
+        #user
+        user_id = request.user.id
+
         # render view
-        return render(request, self.template_name, {'questions': questions})
+        return render(request, self.template_name, {'questions': questions, 'user_id': user_id})
 
     def post(self, request, *args, **kwargs):
         # respondent
@@ -76,6 +72,31 @@ class QuestionnareCreateView(generic.CreateView):
                     )
         # Return class-based view form_invalid to generate form with errors
         return render(request, self.template_name, {})
+
+
+#api to post answer         
+def api_post_answers(request):
+    if request.method == "POST":
+        user_id = request.POST.get('user_id')
+        country_id = request.POST.get('country_id')
+        section_id = request.POST.get('section_id')
+
+        # query questions
+        questions = QuestionList.objects.filter(
+                section_id=section_id).order_by('sort_order', 'code')
+
+        for question in questions:
+            answer = request.POST.get('answer[' + str(question.id) + ']')
+            remarks = request.POST.get('remarks[' + str(question.id) + ']')
+
+            if answer is not None:
+                AnsBank.objects.update_or_create(
+                        created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
+                    ) 
+
+        #return json with success message
+        return JsonResponse({'error': False, 'message': 'Successfully inserted answers'})                   
+
 
 
 class QuestionListView(generic.ListView):
@@ -142,4 +163,4 @@ def show_question(request):
         question = Question.objects.get(pk=qn_id)
 
         # return response
-        return JsonResponse({'id': question.id, 'placeholder': question.placeholder})
+        return JsonResponse({'id': question.id, 'placeholder': question.placeholder})        

@@ -16,6 +16,10 @@
 
                         <form id="msform" action="" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
+
+                            <!-- user-id -->
+                            <input type="hidden" name="user_id" value="{{ user_id }}" />
+
                             <!--./include forms-->
                             {% include 'questionnare/sectionOne.html' %}
                             {% include 'questionnare/sectionTwo.html' %}
