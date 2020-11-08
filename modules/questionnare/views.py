@@ -38,29 +38,6 @@ class QuestionnareCreateView(generic.CreateView):
         # render view
         return render(request, self.template_name, {'questions': questions, 'user_id': user_id})
 
-    def post(self, request, *args, **kwargs):
-        # respondent
-        user_id = kwargs['pk']
-
-        # if post next => save
-        if request.POST.get('post_n'):
-            section_id = request.POST.get('section_id')
-
-            # query questions
-            questions = QuestionList.objects.filter(
-                section_id=section_id).order_by('sort_order', 'code')
-
-            for question in questions:
-                answer = request.POST.get('answer[' + str(question.id) + ']')
-                remarks = request.POST.get('remarks[' + str(question.id) + ']')
-
-                if answer is not None:
-                    AnsBank.objects.update_or_create(
-                        created_by_id=1, country_id=1, question_id=question.id, answer=answer, remarks=remarks
-                    )
-        # Return class-based view form_invalid to generate form with errors
-        return render(request, self.template_name, {})
-
 
 #api to post answer         
 def api_post_answers(request):
@@ -84,7 +61,8 @@ def api_post_answers(request):
 
         #return json with success message
         return JsonResponse({'error': False, 'message': 'Successfully inserted answers'})                   
-
+    else:
+        return JsonResponse({'error': True, 'message': 'Failed to inserted answers'}) 
 
 
 class QuestionListView(generic.ListView):

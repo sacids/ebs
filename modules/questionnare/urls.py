@@ -7,7 +7,10 @@ app_name = 'questionnare'
 urlpatterns = [
     path("", views.default, name="index"),
     path("questions/", views.QuestionnareCreateView.as_view(), name="questions"),
+    path("api_post_answers/", views.api_post_answers, name="api_post_answers"),
     path('success/', views.success, name='success'),
+
+
 
     # filters
     path('get_countries/', views.get_countries, name='get_countries'),
