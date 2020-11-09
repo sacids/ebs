@@ -1,4 +1,5 @@
 import json
+from modules.profiles.models import Profiles
 from modules.dashboard.views import dashboard
 from modules.questionnare.forms import RespondentForm
 from django.db.models.query import Prefetch
@@ -23,29 +24,28 @@ def default(request):
         # check last section and redirect to right section
 
         # redirect
-        return redirect('questions/')
+        return redirect('/section_one')
 
 
 # section one
 def section_one(request):
+    # section_id
+    section_id = 1
+
    # questions
     questions = QuestionList.objects.filter(section_id=1)
 
-    #user
-    user = User.objects.filter(pk=request.user.id)
+    # user
+    user_profile = Profiles.objects.get(user_id=request.user.id)
 
     # context
     context = {
-        "user_id": request.user.id,
+        "user": user_profile,
         "questions": questions
     }
 
-    #post data
+    # post data
     if request.method == "POST":
-        user_id = request.POST.get('user_id')
-        country_id = request.POST.get('country_id')
-        section_id = request.POST.get('section_id')
-
         # query questions
         questions = QuestionList.objects.filter(
             section_id=section_id).order_by('sort_order', 'code')
@@ -55,16 +55,20 @@ def section_one(request):
             remarks = request.POST.get('remarks[' + str(question.id) + ']')
 
             if answer is not None:
-                #todo: check for attachment and upload
+                # todo: check for attachment and upload
 
                 #save or update
                 AnsBank.objects.update_or_create(
-                    created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
+                    created_by_id=request.user.id,
+                    country_id=user_profile.country_id,
+                    question_id=question.id,
+                    answer=answer,
+                    remarks=remarks
                 )
         if(request.POST.get('post_exit')):
-            return redirect('success/')    #return to exit page
+            return redirect('/success')  # return to exit page
         elif(request.POST.get('post_next')):
-            return redirect('/section_two')  # redirect to section two    
+            return redirect('/section_two')  # redirect to section two
 
     # render view
     return render(request, "questionnare/section_one.html", context)
@@ -72,21 +76,23 @@ def section_one(request):
 
 # section two
 def section_two(request):
+    # section_id
+    section_id = 2
+
    # questions
     questions = QuestionList.objects.filter(section_id=2)
 
+    # user
+    user_profile = Profiles.objects.get(user_id=request.user.id)
+
     # context
     context = {
-        "user_id": request.user.id,
+        "user": user_profile,
         "questions": questions
     }
 
-    #post data
+    # post data
     if request.method == "POST":
-        user_id = request.POST.get('user_id')
-        country_id = request.POST.get('country_id')
-        section_id = request.POST.get('section_id')
-
         # query questions
         questions = QuestionList.objects.filter(
             section_id=section_id).order_by('sort_order', 'code')
@@ -96,16 +102,20 @@ def section_two(request):
             remarks = request.POST.get('remarks[' + str(question.id) + ']')
 
             if answer is not None:
-                #todo: check for attachment and upload
+                # todo: check for attachment and upload
 
                 #save or update
                 AnsBank.objects.update_or_create(
-                    created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
+                    created_by_id=request.user.id,
+                    country_id=user_profile.country_id,
+                    question_id=question.id,
+                    answer=answer,
+                    remarks=remarks
                 )
         if(request.POST.get('post_exit')):
-            return redirect('success/')    #return to exit page
+            return redirect('/success')  # return to exit page
         elif(request.POST.get('post_next')):
-            return redirect('/section_three')  # redirect to section three   
+            return redirect('/section_three')  # redirect to section three
 
     # render view
     return render(request, "questionnare/section_two.html", context)
@@ -122,7 +132,7 @@ def section_three(request):
         "questions": questions
     }
 
-    #post data
+    # post data
     if request.method == "POST":
         user_id = request.POST.get('user_id')
         country_id = request.POST.get('country_id')
@@ -137,16 +147,16 @@ def section_three(request):
             remarks = request.POST.get('remarks[' + str(question.id) + ']')
 
             if answer is not None:
-                #todo: check for attachment and upload
+                # todo: check for attachment and upload
 
                 #save or update
                 AnsBank.objects.update_or_create(
                     created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
                 )
         if(request.POST.get('post_exit')):
-            return redirect('success/')    #return to exit page
+            return redirect('/success')  # return to exit page
         elif(request.POST.get('post_next')):
-            return redirect('/section_four')  # redirect to section four   
+            return redirect('/section_four')  # redirect to section four
 
     # render view
     return render(request, "questionnare/section_three.html", context)
@@ -163,7 +173,7 @@ def section_four(request):
         "questions": questions
     }
 
-    #post data
+    # post data
     if request.method == "POST":
         user_id = request.POST.get('user_id')
         country_id = request.POST.get('country_id')
@@ -178,16 +188,16 @@ def section_four(request):
             remarks = request.POST.get('remarks[' + str(question.id) + ']')
 
             if answer is not None:
-                #todo: check for attachment and upload
+                # todo: check for attachment and upload
 
                 #save or update
                 AnsBank.objects.update_or_create(
                     created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
                 )
         if(request.POST.get('post_exit')):
-            return redirect('success/')    #return to exit page
+            return redirect('/success')  # return to exit page
         elif(request.POST.get('post_next')):
-            return redirect('/section_five')  # redirect to section five   
+            return redirect('/section_five')  # redirect to section five
 
     # render view
     return render(request, "questionnare/section_four.html", context)
@@ -204,7 +214,7 @@ def section_five(request):
         "questions": questions
     }
 
-    #post data
+    # post data
     if request.method == "POST":
         user_id = request.POST.get('user_id')
         country_id = request.POST.get('country_id')
@@ -219,16 +229,16 @@ def section_five(request):
             remarks = request.POST.get('remarks[' + str(question.id) + ']')
 
             if answer is not None:
-                #todo: check for attachment and upload
+                # todo: check for attachment and upload
 
                 #save or update
                 AnsBank.objects.update_or_create(
                     created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
                 )
         if(request.POST.get('post_exit')):
-            return redirect('success/')    #return to exit page
+            return redirect('/success')  # return to exit page
         elif(request.POST.get('post_next')):
-            return redirect('section_six/')  # redirect to section six 
+            return redirect('/section_six')  # redirect to section six
 
     # render view
     return render(request, "questionnare/section_five.html", context)
@@ -245,7 +255,7 @@ def section_six(request):
         "questions": questions
     }
 
-    #post data
+    # post data
     if request.method == "POST":
         user_id = request.POST.get('user_id')
         country_id = request.POST.get('country_id')
@@ -260,20 +270,19 @@ def section_six(request):
             remarks = request.POST.get('remarks[' + str(question.id) + ']')
 
             if answer is not None:
-                #todo: check for attachment and upload
+                # todo: check for attachment and upload
 
                 #save or update
                 AnsBank.objects.update_or_create(
                     created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
                 )
         if(request.POST.get('post_exit')):
-            return redirect('success/')    #return to exit page
+            return redirect('/success')  # return to exit page
         elif(request.POST.get('post_next')):
-            return redirect('success/')  # redirect to success  
+            return redirect('/success')  # redirect to success
 
     # render view
     return render(request, "questionnare/section_six.html", context)
-
 
 
 # question create view

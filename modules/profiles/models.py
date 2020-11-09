@@ -17,4 +17,4 @@ class Profiles(models.Model):
         managed = True
 
     def __str__(self):
-        return self.id
+        return self.designation

@@ -16,19 +16,19 @@ class CountryAdmin(admin.ModelAdmin):
     ordering = ("id",)
 
 
-@admin.register(Institution)
-class InstitutionAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'initial', 'country']
-    list_filter = ['initial']
-    search_fields = ['title__startwith']
-    ordering = ("id",)
+# @admin.register(Institution)
+# class InstitutionAdmin(admin.ModelAdmin):
+#     list_display = ['id', 'title', 'initial', 'country']
+#     list_filter = ['initial']
+#     search_fields = ['title__startwith']
+#     ordering = ("id",)
 
 
-@admin.register(Respondent)
-class RespondentAdmin(admin.ModelAdmin):
-    list_display = ['name', 'designation', 'institution']
-    search_fields = ['name__startwith']
-    ordering = ("name",)
+# @admin.register(Respondent)
+# class RespondentAdmin(admin.ModelAdmin):
+#     list_display = ['name', 'designation', 'institution']
+#     search_fields = ['name__startwith']
+#     ordering = ("name",)
 
 # class QuestionInline(admin.StackedInline):
 #     model = Question   
@@ -65,8 +65,8 @@ class QuestionListAdmin(admin.ModelAdmin):
 
 
 #Question Bank  
-@admin.register(QuestionBank)
-class QuestionBankAdmin(admin.ModelAdmin):
-    list_display = ['sort_order','question']  
-    list_filter  = ['section']
-    ordering = ("section", "sort_order")
+# @admin.register(QuestionBank)
+# class QuestionBankAdmin(admin.ModelAdmin):
+#     list_display = ['sort_order','question']  
+#     list_filter  = ['section']
+#     ordering = ("section", "sort_order")

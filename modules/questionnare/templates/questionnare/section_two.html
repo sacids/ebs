@@ -44,10 +44,10 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <!--question type-->
-                                        <input id="answer" name="answer[82]" type="radio" class="" value="YES" />
+                                        <input id="answer" name="answer[82]" type="radio" class="" value="YES" {% if 82|get_qn_answer == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[82]" type="radio" class="" value="NO" />
+                                        <input id="answer" name="answer[82]" type="radio" class="" value="NO" {% if 82|get_qn_answer == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -60,7 +60,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[82]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 82|get_qn_remarks }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -103,127 +103,127 @@
 
                                         <tr>
                                             <td>{{ 84|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[205]" id="answer" value="{{ 205|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[206]" id="answer" value="{{ 206|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[207]" id="answer" value="{{ 207|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[208]" id="answer" value="{{ 208|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[209]" id="answer" value="{{ 209|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 85|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[210]" id="answer" value="{{ 210|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[211]" id="answer" value="{{ 211|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[212]" id="answer" value="{{ 212|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[213]" id="answer" value="{{ 213|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[214]" id="answer" value="{{ 214|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 86|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[215]" id="answer" value="{{ 215|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[216]" id="answer" value="{{ 216|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[217]" id="answer" value="{{ 217|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[218]" id="answer" value="{{ 218|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[219]" id="answer" value="{{ 219|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 87|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[220]" id="answer" value="{{ 220|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[221]" id="answer" value="{{ 221|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[222]" id="answer" value="{{ 222|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[223]" id="answer" value="{{ 223|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[224]" id="answer" value="{{ 224|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 88|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[225]" id="answer" value="{{ 225|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[226]" id="answer" value="{{ 226|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[227]" id="answer" value="{{ 227|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[228]" id="answer" value="{{ 228|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[229]" id="answer" value="{{ 229|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 89|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[230]" id="answer" value="{{ 230|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[231]" id="answer" value="{{ 231|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[232]" id="answer" value="{{ 232|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[233]" id="answer" value="{{ 233|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[234]" id="answer" value="{{ 234|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 90|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[235]" id="answer" value="{{ 235|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[236]" id="answer" value="{{ 236|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[237]" id="answer" value="{{ 237|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[238]" id="answer" value="{{ 238|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[239]" id="answer" value="{{ 239|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 91|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[240]" id="answer" value="{{ 240|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[241]" id="answer" value="{{ 241|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[242]" id="answer" value="{{ 242|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[243]" id="answer" value="{{ 243|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[244]" id="answer" value="{{ 244|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 92|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[245]" id="answer" value="{{ 245|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[246]" id="answer" value="{{ 246|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[247]" id="answer" value="{{ 247|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[248]" id="answer" value="{{ 248|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[249]" id="answer" value="{{ 249|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
                                     </table>
@@ -235,7 +235,7 @@
                                         <label>{{ 93|get_qn_title }}</label><br />
                                         <!--question type-->
                                         <textarea rows="4" cols="40" name="answer[93]" class="textarea form-control"
-                                            id="answer"></textarea>
+                                            id="answer">{{ 93|get_qn_answer }}</textarea>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
@@ -280,85 +280,85 @@
 
                                         <tr>
                                             <td>{{ 95|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[250]" id="answer" value="{{ 250|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[251]" id="answer" value="{{ 251|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[252]" id="answer" value="{{ 252|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[253]" id="answer" value="{{ 253|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[254]" id="answer" value="{{ 254|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 96|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[255]" id="answer" value="{{ 255|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[256]" id="answer" value="{{ 256|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[257]" id="answer" value="{{ 257|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[258]" id="answer" value="{{ 258|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[259]" id="answer" value="{{ 259|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 97|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[260]" id="answer" value="{{ 260|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[261]" id="answer" value="{{ 261|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[262]" id="answer" value="{{ 262|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[263]" id="answer" value="{{ 263|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[264]" id="answer" value="{{ 264|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 98|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[265]" id="answer" value="{{ 265|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[266]" id="answer" value="{{ 266|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[267]" id="answer" value="{{ 267|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[268]" id="answer" value="{{ 268|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[269]" id="answer" value="{{ 269|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 99|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[270]" id="answer" value="{{ 270|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[271]" id="answer" value="{{ 271|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[272]" id="answer" value="{{ 272|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[273]" id="answer" value="{{ 273|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[274]" id="answer" value="{{ 274|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 100|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[275]" id="answer" value="{{ 275|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[276]" id="answer" value="{{ 276|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[277]" id="answer" value="{{ 277|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[278]" id="answer" value="{{ 278|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[279]" id="answer" value="{{ 279|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
                                     </table>
@@ -370,7 +370,7 @@
                                         <label>{{ 101|get_qn_title }}</label><br />
                                         <!--question type-->
                                         <textarea rows="4" cols="40" name="answer[101]" class="textarea form-control"
-                                            id="answer"></textarea>
+                                            id="answer">{{ 101|get_qn_answer }}</textarea>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
@@ -401,7 +401,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <!--question type-->
-                                        <input type="number" name="answer[102]" id="answer" class="form-control" />
+                                        <input type="text" name="answer[102]" id="answer" class="form-control"  value="{{ 102|get_qn_answer }}"/>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
@@ -413,7 +413,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[102]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 102|get_qn_remarks }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -443,10 +443,10 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <!--question type-->
-                                        <input id="answer" name="answer[103]" type="radio" class="" value="YES" />
+                                        <input id="answer" name="answer[103]" type="radio" class="" value="YES" {% if 103|get_qn_answer == "YES" %} checked {% endif %}/>
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[103]" type="radio" class="" value="NO" />
+                                        <input id="answer" name="answer[103]" type="radio" class="" value="NO" {% if 103|get_qn_answer == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -459,7 +459,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[103]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 103|get_qn_remarks }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -490,10 +490,10 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <!--question type-->
-                                        <input id="answer" name="answer[104]" type="radio" class="" value="YES" />
+                                        <input id="answer" name="answer[104]" type="radio" class="" value="YES" {% if 104|get_qn_answer == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[104]" type="radio" class="" value="NO" />
+                                        <input id="answer" name="answer[104]" type="radio" class="" value="NO" {% if 104|get_qn_answer == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -506,7 +506,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[104]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 104|get_qn_remarks }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -546,10 +546,10 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <!--question type-->
-                                        <input id="answer" name="answer[105]" type="radio" class="" value="YES" />
+                                        <input id="answer" name="answer[105]" type="radio" class="" value="YES" {% if 105|get_qn_answer == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[105]" type="radio" class="" value="NO" />
+                                        <input id="answer" name="answer[105]" type="radio" class="" value="NO" {% if 105|get_qn_answer == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -562,7 +562,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[105]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 105|get_qn_remarks}}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -595,7 +595,7 @@
                                     <div class="form-group">
                                         <!--question type-->
                                         <textarea rows="3" cols="40" name="answer[106]" class="form-control"
-                                            placeholder="Write answer..." id="answer"></textarea>
+                                            placeholder="Write answer..." id="answer">{{ 106|get_qn_answer }}</textarea>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
@@ -638,31 +638,31 @@
 
                                         <tr>
                                             <td>{{ 108|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[280]" id="answer" value="{{ 280|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[281]" id="answer" value="{{ 281|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[282]" id="answer" value="{{ 282|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 109|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[283]" id="answer" value="{{ 283|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[284]" id="answer" value="{{ 284|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[285]" id="answer" value="{{ 285|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 110|get_qn_title }}</td>
-                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[286]" id="answer" value="{{ 286|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[287]" id="answer" value="{{ 287|get_qn_answer }}" class="form-control" />
                                             </td>
-                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            <td><input type="text" name="answer[288]" id="answer" value="{{ 288|get_qn_answer }}" class="form-control" />
                                             </td>
                                         </tr>
                                     </table>
@@ -697,10 +697,10 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <!--question type-->
-                                        <input id="answer" name="answer[111]" type="radio" class="" value="YES" />
+                                        <input id="answer" name="answer[111]" type="radio" class="" value="YES" {% if 111|get_qn_answer == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[111]" type="radio" class="" value="NO" />
+                                        <input id="answer" name="answer[111]" type="radio" class="" value="NO" {% if 111|get_qn_answer == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -713,7 +713,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[111]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 111|get_qn_remarks }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -744,7 +744,7 @@
                                     <div class="form-group">
                                         <!--question type-->
                                         <textarea rows="4" cols="40" name="answer[112]" class="textarea form-control"
-                                            id="answer" placeholder="Write answer..."></textarea>
+                                            id="answer" placeholder="Write answer...">{{ 112|get_qn_answer }}</textarea>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
@@ -754,7 +754,6 @@
                             <!--./row-->
                         </div>
                         <!--./form-card-->
-
 
                         <!--./buttons -->
                         <input type="submit" name="post_exit" class="action-button-previous" value="Save and Exit" />
