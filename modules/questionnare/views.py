@@ -14,6 +14,7 @@ from .forms import RespondentForm
 from django.http import JsonResponse
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
 
 # default
 
@@ -36,7 +37,8 @@ def section_one(request):
     questions = QuestionList.objects.filter(section_id=1)
 
     # user
-    user_profile = Profiles.objects.get(user_id=request.user.id)
+    #user_profile = Profiles.objects.get(user_id=request.user.id)
+    user_profile = get_object_or_404(Profiles, user_id=request.user.id)
 
     # context
     context = {
