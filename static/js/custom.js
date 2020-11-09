@@ -15,4 +15,60 @@ $(document).ready(function () {
             }
         });
     });
+
+
+
+
+    /** 
+     * generic form submission for sections - ajax
+     * HowTo
+     * 1 - for each section enscapsulate form elements in form tag
+     * 2 - Set form id
+     * 3 - In submit buttons add an attribute called action with URL of script that will handle the request
+     * 4 - In submit buttons add class section_submit
+     * 5 - Each  script in action url should return URL of next page when succesful and 0 when submission fails
+     * 6 - Set method of form in form tag
+     */
+
+
+    $('.submit_section').on('click',function(e){
+
+        e.preventDefault();
+        var action      = $(this).attr('action');
+        var form_id     = $(this).closest('form');
+        var method      = $(this).attr('method');
+        var data        = $('#'+form_id).serialize();
+        var name        = $(this).attr('name');
+
+        //alert(form_id)
+        //alert(data)
+        //alert(action)
+        //alert(action)
+
+        var jqXHR = $.ajax({
+            type:"POST",
+            url:action,
+            data: data,
+        }).done(function (result){
+
+            // return 0 on failure and url of next page on success    
+            if(result){
+                // success move (redirect) to next page
+                // window.location.href    = 'http://'+new_url;
+                
+            
+            }else{
+                console.log('failed to submit form '+form_id);
+                // display some error message in div
+            }
+        }).fail(function(jqXHR, textStatus, errorThrown){
+            console.log(textStatus);
+        }).always(function() {
+
+        });
+
+
+    });
+
+
 });

@@ -101,6 +101,7 @@ navigation menu
     min-height: 600px;
     height: auto;
     color: #424242;
+    background-color: #f1e9d5 !important;
 }
 
 .content-wrapper {
@@ -452,7 +453,7 @@ table.table td i {
 }
 
 #msform fieldset .form-card {
-    margin: 10px 0;
+    margin: 15px 0;
     padding: 10px;
     border-radius: 10px;
     background: white;
@@ -559,4 +560,18 @@ Forms
 
 .form-group span.red {
     color: #CC0000;
+}
+
+
+
+
+
+
+.form-card{
+    padding: 30px !important;
+    border: 1px solid rgba(204, 204, 204, 0.527);
+}
+
+.card-h1{
+    border-left: 8px solid  rgb(119, 91, 38) !important;
 }
