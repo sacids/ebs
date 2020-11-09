@@ -13,13 +13,7 @@
             <div class="content">
                 <div class="row">
                     <div class="col-md-12">
-
-                        <form id="msform" action="" method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-
-                            <!-- user-id -->
-                            <input type="hidden" name="user_id" value="{{ user_id }}" />
-
+                        <form id="msform">
                             <!--./include forms-->
                             {% include 'questionnare/sectionOne.html' %}
                             {% include 'questionnare/sectionTwo.html' %}
@@ -28,7 +22,8 @@
                             {% include 'questionnare/sectionFive.html' %}
                             {% include 'questionnare/sectionSix.html' %}
 
-                        </form>
+                            </form>
+
                     </div>
                     <!--./col-md-8 -->
                 </div>

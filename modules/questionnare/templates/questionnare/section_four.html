@@ -1,0 +1,820 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% load ebs_tags %}
+{% block title %} EBS - Section 4 {% endblock %}
+
+{% block content %}
+<!-- Page content -->
+<div class="page-content bg-grey">
+    <div class="container">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content">
+                <form id="msform" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5 class="font-weight-600 text-center">
+                                    Resources
+                                </h5>
+                            </div>
+                            <!--./col-->
+                        </div>
+                        <!--./row-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 139|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 139|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[139]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[139]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[139]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Attachments </label>
+                                        <!--./float-right-->
+                                        <input type="file" name="attachments[139]" class="form-control" />
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 140|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 140|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table">
+                                        <tr>
+                                            <td width="40%"></td>
+                                            <td width="30%">Funding Level</td>
+                                            <td width="15%">Amount</td>
+                                            <td width="15%">Proportion</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 141|get_qn_title }}</td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 142|get_qn_title }}</td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 143|get_qn_title }}</td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 144|get_qn_title }}</td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 146|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 146|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[146]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[146]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[146]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 147|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 147|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 148|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[148]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[148]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[148]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 149|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[149]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[149]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[149]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 150|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[150]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[150]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[150]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 151|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[151]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[151]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[151]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 152|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[152]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[152]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[152]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 153|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[153]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[153]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[153]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 154|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[154]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[154]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[154]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 155|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[155]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[155]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[155]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 156|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 156|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 157|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[157]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[157]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[157]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 158|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[158]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[158]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[158]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 159|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[159]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[159]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[159]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 160|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 160|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[160]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[160]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[160]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 161|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 161|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[161]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[161]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[161]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 162|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 162|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[162]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[162]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[162]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 163|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 163|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <textarea rows="4" cols="40" name="answer[163]" class="textarea form-control"
+                                            id="answer"></textarea>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 164|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 164|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <textarea rows="4" cols="40" name="answer[164]" class="textarea form-control"
+                                            id="answer"></textarea>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 165|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 165|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <textarea rows="4" cols="40" name="answer[165]" class="textarea form-control"
+                                            id="answer"></textarea>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--./buttons -->
+                        <input type="submit" name="post_exit" class="action-button-previous" value="Save and Exit" />
+                        <input type="submit" name="post_next" class="action-button" value="Save and Continue" />
+                    </fieldset>
+                </form>
+
+            </div><!-- /content area -->
+        </div><!-- /main content -->
+    </div>
+    <!--./container-->
+</div><!-- /page content -->
+
+{% endblock %}

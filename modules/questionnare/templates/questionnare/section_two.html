@@ -1,0 +1,771 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% load ebs_tags %}
+{% block title %} EBS - Section 2 {% endblock %}
+
+{% block content %}
+<!-- Page content -->
+<div class="page-content bg-grey">
+    <div class="container">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content">
+                <form id="msform" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5 class="font-weight-600 text-center">
+                                    Staffing capacity and training
+                                </h5>
+                            </div>
+                            <!--./col-->
+                        </div>
+                        <!--./row-->
+
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 82|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 82|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[82]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[82]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[82]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 83|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 83|get_qn_hint }}
+                                        </p>
+
+                                        <p class="small">
+                                            {{ 84|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table">
+                                        <tr>
+                                            <td width="40%"></td>
+                                            <td width="12%">PhD</td>
+                                            <td width="12%">Masters</td>
+                                            <td width="12%">Degree</td>
+                                            <td width="12%">Diploma</td>
+                                            <td width="12%">Certification</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 84|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 85|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 86|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 87|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 88|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 89|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 90|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 91|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 92|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 93|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <textarea rows="4" cols="40" name="answer[93]" class="textarea form-control"
+                                            id="answer"></textarea>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 94|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 94|get_qn_hint }}
+                                        </p>
+
+                                        <p class="small">
+                                            {{ 95|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table">
+                                        <tr>
+                                            <td width="40%"></td>
+                                            <td width="12%">PhD</td>
+                                            <td width="12%">Masters</td>
+                                            <td width="12%">Degree</td>
+                                            <td width="12%">Diploma</td>
+                                            <td width="12%">Certification</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 95|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 96|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 97|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 98|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 99|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 100|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 101|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <textarea rows="4" cols="40" name="answer[101]" class="textarea form-control"
+                                            id="answer"></textarea>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 102|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 102|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input type="number" name="answer[102]" id="answer" class="form-control" />
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[102]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 103|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 103|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[103]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[103]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[103]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 104|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 104|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[104]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[104]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[104]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Attachments </label>
+                                        <!--./float-right-->
+                                        <input type="file" name="attachments[104]" class="form-control" multiple />
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 105|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 105|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[105]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[105]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12" style="margin-top: -15px;">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[105]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 106|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 106|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <textarea rows="3" cols="40" name="answer[106]" class="form-control"
+                                            placeholder="Write answer..." id="answer"></textarea>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 107|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 107|get_qn_hint }}
+                                        </p>
+
+                                        <p class="small">
+                                            {{ 108|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table">
+                                        <tr>
+                                            <td width="40%"></td>
+                                            <td width="12%">Number</td>
+                                            <td width="25%">Location in country</td>
+                                            <td width="25%">Level of care serving</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 108|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 109|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 110|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                            <td><input type="text" name="answer[]" id="answer" class="form-control" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+
+                        </div>
+                        <!--./form-card-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 111|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 111|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[111]" type="radio" class="" value="YES" />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[111]" type="radio" class="" value="NO" />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[111]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks"></textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 112|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 112|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <textarea rows="4" cols="40" name="answer[112]" class="textarea form-control"
+                                            id="answer" placeholder="Write answer..."></textarea>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--./buttons -->
+                        <input type="submit" name="post_exit" class="action-button-previous" value="Save and Exit" />
+                        <input type="submit" name="post_next" class="action-button" value="Save and Continue" />
+                    </fieldset>
+                </form>
+
+            </div><!-- /content area -->
+        </div><!-- /main content -->
+    </div>
+    <!--./container-->
+</div><!-- /page content -->
+
+{% endblock %}

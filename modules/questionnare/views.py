@@ -16,10 +16,264 @@ from django.contrib.auth.decorators import login_required
 
 # default
 
+
 @login_required
 def default(request):
     if request.user.is_authenticated:
+        # check last section and redirect to right section
+
+        # redirect
         return redirect('questions/')
+
+
+# section one
+def section_one(request):
+   # questions
+    questions = QuestionList.objects.filter(section_id=1)
+
+    #user
+    user = User.objects.filter(pk=request.user.id)
+
+    # context
+    context = {
+        "user_id": request.user.id,
+        "questions": questions
+    }
+
+    #post data
+    if request.method == "POST":
+        user_id = request.POST.get('user_id')
+        country_id = request.POST.get('country_id')
+        section_id = request.POST.get('section_id')
+
+        # query questions
+        questions = QuestionList.objects.filter(
+            section_id=section_id).order_by('sort_order', 'code')
+
+        for question in questions:
+            answer = request.POST.get('answer[' + str(question.id) + ']')
+            remarks = request.POST.get('remarks[' + str(question.id) + ']')
+
+            if answer is not None:
+                #todo: check for attachment and upload
+
+                #save or update
+                AnsBank.objects.update_or_create(
+                    created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
+                )
+        if(request.POST.get('post_exit')):
+            return redirect('success/')    #return to exit page
+        elif(request.POST.get('post_next')):
+            return redirect('/section_two')  # redirect to section two    
+
+    # render view
+    return render(request, "questionnare/section_one.html", context)
+
+
+# section two
+def section_two(request):
+   # questions
+    questions = QuestionList.objects.filter(section_id=2)
+
+    # context
+    context = {
+        "user_id": request.user.id,
+        "questions": questions
+    }
+
+    #post data
+    if request.method == "POST":
+        user_id = request.POST.get('user_id')
+        country_id = request.POST.get('country_id')
+        section_id = request.POST.get('section_id')
+
+        # query questions
+        questions = QuestionList.objects.filter(
+            section_id=section_id).order_by('sort_order', 'code')
+
+        for question in questions:
+            answer = request.POST.get('answer[' + str(question.id) + ']')
+            remarks = request.POST.get('remarks[' + str(question.id) + ']')
+
+            if answer is not None:
+                #todo: check for attachment and upload
+
+                #save or update
+                AnsBank.objects.update_or_create(
+                    created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
+                )
+        if(request.POST.get('post_exit')):
+            return redirect('success/')    #return to exit page
+        elif(request.POST.get('post_next')):
+            return redirect('/section_three')  # redirect to section three   
+
+    # render view
+    return render(request, "questionnare/section_two.html", context)
+
+
+# section three
+def section_three(request):
+   # questions
+    questions = QuestionList.objects.filter(section_id=3)
+
+    # context
+    context = {
+        "user_id": request.user.id,
+        "questions": questions
+    }
+
+    #post data
+    if request.method == "POST":
+        user_id = request.POST.get('user_id')
+        country_id = request.POST.get('country_id')
+        section_id = request.POST.get('section_id')
+
+        # query questions
+        questions = QuestionList.objects.filter(
+            section_id=section_id).order_by('sort_order', 'code')
+
+        for question in questions:
+            answer = request.POST.get('answer[' + str(question.id) + ']')
+            remarks = request.POST.get('remarks[' + str(question.id) + ']')
+
+            if answer is not None:
+                #todo: check for attachment and upload
+
+                #save or update
+                AnsBank.objects.update_or_create(
+                    created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
+                )
+        if(request.POST.get('post_exit')):
+            return redirect('success/')    #return to exit page
+        elif(request.POST.get('post_next')):
+            return redirect('/section_four')  # redirect to section four   
+
+    # render view
+    return render(request, "questionnare/section_three.html", context)
+
+
+# section four
+def section_four(request):
+   # questions
+    questions = QuestionList.objects.filter(section_id=4)
+
+    # context
+    context = {
+        "user_id": request.user.id,
+        "questions": questions
+    }
+
+    #post data
+    if request.method == "POST":
+        user_id = request.POST.get('user_id')
+        country_id = request.POST.get('country_id')
+        section_id = request.POST.get('section_id')
+
+        # query questions
+        questions = QuestionList.objects.filter(
+            section_id=section_id).order_by('sort_order', 'code')
+
+        for question in questions:
+            answer = request.POST.get('answer[' + str(question.id) + ']')
+            remarks = request.POST.get('remarks[' + str(question.id) + ']')
+
+            if answer is not None:
+                #todo: check for attachment and upload
+
+                #save or update
+                AnsBank.objects.update_or_create(
+                    created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
+                )
+        if(request.POST.get('post_exit')):
+            return redirect('success/')    #return to exit page
+        elif(request.POST.get('post_next')):
+            return redirect('/section_five')  # redirect to section five   
+
+    # render view
+    return render(request, "questionnare/section_four.html", context)
+
+
+# section five
+def section_five(request):
+   # questions
+    questions = QuestionList.objects.filter(section_id=5)
+
+    # context
+    context = {
+        "user_id": request.user.id,
+        "questions": questions
+    }
+
+    #post data
+    if request.method == "POST":
+        user_id = request.POST.get('user_id')
+        country_id = request.POST.get('country_id')
+        section_id = request.POST.get('section_id')
+
+        # query questions
+        questions = QuestionList.objects.filter(
+            section_id=section_id).order_by('sort_order', 'code')
+
+        for question in questions:
+            answer = request.POST.get('answer[' + str(question.id) + ']')
+            remarks = request.POST.get('remarks[' + str(question.id) + ']')
+
+            if answer is not None:
+                #todo: check for attachment and upload
+
+                #save or update
+                AnsBank.objects.update_or_create(
+                    created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
+                )
+        if(request.POST.get('post_exit')):
+            return redirect('success/')    #return to exit page
+        elif(request.POST.get('post_next')):
+            return redirect('section_six/')  # redirect to section six 
+
+    # render view
+    return render(request, "questionnare/section_five.html", context)
+
+
+# section six
+def section_six(request):
+   # questions
+    questions = QuestionList.objects.filter(section_id=6)
+
+    # context
+    context = {
+        "user": request.user.id,
+        "questions": questions
+    }
+
+    #post data
+    if request.method == "POST":
+        user_id = request.POST.get('user_id')
+        country_id = request.POST.get('country_id')
+        section_id = request.POST.get('section_id')
+
+        # query questions
+        questions = QuestionList.objects.filter(
+            section_id=section_id).order_by('sort_order', 'code')
+
+        for question in questions:
+            answer = request.POST.get('answer[' + str(question.id) + ']')
+            remarks = request.POST.get('remarks[' + str(question.id) + ']')
+
+            if answer is not None:
+                #todo: check for attachment and upload
+
+                #save or update
+                AnsBank.objects.update_or_create(
+                    created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
+                )
+        if(request.POST.get('post_exit')):
+            return redirect('success/')    #return to exit page
+        elif(request.POST.get('post_next')):
+            return redirect('success/')  # redirect to success  
+
+    # render view
+    return render(request, "questionnare/section_six.html", context)
+
 
 
 # question create view
@@ -32,14 +286,14 @@ class QuestionnareCreateView(generic.CreateView):
         # questions lists
         questions = QuestionList.objects.all()
 
-        #user
+        # user
         user_id = request.user.id
 
         # render view
         return render(request, self.template_name, {'questions': questions, 'user_id': user_id})
 
 
-#api to post answer         
+# api to post answer
 def api_post_answers(request):
     if request.method == "POST":
         user_id = request.POST.get('user_id')
@@ -48,7 +302,7 @@ def api_post_answers(request):
 
         # query questions
         questions = QuestionList.objects.filter(
-                section_id=section_id).order_by('sort_order', 'code')
+            section_id=section_id).order_by('sort_order', 'code')
 
         for question in questions:
             answer = request.POST.get('answer[' + str(question.id) + ']')
@@ -56,13 +310,13 @@ def api_post_answers(request):
 
             if answer is not None:
                 AnsBank.objects.update_or_create(
-                        created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
-                    ) 
+                    created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
+                )
 
-        #return json with success message
-        return JsonResponse({'error': False, 'message': 'Successfully inserted answers'})                   
+        # return json with success message
+        return JsonResponse({'error': False, 'message': 'Successfully inserted answers'})
     else:
-        return JsonResponse({'error': True, 'message': 'Failed to inserted answers'}) 
+        return JsonResponse({'error': True, 'message': 'Failed to inserted answers'})
 
 
 class QuestionListView(generic.ListView):
@@ -129,4 +383,4 @@ def show_question(request):
         question = Question.objects.get(pk=qn_id)
 
         # return response
-        return JsonResponse({'id': question.id, 'placeholder': question.placeholder})        
+        return JsonResponse({'id': question.id, 'placeholder': question.placeholder})
