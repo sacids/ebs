@@ -36,8 +36,9 @@ $(document).ready(function () {
         e.preventDefault();
         var action      = $(this).attr('action');
         var form_id     = $(this).closest('form');
-        var method      = $('#'+form_id).attr('method');
+        var method      = $(this).attr('method');
         var data        = $('#'+form_id).serialize();
+        var name        = $(this).attr('name');
 
         //alert(form_id)
         //alert(data)
@@ -45,16 +46,17 @@ $(document).ready(function () {
         //alert(action)
 
         var jqXHR = $.ajax({
-            type:method,
+            type:"POST",
             url:action,
             data: data,
-        }).done(function (new_url){
+        }).done(function (result){
 
             // return 0 on failure and url of next page on success    
-            if(new_url){
+            if(result){
                 // success move (redirect) to next page
-                window.location.href    = 'http://'+new_url;
-
+                // window.location.href    = 'http://'+new_url;
+                
+            
             }else{
                 console.log('failed to submit form '+form_id);
                 // display some error message in div
