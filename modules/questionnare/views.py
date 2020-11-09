@@ -24,7 +24,7 @@ def default(request):
         # check last section and redirect to right section
 
         # redirect
-        return redirect('/section_one')
+        return redirect('/section_one/')
 
 
 # section one
