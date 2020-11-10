@@ -169,12 +169,12 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Hotline, advocacy for EBS and use of hotline</label><br />
+                                        <label>{{ 289|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[]" type="radio" class="" value="YES" />
+                                        <input id="answer" name="answer[289]" type="radio" class="" value="YES" {% if 289|get_qn_answer == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[]" type="radio" class="" value="NO" />
+                                        <input id="answer" name="answer[289]" type="radio" class="" value="NO" {% if 289|get_qn_answer == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -184,12 +184,12 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Trained hotline team</label><br />
+                                        <label>{{ 290|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[]" type="radio" class="" value="YES" />
+                                        <input id="answer" name="answer[290]" type="radio" class="" value="YES" {% if 290|get_qn_answer == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[]" type="radio" class="" value="NO" />
+                                        <input id="answer" name="answer[290]" type="radio" class="" value="NO" {% if 290|get_qn_answer == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -199,12 +199,12 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Media scanning</label><br />
+                                        <label>{{ 291|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[]" type="radio" class="" value="YES" />
+                                        <input id="answer" name="answer[291]" type="radio" class="" value="YES" {% if 291|get_qn_answer == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[]" type="radio" class="" value="NO" />
+                                        <input id="answer" name="answer[291]" type="radio" class="" value="NO" {% if 291|get_qn_answer == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -214,12 +214,12 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Registration of signals</label><br />
+                                        <label>{{ 292|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[]" type="radio" class="" value="YES" />
+                                        <input id="answer" name="answer[292]" type="radio" class="" value="YES" {% if 292|get_qn_answer == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[]" type="radio" class="" value="NO" />
+                                        <input id="answer" name="answer[292]" type="radio" class="" value="NO" {% if 292|get_qn_answer == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -229,12 +229,12 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Verification process, risk assessment</label><br />
+                                        <label>{{ 293|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[]" type="radio" class="" value="YES" />
+                                        <input id="answer" name="answer[293]" type="radio" class="" value="YES" {% if 293|get_qn_answer == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[]" type="radio" class="" value="NO" />
+                                        <input id="answer" name="answer[293]" type="radio" class="" value="NO" {% if 293|get_qn_answer == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -244,12 +244,12 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Meeting facilities</label><br />
+                                        <label>{{ 294|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[]" type="radio" class="" value="YES" />
+                                        <input id="answer" name="answer[294]" type="radio" class="" value="YES" {% if 294|get_qn_answer == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[]" type="radio" class="" value="NO" />
+                                        <input id="answer" name="answer[294]" type="radio" class="" value="NO" {% if 294|get_qn_answer == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -274,14 +274,12 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Are there SOPs available for the processes of signal detection,
-                                            reporting, triage, verification and risk assessment for EBS. Attach if
-                                            available.</label><br />
+                                        <label>{{ 295|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[]" type="radio" class="" value="YES" />
+                                        <input id="answer" name="answer[295]" type="radio" class="" value="YES" {% if 295|get_qn_answer == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[]" type="radio" class="" value="NO" />
+                                        <input id="answer" name="answer[295]" type="radio" class="" value="NO" {% if 295|get_qn_answer == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -293,7 +291,7 @@
                                     <div class="form-group">
                                         <label>Attachments </label>
                                         <!--./float-right-->
-                                        <input type="file" name="attachments[]" class="form-control" />
+                                        <input type="file" name="attachments[295]" class="form-control" />
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -315,11 +313,9 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Comment on availability of HEBS Focal Points in all EBS implementing
-                                            facilities? </label>
                                         <!--./float-right-->
-                                        <textarea rows="4" cols="40" name="answer[]" class="textarea form-control"
-                                            id="answer"></textarea>
+                                        <textarea rows="4" cols="40" name="answer[118]" class="textarea form-control"
+                                            id="answer">{{ 118|get_qn_answer }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -327,12 +323,12 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Are SOPs for reporting signals in place?</label><br />
+                                        <label>{{ 296|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[]" type="radio" class="" value="YES" />
+                                        <input id="answer" name="answer[296]" type="radio" class="" value="YES" {% if 296|get_qn_answer == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[]" type="radio" class="" value="NO" />
+                                        <input id="answer" name="answer[296]" type="radio" class="" value="NO" {% if 296|get_qn_answer == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -357,11 +353,9 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Provide info on availability of community health volunteers and their
-                                            training on EBS; </label>
                                         <!--./float-right-->
-                                        <textarea rows="4" cols="40" name="answer[]" class="textarea form-control"
-                                            id="answer"></textarea>
+                                        <textarea rows="4" cols="40" name="answer[119]" class="textarea form-control"
+                                            id="answer">{{ 119|get_qn_answer }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -369,12 +363,12 @@
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label> are there SOPs for detection and reporting of signals? </label><br />
+                                        <label> {{ 297|get_qn_title }} </label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[]" type="radio" class="" value="YES" />
+                                        <input id="answer" name="answer[297]" type="radio" class="" value="YES" {% if 297|get_qn_answer == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[]" type="radio" class="" value="NO" />
+                                        <input id="answer" name="answer[297]" type="radio" class="" value="NO" {% if 297|get_qn_answer == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -513,21 +507,21 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <!--question type-->
-                                        <input id="answer" name="answer[122]" type="checkbox" class=""
-                                            value="Community" {% if 122|get_qn_answer == "Community" %} checked {% endif %} />
-                                        <label for="answer" class="">&nbsp;Community</label>
+                                        <input id="answer" name="answer[298]" type="checkbox" class=""
+                                            value="Community" {% if 298|get_qn_answer == "Community" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{{ 298|get_qn_title }}</label>
                                         <br />
-                                        <input id="answer" name="answer[122]" type="checkbox" class=""
-                                            value="Health facility" {% if 122|get_qn_answer == "Health facility" %} checked {% endif %} />
-                                        <label for="answer" class="">&nbsp;Health facility</label>
+                                        <input id="answer" name="answer[299]" type="checkbox" class=""
+                                            value="Health facility" {% if 299|get_qn_answer == "Health facility" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{{299|get_qn_title }}</label>
                                         <br />
-                                        <input id="answer" name="answer[122]" type="checkbox" class=""
-                                            value="Intermediate" {% if 122|get_qn_answer == "Intermediate" %} checked {% endif %} />
-                                        <label for="answer" class="">&nbsp;Intermediate</label>
+                                        <input id="answer" name="answer[300]" type="checkbox" class=""
+                                            value="Intermediate" {% if 300|get_qn_answer == "Intermediate" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{{ 300|get_qn_title }}</label>
                                         <br />
-                                        <input id="answer" name="answer[122]" type="checkbox" class=""
-                                            value="National levels" {% if 122|get_qn_answer == "National levels" %} checked {% endif %} />
-                                        <label for="answer" class="">&nbsp;National levels</label>
+                                        <input id="answer" name="answer[301]" type="checkbox" class=""
+                                            value="National levels" {% if 301|get_qn_answer == "National levels" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{{ 301|get_qn_title }}</label>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
@@ -570,36 +564,36 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Community Levels</label>
-                                        <textarea rows="3" cols="40" name="answer[]" class="textarea form-control"
-                                            id="answer"></textarea>
+                                        <label>{{ 302|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[302]" class="textarea form-control"
+                                            id="answer">{{ 302|get_qn_answer }}</textarea>
                                     </div>
                                 </div>
                                 <!--./col-->
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Health facility Levels</label>
-                                        <textarea rows="3" cols="40" name="answer[]" class="textarea form-control"
-                                            id="answer"></textarea>
+                                        <label>{{ 303|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[303]" class="textarea form-control"
+                                            id="answer">{{ 303|get_qn_answer }}</textarea>
                                     </div>
                                 </div>
                                 <!--./col-->
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Intermediate Levels</label>
-                                        <textarea rows="3" cols="40" name="answer[]" class="textarea form-control"
-                                            id="answer"></textarea>
+                                        <label>{{ 304|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[304]" class="textarea form-control"
+                                            id="answer">{{ 304|get_qn_answer }}</textarea>
                                     </div>
                                 </div>
                                 <!--./col-->
 
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>National Levels</label>
-                                        <textarea rows="3" cols="40" name="answer[]" class="textarea form-control"
-                                            id="answer"></textarea>
+                                        <label>{{ 305|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[305]" class="textarea form-control"
+                                            id="answer">{{ 305|get_qn_answer }}</textarea>
                                     </div>
                                 </div>
                                 <!--./col-->
