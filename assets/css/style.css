@@ -121,6 +121,7 @@ navigation menu
     width: 100%;
     padding: 10px;
     background-color: #ffffff;
+    border-bottom: 1px solid  rgb(94, 72, 31) !important;
 }
 
 .page-header-content {
@@ -444,7 +445,7 @@ table.table td i {
 
 /* form wizard */
 #msform {
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 #msform fieldset {
@@ -573,5 +574,12 @@ Forms
 }
 
 .card-h1{
-    border-left: 8px solid  rgb(119, 91, 38) !important;
+    border-left: 5px solid  rgb(221, 187, 124) !important;
+    border-top: 8px solid  rgb(94, 72, 31) !important;
+    padding: 20px !important;
+    border: 1px solid rgba(204, 204, 204, 0.527);
+    margin: 0ps;
+    padding: 10px;
+    border-radius: 10px;
+    background: white;
 }
