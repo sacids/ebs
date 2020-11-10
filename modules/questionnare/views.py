@@ -36,13 +36,8 @@ def section_one(request):
    # questions
     questions = QuestionList.objects.filter(section_id=1)
 
-    # user
-    #user_profile = Profiles.objects.get(user_id=request.user.id)
-    #user_profile = get_object_or_404(Profiles, user_id=request.user.id)
-
     # context
     context = {
-        #"user": user_profile,
         "questions": questions
     }
 
@@ -62,7 +57,7 @@ def section_one(request):
                 #save or update
                 AnsBank.objects.update_or_create(
                     created_by_id=request.user.id,
-                    country_id=request.user.profile.country_id,
+                    country_id=request.user.profiles.country_id,
                     question_id=question.id,
                     answer=answer,
                     remarks=remarks
@@ -84,12 +79,8 @@ def section_two(request):
    # questions
     questions = QuestionList.objects.filter(section_id=2)
 
-    # user
-    #user_profile = Profiles.objects.get(user_id=request.user.id)
-
     # context
     context = {
-        #"user": user_profile,
         "questions": questions
     }
 
@@ -109,7 +100,7 @@ def section_two(request):
                 #save or update
                 AnsBank.objects.update_or_create(
                     created_by_id=request.user.id,
-                    country_id=request.user.profile.country_id,
+                    country_id=request.user.profiles.country_id,
                     question_id=question.id,
                     answer=answer,
                     remarks=remarks
@@ -125,21 +116,19 @@ def section_two(request):
 
 # section three
 def section_three(request):
-   # questions
+    # section
+    section_id = 3
+
+    # questions
     questions = QuestionList.objects.filter(section_id=3)
 
     # context
     context = {
-        #"user_id": request.user.id,
         "questions": questions
     }
 
     # post data
     if request.method == "POST":
-        user_id = request.POST.get('user_id')
-        country_id = request.POST.get('country_id')
-        section_id = request.POST.get('section_id')
-
         # query questions
         questions = QuestionList.objects.filter(
             section_id=section_id).order_by('sort_order', 'code')
@@ -153,7 +142,11 @@ def section_three(request):
 
                 #save or update
                 AnsBank.objects.update_or_create(
-                    created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
+                    created_by_id=request.user.id,
+                    country_id=request.user.profiles.country_id,
+                    question_id=question.id,
+                    answer=answer,
+                    remarks=remarks
                 )
         if(request.POST.get('post_exit')):
             return redirect('/success')  # return to exit page
@@ -166,22 +159,20 @@ def section_three(request):
 
 # section four
 def section_four(request):
-   # questions
+    # section
+    section_id = 4
+
+    # questions
     questions = QuestionList.objects.filter(section_id=4)
 
     # context
     context = {
-        #"user_id": request.user.id,
         "questions": questions
     }
 
     # post data
     if request.method == "POST":
-        user_id = request.POST.get('user_id')
-        country_id = request.POST.get('country_id')
-        section_id = request.POST.get('section_id')
-
-        # query questions
+       # query questions
         questions = QuestionList.objects.filter(
             section_id=section_id).order_by('sort_order', 'code')
 
@@ -194,7 +185,11 @@ def section_four(request):
 
                 #save or update
                 AnsBank.objects.update_or_create(
-                    created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
+                    created_by_id=request.user.id,
+                    country_id=request.user.profiles.country_id,
+                    question_id=question.id,
+                    answer=answer,
+                    remarks=remarks
                 )
         if(request.POST.get('post_exit')):
             return redirect('/success')  # return to exit page
@@ -207,21 +202,19 @@ def section_four(request):
 
 # section five
 def section_five(request):
-   # questions
+    # section
+    section_id = 5
+
+    # questions
     questions = QuestionList.objects.filter(section_id=5)
 
     # context
     context = {
-        #"user_id": request.user.id,
         "questions": questions
     }
 
     # post data
     if request.method == "POST":
-        user_id = request.POST.get('user_id')
-        country_id = request.POST.get('country_id')
-        section_id = request.POST.get('section_id')
-
         # query questions
         questions = QuestionList.objects.filter(
             section_id=section_id).order_by('sort_order', 'code')
@@ -235,7 +228,11 @@ def section_five(request):
 
                 #save or update
                 AnsBank.objects.update_or_create(
-                    created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
+                    created_by_id=request.user.id,
+                    country_id=request.user.profiles.country_id,
+                    question_id=question.id,
+                    answer=answer,
+                    remarks=remarks
                 )
         if(request.POST.get('post_exit')):
             return redirect('/success')  # return to exit page
@@ -248,21 +245,19 @@ def section_five(request):
 
 # section six
 def section_six(request):
-   # questions
+    # section
+    section_id = 6
+
+    # questions
     questions = QuestionList.objects.filter(section_id=6)
 
     # context
     context = {
-        "user": request.user.id,
         "questions": questions
     }
 
     # post data
     if request.method == "POST":
-        user_id = request.POST.get('user_id')
-        country_id = request.POST.get('country_id')
-        section_id = request.POST.get('section_id')
-
         # query questions
         questions = QuestionList.objects.filter(
             section_id=section_id).order_by('sort_order', 'code')
@@ -276,7 +271,11 @@ def section_six(request):
 
                 #save or update
                 AnsBank.objects.update_or_create(
-                    created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
+                    created_by_id=request.user.id,
+                    country_id=request.user.profiles.country_id,
+                    question_id=question.id,
+                    answer=answer,
+                    remarks=remarks
                 )
         if(request.POST.get('post_exit')):
             return redirect('/success')  # return to exit page
