@@ -47,6 +47,25 @@ $(document).ready(function () {
         $("#qnModal").modal('show');
     });
 
+    //hide or show question 107 (2.9)
+    let answer_105 = $('input:radio[name="answer[105]"]').val();
+    if (answer_105 == "YES")
+        $("#qn_107").show();
+    else if (answer_105 == "NO")
+        $("#qn_107").hide();
+
+    //on change value    
+    $('input:radio[name="answer[105]"]').change(function () {
+        if ($(this).val() == 'YES') {
+            $("#qn_107").show();
+        } else if ($(this).val() == 'NO') {
+            $("#qn_107").hide();
+        }
+    });
+
+
+
+
     //form-wizard
     var current_fs, next_fs, previous_fs; //fieldsets
     var opacity;
@@ -111,25 +130,25 @@ $(document).ready(function () {
 
 
 
-        /** 
-     * generic form submission for sections - ajax
-     * HowTo
-     * 1 - for each section enscapsulate form elements in form tag
-     * 2 - Set form id
-     * 3 - In submit buttons add an attribute called action with URL of script that will handle the request
-     * 4 - In submit buttons add class section_submit
-     * 5 - Each  script in action url should return URL of next page when succesful and 0 when submission fails
-     * 6 - Set method of form in form tag
-     */
+    /** 
+ * generic form submission for sections - ajax
+ * HowTo
+ * 1 - for each section enscapsulate form elements in form tag
+ * 2 - Set form id
+ * 3 - In submit buttons add an attribute called action with URL of script that will handle the request
+ * 4 - In submit buttons add class section_submit
+ * 5 - Each  script in action url should return URL of next page when succesful and 0 when submission fails
+ * 6 - Set method of form in form tag
+ */
 
 
-    $('.submit_section').on('click',function(e){
+    $('.submit_section').on('click', function (e) {
 
         e.preventDefault();
-        var action      = $(this).attr('action');
-        var form_id     = $(this).closest('form');
-        var method      = $('#'+form_id).attr('method');
-        var data        = $('#'+form_id).serialize();
+        var action = $(this).attr('action');
+        var form_id = $(this).closest('form');
+        var method = $('#' + form_id).attr('method');
+        var data = $('#' + form_id).serialize();
 
         //alert(form_id)
         //alert(data)
@@ -137,23 +156,23 @@ $(document).ready(function () {
         //alert(action)
 
         var jqXHR = $.ajax({
-            type:method,
-            url:action,
+            type: method,
+            url: action,
             data: data,
-        }).done(function (new_url){
+        }).done(function (new_url) {
 
             // return 0 on failure and url of next page on success    
-            if(new_url){
+            if (new_url) {
                 // success move (redirect) to next page
-                window.location.href    = 'http://'+new_url;
+                window.location.href = 'http://' + new_url;
 
-            }else{
-                console.log('failed to submit form '+form_id);
+            } else {
+                console.log('failed to submit form ' + form_id);
                 // display some error message in div
             }
-        }).fail(function(jqXHR, textStatus, errorThrown){
+        }).fail(function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus);
-        }).always(function() {
+        }).always(function () {
 
         });
 
