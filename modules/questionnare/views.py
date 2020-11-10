@@ -38,11 +38,11 @@ def section_one(request):
 
     # user
     #user_profile = Profiles.objects.get(user_id=request.user.id)
-    user_profile = get_object_or_404(Profiles, user_id=request.user.id)
+    #user_profile = get_object_or_404(Profiles, user_id=request.user.id)
 
     # context
     context = {
-        "user": user_profile,
+        #"user": user_profile,
         "questions": questions
     }
 
@@ -62,7 +62,7 @@ def section_one(request):
                 #save or update
                 AnsBank.objects.update_or_create(
                     created_by_id=request.user.id,
-                    country_id=user_profile.country_id,
+                    country_id=request.user.profile.country_id,
                     question_id=question.id,
                     answer=answer,
                     remarks=remarks
