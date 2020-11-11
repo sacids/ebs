@@ -48,7 +48,7 @@ $(document).ready(function () {
     });
 
     //hide or show question 107 (2.9)
-    let answer_105 = $('input:radio[name="answer[105]"]').val();
+    let answer_105 = $('input:radio[name="answer[105]"]:checked').val();
     if (answer_105 == "YES")
         $("#qn_106").show();
     else if (answer_105 == "NO")
