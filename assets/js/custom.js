@@ -50,16 +50,16 @@ $(document).ready(function () {
     //hide or show question 107 (2.9)
     let answer_105 = $('input:radio[name="answer[105]"]').val();
     if (answer_105 == "YES")
-        $("#qn_107").show();
+        $("#qn_106").show();
     else if (answer_105 == "NO")
-        $("#qn_107").hide();
+        $("#qn_106").hide();
 
     //on change value    
     $('input:radio[name="answer[105]"]').change(function () {
         if ($(this).val() == 'YES') {
-            $("#qn_107").show();
+            $("#qn_106").show();
         } else if ($(this).val() == 'NO') {
-            $("#qn_107").hide();
+            $("#qn_106").hide();
         }
     });
 
