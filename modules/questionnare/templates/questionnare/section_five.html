@@ -856,7 +856,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 184|get_qn_title }}</label>
-                                        <input type="file" name="attachments[184]" class="form-control" />
+                                        <input type="number" name="answer[184]" value="{{ 184|get_qn_answer }}" id="answer" class="form-control" placeholder="Write answer..." />
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -868,7 +868,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 185|get_qn_title }}</label>
-                                        <input type="file" name="attachments[185]" class="form-control" />
+                                        <input type="number" name="answer[185]" value="{{ 185|get_qn_answer }}" id="answer" class="form-control" placeholder="Write answer..." />
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -880,7 +880,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 186|get_qn_title }}</label>
-                                        <input type="file" name="attachments[186]" class="form-control" />
+                                        <input type="number" name="answer[186]" value="{{ 186|get_qn_answer }}" id="answer" class="form-control" placeholder="Write answer..." />
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -892,7 +892,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 187|get_qn_title }}</label>
-                                        <input type="file" name="attachments[187]" class="form-control" />
+                                        <input type="number" name="answer[187]" value="{{ 187|get_qn_answer }}" id="answer" class="form-control" placeholder="Write answer..." />
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -904,7 +904,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 188|get_qn_title }}</label>
-                                        <input type="file" name="attachments[188]" class="form-control" />
+                                        <input type="number" name="answer[188]" value="{{ 188|get_qn_answer }}" id="answer" class="form-control" placeholder="Write answer..." />
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -915,8 +915,14 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>{{ 189|get_qn_title }}</label>
-                                        <input type="file" name="attachments[189]" class="form-control" />
+                                        <label>{{ 189|get_qn_title }}</label><br/>
+                                        <!--question type-->
+                                        <input id="answer" name="answer[189]" type="radio" class="" value="YES" {% if 189|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[189]" type="radio" class="" value="NO" {% if 189|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -928,7 +934,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 190|get_qn_title }}</label>
-                                        <input type="file" name="attachments[190]" class="form-control" />
+                                        <input type="number" name="answer[190]" value="{{ 190|get_qn_answer }}" id="answer" class="form-control" placeholder="Write answer..." />
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -940,7 +946,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 191|get_qn_title }}</label>
-                                        <input type="file" name="attachments[191]" class="form-control" />
+                                        <input type="number" name="answer[191]" value="{{ 191|get_qn_answer }}" id="answer" class="form-control" placeholder="Write answer..." />
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -952,7 +958,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 192|get_qn_title }}</label>
-                                        <input type="file" name="attachments[192]" class="form-control" />
+                                        <input type="number" name="answer[192]" value="{{ 192|get_qn_answer }}" id="answer" class="form-control" placeholder="Write answer..." />
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -964,7 +970,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 193|get_qn_title }}</label>
-                                        <input type="file" name="attachments[193]" class="form-control" />
+                                        <input type="number" name="answer[193]" value="{{ 193|get_qn_answer }}" id="answer" class="form-control" placeholder="Write answer..." />
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -975,8 +981,14 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>{{ 194|get_qn_title }}</label>
-                                        <input type="file" name="attachments[194]" class="form-control" />
+                                        <label>{{ 194|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[194]" type="radio" class="" value="YES" {% if 194|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[194]" type="radio" class="" value="NO" {% if 194|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -988,7 +1000,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 195|get_qn_title }}</label>
-                                        <input type="file" name="attachments[195]" class="form-control" />
+                                        <input type="number" name="answer[195]" value="{{ 195|get_qn_answer }}" id="answer" class="form-control" placeholder="Write answer..." />
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -1000,7 +1012,13 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 196|get_qn_title }}</label>
-                                        <input type="file" name="attachments[196]" class="form-control" />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[196]" type="radio" class="" value="YES" {% if 196|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[196]" type="radio" class="" value="NO" {% if 196|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
                                     </div>
                                     <!--./form-group-->
                                 </div>

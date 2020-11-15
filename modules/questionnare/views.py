@@ -53,6 +53,12 @@ def section_one(request):
 
             if answer is not None:
                 # todo: check for attachment and upload
+                # print(request.FILES)
+                # if request.FILES is not None:
+                #     if request.FILES['attachments[73]'] is not None:
+                #         print(request.FILES['attachments[73]'])
+                # # if len(request.FILES['attachments['+ str(question.id) +']']) != 0:
+                # #     print('here')
 
                 #save or update
                 AnsBank.objects.update_or_create(
