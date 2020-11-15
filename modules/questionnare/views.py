@@ -400,3 +400,7 @@ def show_question(request):
 
         # return response
         return JsonResponse({'id': question.id, 'placeholder': question.placeholder})
+
+
+def bad_request(request):
+    return render(request, "errors/404.html", {})

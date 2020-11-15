@@ -1,9 +1,13 @@
 from django.urls import path
 from django.conf.urls import url
+from django.conf.urls import (
+handler400, handler403, handler404, handler500
+)
 
 from . import views
 
 app_name = 'questionnare'
+
 urlpatterns = [
     path("", views.default, name="index"),
     path("section_one/", views.section_one, name="section_one"),
@@ -21,4 +25,9 @@ urlpatterns = [
 
     # admin
     path('respondents/', views.CountryList.as_view(), name='country_list'),
+
+    #error pages
+
 ]
+
+
