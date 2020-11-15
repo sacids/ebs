@@ -256,7 +256,7 @@ class AnsBank(models.Model):
         db_table            = "ansbank"
         verbose_name_plural = "Answers"
         managed             = True
-        #unique_together     = ('country', 'question',)
+        unique_together     = ('country', 'question',)
 
     def __str__(self):
         return str(self.question.id)+' '+self.answer
