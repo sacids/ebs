@@ -61,13 +61,11 @@ def section_one(request):
                 # #     print('here')
 
                 #save or update
-                AnsBank.objects.update_or_create(
-                    created_by_id=request.user.id,
-                    country_id=request.user.profiles.country_id,
-                    question_id=question.id,
-                    answer=answer,
-                    remarks=remarks
-                )
+                obj, created = AnsBank.objects.update_or_create(
+                    question_id=question.id, country_id=request.user.profiles.country_id,
+                    defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
+                              'question_id': question.id, 'answer': answer, 'remarks': remarks},)
+
         if(request.POST.get('post_exit')):
             return redirect('/success')  # return to exit page
         elif(request.POST.get('post_next')):
@@ -104,13 +102,11 @@ def section_two(request):
                 # todo: check for attachment and upload
 
                 #save or update
-                AnsBank.objects.update_or_create(
-                    created_by_id=request.user.id,
-                    country_id=request.user.profiles.country_id,
-                    question_id=question.id,
-                    answer=answer,
-                    remarks=remarks
-                )
+                obj, created = AnsBank.objects.update_or_create(
+                    question_id=question.id, country_id=request.user.profiles.country_id,
+                    defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
+                              'question_id': question.id, 'answer': answer, 'remarks': remarks},)
+
         if(request.POST.get('post_exit')):
             return redirect('/success')  # return to exit page
         elif(request.POST.get('post_next')):
@@ -147,13 +143,11 @@ def section_three(request):
                 # todo: check for attachment and upload
 
                 #save or update
-                AnsBank.objects.update_or_create(
-                    created_by_id=request.user.id,
-                    country_id=request.user.profiles.country_id,
-                    question_id=question.id,
-                    answer=answer,
-                    remarks=remarks
-                )
+                obj, created = AnsBank.objects.update_or_create(
+                    question_id=question.id, country_id=request.user.profiles.country_id,
+                    defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
+                              'question_id': question.id, 'answer': answer, 'remarks': remarks},)
+
         if(request.POST.get('post_exit')):
             return redirect('/success')  # return to exit page
         elif(request.POST.get('post_next')):
@@ -190,13 +184,11 @@ def section_four(request):
                 # todo: check for attachment and upload
 
                 #save or update
-                AnsBank.objects.update_or_create(
-                    created_by_id=request.user.id,
-                    country_id=request.user.profiles.country_id,
-                    question_id=question.id,
-                    answer=answer,
-                    remarks=remarks
-                )
+                obj, created = AnsBank.objects.update_or_create(
+                    question_id=question.id, country_id=request.user.profiles.country_id,
+                    defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
+                              'question_id': question.id, 'answer': answer, 'remarks': remarks},)
+
         if(request.POST.get('post_exit')):
             return redirect('/success')  # return to exit page
         elif(request.POST.get('post_next')):
@@ -233,13 +225,11 @@ def section_five(request):
                 # todo: check for attachment and upload
 
                 #save or update
-                AnsBank.objects.update_or_create(
-                    created_by_id=request.user.id,
-                    country_id=request.user.profiles.country_id,
-                    question_id=question.id,
-                    answer=answer,
-                    remarks=remarks
-                )
+                obj, created = AnsBank.objects.update_or_create(
+                    question_id=question.id, country_id=request.user.profiles.country_id,
+                    defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
+                              'question_id': question.id, 'answer': answer, 'remarks': remarks},)
+
         if(request.POST.get('post_exit')):
             return redirect('/success')  # return to exit page
         elif(request.POST.get('post_next')):
@@ -276,13 +266,11 @@ def section_six(request):
                 # todo: check for attachment and upload
 
                 #save or update
-                AnsBank.objects.update_or_create(
-                    created_by_id=request.user.id,
-                    country_id=request.user.profiles.country_id,
-                    question_id=question.id,
-                    answer=answer,
-                    remarks=remarks
-                )
+                obj, created = AnsBank.objects.update_or_create(
+                    question_id=question.id, country_id=request.user.profiles.country_id,
+                    defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
+                              'question_id': question.id, 'answer': answer, 'remarks': remarks},)
+
         if(request.POST.get('post_exit')):
             return redirect('/success')  # return to exit page
         elif(request.POST.get('post_next')):
