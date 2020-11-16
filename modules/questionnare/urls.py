@@ -1,8 +1,5 @@
 from django.urls import path
 from django.conf.urls import url
-from django.conf.urls import (
-handler400, handler403, handler404, handler500
-)
 
 from . import views
 
@@ -26,8 +23,7 @@ urlpatterns = [
     # admin
     path('respondents/', views.CountryList.as_view(), name='country_list'),
 
-    #error pages
+    # error pages
+    path('generate_pdf', views.pdf_section_one, name="generate_pdf")
 
 ]
-
-

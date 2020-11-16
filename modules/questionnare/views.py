@@ -4,17 +4,20 @@ from modules.dashboard.views import dashboard
 from modules.questionnare.forms import RespondentForm
 from django.db.models.query import Prefetch
 from django.http import request
+from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render, HttpResponseRedirect
 from django.views import generic
 from ..dashboard import *
 from django.contrib import messages
 from .models import *
+from .utils import render_to_pdf
 from .forms import RespondentForm
 from django.http import JsonResponse
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
+
 
 # default
 
@@ -73,6 +76,29 @@ def section_one(request):
 
     # render view
     return render(request, "questionnare/section_one.html", context)
+
+
+# print section one
+def pdf_section_one(request):
+   # questions
+    questions = QuestionList.objects.filter(section_id=1)
+
+    # context
+    context = {
+        "questions": questions,
+        "user": request.user
+    }
+    pdf = render_to_pdf('questionnare/pdf/pdf_section_one.html', context)
+    if pdf:
+        response = HttpResponse(pdf, content_type='application/pdf')
+        filename = "Section_One_%s.pdf" % ("12341231")
+        content = "inline; filename='%s'" % (filename)
+        download = request.GET.get("download")
+        if download:
+            content = "attachment; filename='%s'" % (filename)
+        response['Content-Disposition'] = content
+        return response
+    return HttpResponse("Not found")
 
 
 # section two
@@ -281,6 +307,8 @@ def section_six(request):
 
 
 # question create view
+
+
 class QuestionnareCreateView(generic.CreateView):
     context_object_name = 'questions'
     template_name = "questionnare/questionsM.html"
@@ -388,7 +416,3 @@ def show_question(request):
 
         # return response
         return JsonResponse({'id': question.id, 'placeholder': question.placeholder})
-
-
-def bad_request(request):
-    return render(request, "errors/404.html", {})
