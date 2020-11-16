@@ -1,4 +1,5 @@
 from django import template
+from django.http import request
 from ..models import *
 from django.http import Http404
 
@@ -23,18 +24,18 @@ def get_qn_hint(qn_id):
 
 
 @register.filter
-def get_qn_answer(qn_id):
+def get_qn_answer(qn_id, user):
     try:
-        answers = AnsBank.objects.get(country_id=1, question_id=qn_id)
+        answers = AnsBank.objects.get(country_id=user.profiles.country_id, question_id=qn_id)
         return answers.answer
     except AnsBank.DoesNotExist:
         return ""
 
 
 @register.filter
-def get_qn_remarks(qn_id):
+def get_qn_remarks(qn_id, user):
     try:
-        answers = AnsBank.objects.get(country_id=1, question_id=qn_id)
+        answers = AnsBank.objects.get(country_id=user.profiles.country_id, question_id=qn_id)
         return answers.remarks
     except AnsBank.DoesNotExist:
         return ""

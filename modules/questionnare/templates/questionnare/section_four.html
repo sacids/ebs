@@ -46,10 +46,10 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <!--question type-->
-                                        <input id="answer" name="answer[139]" type="radio" class="" value="YES" {% if 139|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[139]" type="radio" class="" value="YES" {% if 139|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[139]" type="radio" class="" value="NO" {% if 139|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[139]" type="radio" class="" value="NO" {% if 139|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -62,7 +62,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[139]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 139|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 139|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -111,41 +111,41 @@
 
                                         <tr>
                                             <td>{{ 141|get_qn_title }}</td>
-                                            <td><input type="text" name="answer[306]" id="answer" value="{{ 306|get_qn_answer }}" class="form-control" />
+                                            <td><input type="text" name="answer[306]" id="answer" value="{{ 306|get_qn_answer:user }}" class="form-control" />
                                             </td>
-                                            <td><input type="text" name="answer[307]" id="answer" value="{{ 307|get_qn_answer }}" class="form-control" />
+                                            <td><input type="text" name="answer[307]" id="answer" value="{{ 307|get_qn_answer:user }}" class="form-control" />
                                             </td>
-                                            <td><input type="text" name="answer[308]" id="answer" value="{{ 308|get_qn_answer }}" class="form-control" />
+                                            <td><input type="text" name="answer[308]" id="answer" value="{{ 308|get_qn_answer:user }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 142|get_qn_title }}</td>
-                                            <td><input type="text" name="answer[309]" id="answer" value="{{ 309|get_qn_answer }}" class="form-control" />
+                                            <td><input type="text" name="answer[309]" id="answer" value="{{ 309|get_qn_answer:user }}" class="form-control" />
                                             </td>
-                                            <td><input type="text" name="answer[310]" id="answer" value="{{ 310|get_qn_answer }}" class="form-control" />
+                                            <td><input type="text" name="answer[310]" id="answer" value="{{ 310|get_qn_answer:user }}" class="form-control" />
                                             </td>
-                                            <td><input type="text" name="answer[311]" id="answer" value="{{ 311|get_qn_answer }}" class="form-control" />
+                                            <td><input type="text" name="answer[311]" id="answer" value="{{ 311|get_qn_answer:user }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 143|get_qn_title }}</td>
-                                            <td><input type="text" name="answer[312]" id="answer" value="{{ 312|get_qn_answer }}" class="form-control" />
+                                            <td><input type="text" name="answer[312]" id="answer" value="{{ 312|get_qn_answer:user }}" class="form-control" />
                                             </td>
-                                            <td><input type="text" name="answer[313]" id="answer" value="{{ 313|get_qn_answer }}" class="form-control" />
+                                            <td><input type="text" name="answer[313]" id="answer" value="{{ 313|get_qn_answer:user }}" class="form-control" />
                                             </td>
-                                            <td><input type="text" name="answer[314]" id="answer" value="{{ 314|get_qn_answer }}" class="form-control" />
+                                            <td><input type="text" name="answer[314]" id="answer" value="{{ 314|get_qn_answer:user }}" class="form-control" />
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>{{ 144|get_qn_title }}</td>
-                                            <td><input type="text" name="answer[315]" id="answer" value="{{ 315|get_qn_answer }}" class="form-control" />
+                                            <td><input type="text" name="answer[315]" id="answer" value="{{ 315|get_qn_answer:user }}" class="form-control" />
                                             </td>
-                                            <td><input type="text" name="answer[316]" id="answer" value="{{ 316|get_qn_answer }}" class="form-control" />
+                                            <td><input type="text" name="answer[316]" id="answer" value="{{ 316|get_qn_answer:user }}" class="form-control" />
                                             </td>
-                                            <td><input type="text" name="answer[317]" id="answer" value="{{ 317|get_qn_answer }}" class="form-control" />
+                                            <td><input type="text" name="answer[317]" id="answer" value="{{ 317|get_qn_answer:user }}" class="form-control" />
                                             </td>
                                         </tr>
                                     </table>
@@ -157,7 +157,7 @@
                                         <label>{{ 145|get_qn_title }}</label><br />
                                         <!--question type-->
                                         <textarea rows="4" cols="40" name="answer[145]" class="textarea form-control"
-                                            id="answer">{{ 145|get_qn_answer }}</textarea>
+                                            id="answer">{{ 145|get_qn_answer:user }}</textarea>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
@@ -189,10 +189,10 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <!--question type-->
-                                        <input id="answer" name="answer[146]" type="radio" class="" value="YES" {% if 146|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[146]" type="radio" class="" value="YES" {% if 146|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[146]" type="radio" class="" value="NO" {% if 146|get_qn_answer == "NO" %} checked {% endif %}/>
+                                        <input id="answer" name="answer[146]" type="radio" class="" value="NO" {% if 146|get_qn_answer:user == "NO" %} checked {% endif %}/>
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -205,7 +205,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[146]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 146|get_qn_remarks }} </textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 146|get_qn_remarks:user }} </textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -237,10 +237,10 @@
                                     <div class="form-group">
                                         <label>{{ 148|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[148]" type="radio" class="" value="YES" {% if 148|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[148]" type="radio" class="" value="YES" {% if 148|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[148]" type="radio" class="" value="NO" {% if 148|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <input id="answer" name="answer[148]" type="radio" class="" value="NO" {% if 148|get_qn_answer:user == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -253,7 +253,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[148]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 148|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 148|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -266,10 +266,10 @@
                                     <div class="form-group">
                                         <label>{{ 149|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[149]" type="radio" class="" value="YES" {% if 149|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[149]" type="radio" class="" value="YES" {% if 149|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[149]" type="radio" class="" value="NO" {% if 149|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <input id="answer" name="answer[149]" type="radio" class="" value="NO" {% if 149|get_qn_answer:user == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -282,7 +282,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[149]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 149|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 149|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -295,10 +295,10 @@
                                     <div class="form-group">
                                         <label>{{ 150|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[150]" type="radio" class="" value="YES" {% if 150|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[150]" type="radio" class="" value="YES" {% if 150|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[150]" type="radio" class="" value="NO" {% if 150|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <input id="answer" name="answer[150]" type="radio" class="" value="NO" {% if 150|get_qn_answer:user == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -311,7 +311,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[150]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 150|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 150|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -324,10 +324,10 @@
                                     <div class="form-group">
                                         <label>{{ 151|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[151]" type="radio" class="" value="YES" {% if 151|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[151]" type="radio" class="" value="YES" {% if 151|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[151]" type="radio" class="" value="NO" {% if 151|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <input id="answer" name="answer[151]" type="radio" class="" value="NO" {% if 151|get_qn_answer:user == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -340,7 +340,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[151]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 151|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 151|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -353,10 +353,10 @@
                                     <div class="form-group">
                                         <label>{{ 152|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[152]" type="radio" class="" value="YES" {% if 152|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[152]" type="radio" class="" value="YES" {% if 152|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[152]" type="radio" class="" value="NO" {% if 152|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <input id="answer" name="answer[152]" type="radio" class="" value="NO" {% if 152|get_qn_answer:user == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -369,7 +369,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[152]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 152|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 152|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -382,10 +382,10 @@
                                     <div class="form-group">
                                         <label>{{ 153|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[153]" type="radio" class="" value="YES" {% if 153|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[153]" type="radio" class="" value="YES" {% if 153|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[153]" type="radio" class="" value="NO" {% if 153|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <input id="answer" name="answer[153]" type="radio" class="" value="NO" {% if 153|get_qn_answer:user == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -398,7 +398,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[153]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 153|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 153|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -411,10 +411,10 @@
                                     <div class="form-group">
                                         <label>{{ 154|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[154]" type="radio" class="" value="YES" {% if 154|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[154]" type="radio" class="" value="YES" {% if 154|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[154]" type="radio" class="" value="NO" {% if 154|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <input id="answer" name="answer[154]" type="radio" class="" value="NO" {% if 154|get_qn_answer:user == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -427,7 +427,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[154]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 154|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 154|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -440,10 +440,10 @@
                                     <div class="form-group">
                                         <label>{{ 155|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[155]" type="radio" class="" value="YES" {% if 155|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[155]" type="radio" class="" value="YES" {% if 155|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[155]" type="radio" class="" value="NO" {% if 155|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <input id="answer" name="answer[155]" type="radio" class="" value="NO" {% if 155|get_qn_answer:user == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -456,7 +456,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[155]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 155|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 155|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -487,10 +487,10 @@
                                     <div class="form-group">
                                         <label>{{ 157|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[157]" type="radio" class="" value="YES" {% if 157|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[157]" type="radio" class="" value="YES" {% if 157|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[157]" type="radio" class="" value="NO" {% if 157|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <input id="answer" name="answer[157]" type="radio" class="" value="NO" {% if 157|get_qn_answer:user == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -503,7 +503,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[157]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 157|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 157|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -516,10 +516,10 @@
                                     <div class="form-group">
                                         <label>{{ 158|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[158]" type="radio" class="" value="YES" {% if 158|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[158]" type="radio" class="" value="YES" {% if 158|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[158]" type="radio" class="" value="NO" {% if 158|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <input id="answer" name="answer[158]" type="radio" class="" value="NO" {% if 158|get_qn_answer:user == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -532,7 +532,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[158]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 158|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 158|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -545,10 +545,10 @@
                                     <div class="form-group">
                                         <label>{{ 159|get_qn_title }}</label><br />
                                         <!--question type-->
-                                        <input id="answer" name="answer[159]" type="radio" class="" value="YES" {% if 159|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[159]" type="radio" class="" value="YES" {% if 159|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[159]" type="radio" class="" value="NO" {% if 159|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <input id="answer" name="answer[159]" type="radio" class="" value="NO" {% if 159|get_qn_answer:user == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -561,7 +561,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[159]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 159|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 159|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -593,10 +593,10 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <!--question type-->
-                                        <input id="answer" name="answer[160]" type="radio" class="" value="YES" {% if 160|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[160]" type="radio" class="" value="YES" {% if 160|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[160]" type="radio" class="" value="NO" {% if 160|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <input id="answer" name="answer[160]" type="radio" class="" value="NO" {% if 160|get_qn_answer:user == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -609,7 +609,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[160]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 160|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 160|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -641,10 +641,10 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <!--question type-->
-                                        <input id="answer" name="answer[161]" type="radio" class="" value="YES" {% if 161|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[161]" type="radio" class="" value="YES" {% if 161|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[161]" type="radio" class="" value="NO" {% if 161|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <input id="answer" name="answer[161]" type="radio" class="" value="NO" {% if 161|get_qn_answer:user == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -657,7 +657,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[161]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 161|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 161|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -689,10 +689,10 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <!--question type-->
-                                        <input id="answer" name="answer[162]" type="radio" class="" value="YES" {% if 162|get_qn_answer == "YES" %} checked {% endif %} />
+                                        <input id="answer" name="answer[162]" type="radio" class="" value="YES" {% if 162|get_qn_answer:user == "YES" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;Yes</label>
                                         <br />
-                                        <input id="answer" name="answer[162]" type="radio" class="" value="NO" {% if 162|get_qn_answer == "NO" %} checked {% endif %} />
+                                        <input id="answer" name="answer[162]" type="radio" class="" value="NO" {% if 162|get_qn_answer:user == "NO" %} checked {% endif %} />
                                         <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
@@ -705,7 +705,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[162]" class="form-control"
-                                            placeholder="Write remarks..." id="remarks">{{ 162|get_qn_remarks }}</textarea>
+                                            placeholder="Write remarks..." id="remarks">{{ 162|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -738,7 +738,7 @@
                                     <div class="form-group">
                                         <!--question type-->
                                         <textarea rows="4" cols="40" name="answer[163]" class="textarea form-control"
-                                            id="answer">{{ 163|get_qn_answer }}</textarea>
+                                            id="answer">{{ 163|get_qn_answer:user }}</textarea>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
@@ -772,7 +772,7 @@
                                     <div class="form-group">
                                         <!--question type-->
                                         <textarea rows="4" cols="40" name="answer[164]" class="textarea form-control"
-                                            id="answer">{{ 164|get_qn_answer }}</textarea>
+                                            id="answer">{{ 164|get_qn_answer:user }}</textarea>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
@@ -806,7 +806,7 @@
                                     <div class="form-group">
                                         <!--question type-->
                                         <textarea rows="4" cols="40" name="answer[165]" class="textarea form-control"
-                                            id="answer">{{ 165|get_qn_answer }}</textarea>
+                                            id="answer">{{ 165|get_qn_answer:user }}</textarea>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
