@@ -300,7 +300,24 @@ def section_six(request):
         if(request.POST.get('post_exit')):
             return redirect('/success')  # return to exit page
         elif(request.POST.get('post_next')):
-            return redirect('/success')  # redirect to success
+            # todo validate
+            required_questions = QuestionList.objects.filter(
+                required='YES').order_by('sort_order', 'code')
+
+            i = 0
+            for req_qn in required_questions:
+                # query in answer bank
+                try:
+                    ans_bank = AnsBank.objects.get(
+                        question_id=req_qn.id, country_id=request.user.profiles.country_id)
+                except:
+                    messages.add_message(
+                        request, messages.ERROR, 'Question number ' + req_qn.code + ' required')
+                    i = i + 1
+
+            # check if there no required question
+            if(i == 0):
+                return redirect('/success')  # redirect to success
 
     # render view
     return render(request, "questionnare/section_six.html", context)

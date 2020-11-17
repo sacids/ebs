@@ -26,6 +26,22 @@
                         </div>
                         <!--./row-->
 
+
+                        {% if messages %}
+                            <div class="row mt-2">
+                                <div class="col-md-12">
+                                    <div class="alert alert-danger">
+                                        <a class="close" href="#" data-dismiss="alert">×</a>
+                                        {% for message in messages %}
+                                            <p>{{ message }}</p>
+                                        {% endfor %}
+                                    </div><!--./alert-danger-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->   
+                        {% endif %}
+
                         <!--start-->
                         <div class="form-card">
                             <div class="row">
