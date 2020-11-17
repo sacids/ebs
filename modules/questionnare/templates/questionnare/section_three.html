@@ -777,6 +777,52 @@
                                 <!--./col-->
                             </div>
                             <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 319|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 319|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[319]" type="radio" class="" value="YES" {% if 319|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[319]" type="radio" class="" value="NO" {% if 319|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[319]" class="form-control"
+                                            placeholder="Write remarks..." id="remarks">{{ 319|get_qn_remarks:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
                         </div>
                         <!--./form-card-->
 
