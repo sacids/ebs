@@ -805,8 +805,11 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <!--question type-->
-                                        <textarea rows="4" cols="40" name="answer[165]" class="textarea form-control"
-                                            id="answer">{{ 165|get_qn_answer:user }}</textarea>
+                                        <input id="answer" name="answer[165]" type="radio" class="" value="YES" {% if 165|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[165]" type="radio" class="" value="NO" {% if 165|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
