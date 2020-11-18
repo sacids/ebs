@@ -256,10 +256,17 @@
                                         <p class="small">
                                             {{ 94|get_qn_hint }}
                                         </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
 
-                                        <p class="small">
-                                            {{ 95|get_qn_hint }}
-                                        </p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 320|get_qn_title }}</label>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -365,20 +372,346 @@
                                     </table>
                                 </div>
                                 <!--./col-->
+                            </div>
+                            <!--./row-->
 
+                            <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>{{ 101|get_qn_title }}</label><br />
-                                        <!--question type-->
-                                        <textarea rows="4" cols="40" name="answer[101]" class="textarea form-control"
-                                            id="answer">{{ 101|get_qn_answer:user }}</textarea>
-                                        <!--./question type-->
+                                        <label>Intermediate</label>
                                     </div>
                                     <!--./form-group-->
                                 </div>
                                 <!--./col-->
                             </div>
                             <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table">
+                                        <tr>
+                                            <td width="40%"></td>
+                                            <td width="12%">PhD</td>
+                                            <td width="12%">Masters</td>
+                                            <td width="12%">Degree</td>
+                                            <td width="12%">Diploma</td>
+                                            <td width="12%">Certification</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 95|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[250]" id="answer" value="{{ 250|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[251]" id="answer" value="{{ 251|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[252]" id="answer" value="{{ 252|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[253]" id="answer" value="{{ 253|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[254]" id="answer" value="{{ 254|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 96|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[255]" id="answer" value="{{ 255|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[256]" id="answer" value="{{ 256|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[257]" id="answer" value="{{ 257|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[258]" id="answer" value="{{ 258|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[259]" id="answer" value="{{ 259|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 97|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[260]" id="answer" value="{{ 260|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[261]" id="answer" value="{{ 261|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[262]" id="answer" value="{{ 262|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[263]" id="answer" value="{{ 263|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[264]" id="answer" value="{{ 264|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 98|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[265]" id="answer" value="{{ 265|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[266]" id="answer" value="{{ 266|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[267]" id="answer" value="{{ 267|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[268]" id="answer" value="{{ 268|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[269]" id="answer" value="{{ 269|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 99|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[270]" id="answer" value="{{ 270|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[271]" id="answer" value="{{ 271|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[272]" id="answer" value="{{ 272|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[273]" id="answer" value="{{ 273|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[274]" id="answer" value="{{ 274|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 100|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[275]" id="answer" value="{{ 275|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[276]" id="answer" value="{{ 276|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[277]" id="answer" value="{{ 277|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[278]" id="answer" value="{{ 278|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[279]" id="answer" value="{{ 279|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Health Facility</label>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table">
+                                        <tr>
+                                            <td width="40%"></td>
+                                            <td width="12%">PhD</td>
+                                            <td width="12%">Masters</td>
+                                            <td width="12%">Degree</td>
+                                            <td width="12%">Diploma</td>
+                                            <td width="12%">Certification</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 95|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[250]" id="answer" value="{{ 250|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[251]" id="answer" value="{{ 251|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[252]" id="answer" value="{{ 252|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[253]" id="answer" value="{{ 253|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[254]" id="answer" value="{{ 254|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 96|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[255]" id="answer" value="{{ 255|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[256]" id="answer" value="{{ 256|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[257]" id="answer" value="{{ 257|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[258]" id="answer" value="{{ 258|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[259]" id="answer" value="{{ 259|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 97|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[260]" id="answer" value="{{ 260|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[261]" id="answer" value="{{ 261|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[262]" id="answer" value="{{ 262|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[263]" id="answer" value="{{ 263|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[264]" id="answer" value="{{ 264|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 98|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[265]" id="answer" value="{{ 265|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[266]" id="answer" value="{{ 266|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[267]" id="answer" value="{{ 267|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[268]" id="answer" value="{{ 268|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[269]" id="answer" value="{{ 269|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 99|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[270]" id="answer" value="{{ 270|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[271]" id="answer" value="{{ 271|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[272]" id="answer" value="{{ 272|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[273]" id="answer" value="{{ 273|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[274]" id="answer" value="{{ 274|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 100|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[275]" id="answer" value="{{ 275|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[276]" id="answer" value="{{ 276|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[277]" id="answer" value="{{ 277|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[278]" id="answer" value="{{ 278|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[279]" id="answer" value="{{ 279|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Community</label>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table">
+                                        <tr>
+                                            <td width="40%"></td>
+                                            <td width="12%">PhD</td>
+                                            <td width="12%">Masters</td>
+                                            <td width="12%">Degree</td>
+                                            <td width="12%">Diploma</td>
+                                            <td width="12%">Certification</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 95|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[250]" id="answer" value="{{ 250|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[251]" id="answer" value="{{ 251|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[252]" id="answer" value="{{ 252|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[253]" id="answer" value="{{ 253|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[254]" id="answer" value="{{ 254|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 96|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[255]" id="answer" value="{{ 255|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[256]" id="answer" value="{{ 256|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[257]" id="answer" value="{{ 257|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[258]" id="answer" value="{{ 258|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[259]" id="answer" value="{{ 259|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 97|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[260]" id="answer" value="{{ 260|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[261]" id="answer" value="{{ 261|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[262]" id="answer" value="{{ 262|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[263]" id="answer" value="{{ 263|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[264]" id="answer" value="{{ 264|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 98|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[265]" id="answer" value="{{ 265|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[266]" id="answer" value="{{ 266|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[267]" id="answer" value="{{ 267|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[268]" id="answer" value="{{ 268|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[269]" id="answer" value="{{ 269|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 99|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[270]" id="answer" value="{{ 270|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[271]" id="answer" value="{{ 271|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[272]" id="answer" value="{{ 272|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[273]" id="answer" value="{{ 273|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[274]" id="answer" value="{{ 274|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{ 100|get_qn_title }}</td>
+                                            <td><input type="number" name="answer[275]" id="answer" value="{{ 275|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[276]" id="answer" value="{{ 276|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[277]" id="answer" value="{{ 277|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[278]" id="answer" value="{{ 278|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                            <td><input type="number" name="answer[279]" id="answer" value="{{ 279|get_qn_answer:user }}" class="form-control" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
                         </div>
                         <!--./form-card-->
 
