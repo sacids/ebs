@@ -1,10 +1,12 @@
 import json
+
+from django.core.mail import message
+from modules.notification.views import send_notification
 from modules.profiles.models import Profiles
 from modules.dashboard.views import dashboard
 from modules.questionnare.forms import RespondentForm
 from django.db.models.query import Prefetch
-from django.http import request
-from django.http import HttpResponse
+from django.http import request, HttpResponse, JsonResponse
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render, HttpResponseRedirect
 from django.views import generic
@@ -13,13 +15,10 @@ from django.contrib import messages
 from .models import *
 from .utils import render_to_pdf
 from .forms import RespondentForm
-from django.http import JsonResponse
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
-
-
-# default
+from ..notification.views import send_notification
 
 
 @login_required
@@ -63,7 +62,7 @@ def section_one(request):
                 # # if len(request.FILES['attachments['+ str(question.id) +']']) != 0:
                 # #     print('here')
 
-                #save or update
+                # save or update
                 obj, created = AnsBank.objects.update_or_create(
                     question_id=question.id, country_id=request.user.profiles.country_id,
                     defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
@@ -127,7 +126,7 @@ def section_two(request):
             if answer is not None:
                 # todo: check for attachment and upload
 
-                #save or update
+                # save or update
                 obj, created = AnsBank.objects.update_or_create(
                     question_id=question.id, country_id=request.user.profiles.country_id,
                     defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
@@ -168,7 +167,7 @@ def section_three(request):
             if answer is not None:
                 # todo: check for attachment and upload
 
-                #save or update
+                # save or update
                 obj, created = AnsBank.objects.update_or_create(
                     question_id=question.id, country_id=request.user.profiles.country_id,
                     defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
@@ -209,7 +208,7 @@ def section_four(request):
             if answer is not None:
                 # todo: check for attachment and upload
 
-                #save or update
+                # save or update
                 obj, created = AnsBank.objects.update_or_create(
                     question_id=question.id, country_id=request.user.profiles.country_id,
                     defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
@@ -250,7 +249,7 @@ def section_five(request):
             if answer is not None:
                 # todo: check for attachment and upload
 
-                #save or update
+                # save or update
                 obj, created = AnsBank.objects.update_or_create(
                     question_id=question.id, country_id=request.user.profiles.country_id,
                     defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
@@ -291,7 +290,7 @@ def section_six(request):
             if answer is not None:
                 # todo: check for attachment and upload
 
-                #save or update
+                # save or update
                 obj, created = AnsBank.objects.update_or_create(
                     question_id=question.id, country_id=request.user.profiles.country_id,
                     defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
@@ -304,7 +303,7 @@ def section_six(request):
             required_questions = QuestionList.objects.filter(
                 required='YES').order_by('sort_order', 'code')
 
-            i = 0
+            j = 0
             for req_qn in required_questions:
                 # query in answer bank
                 try:
@@ -313,77 +312,35 @@ def section_six(request):
                 except:
                     messages.add_message(
                         request, messages.ERROR, 'Question number ' + req_qn.code + ' required')
-                    i = i + 1
+                    j = j + 1
 
             # check if there no required question
-            if(i == 0):
-                return redirect('/success')  # redirect to success
+            if(j == 0):
+                # country
+                country = Country.objects.get(
+                    pk=request.user.profiles.country_id)
+
+                # send message
+                subject = 'Submission Alert: Situation analysis of EBS implementation in Africa'
+
+                message = '<p>Dear XXX</p>'
+                message += '<p>Data for ' + country.name + \
+                    ' has been Submitted.</p>'
+                message += '<p>For review and approval please <a href="https://ebs-survey.africacdc.org/">click here</a></p>'
+
+                # send email notification
+                send_notification(subject, message, from_email="chris@ecsahc.org",
+                                  to_email=['chris@ecsahc.org', 'werew@ecsahc.org', 'eric.beda@sacids.org'])
+
+                # redirect to success
+                return redirect('/success')
 
     # render view
     return render(request, "questionnare/section_six.html", context)
 
 
-# question create view
-
-
-class QuestionnareCreateView(generic.CreateView):
-    context_object_name = 'questions'
-    template_name = "questionnare/questionsM.html"
-    success_url = reverse_lazy('questionnare:success')
-
-    def get(self, request, **kwargs):
-        # questions lists
-        questions = QuestionList.objects.all()
-
-        # user
-        user_id = request.user.id
-
-        # render view
-        return render(request, self.template_name, {'questions': questions, 'user_id': user_id})
-
-
-# api to post answer
-def api_post_answers(request):
-    if request.method == "POST":
-        user_id = request.POST.get('user_id')
-        country_id = request.POST.get('country_id')
-        section_id = request.POST.get('section_id')
-
-        # query questions
-        questions = QuestionList.objects.filter(
-            section_id=section_id).order_by('sort_order', 'code')
-
-        for question in questions:
-            answer = request.POST.get('answer[' + str(question.id) + ']')
-            remarks = request.POST.get('remarks[' + str(question.id) + ']')
-
-            if answer is not None:
-                AnsBank.objects.update_or_create(
-                    created_by_id=user_id, country_id=country_id, question_id=question.id, answer=answer, remarks=remarks
-                )
-
-        # return json with success message
-        return JsonResponse({'error': False, 'message': 'Successfully inserted answers'})
-    else:
-        return JsonResponse({'error': True, 'message': 'Failed to inserted answers'})
-
-
-class QuestionListView(generic.ListView):
-    model = Question
-    context_object_name = 'questions'
-    template_name = "questionnare/index.html"
-
-    def get_context_data(self, **kwargs):
-        context = super(QuestionListView, self).get_context_data(**kwargs)
-        context['councils'] = Council.objects.all()
-        context['countries'] = Country.objects.all()
-        context['institutions'] = Institution.objects.all()
-
-        categories = Category.objects.prefetch_related(
-            Prefetch('questions', queryset=Question.objects.order_by('sort_order')),
-            Prefetch('questions__sub_questions', queryset=SubQuestion.objects.order_by('sort_order'))).order_by('id').all()
-        context['categories'] = categories
-        return context
+def success(request):
+    return render(None, "questionnare/success.html", {})
 
 
 class CountryList(generic.ListView):
@@ -402,17 +359,34 @@ class CountryList(generic.ListView):
             tmp[update['country_id']] = update['created_at']
 
         context['last_update'] = tmp
-        print(context['countries'])
         return context
 
 
-# success
+def send_incomplete_submission_alert(request, **kwargs):
+    # check for incomplete submission
+    try:
+        country = Country.objects.get(pk=kwargs['country_id'])
 
+        if(country.status == 'NO'):
+            subject = 'Incomplete Submission Alert: Situation analysis of EBS implementation in Africa'
 
-def success(request):
-    return render(None, "questionnare/success.html", {})
+            message = '<p>Dear' + request.user.get_full_name + ', </p>'
+            message += '<p>Data for ' + country.name + \
+                ' are incomplete, please find sometime to complete the form.</p>'
+            message += '<p>To continue where you left off  please <a href="https://ebs-survey.africacdc.org/">click here</a></p>'
 
-# get countries
+            # send email notification
+            send_notification(subject, message, from_email="chris@ecsahc.org",
+                              to_email=[request.user.email])
+
+            # message
+            messages.add_message(
+                request, messages.SUCCESS, 'Email notification sent')
+    except:
+        pass
+
+    # redirect
+    return redirect('/respondents')
 
 
 def get_countries(request):
@@ -422,8 +396,6 @@ def get_countries(request):
 
         # return response.
         return render(None, 'questionnare/countries.html', {'countries': countries})
-
-# get
 
 
 def show_question(request):

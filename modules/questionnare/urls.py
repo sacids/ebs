@@ -1,3 +1,4 @@
+from modules.questionnare.views import send_incomplete_submission_alert
 from django.urls import path
 from django.conf.urls import url
 
@@ -13,7 +14,6 @@ urlpatterns = [
     path("section_four/", views.section_four, name="section_four"),
     path("section_five/", views.section_five, name="section_five"),
     path("section_six/", views.section_six, name="section_six"),
-    path("api_post_answers/", views.api_post_answers, name="api_post_answers"),
     path('success/', views.success, name='success'),
 
     # filters
@@ -23,7 +23,7 @@ urlpatterns = [
     # admin
     path('respondents/', views.CountryList.as_view(), name='country_list'),
 
-    # error pages
-    path('generate_pdf', views.pdf_section_one, name="generate_pdf")
-
+    # alerts
+    path('send_incomplete_submission_alert/<int:country_id>',
+         views.send_incomplete_submission_alert, name="send_incomplete_submission_alert"),
 ]

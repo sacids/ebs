@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include("modules.questionnare.urls")),
     path('dashboard', include("modules.dashboard.urls")),
     path('respondents/', include("modules.respondents.urls")),
+    path('notification/', include("modules.notification.urls")),
 ]

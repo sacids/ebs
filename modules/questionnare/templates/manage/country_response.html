@@ -4,6 +4,19 @@
 
 {% block content %}
 <div class="bg-white p-3 rounded-sm border-light">
+
+    {% if messages %}
+    <div class="row">
+        <div class="col-md-12">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                <p>{{ message }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
     <div class="d-flex border-bottom font-weight-bold">
         <div class="mr-auto p-2">Country</div>
         <div class="p-2">Last Update</div>
@@ -15,7 +28,13 @@
         <div class="mr-auto p-2 pt-3">{{country.title}}</div>
         <div class="p-2 pt-3">{{last_update|get_by_index:country.id}}</div>
         <div class="p-2 pt-3"><span class="badge badge-danger">Danger</span></div>
-        <div class="p-2"><button type="button" class="btn btn-primary btn-sm">View</button></div>
+        <div class="p-2">
+            <a href="#" class="text-primary" title="View Response"><i class="fa fa-folder-open"></i></a>&nbsp;
+            <a href="/send_incomplete_submission_alert/{{country.id}}" class="text-danger"
+                title="Send Incomplete Submission Alert"><i class="fa fa-envelope-open"></i></a>&nbsp;
+
+
+        </div>
     </div>
     {% endfor %}
 </div>
