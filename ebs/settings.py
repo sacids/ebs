@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # installed libraries
-    "authtools",
 
     # custom apps
     'modules.questionnare',
@@ -151,7 +150,7 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
-AUTH_USER_MODEL = 'authtools.User'
+#AUTH_USER_MODEL = 'authtools.User'
 
 #media url
 MEDIA_ROOT = str(BASE_DIR / "assets/media")

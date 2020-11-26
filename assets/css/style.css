@@ -296,12 +296,12 @@ Background colors
 /*==============================================
 Accordion
 ==============================================*/
-.myaccordion {
+#myAccordion .card{
   width: 100%;
   margin-top: 40px;
 }
 
-.myaccordion .card-title {
+#myAccordion .card > .card-header {
     font-size:16px;
     text-transform: uppercase;
     font-weight: 600;
@@ -310,11 +310,11 @@ Accordion
     background: transparent;
 }
 
-.myaccordion .card-title a:hover{
+#myAccordion .card > .card-header h2:hover{
     text-decoration: none;
 }
 
-.myaccordion .card-title a:active{
+#myAccordion .card > .card-header h2:active{
     text-decoration: none;
     color: #1565C0;
 }

@@ -1,0 +1,53 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% load ebs_tags %}
+
+{% block content %}
+
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link" href="/responses">Responses</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Notifications</a>
+    </li>
+  </ul>
+
+<div class="bg-white p-3 rounded-sm border-light">
+    {% if messages %}
+    <div class="row">
+        <div class="col-md-12">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                <p>{{ message }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="d-flex border-bottom font-weight-bold">
+        <div class="mr-auto p-2">Country</div>
+        <div class="p-2">Last Update</div>
+        <div class="p-2">Status</div>
+        <div class="p-2">Action</div>
+    </div>
+    {% for country in countries %}
+    <div class="d-flex border-bottom">
+        <div class="mr-auto p-2 pt-3">{{country.title}}</div>
+        <div class="p-2 pt-3">{{last_update|get_by_index:country.id}}</div>
+        <div class="p-2 pt-3"><span class="badge badge-danger">Danger</span></div>
+        <div class="p-2">
+            <a href="/responses/{{country.id}}" class="text-primary" title="View Response">
+                <i class="fa fa-folder-open"></i>
+            </a>&nbsp;
+
+            <a href="/send_incomplete_submission_alert/{{country.id}}" class="text-danger"
+                title="Send Incomplete Submission Alert">
+                <i class="fa fa-envelope-open"></i>
+            </a>&nbsp;
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

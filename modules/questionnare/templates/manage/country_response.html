@@ -3,39 +3,105 @@
 {% load ebs_tags %}
 
 {% block content %}
+
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link" href="/responses">Responses</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Notifications</a>
+    </li>
+</ul>
+
 <div class="bg-white p-3 rounded-sm border-light">
-
-    {% if messages %}
-    <div class="row">
-        <div class="col-md-12">
-            {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}" role="alert">
-                <p>{{ message }}</p>
-            </div>
-            {% endfor %}
+    <div class="d-flex">
+        <div class="float-left p-2">
+            <a href="#" class="btn btn-success btn-sm">
+                <i class="fa fa-file-excel"></i>
+                Print</a>
         </div>
     </div>
-    {% endif %}
 
-    <div class="d-flex border-bottom font-weight-bold">
-        <div class="mr-auto p-2">Country</div>
-        <div class="p-2">Last Update</div>
-        <div class="p-2">Status</div>
-        <div class="p-2">Action</div>
-    </div>
-    {% for country in countries %}
     <div class="d-flex border-bottom">
-        <div class="mr-auto p-2 pt-3">{{country.title}}</div>
-        <div class="p-2 pt-3">{{last_update|get_by_index:country.id}}</div>
-        <div class="p-2 pt-3"><span class="badge badge-danger">Danger</span></div>
-        <div class="p-2">
-            <a href="#" class="text-primary" title="View Response"><i class="fa fa-folder-open"></i></a>&nbsp;
-            <a href="/send_incomplete_submission_alert/{{country.id}}" class="text-danger"
-                title="Send Incomplete Submission Alert"><i class="fa fa-envelope-open"></i></a>&nbsp;
-
-
-        </div>
+        <div class="mr-auto p-2 font-weight-bold">Name of the Country</div>
+        <div class="p-2">{{ country.title }}</div>
     </div>
-    {% endfor %}
+    <!--./flex-->
+
+    <div class="d-flex border-bottom">
+        <div class="mr-auto p-2 font-weight-bold">Supporting Regional Cordinating Centre (RCC)</div>
+        <div class="p-2">{{ country.council.title }}</div>
+    </div>
+    <!--./flex-->
+
+    <div class="d-flex border-bottom">
+        <div class="mr-auto p-2 font-weight-bold">Respondent Name</div>
+        <div class="p-2">{{ profile.user.get_full_name }}</div>
+    </div>
+    <!--./flex-->
+
+    <div class="d-flex border-bottom">
+        <div class="mr-auto p-2 font-weight-bold">Respondent Institution</div>
+        <div class="p-2">{{ profile.institution }}</div>
+    </div>
+    <!--./flex-->
+
+    <div class="d-flex border-bottom">
+        <div class="mr-auto p-2 font-weight-bold">Respondent designation</div>
+        <div class="p-2">{{ profile.designation }}</div>
+    </div>
+    <!--./flex-->
+
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        
+        <div class="accordion" id="myAccordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne">1. What is HTML?</button>
+                    </h2>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#myAccordion">
+                    <div class="card-body">
+                        <p>HTML stands for HyperText Markup Language. HTML is the standard markup language for describing the structure of web pages. <a href="https://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo">2. What is Bootstrap?</button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#myAccordion">
+                    <div class="card-body">
+                        <p>Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development. It is a collection of CSS and HTML conventions. <a href="https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" target="_blank">Learn more.</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree">3. What is CSS?</button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#myAccordion">
+                    <div class="card-body">
+                        <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style properties for a given HTML element such as colors, backgrounds, fonts etc. <a href="https://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div><!--./col-->
+</div><!--./row-->
+
+
 </div>
+<!--./end div-->
+
+
 {% endblock %}

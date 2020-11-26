@@ -346,7 +346,7 @@ def success(request):
 class CountryList(generic.ListView):
     model = Country
     context_object_name = 'countries'
-    template_name = "manage/country_response.html"
+    template_name = "manage/countries.html"
 
     def get_context_data(self, **kwargs):
         context = super(CountryList, self).get_context_data(**kwargs)
@@ -359,6 +359,29 @@ class CountryList(generic.ListView):
             tmp[update['country_id']] = update['created_at']
 
         context['last_update'] = tmp
+        return context
+
+
+class ResponsesList(generic.ListView):
+    model = QuestionList
+    context_object_name = 'questions'
+    template_name = "manage/country_response.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ResponsesList, self).get_context_data(**kwargs)
+        country_id = self.kwargs['country_id']
+        # country
+        country = Country.objects.get(pk=country_id)
+        context['country'] = country
+
+        # profile
+        try:
+            profile = Profiles.objects.get(country_id=country_id)
+            context['profile'] = profile
+        except:
+            context['profile'] = []
+            pass
+
         return context
 
 

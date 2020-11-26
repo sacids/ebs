@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.fields.related import ForeignKey
-from authtools.models import User
+from django.contrib.auth.models import User
 
 # Create your models here.
 QUESTION_TYPE = (
@@ -263,6 +263,8 @@ class AnsBank(models.Model):
 
 def get_upload_to(instance, filename):
     return 'attachments/%d/%s' % (instance.ansbank.country.title, filename)
+
+    
 class Attachments(models.Model):
     ansbank     = models.ForeignKey(AnsBank, related_name="uploads", on_delete=models.CASCADE)
     uploads     = models.FileField(upload_to=get_upload_to)

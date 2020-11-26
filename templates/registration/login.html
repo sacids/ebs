@@ -7,7 +7,7 @@
 <div class="page-content">
     <div class="container">
         <div class="row">
-            <div class="offset-md-2 col-md-7">
+            <div class="offset-md-3 col-md-6">
                 <div style="margin-top: 50px;"></div>
                 <div class="card bg-white" style="border: 1px solid #eeeeee;">
                     <div class="card-body">
@@ -17,7 +17,7 @@
                         </div>
 
                         {% if form.errors %}
-                        <p class="badge badge-danger">Your email and password didn't match. Please try
+                        <p class="badge badge-danger">Your username and password didn't match. Please try
                             again.</p>
                         {% endif %}
 
@@ -35,8 +35,8 @@
                             {% csrf_token %}
 
                             <div class="form-group">
-                                <label>Email <span class="red">*</span></label>
-                                <input id="id_username" type="email" placeholder="Write email..." class="form-control"
+                                <label>Username <span class="red">*</span></label>
+                                <input id="id_username" type="text" placeholder="Write username..." class="form-control"
                                     name="username" value="">
                             </div>
                             <!--./form-group -->
