@@ -92,10 +92,8 @@ class Institution(models.Model):
 class Respondent(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField(max_length=200, null=True)
-    council = models.ForeignKey(
-        Council, related_name="council", on_delete=models.SET_NULL, null=True)
-    country = models.ForeignKey(
-        Country, related_name="country", on_delete=models.SET_NULL, null=True)
+    council = models.ForeignKey(Council, related_name="council", on_delete=models.SET_NULL, null=True)
+    country = models.ForeignKey(Country, related_name="country", on_delete=models.SET_NULL, null=True)
     designation = models.CharField(max_length=150)
     institution = models.CharField(max_length=255, null=True)
 
@@ -125,15 +123,12 @@ class Category(models.Model):
 
 # questions
 class Question(models.Model):
-    category = models.ForeignKey(
-        Category, related_name="questions", on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name="questions", on_delete=models.CASCADE)
     title = models.TextField(null=False)
     code = models.CharField(max_length=10, null=False)
     placeholder = models.TextField(null=True)
-    has_sub = models.CharField(
-        choices=ANSWER, verbose_name="Has sub question?", max_length=10, null=True, default="NO")
-    qn_type = models.CharField(
-        choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
+    has_sub = models.CharField(choices=ANSWER, verbose_name="Has sub question?", max_length=10, null=True, default="NO")
+    qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
     sort_order = models.IntegerField(default=1)
 
     class Meta:
@@ -147,13 +142,11 @@ class Question(models.Model):
 
 # sub question
 class SubQuestion(models.Model):
-    question = ForeignKey(
-        Question, related_name="sub_questions", on_delete=models.CASCADE)
+    question = ForeignKey(Question, related_name="sub_questions", on_delete=models.CASCADE)
     title = models.TextField(null=False)
     code = models.CharField(max_length=10, null=False)
     placeholder = models.TextField(null=True)
-    qn_type = models.CharField(
-        choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
+    qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
     sort_order = models.IntegerField(default=1)
 
     class Meta:
@@ -168,12 +161,9 @@ class SubQuestion(models.Model):
 
 
 class Answer(models.Model):
-    respondent = models.ForeignKey(
-        Respondent, related_name="respondents", on_delete=models.SET_NULL, null=True)
-    question = models.ForeignKey(
-        Question, related_name="answers", on_delete=models.CASCADE)
-    sub_question = models.ForeignKey(
-        SubQuestion, on_delete=models.SET_NULL, null=True)
+    respondent = models.ForeignKey(Respondent, related_name="respondents", on_delete=models.SET_NULL, null=True)
+    question = models.ForeignKey(Question, related_name="answers", on_delete=models.CASCADE)
+    sub_question = models.ForeignKey(SubQuestion, on_delete=models.SET_NULL, null=True)
     answer = models.CharField(max_length=200, null=False)
     remarks = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
@@ -207,8 +197,7 @@ class QuestionList(models.Model):
     section = models.ForeignKey(Section, on_delete=models.CASCADE, null=True)
     code = models.CharField(max_length=10, null=False)
     title = models.TextField(null=False)
-    qn_type = models.CharField(
-        choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='RADIO')
+    qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='RADIO')
     required = models.CharField(choices=ANSWER, max_length=10, default="NO")
     has_sub = models.CharField(choices=SUB_QUESTION_TYPES, verbose_name="Sub Question", max_length=10, null=True, default="NO")
     sort_order = models.IntegerField(default=1)
@@ -228,10 +217,8 @@ class QuestionList(models.Model):
 # questions banks
 class QuestionBank(models.Model):
     sort_order = models.IntegerField(default=1)
-    section = models.ForeignKey(
-        Section, related_name="question_banks", on_delete=models.CASCADE)
-    question = models.OneToOneField(
-        QuestionList, related_name="sub_question_banks", on_delete=CASCADE)
+    section = models.ForeignKey(Section, related_name="question_banks", on_delete=models.CASCADE)
+    question = models.OneToOneField(QuestionList, related_name="sub_question_banks", on_delete=CASCADE)
     sub_questions = models.ManyToManyField(
         QuestionList, blank=True)
 
