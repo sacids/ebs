@@ -8,12 +8,13 @@ from .utils import *
 # Create your views here.
 
 
+# login
 def loginPage(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        #user
+        # user
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
@@ -29,3 +30,10 @@ def loginPage(request):
 
     context = {}
     return render(request, 'accounts/login.html', context)
+
+
+# logout
+def logoutUser(request):
+    logout(request)
+    messages.error(request, 'Log out successfully')
+    return redirect('/accounts/login')

@@ -5,4 +5,5 @@ from django.contrib.auth.decorators import login_required
 app_name = 'accounts'
 urlpatterns = [
     path("login/", views.loginPage, name="login"),
+    path("logout/", views.logoutUser, name="logout"),
 ]
