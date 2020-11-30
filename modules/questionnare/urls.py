@@ -19,7 +19,7 @@ urlpatterns = [
     path('show_question/', views.show_question, name='show_question'),
 
     # admin
-    path('responses/', views.CountryList.as_view(), name='responses'),
+    path('countries/', views.CountryList.as_view(), name='countries'),
     path('responses/<int:country_id>', views.ResponsesList.as_view(), name='responses'),
 
     # alerts

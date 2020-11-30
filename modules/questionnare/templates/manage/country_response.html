@@ -6,16 +6,16 @@
 
 <ul class="nav justify-content-center">
     <li class="nav-item">
-        <a class="nav-link" href="/responses">Responses</a>
+        <a class="nav-link font-weight-bold" href="/questionnare/countries">Responses</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Notifications</a>
+        <a class="nav-link font-weight-bold" href="#">Notifications</a>
     </li>
 </ul>
 
 <div class="bg-white p-3 rounded-sm border-light">
     <div class="d-flex">
-        <div class="float-left p-2">
+        <div class="float-right p-2">
             <a href="#" class="btn btn-success btn-sm">
                 <i class="fa fa-file-excel"></i>
                 Print</a>
@@ -53,51 +53,63 @@
     <!--./flex-->
 
 
-<div class="row mt-4">
-    <div class="col-md-12">
-        
-        <div class="accordion" id="myAccordion">
-            <div class="card">
-                <div class="card-header" id="headingOne">
-                    <h2 class="mb-0">
-                        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne">1. What is HTML?</button>
-                    </h2>
-                </div>
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#myAccordion">
-                    <div class="card-body">
-                        <p>HTML stands for HyperText Markup Language. HTML is the standard markup language for describing the structure of web pages. <a href="https://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+    <div class="row mt-4">
+        <div class="col-md-12">
+
+            {% if sections|length > 0 %}
+            <div class="accordion" id="myAccordion">
+
+                {% for section in sections %}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button type="button" class="btn btn-link" data-toggle="collapse"
+                                data-target="#collapse_{{ section.id }}">
+                                {{ section.code }}. {{ section.title }}
+                            </button>
+                        </h2>
                     </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="headingTwo">
-                    <h2 class="mb-0">
-                        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo">2. What is Bootstrap?</button>
-                    </h2>
-                </div>
-                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#myAccordion">
-                    <div class="card-body">
-                        <p>Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development. It is a collection of CSS and HTML conventions. <a href="https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" target="_blank">Learn more.</a></p>
+                    <!--./card-header-->
+                    <div id="collapse_{{ section.id }}" class="collapse" aria-labelledby="headingOne"
+                        data-parent="#myAccordion">
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr valign="top">
+                                        <th width="3%" valign="top">#</th>
+                                        <th width="40%" valign="top">Question</th>
+                                        <th width="20%" valign="top">Yes/No</th>
+                                        <th width="30%" valign="top">Remarks</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {% for question in section.questions.all %}
+                                    <tr>
+                                        <td>{{ question.code }}</td>
+                                        <td>{{ question.title }}</td>
+                                        <td>{{ question.id|get_qn_answer:profile.user }}</td>
+                                        <td>{{ question.id|get_qn_remarks:profile.user }} </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--./card-body-->
                     </div>
+                    <!--./collapse-->
                 </div>
+                <!--./card-->
+                {% endfor %}
             </div>
-            <div class="card">
-                <div class="card-header" id="headingThree">
-                    <h2 class="mb-0">
-                        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree">3. What is CSS?</button>
-                    </h2>
-                </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#myAccordion">
-                    <div class="card-body">
-                        <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style properties for a given HTML element such as colors, backgrounds, fonts etc. <a href="https://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a></p>
-                    </div>
-                </div>
-            </div>
+            <!--./accordion-->
+            {% endif %}
+
+
         </div>
-
-
-    </div><!--./col-->
-</div><!--./row-->
+        <!--./col-->
+    </div>
+    <!--./row-->
 
 
 </div>

@@ -2,16 +2,18 @@
 {% load static %}
 {% load ebs_tags %}
 
+{% block title %} EBS - Countries {% endblock %}
+
 {% block content %}
 
 <ul class="nav justify-content-center">
     <li class="nav-item">
-      <a class="nav-link" href="/responses">Responses</a>
+        <a class="nav-link font-weight-bold" href="/questionnare/countries">Responses</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Notifications</a>
+        <a class="nav-link font-weight-bold" href="#">Notifications</a>
     </li>
-  </ul>
+</ul>
 
 <div class="bg-white p-3 rounded-sm border-light">
     {% if messages %}
@@ -26,28 +28,45 @@
     </div>
     {% endif %}
 
-    <div class="d-flex border-bottom font-weight-bold">
-        <div class="mr-auto p-2">Country</div>
-        <div class="p-2">Last Update</div>
-        <div class="p-2">Status</div>
-        <div class="p-2">Action</div>
-    </div>
-    {% for country in countries %}
-    <div class="d-flex border-bottom">
-        <div class="mr-auto p-2 pt-3">{{country.title}}</div>
-        <div class="p-2 pt-3">{{last_update|get_by_index:country.id}}</div>
-        <div class="p-2 pt-3"><span class="badge badge-danger">Danger</span></div>
-        <div class="p-2">
-            <a href="/responses/{{country.id}}" class="text-primary" title="View Response">
-                <i class="fa fa-folder-open"></i>
-            </a>&nbsp;
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th width="5%">#</th>
+                <th width="45%">Country</th>
+                <th width="25%">Last Update</th>
+                <th width="15%">Status</th>
+                <th style="width: 80px;">Action</th>
+            </tr>
+        </thead>
 
-            <a href="/send_incomplete_submission_alert/{{country.id}}" class="text-danger"
-                title="Send Incomplete Submission Alert">
-                <i class="fa fa-envelope-open"></i>
-            </a>&nbsp;
-        </div>
-    </div>
-    {% endfor %}
+        <tbody>
+            {% for country in countries %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{country.title}}</td>
+                <td>{{last_update|get_by_index:country.id}}</td>
+                <td>
+                    {% if country.status == 'NEW' %}
+                    <span class="badge badge-danger">NOT STARTED</span>
+                    {% elif country.status == 'NO' %}
+                    <span class="badge badge-danger">INCOMPLETE</span>
+                    {% elif country.status == 'YES' %}
+                    <span class="badge badge-danger">COMPLETE</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="/questionnare/responses/{{country.id}}" class="text-primary" title="View Response">
+                        <i class="fa fa-folder-open"></i>
+                    </a>&nbsp;
+
+                    <a href="/questionnare/send_incomplete_submission_alert/{{country.id}}" class="text-danger"
+                        title="Send Incomplete Submission Alert">
+                        <i class="fa fa-envelope-open"></i>
+                    </a>&nbsp;
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}

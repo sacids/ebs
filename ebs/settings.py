@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # custom apps
+    'modules.accounts',
     'modules.questionnare',
     'modules.dashboard',
     'modules.respondents',
@@ -93,7 +94,6 @@ DATABASES = {
         'PORT': config('DB_PORT')
     }
 }
-
 
 
 # Password validation
@@ -148,14 +148,14 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
-#media url
+# media url
 MEDIA_ROOT = str(BASE_DIR / "assets/media")
 MEDIA_URL = "/assets/media/"
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
 
-#send email settings
+# send email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True

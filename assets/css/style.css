@@ -341,17 +341,17 @@ table.table {
 }
 
 table.table th {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     text-align: left;
     color: #424242;
     padding: 8px !important;
-    background: #f1f1f1;
+    background: #ffffff;
     border-bottom: 1px solid #E3E3E3;
 }
 
 table.table td {
-    font-size: 13px;
+    font-size: 12px;
     vertical-align: top;
     background: #FFF;
     color: #212121;

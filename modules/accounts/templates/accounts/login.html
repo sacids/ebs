@@ -1,0 +1,70 @@
+{% extends 'frontend/base.html' %}
+
+{% block title %} EBS - Login {% endblock %}
+
+{% block content %}
+<!-- Page content -->
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-3 col-md-6">
+                <div style="margin-top: 50px;"></div>
+                <div class="card bg-white" style="border: 1px solid #eeeeee;">
+                    <div class="card-body">
+                        <div class="text-center mb-3">
+                            <h6 class="text-uppercase font-weight-bold">Login to your account</h6>
+                            <p class="text-muted font-weight-bold">Enter your credentials below</p>
+                        </div>
+
+                        {% if messages %}
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                {% for message in messages %}
+                                <div class="alert {{message.tags}}">
+                                    <span>{{ message }}</span>
+                                </div>
+                                <!--./alert-danger-->
+                                {% endfor %}
+                            </div>
+                            <!--./col-->
+                        </div>
+                        <!--./row-->
+                        {% endif %}
+
+
+                        <form method="post" class="form-horizontal" action="">
+                            {% csrf_token %}
+
+                            <div class="form-group">
+                                <label>Username <span class="red">*</span></label>
+                                <input id="id_username" type="text" placeholder="Write username..." class="form-control"
+                                    name="username" required>
+                            </div>
+                            <!--./form-group -->
+
+                            <div class="form-group">
+                                <label>Password <span class="red">*</span></label>
+                                <input id="password" type="password" placeholder="Write password..."
+                                    class="form-control" name="password" required>
+                            </div>
+                            <!--./form-group -->
+
+                            <div class="form-group last">
+                                <button type="submit" class="btn btn-primary btn-block text-uppercase">
+                                    Login <i class="fa fa-chevron-circle-right"></i>
+                                </button>
+
+                                <input type="hidden" name="next" value="{{ next }}" />
+                            </div><!-- form-group -->
+                        </form>
+                    </div>
+                    <!--./card-body -->
+                </div>
+            </div>
+            <!--./col-md-12 -->
+        </div>
+        <!--./row -->
+    </div>
+    <!--./container -->
+</div><!-- /page content -->
+{% endblock %}

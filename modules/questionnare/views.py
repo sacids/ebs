@@ -77,29 +77,6 @@ def section_one(request):
     return render(request, "questionnare/section_one.html", context)
 
 
-# print section one
-def pdf_section_one(request):
-   # questions
-    questions = QuestionList.objects.filter(section_id=1)
-
-    # context
-    context = {
-        "questions": questions,
-        "user": request.user
-    }
-    pdf = render_to_pdf('questionnare/pdf/pdf_section_one.html', context)
-    if pdf:
-        response = HttpResponse(pdf, content_type='application/pdf')
-        filename = "Section_One_%s.pdf" % ("12341231")
-        content = "inline; filename='%s'" % (filename)
-        download = request.GET.get("download")
-        if download:
-            content = "attachment; filename='%s'" % (filename)
-        response['Content-Disposition'] = content
-        return response
-    return HttpResponse("Not found")
-
-
 # section two
 def section_two(request):
     # section_id
@@ -382,6 +359,10 @@ class ResponsesList(generic.ListView):
             context['profile'] = []
             pass
 
+        sections = Section.objects.prefetch_related(
+            Prefetch('questions', queryset=QuestionList.objects.order_by('id'))).order_by('id').all()
+        context['sections'] = sections
+
         return context
 
 
@@ -390,26 +371,29 @@ def send_incomplete_submission_alert(request, **kwargs):
     try:
         country = Country.objects.get(pk=kwargs['country_id'])
 
-        if(country.status == 'NO'):
-            subject = 'Incomplete Submission Alert: Situation analysis of EBS implementation in Africa'
+        #profile
+        profile = Profiles.objects.get(country_id = country.id)
 
-            message = '<p>Dear' + request.user.get_full_name + ', </p>'
-            message += '<p>Data for ' + country.name + \
-                ' are incomplete, please find sometime to complete the form.</p>'
-            message += '<p>To continue where you left off  please <a href="https://ebs-survey.africacdc.org/">click here</a></p>'
+        if profile is not None:
+            if(country.status == 'NO'):
+                subject = 'Incomplete Submission Alert: Situation analysis of EBS implementation in Africa'
 
-            # send email notification
-            send_notification(subject, message, from_email="chris@ecsahc.org",
-                              to_email=[request.user.email])
+                message = '<p>Dear <b>' + profile.user.last_name + '</b>, </p>'
+                message += '<p>Data for <b>' + country.title + '</b> are incomplete, please find sometime to complete the form.</p>'
 
-            # message
-            messages.add_message(
-                request, messages.SUCCESS, 'Email notification sent')
+                message += '<p>To continue where you left off  please <a href="https://ebs-survey.africacdc.org/">click here</a></p>'
+
+                # send email notification
+                send_notification(subject, message, from_email="chris@ecsahc.org",
+                                to_email=[profile.user.email])               
+
+                # message
+                messages.add_message(request, messages.SUCCESS, 'Email notification sent')
     except:
         pass
 
     # redirect
-    return redirect('/respondents')
+    return redirect('/questionnare/countries')
 
 
 def get_countries(request):
