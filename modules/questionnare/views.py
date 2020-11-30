@@ -21,16 +21,17 @@ from django.shortcuts import get_object_or_404
 from ..notification.views import send_notification
 
 
-@login_required
+@login_required(login_url='/login')
 def default(request):
     if request.user.is_authenticated:
-        # check last section and redirect to right section
+        # todo: check last section and redirect to right section
 
         # redirect
         return redirect('/questionnare/section_one')
 
 
 # section one
+@login_required(login_url='/login')
 def section_one(request):
     # section_id
     section_id = 1
@@ -80,6 +81,7 @@ def section_one(request):
 
 
 # section two
+@login_required(login_url='/login')
 def section_two(request):
     # section_id
     section_id = 2
@@ -122,6 +124,7 @@ def section_two(request):
 
 
 # section three
+@login_required(login_url='/login')
 def section_three(request):
     # section
     section_id = 3
@@ -164,6 +167,7 @@ def section_three(request):
 
 
 # section four
+@login_required(login_url='/login')
 def section_four(request):
     # section
     section_id = 4
@@ -206,6 +210,7 @@ def section_four(request):
 
 
 # section five
+@login_required(login_url='/login')
 def section_five(request):
     # section
     section_id = 5
@@ -248,6 +253,7 @@ def section_five(request):
 
 
 # section six
+@login_required(login_url='/login')
 def section_six(request):
     # section
     section_id = 6
@@ -326,6 +332,7 @@ def section_six(request):
     return render(request, "questionnare/section_six.html", context)
 
 
+@login_required(login_url='/login')
 def success(request):
     return render(None, "questionnare/success.html", {})
 

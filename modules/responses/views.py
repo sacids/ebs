@@ -6,11 +6,15 @@ from ..profiles.models import Profiles
 from django.db.models.query import Prefetch
 from ..notification.views import send_notification
 from django.shortcuts import redirect, render, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 
 
 # Create your views here.
-class CountryList(generic.ListView):
+class CountryList(LoginRequiredMixin, generic.ListView):
+    login_url = '/login'
+    redirect_field_name = 'redirect_to'
     model = Country
     context_object_name = 'countries'
     template_name = "lists.html"
@@ -30,6 +34,7 @@ class CountryList(generic.ListView):
 
 
 # section one
+@login_required(login_url='/login')
 def section_one(request, **kwargs):
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
@@ -58,6 +63,7 @@ def section_one(request, **kwargs):
 
 
 # section two
+@login_required(login_url='/login')
 def section_two(request, **kwargs):
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
@@ -84,6 +90,7 @@ def section_two(request, **kwargs):
 
 
 # section three
+@login_required(login_url='/login')
 def section_three(request, **kwargs):
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
@@ -110,6 +117,7 @@ def section_three(request, **kwargs):
 
 
 # section four
+@login_required(login_url='/login')
 def section_four(request, **kwargs):
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
@@ -136,6 +144,7 @@ def section_four(request, **kwargs):
 
 
 # section five
+@login_required(login_url='/login')
 def section_five(request, **kwargs):
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
@@ -162,6 +171,7 @@ def section_five(request, **kwargs):
 
 
 # section six
+@login_required(login_url='/login')
 def section_six(request, **kwargs):
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
@@ -188,6 +198,7 @@ def section_six(request, **kwargs):
 
 
 # send incomplete submission alert
+@login_required(login_url='/login')
 def send_incomplete_submission_alert(request, **kwargs):
     # check for incomplete submission
     try:
