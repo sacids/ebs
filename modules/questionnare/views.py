@@ -41,12 +41,16 @@ def section_one(request):
 
     # context
     context = {
-        "questions": questions
-        
+        "questions": questions     
     }
 
     # post data
     if request.method == "POST":
+        #first change country status
+        country = Country.objects.get(pk=request.user.profiles.country_id)
+        country.status = "NO"
+        country.save()
+
         # query questions
         questions = QuestionList.objects.filter(
             section_id=section_id).order_by('sort_order', 'code')
