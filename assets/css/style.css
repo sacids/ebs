@@ -590,3 +590,13 @@ input[type=number] {
     border-radius: 10px;
     background: white;
 }
+
+ul.nav{
+    list-style: none;
+}
+
+ul.nav li.nav-item{
+    margin-left: 20px;
+    padding: 0;
+    border-bottom: 3px solid rgb(94, 72, 31);
+}
