@@ -21,7 +21,7 @@ def loginPage(request):
 
             # redirect
             if(is_respondent(user)):
-                return redirect('/questionnare/default')
+                return redirect('/questionnare')
             elif(is_reviewer(user)):
                 return redirect('/questionnare/countries/')
         else:
