@@ -40,11 +40,11 @@
                 <td>{{last_update|get_by_index:country.id}}</td>
                 <td>
                     {% if country.status == 'NEW' %}
-                    <span class="badge badge-danger">NOT STARTED</span>
+                    <span class="badge badge-warning">NOT STARTED</span>
                     {% elif country.status == 'NO' %}
                     <span class="badge badge-danger">INCOMPLETE</span>
                     {% elif country.status == 'YES' %}
-                    <span class="badge badge-danger">COMPLETE</span>
+                    <span class="badge badge-success">COMPLETE</span>
                     {% endif %}
                 </td>
                 <td>
