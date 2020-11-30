@@ -5,6 +5,8 @@
 
 {% block content %}
 
+{% include 'frontend/menu.html' %}
+
 <!-- Page content -->
 <div class="page-content bg-grey">
     <div class="container">
@@ -13,8 +15,6 @@
             <!-- Content area -->
             <div class="content" id="section_one">
                 <form id="msform" action="" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-
                     <fieldset>
                         <div class="card-h1 m-0">
                             <div class="col-md-12">
@@ -26,6 +26,9 @@
                             <!--./col-->
                         </div>
                         <!--./row-->
+
+                        <div class="mt-2"></div>
+                        {% include 'sections/details.html' %}
 
                         <!--start-->
                         <div class="form-card">
@@ -65,7 +68,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[73]" class="form-control"
-                                            placeholder="Write remarks..."
+                                            placeholder="Write remarks..." readonly
                                             id="remarks">{{ 73|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
@@ -76,7 +79,7 @@
                                     <div class="form-group">
                                         <label>Attachments </label>
                                         <!--./float-right-->
-                                        <input type="file" name="attachments[73]" class="form-control" multiple />
+                                        
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -124,7 +127,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[74]" class="form-control"
-                                            placeholder="Write remarks..."
+                                            placeholder="Write remarks..." readonly
                                             id="remarks">{{ 74|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
@@ -224,7 +227,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[76]" class="form-control"
-                                            placeholder="Write remarks..."
+                                            placeholder="Write remarks..." readonly
                                             id="remarks">{{ 76|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
@@ -274,7 +277,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[77]" class="form-control"
-                                            placeholder="Write remarks..."
+                                            placeholder="Write remarks..." readonly
                                             id="remarks">{{ 77|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
@@ -323,7 +326,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[78]" class="form-control"
-                                            placeholder="Write remarks..."
+                                            placeholder="Write remarks..." readonly
                                             id="remarks">{{ 78|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
@@ -371,7 +374,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[79]" class="form-control"
-                                            placeholder="Write remarks..."
+                                            placeholder="Write remarks..." readonly
                                             id="remarks">{{ 79|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
@@ -420,7 +423,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[80]" class="form-control"
-                                            placeholder="Write remarks..."
+                                            placeholder="Write remarks..." readonly
                                             id="remarks">{{ 80|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
@@ -469,7 +472,7 @@
                                         <label>Remarks </label>
                                         <!--./float-right-->
                                         <textarea rows="3" cols="40" name="remarks[81]" class="form-control"
-                                            placeholder="Write remarks..."
+                                            placeholder="Write remarks..." readonly
                                             id="remarks">{{ 81|get_qn_remarks:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
@@ -481,15 +484,13 @@
                         <!--./form-card-->
 
                         <!--./buttons -->
-                        <input type="submit" name="post_exit" class="btn btn-secondary btn-sm" value="Save and Exit" />
-                        <input type="submit" name="post_next" class="btn btn-primary btn-sm"
-                            value="Save and Continue" />
+                        <a href="/responses/section_two/{{country.id}}" class="btn btn-primary btn-sm">
+                            <i class="fa fa-angle-right"></i> Next </a>
                         <button class="btn btn-success btn-sm" onclick="printDiv('section_one');">
                             <i class="fa fa-print"></i> Print/Save
                         </button>
                     </fieldset>
                 </form>
-
             </div><!-- /content area -->
         </div><!-- /main content -->
     </div>

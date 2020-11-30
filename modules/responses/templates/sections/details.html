@@ -1,0 +1,31 @@
+<div class="bg-white p-3 rounded-sm border-light">
+    <div class="d-flex border-bottom">
+        <div class="mr-auto p-2 font-weight-bold">Name of the Country</div>
+        <div class="p-2">{{ country.title }}</div>
+    </div>
+    <!--./flex-->
+
+    <div class="d-flex border-bottom">
+        <div class="mr-auto p-2 font-weight-bold">Supporting Regional Cordinating Centre (RCC)</div>
+        <div class="p-2">{{ country.council.title }}</div>
+    </div>
+    <!--./flex-->
+
+    <div class="d-flex border-bottom">
+        <div class="mr-auto p-2 font-weight-bold">Respondent Name</div>
+        <div class="p-2">{{ profile.user.get_full_name }}</div>
+    </div>
+    <!--./flex-->
+
+    <div class="d-flex border-bottom">
+        <div class="mr-auto p-2 font-weight-bold">Respondent Institution</div>
+        <div class="p-2">{{ profile.institution }}</div>
+    </div>
+    <!--./flex-->
+
+    <div class="d-flex border-bottom">
+        <div class="mr-auto p-2 font-weight-bold">Respondent designation</div>
+        <div class="p-2">{{ profile.designation }}</div>
+    </div>
+    <!--./flex-->
+</div>

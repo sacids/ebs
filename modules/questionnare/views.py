@@ -41,6 +41,7 @@ def section_one(request):
     # context
     context = {
         "questions": questions
+        
     }
 
     # post data
@@ -327,84 +328,6 @@ def section_six(request):
 
 def success(request):
     return render(None, "questionnare/success.html", {})
-
-
-class CountryList(generic.ListView):
-    model = Country
-    context_object_name = 'countries'
-    template_name = "manage/countries.html"
-
-    def get_context_data(self, **kwargs):
-        context = super(CountryList, self).get_context_data(**kwargs)
-        last_update = AnsBank.objects.all().order_by(
-            'country', '-created_at').distinct('country').values()
-        context['countries'] = Country.objects.all().order_by('title').values()
-
-        tmp = [0] * 100
-        for update in last_update:
-            tmp[update['country_id']] = update['created_at']
-
-        context['last_update'] = tmp
-        return context
-
-
-class ResponsesList(generic.ListView):
-    model = QuestionList
-    context_object_name = 'questions'
-    template_name = "manage/country_response.html"
-
-    def get_context_data(self, **kwargs):
-        context = super(ResponsesList, self).get_context_data(**kwargs)
-        country_id = self.kwargs['country_id']
-        # country
-        country = Country.objects.get(pk=country_id)
-        context['country'] = country
-
-        # profile
-        try:
-            profile = Profiles.objects.get(country_id=country_id)
-            context['profile'] = profile
-        except:
-            context['profile'] = []
-            pass
-
-        sections = Section.objects.prefetch_related(
-            Prefetch('questions', queryset=QuestionList.objects.order_by('id'))).order_by('id').all()
-        context['sections'] = sections
-
-        return context
-
-
-def send_incomplete_submission_alert(request, **kwargs):
-    # check for incomplete submission
-    try:
-        country = Country.objects.get(pk=kwargs['country_id'])
-
-        # profile
-        profile = Profiles.objects.get(country_id=country.id)
-
-        if profile is not None:
-            if(country.status == 'NO'):
-                subject = 'Incomplete Submission Alert: Situation analysis of EBS implementation in Africa'
-
-                message = '<p>Dear <b>' + profile.user.last_name + '</b>, </p>'
-                message += '<p>Data for <b>' + country.title + \
-                    '</b> are incomplete, please find sometime to complete the form.</p>'
-
-                message += '<p>To continue where you left off  please <a href="https://ebs-survey.africacdc.org/">click here</a></p>'
-
-                # send email notification
-                send_notification(subject, message, from_email="chris@ecsahc.org",
-                                  to_email=[profile.user.email])
-
-                # message
-                messages.add_message(
-                    request, messages.SUCCESS, 'Email notification sent')
-    except:
-        pass
-
-    # redirect
-    return redirect('/questionnare/countries')
 
 
 def get_countries(request):

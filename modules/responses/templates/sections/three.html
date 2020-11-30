@@ -1,0 +1,1144 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% load ebs_tags %}
+{% block title %} EBS - Section 3 {% endblock %}
+
+{% block content %}
+
+{% include 'frontend/menu.html' %}
+
+<!-- Page content -->
+<div class="page-content bg-grey">
+    <div class="container">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content" id="section_three">
+                <form id="msform" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset>
+                        <div class="card-h1">
+                            <div class="col-md-12">
+                                <h5 class="font-weight-600">
+                                    Implementation readiness
+                                </h5>
+                                <span>Section 3 of 6</span>
+                            </div>
+                            <!--./col-->
+                        </div>
+                        <!--./row-->
+
+                        <div class="mt-2"></div>
+                        {% include 'sections/details.html' %}
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 113|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 113|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[113]" type="radio" class="" value="YES" {% if 113|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[113]" type="radio" class="" value="NO" {% if 113|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[113]" class="form-control" readonly
+                                            placeholder="Write remarks..." id="remarks">{{ 113|get_qn_remarks:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Attachments </label>
+                                        <!--./float-right-->
+                                        
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 114|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 114|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[114]" type="radio" class="" value="YES" {% if 114|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[114]" type="radio" class="" value="NO" {% if 114|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[114]" class="form-control" readonly
+                                            placeholder="Write remarks..." id="remarks">{{ 114|get_qn_remarks:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Attachments </label>
+                                        <!--./float-right-->
+                                        
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 115|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 115|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 116|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 116|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 289|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[289]" type="radio" class="" value="YES" {% if 289|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[289]" type="radio" class="" value="NO" {% if 289|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 290|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[290]" type="radio" class="" value="YES" {% if 290|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[290]" type="radio" class="" value="NO" {% if 290|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 291|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[291]" type="radio" class="" value="YES" {% if 291|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[291]" type="radio" class="" value="NO" {% if 291|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 292|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[292]" type="radio" class="" value="YES" {% if 292|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[292]" type="radio" class="" value="NO" {% if 292|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 293|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[293]" type="radio" class="" value="YES" {% if 293|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[293]" type="radio" class="" value="NO" {% if 293|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 294|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[294]" type="radio" class="" value="YES" {% if 294|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[294]" type="radio" class="" value="NO" {% if 294|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 117|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 117|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 295|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[295]" type="radio" class="" value="YES" {% if 295|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[295]" type="radio" class="" value="NO" {% if 295|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Attachments </label>
+                                        <!--./float-right-->
+                                        
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 118|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 118|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--./float-right-->
+                                        <textarea rows="4" cols="40" name="answer[118]" class="textarea form-control" readonly
+                                            id="answer">{{ 118|get_qn_answer:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 296|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[296]" type="radio" class="" value="YES" {% if 296|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[296]" type="radio" class="" value="NO" {% if 296|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 119|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 119|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--./float-right-->
+                                        <textarea rows="4" cols="40" name="answer[119]" class="textarea form-control" readonly
+                                            id="answer">{{ 119|get_qn_answer:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label> {{ 297|get_qn_title }} </label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[297]" type="radio" class="" value="YES" {% if 297|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[297]" type="radio" class="" value="NO" {% if 297|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 120|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 120|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[120]" type="radio" class="" value="YES" {% if 120|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[120]" type="radio" class="" value="NO" {% if 120|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[120]" class="form-control" readonly
+                                            placeholder="Write remarks..." id="remarks">{{ 120|get_qn_remarks:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Attachments </label>
+                                        <!--./float-right-->
+                                        
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 121|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 121|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[121]" type="radio" class="" value="YES" {% if 121|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[121]" type="radio" class="" value="NO" {% if 121|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Attachments </label>
+                                        <!--./float-right-->
+                                        
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 122|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 122|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[298]" type="checkbox" class=""
+                                            value="Community" {% if 298|get_qn_answer:user == "Community" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{{ 298|get_qn_title }}</label>
+                                        <br />
+                                        <input id="answer" name="answer[299]" type="checkbox" class=""
+                                            value="Health facility" {% if 299|get_qn_answer:user == "Health facility" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{{299|get_qn_title }}</label>
+                                        <br />
+                                        <input id="answer" name="answer[300]" type="checkbox" class=""
+                                            value="Intermediate" {% if 300|get_qn_answer:user == "Intermediate" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{{ 300|get_qn_title }}</label>
+                                        <br />
+                                        <input id="answer" name="answer[301]" type="checkbox" class=""
+                                            value="National levels" {% if 301|get_qn_answer:user == "National levels" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{{ 301|get_qn_title }}</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <label>Remarks </label>
+                                        <textarea rows="3" cols="40" name="remarks[122]" class="textarea form-control" readonly
+                                            id="remarks">{{ 122|get_qn_remarks:user }}</textarea>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 123|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 123|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 302|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[302]" class="textarea form-control" readonly
+                                            id="answer">{{ 302|get_qn_answer:user }}</textarea>
+                                    </div>
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 303|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[303]" class="textarea form-control" readonly
+                                            id="answer">{{ 303|get_qn_answer:user }}</textarea>
+                                    </div>
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 304|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[304]" class="textarea form-control" readonly
+                                            id="answer">{{ 304|get_qn_answer:user }}</textarea>
+                                    </div>
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 305|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[305]" class="textarea form-control" readonly
+                                            id="answer">{{ 305|get_qn_answer:user }}</textarea>
+                                    </div>
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 124|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 124|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[124]" type="radio" class="" value="YES" {% if 124|get_qn_answer:user == "YES" %} checked {% endif %}/>
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[124]" type="radio" class="" value="NO" {% if 124|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[124]" class="form-control" readonly
+                                            placeholder="Write remarks..." id="remarks">{{ 124|get_qn_remarks:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 125|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 125|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <textarea rows="3" cols="40" name="answer[125]" class="form-control" readonly
+                                            placeholder="Write answer..." id="answer">{{ 125|get_qn_answer:user }}</textarea>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 126|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 126|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[126]" type="radio" class="" value="YES" {% if 126|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[126]" type="radio" class="" value="NO" {% if 126|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[126]" class="form-control" readonly
+                                            placeholder="Write remarks..." id="remarks">{{ 126|get_qn_remarks:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 127|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 127|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[127]" type="radio" class="" value="YES" {% if 127|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[127]" type="radio" class="" value="NO" {% if 127|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[127]" class="form-control" readonly
+                                            placeholder="Write remarks..." id="remarks">{{ 127|get_qn_remarks:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 319|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 319|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[319]" type="radio" class="" value="YES" {% if 319|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[319]" type="radio" class="" value="NO" {% if 319|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[319]" class="form-control" readonly
+                                            placeholder="Write remarks..." id="remarks">{{ 319|get_qn_remarks:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 128|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 128|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[128]" type="radio" class="" value="YES" {% if 128|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[128]" type="radio" class="" value="NO" {% if 128|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[128]" class="form-control" readonly
+                                            placeholder="Write remarks..." id="remarks">{{ 128|get_qn_remarks:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 129|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 129|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 130|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[130]" type="radio" class="" value="YES" {% if 130|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[130]" type="radio" class="" value="NO" {% if 130|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 131|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[131]" type="radio" class="" value="YES" {% if 131|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[131]" type="radio" class="" value="NO" {% if 131|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 132|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[132]" type="radio" class="" value="YES" {% if 132|get_qn_answer:user == "YES" %} checked {% endif %}/>
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[132]" type="radio" class="" value="NO" {% if 132|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 133|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[133]" type="radio" class="" value="YES" {% if 133|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[133]" type="radio" class="" value="NO" {% if 133|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 134|get_qn_title }}</label><br />
+                                        <!--question type-->
+                                        <input id="answer" name="answer[134]" type="radio" class="" value="YES" {% if 134|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[134]" type="radio" class="" value="NO" {% if 134|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 135|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 135|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[135]" type="radio" class="" value="YES" {% if 135|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[135]" type="radio" class="" value="NO" {% if 135|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 136|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 136|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[136]" type="radio" class="" value="YES" {% if 136|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[136]" type="radio" class="" value="NO" {% if 136|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 137|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 137|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <input id="answer" name="answer[137]" type="radio" class="" value="YES" {% if 137|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <br />
+                                        <input id="answer" name="answer[137]" type="radio" class="" value="NO" {% if 137|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;No</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Remarks </label>
+                                        <!--./float-right-->
+                                        <textarea rows="3" cols="40" name="remarks[137]" class="form-control" readonly
+                                            placeholder="Write remarks..." id="remarks">{{ 137|get_qn_remarks:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 138|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 138|get_qn_hint }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <!--question type-->
+                                        <textarea rows="4" cols="40" name="answer[138]" class="textarea form-control" readonly
+                                            id="answer">{{ 138|get_qn_answer:user }}</textarea>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <!--./buttons -->
+                        <a href="/responses/section_two/{{country.id}}" class="btn btn-danger btn-sm"><i class="fa fa-angle-left"></i> Previous</a>
+                        <a href="/responses/section_four/{{country.id}}" class="btn btn-primary btn-sm">
+                            <i class="fa fa-angle-right"></i> Next </a>
+                        <button class="btn btn-success btn-sm" onclick="printDiv('section_three');">
+                            <i class="fa fa-print"></i> Print/Save
+                        </button>
+                    </fieldset>
+                </form>
+
+            </div><!-- /content area -->
+        </div><!-- /main content -->
+    </div>
+    <!--./container-->
+</div><!-- /page content -->
+
+{% endblock %}

@@ -43,9 +43,9 @@ INSTALLED_APPS = [
 
     # custom apps
     'modules.accounts',
-    'modules.questionnare',
     'modules.dashboard',
-    'modules.respondents',
+    'modules.questionnare',
+    'modules.responses',
     'modules.profiles',
     'modules.notification',
 ]
