@@ -27,7 +27,7 @@ def default(request):
         # check last section and redirect to right section
 
         # redirect
-        return redirect('/section_one/')
+        return redirect('/questionnare/section_one')
 
 
 # section one
@@ -69,9 +69,10 @@ def section_one(request):
                               'question_id': question.id, 'answer': answer, 'remarks': remarks},)
 
         if(request.POST.get('post_exit')):
-            return redirect('/success')  # return to exit page
+            return redirect('/questionnare/success')  # return to exit page
         elif(request.POST.get('post_next')):
-            return redirect('/section_two')  # redirect to section two
+            # redirect to section two
+            return redirect('/questionnare/section_two')
 
     # render view
     return render(request, "questionnare/section_one.html", context)
@@ -110,9 +111,10 @@ def section_two(request):
                               'question_id': question.id, 'answer': answer, 'remarks': remarks},)
 
         if(request.POST.get('post_exit')):
-            return redirect('/success')  # return to exit page
+            return redirect('/questionnare/success')  # return to exit page
         elif(request.POST.get('post_next')):
-            return redirect('/section_three')  # redirect to section three
+            # redirect to section three
+            return redirect('/questionnare/section_three')
 
     # render view
     return render(request, "questionnare/section_two.html", context)
@@ -151,9 +153,10 @@ def section_three(request):
                               'question_id': question.id, 'answer': answer, 'remarks': remarks},)
 
         if(request.POST.get('post_exit')):
-            return redirect('/success')  # return to exit page
+            return redirect('/questionnare/success')  # return to exit page
         elif(request.POST.get('post_next')):
-            return redirect('/section_four')  # redirect to section four
+            # redirect to section four
+            return redirect('/questionnare/section_four')
 
     # render view
     return render(request, "questionnare/section_three.html", context)
@@ -192,9 +195,10 @@ def section_four(request):
                               'question_id': question.id, 'answer': answer, 'remarks': remarks},)
 
         if(request.POST.get('post_exit')):
-            return redirect('/success')  # return to exit page
+            return redirect('/questionnare/success')  # return to exit page
         elif(request.POST.get('post_next')):
-            return redirect('/section_five')  # redirect to section five
+            # redirect to section five
+            return redirect('/questionnare/section_five')
 
     # render view
     return render(request, "questionnare/section_four.html", context)
@@ -233,9 +237,10 @@ def section_five(request):
                               'question_id': question.id, 'answer': answer, 'remarks': remarks},)
 
         if(request.POST.get('post_exit')):
-            return redirect('/success')  # return to exit page
+            return redirect('/questionnare/success')  # return to exit page
         elif(request.POST.get('post_next')):
-            return redirect('/section_six')  # redirect to section six
+            # redirect to section six
+            return redirect('/questionnare/section_six')
 
     # render view
     return render(request, "questionnare/section_five.html", context)
@@ -274,7 +279,7 @@ def section_six(request):
                               'question_id': question.id, 'answer': answer, 'remarks': remarks},)
 
         if(request.POST.get('post_exit')):
-            return redirect('/success')  # return to exit page
+            return redirect('/questionnare/success')  # return to exit page
         elif(request.POST.get('post_next')):
             # todo validate
             required_questions = QuestionList.objects.filter(
@@ -297,20 +302,24 @@ def section_six(request):
                 country = Country.objects.get(
                     pk=request.user.profiles.country_id)
 
+                #change status of country
+                country.status = "YES"
+                country.save()    
+
                 # send message
                 subject = 'Submission Alert: Situation analysis of EBS implementation in Africa'
 
-                message = '<p>Dear XXX</p>'
-                message += '<p>Data for ' + country.name + \
+                message = '<p>Dear Reviewers,</p>'
+                message += '<p>Data for <b>' + country.title + '</b>' + \
                     ' has been Submitted.</p>'
                 message += '<p>For review and approval please <a href="https://ebs-survey.africacdc.org/">click here</a></p>'
 
                 # send email notification
-                send_notification(subject, message, from_email="chris@ecsahc.org",
+                send_notification(subject, message, from_email=request.user.email,
                                   to_email=['chris@ecsahc.org', 'werew@ecsahc.org', 'eric.beda@sacids.org'])
 
                 # redirect to success
-                return redirect('/success')
+                return redirect('/questionnare/success')
 
     # render view
     return render(request, "questionnare/section_six.html", context)
@@ -371,24 +380,26 @@ def send_incomplete_submission_alert(request, **kwargs):
     try:
         country = Country.objects.get(pk=kwargs['country_id'])
 
-        #profile
-        profile = Profiles.objects.get(country_id = country.id)
+        # profile
+        profile = Profiles.objects.get(country_id=country.id)
 
         if profile is not None:
             if(country.status == 'NO'):
                 subject = 'Incomplete Submission Alert: Situation analysis of EBS implementation in Africa'
 
                 message = '<p>Dear <b>' + profile.user.last_name + '</b>, </p>'
-                message += '<p>Data for <b>' + country.title + '</b> are incomplete, please find sometime to complete the form.</p>'
+                message += '<p>Data for <b>' + country.title + \
+                    '</b> are incomplete, please find sometime to complete the form.</p>'
 
                 message += '<p>To continue where you left off  please <a href="https://ebs-survey.africacdc.org/">click here</a></p>'
 
                 # send email notification
                 send_notification(subject, message, from_email="chris@ecsahc.org",
-                                to_email=[profile.user.email])               
+                                  to_email=[profile.user.email])
 
                 # message
-                messages.add_message(request, messages.SUCCESS, 'Email notification sent')
+                messages.add_message(
+                    request, messages.SUCCESS, 'Email notification sent')
     except:
         pass
 
