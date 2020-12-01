@@ -41,12 +41,12 @@ def section_one(request):
 
     # context
     context = {
-        "questions": questions     
+        "questions": questions
     }
 
     # post data
     if request.method == "POST":
-        #first change country status
+        # first change country status
         country = Country.objects.get(pk=request.user.profiles.country_id)
         country.status = "NO"
         country.save()
@@ -60,20 +60,23 @@ def section_one(request):
             remarks = request.POST.get('remarks[' + str(question.id) + ']')
 
             if answer is not None:
-                # todo: check for attachment and upload
-                # print(request.FILES)
-                # if request.FILES is not None:
-                #     if request.FILES['attachments[73]'] is not None:
-                #         print(request.FILES['attachments[73]'])
-                # # if len(request.FILES['attachments['+ str(question.id) +']']) != 0:
-                # #     print('here')
-
                 # save or update
                 obj, created = AnsBank.objects.update_or_create(
                     question_id=question.id, country_id=request.user.profiles.country_id,
                     defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
                               'question_id': question.id, 'answer': answer, 'remarks': remarks},)
 
+                # check for attachment and upload
+                if request.FILES is not None:
+                    attachment_files = request.FILES.getlist(
+                        'attachments[' + str(question.id) + ']')
+                    for f in attachment_files:
+                        newAttachment = Attachments()
+                        newAttachment.ansbank_id = obj.id
+                        newAttachment.uploads = f
+                        newAttachment.save()  # save
+
+        # redirect
         if(request.POST.get('post_exit')):
             return redirect('/questionnare/success')  # return to exit page
         elif(request.POST.get('post_next')):
@@ -313,9 +316,9 @@ def section_six(request):
                 country = Country.objects.get(
                     pk=request.user.profiles.country_id)
 
-                #change status of country
+                # change status of country
                 country.status = "YES"
-                country.save()    
+                country.save()
 
                 # send message
                 subject = 'Submission Alert: Situation analysis of EBS implementation in Africa'

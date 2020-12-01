@@ -249,7 +249,7 @@ class AnsBank(models.Model):
         return str(self.question.id)+' '+self.answer
 
 def get_upload_to(instance, filename):
-    return 'attachments/%d/%s' % (instance.ansbank.country.title, filename)
+    return 'attachments/%s/%s' % (instance.ansbank.country.title, filename)
 
     
 class Attachments(models.Model):
