@@ -120,6 +120,16 @@ def section_two(request):
                     defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
                               'question_id': question.id, 'answer': answer, 'remarks': remarks},)
 
+                # check for attachment and upload
+                if request.FILES is not None:
+                    attachment_files = request.FILES.getlist(
+                        'attachments[' + str(question.id) + ']')
+                    for f in attachment_files:
+                        newAttachment = Attachments()
+                        newAttachment.ansbank_id = obj.id
+                        newAttachment.uploads = f
+                        newAttachment.save()  # save
+
         if(request.POST.get('post_exit')):
             return redirect('/questionnare/success')  # return to exit page
         elif(request.POST.get('post_next')):
@@ -162,6 +172,16 @@ def section_three(request):
                     question_id=question.id, country_id=request.user.profiles.country_id,
                     defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
                               'question_id': question.id, 'answer': answer, 'remarks': remarks},)
+
+                # check for attachment and upload
+                if request.FILES is not None:
+                    attachment_files = request.FILES.getlist(
+                        'attachments[' + str(question.id) + ']')
+                    for f in attachment_files:
+                        newAttachment = Attachments()
+                        newAttachment.ansbank_id = obj.id
+                        newAttachment.uploads = f
+                        newAttachment.save()  # save
 
         if(request.POST.get('post_exit')):
             return redirect('/questionnare/success')  # return to exit page
@@ -206,6 +226,16 @@ def section_four(request):
                     defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
                               'question_id': question.id, 'answer': answer, 'remarks': remarks},)
 
+                # check for attachment and upload
+                if request.FILES is not None:
+                    attachment_files = request.FILES.getlist(
+                        'attachments[' + str(question.id) + ']')
+                    for f in attachment_files:
+                        newAttachment = Attachments()
+                        newAttachment.ansbank_id = obj.id
+                        newAttachment.uploads = f
+                        newAttachment.save()  # save
+
         if(request.POST.get('post_exit')):
             return redirect('/questionnare/success')  # return to exit page
         elif(request.POST.get('post_next')):
@@ -249,6 +279,16 @@ def section_five(request):
                     defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
                               'question_id': question.id, 'answer': answer, 'remarks': remarks},)
 
+                # check for attachment and upload
+                if request.FILES is not None:
+                    attachment_files = request.FILES.getlist(
+                        'attachments[' + str(question.id) + ']')
+                    for f in attachment_files:
+                        newAttachment = Attachments()
+                        newAttachment.ansbank_id = obj.id
+                        newAttachment.uploads = f
+                        newAttachment.save()  # save
+
         if(request.POST.get('post_exit')):
             return redirect('/questionnare/success')  # return to exit page
         elif(request.POST.get('post_next')):
@@ -291,6 +331,16 @@ def section_six(request):
                     question_id=question.id, country_id=request.user.profiles.country_id,
                     defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
                               'question_id': question.id, 'answer': answer, 'remarks': remarks},)
+
+                # check for attachment and upload
+                if request.FILES is not None:
+                    attachment_files = request.FILES.getlist(
+                        'attachments[' + str(question.id) + ']')
+                    for f in attachment_files:
+                        newAttachment = Attachments()
+                        newAttachment.ansbank_id = obj.id
+                        newAttachment.uploads = f
+                        newAttachment.save()  # save
 
         if(request.POST.get('post_exit')):
             return redirect('/questionnare/success')  # return to exit page
