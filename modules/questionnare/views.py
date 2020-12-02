@@ -112,8 +112,6 @@ def section_two(request):
             remarks = request.POST.get('remarks[' + str(question.id) + ']')
 
             if answer is not None:
-                # todo: check for attachment and upload
-
                 # save or update
                 obj, created = AnsBank.objects.update_or_create(
                     question_id=question.id, country_id=request.user.profiles.country_id,
