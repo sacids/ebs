@@ -48,8 +48,9 @@ def section_one(request):
     if request.method == "POST":
         # first change country status
         country = Country.objects.get(pk=request.user.profiles.country_id)
-        country.status = "NO"
-        country.save()
+        if country.status == "NEW":
+            country.status = "NO"
+            country.save()
 
         # query questions
         questions = QuestionList.objects.filter(
