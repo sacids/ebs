@@ -17,7 +17,7 @@
                         <div class="card-h1">
                             <div class="col-md-12">
                                 <h5 class="font-weight-600">
-                                    Implementation readiness
+                                    {{ section.title }}
                                 </h5>
                                 <span>Section 3 of 6</span>
                             </div>
@@ -1120,11 +1120,11 @@
                         <!--./form-card-->
 
                         <!--./buttons -->
-                        <a href="/questionnare/section_two" class="btn btn-danger btn-sm"><i class="fa fa-angle-left"></i> Previous</a>
-                        <input type="submit" name="post_exit" class="btn btn-secondary btn-sm" value="Save and Exit" />
-                        <input type="submit" name="post_next" class="btn btn-primary btn-sm" value="Save and Continue" />
+                        <a href="/questionnare/section_two" class="btn btn-danger btn-sm"><i class="fa fa-angle-left"></i> {% trans 'Previous' %}</a>
+                        <input type="submit" name="post_exit" class="btn btn-secondary btn-sm" value="{% trans 'Save and Exit' %}" />
+                        <input type="submit" name="post_next" class="btn btn-primary btn-sm" value="{% trans 'Save and Continue' %}" />
                         <button class="btn btn-success btn-sm" onclick="printDiv('section_three');">
-                            <i class="fa fa-print"></i> Print/Save
+                            <i class="fa fa-print"></i> {% trans 'Print/Save' %}
                         </button>
                     </fieldset>
                 </form>

@@ -36,11 +36,15 @@ def section_one(request):
     # section_id
     section_id = 1
 
+    # section
+    section = Section.objects.get(pk=section_id)
+
    # questions
     questions = QuestionList.objects.filter(section_id=1)
 
     # context
     context = {
+        "section" : section,
         "questions": questions
     }
 
@@ -94,11 +98,15 @@ def section_two(request):
     # section_id
     section_id = 2
 
+    # section
+    section = Section.objects.get(pk=section_id)
+
    # questions
     questions = QuestionList.objects.filter(section_id=2)
 
     # context
     context = {
+        "section": section,
         "questions": questions
     }
 
@@ -145,11 +153,15 @@ def section_three(request):
     # section
     section_id = 3
 
+    # section
+    section = Section.objects.get(pk=section_id)
+
     # questions
     questions = QuestionList.objects.filter(section_id=3)
 
     # context
     context = {
+        "section": section,
         "questions": questions
     }
 
@@ -164,8 +176,6 @@ def section_three(request):
             remarks = request.POST.get('remarks[' + str(question.id) + ']')
 
             if answer is not None:
-                # todo: check for attachment and upload
-
                 # save or update
                 obj, created = AnsBank.objects.update_or_create(
                     question_id=question.id, country_id=request.user.profiles.country_id,
@@ -198,11 +208,15 @@ def section_four(request):
     # section
     section_id = 4
 
+    # section
+    section = Section.objects.get(pk=section_id)
+
     # questions
     questions = QuestionList.objects.filter(section_id=4)
 
     # context
     context = {
+        "section": section,
         "questions": questions
     }
 
@@ -217,8 +231,6 @@ def section_four(request):
             remarks = request.POST.get('remarks[' + str(question.id) + ']')
 
             if answer is not None:
-                # todo: check for attachment and upload
-
                 # save or update
                 obj, created = AnsBank.objects.update_or_create(
                     question_id=question.id, country_id=request.user.profiles.country_id,
@@ -251,11 +263,15 @@ def section_five(request):
     # section
     section_id = 5
 
+    # section
+    section = Section.objects.get(pk=section_id)
+
     # questions
     questions = QuestionList.objects.filter(section_id=5)
 
     # context
     context = {
+        "section": section,
         "questions": questions
     }
 
@@ -270,8 +286,6 @@ def section_five(request):
             remarks = request.POST.get('remarks[' + str(question.id) + ']')
 
             if answer is not None:
-                # todo: check for attachment and upload
-
                 # save or update
                 obj, created = AnsBank.objects.update_or_create(
                     question_id=question.id, country_id=request.user.profiles.country_id,
@@ -304,11 +318,15 @@ def section_six(request):
     # section
     section_id = 6
 
+    # section
+    section = Section.objects.get(pk=section_id)
+
     # questions
     questions = QuestionList.objects.filter(section_id=6)
 
     # context
     context = {
+        "section": section,
         "questions": questions
     }
 
@@ -323,8 +341,6 @@ def section_six(request):
             remarks = request.POST.get('remarks[' + str(question.id) + ']')
 
             if answer is not None:
-                # todo: check for attachment and upload
-
                 # save or update
                 obj, created = AnsBank.objects.update_or_create(
                     question_id=question.id, country_id=request.user.profiles.country_id,

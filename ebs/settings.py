@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 from decouple import config
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    #installed packages
+    #'modeltranslation',
+
     # custom apps
     'modules.accounts',
     'modules.dashboard',
@@ -53,6 +57,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  # add this to determine language session
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -61,6 +66,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'ebs.urls'
+
+#local path
+LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
 TEMPLATES = [
     {
@@ -117,8 +125,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
+
+LANGUAGES = [
+    ('en-us', 'English'),
+    ('fr', 'French'),
+    ('pt', 'Portuguese'),
+]
 
 TIME_ZONE = 'UTC'
 

@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('', include("modules.accounts.urls")),
     path('admin/', admin.site.urls),
     path('questionnare/', include("modules.questionnare.urls")),
     path('dashboard/', include("modules.dashboard.urls")),
     path('responses/', include("modules.responses.urls")),
     path('notification/', include("modules.notification.urls")),
-]
+)

@@ -18,9 +18,9 @@
                         <div class="card-h1">
                             <div class="col-md-12">
                                 <h5 class="font-weight-600">
-                                    Staffing capacity and training
+                                    {{ section.title }}
                                 </h5>
-                                <span>Section 2 of 6</span>
+                                <span>{% trans 'Section 2 of 6' %}</span>
                             </div>
                             <!--./col-->
                         </div>
@@ -46,10 +46,10 @@
                                     <div class="form-group">
                                         <!--question type-->
                                         <input id="answer" name="answer[82]" type="radio" class="" value="YES" {% if 82|get_qn_answer:user == "YES" %} checked {% endif %} />
-                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <label for="answer" class="">&nbsp;{% trans 'Yes' %}</label>
                                         <br />
                                         <input id="answer" name="answer[82]" type="radio" class="" value="NO" {% if 82|get_qn_answer:user == "NO" %} checked {% endif %} />
-                                        <label for="answer" class="">&nbsp;No</label>
+                                        <label for="answer" class="">&nbsp;{% trans 'No' %}</label>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
@@ -778,10 +778,10 @@
                                     <div class="form-group">
                                         <!--question type-->
                                         <input id="answer" name="answer[103]" type="radio" class="" value="YES" {% if 103|get_qn_answer:user == "YES" %} checked {% endif %}/>
-                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <label for="answer" class="">&nbsp;{% trans 'Yes' %}</label>
                                         <br />
                                         <input id="answer" name="answer[103]" type="radio" class="" value="NO" {% if 103|get_qn_answer:user == "NO" %} checked {% endif %} />
-                                        <label for="answer" class="">&nbsp;No</label>
+                                        <label for="answer" class="">&nbsp;{% trans 'No' %}</label>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
@@ -825,10 +825,10 @@
                                     <div class="form-group">
                                         <!--question type-->
                                         <input id="answer" name="answer[104]" type="radio" class="" value="YES" {% if 104|get_qn_answer:user == "YES" %} checked {% endif %} />
-                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <label for="answer" class="">&nbsp;{% trans 'Yes' %}</label>
                                         <br />
                                         <input id="answer" name="answer[104]" type="radio" class="" value="NO" {% if 104|get_qn_answer:user == "NO" %} checked {% endif %} />
-                                        <label for="answer" class="">&nbsp;No</label>
+                                        <label for="answer" class="">&nbsp;{% trans 'No' %}</label>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
@@ -881,10 +881,10 @@
                                     <div class="form-group">
                                         <!--question type-->
                                         <input id="answer" name="answer[105]" type="radio" class="" value="YES" {% if 105|get_qn_answer:user == "YES" %} checked {% endif %} />
-                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <label for="answer" class="">&nbsp;{% trans 'Yes' %}</label>
                                         <br />
                                         <input id="answer" name="answer[105]" type="radio" class="" value="NO" {% if 105|get_qn_answer:user == "NO" %} checked {% endif %} />
-                                        <label for="answer" class="">&nbsp;No</label>
+                                        <label for="answer" class="">&nbsp;{% trans 'No' %}</label>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
@@ -1031,10 +1031,10 @@
                                     <div class="form-group">
                                         <!--question type-->
                                         <input id="answer" name="answer[111]" type="radio" class="" value="YES" {% if 111|get_qn_answer:user == "YES" %} checked {% endif %} />
-                                        <label for="answer" class="">&nbsp;Yes</label>
+                                        <label for="answer" class="">&nbsp;{% trans 'Yes' %}</label>
                                         <br />
                                         <input id="answer" name="answer[111]" type="radio" class="" value="NO" {% if 111|get_qn_answer:user == "NO" %} checked {% endif %} />
-                                        <label for="answer" class="">&nbsp;No</label>
+                                        <label for="answer" class="">&nbsp;{% trans 'No' %}</label>
                                         <!--./question type-->
                                     </div>
                                     <!--./form-group-->
@@ -1089,11 +1089,11 @@
                         <!--./form-card-->
 
                         <!--./buttons -->
-                        <a href="/questionnare/section_one" class="btn btn-danger btn-sm"><i class="fa fa-angle-left"></i> Previous</a>
-                        <input type="submit" name="post_exit" class="btn btn-secondary btn-sm" value="Save and Exit" />
-                        <input type="submit" name="post_next" class="btn btn-primary btn-sm" value="Save and Continue" />
+                        <a href="/questionnare/section_one" class="btn btn-danger btn-sm"><i class="fa fa-angle-left"></i> {% trans 'Previous' %}</a>
+                        <input type="submit" name="post_exit" class="btn btn-secondary btn-sm" value="{% trans 'Save and Exit' %}" />
+                        <input type="submit" name="post_next" class="btn btn-primary btn-sm" value="{% trans 'Save and Continue' %" />
                         <button class="btn btn-success btn-sm" onclick="printDiv('section_two');">
-                            <i class="fa fa-print"></i> Print/Save
+                            <i class="fa fa-print"></i> {% trans 'Print/Save' %}
                         </button>
                     </fieldset>
                     <div class="mb-4"></div>

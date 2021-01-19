@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-29 09:09+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: modules/accounts/templates/accounts/login.html:16
+msgid "Change Language"
+msgstr "Mudar idioma"
+
+#: modules/accounts/templates/accounts/login.html:33
+msgid "Login to your account"
+msgstr "Faça login na sua conta"
+
+#: modules/accounts/templates/accounts/login.html:34
+msgid "Enter your credentials below"
+msgstr "Insira suas credenciais abaixo"
+
+#: modules/accounts/templates/accounts/login.html:57
+msgid "Username"
+msgstr "Nome do usuário"
+
+#: modules/accounts/templates/accounts/login.html:58
+msgid "Write username..."
+msgstr "Escreva o nome de usuário ..."
+
+#: modules/accounts/templates/accounts/login.html:64
+msgid "Password"
+msgstr "Senha"
+
+#: modules/accounts/templates/accounts/login.html:65
+msgid "Write password..."
+msgstr "Escreva a senha ..."
+
+#: modules/accounts/templates/accounts/login.html:72
+msgid "Login"
+msgstr "Conecte-se"
+
+#: modules/accounts/views.py:68
+msgid "Username OR Password is incorectly"
+msgstr "O nome de usuário OU a senha estão incorretos"
+
+#: modules/accounts/views.py:77
+msgid "Log out successfully"
+msgstr "Sair com sucesso"
+
+#: modules/questionnare/templates/questionnare/section_one.html:23
+msgid "Policy and legislative framework for implementation of EBS"
+msgstr "Estrutura política e legislativa para a implementação do EBS"
+
+#: modules/questionnare/templates/questionnare/section_one.html:25
+msgid "Section 1 of 6"
+msgstr "Seção 1 de 6"
+
+#: modules/questionnare/templates/questionnare/section_one.html:53
+#: modules/questionnare/templates/questionnare/section_one.html:112
+#: modules/questionnare/templates/questionnare/section_one.html:162
+#: modules/questionnare/templates/questionnare/section_one.html:212
+#: modules/questionnare/templates/questionnare/section_one.html:262
+#: modules/questionnare/templates/questionnare/section_one.html:311
+#: modules/questionnare/templates/questionnare/section_one.html:359
+#: modules/questionnare/templates/questionnare/section_one.html:408
+#: modules/questionnare/templates/questionnare/section_one.html:457
+msgid "Yes"
+msgstr "sim"
+
+#: modules/questionnare/templates/questionnare/section_one.html:57
+#: modules/questionnare/templates/questionnare/section_one.html:116
+#: modules/questionnare/templates/questionnare/section_one.html:166
+#: modules/questionnare/templates/questionnare/section_one.html:216
+#: modules/questionnare/templates/questionnare/section_one.html:266
+#: modules/questionnare/templates/questionnare/section_one.html:315
+#: modules/questionnare/templates/questionnare/section_one.html:363
+#: modules/questionnare/templates/questionnare/section_one.html:412
+#: modules/questionnare/templates/questionnare/section_one.html:461
+msgid "No"
+msgstr "Não"
+
+#: modules/questionnare/templates/questionnare/section_one.html:66
+#: modules/questionnare/templates/questionnare/section_one.html:125
+#: modules/questionnare/templates/questionnare/section_one.html:176
+#: modules/questionnare/templates/questionnare/section_one.html:225
+#: modules/questionnare/templates/questionnare/section_one.html:275
+#: modules/questionnare/templates/questionnare/section_one.html:324
+#: modules/questionnare/templates/questionnare/section_one.html:372
+#: modules/questionnare/templates/questionnare/section_one.html:421
+#: modules/questionnare/templates/questionnare/section_one.html:470
+msgid "Remarks"
+msgstr "Observações"
+
+#: modules/questionnare/templates/questionnare/section_one.html:69
+#: modules/questionnare/templates/questionnare/section_one.html:128
+#: modules/questionnare/templates/questionnare/section_one.html:179
+#: modules/questionnare/templates/questionnare/section_one.html:228
+#: modules/questionnare/templates/questionnare/section_one.html:278
+#: modules/questionnare/templates/questionnare/section_one.html:327
+#: modules/questionnare/templates/questionnare/section_one.html:375
+#: modules/questionnare/templates/questionnare/section_one.html:424
+#: modules/questionnare/templates/questionnare/section_one.html:473
+msgid "Write remarks..."
+msgstr "Escreva comentários ..."
+
+#: modules/questionnare/templates/questionnare/section_one.html:78
+msgid "Attachments"
+msgstr "Anexos"
+
+#: modules/questionnare/templates/questionnare/section_one.html:486
+msgid "Save and Exit"
+msgstr "Salvar e sair"
+
+#: modules/questionnare/templates/questionnare/section_one.html:488
+msgid "Save and Continue"
+msgstr "Salve e continue"
+
+#: modules/questionnare/templates/questionnare/section_one.html:490
+msgid "Print/Save"
+msgstr "Imprimir / Salvar"
+
+#: templates/frontend/base.html:55
+msgid "Events Based Surveillance Situational analysis questionnaire"
+msgstr "Questionário de análise situacional de vigilância baseada em eventos"

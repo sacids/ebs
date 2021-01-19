@@ -1,4 +1,7 @@
+import xlwt
+
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.urls import reverse_lazy, reverse
 from django.views import generic
 from ..questionnare.models import *
@@ -229,3 +232,39 @@ def send_incomplete_submission_alert(request, **kwargs):
 
     # redirect
     return redirect('/responses/countries')
+
+
+#export xls
+def export_xls(request, **kwargs):
+        country = Country.objects.get(pk=kwargs['country_id'])
+
+        #response
+        response = HttpResponse(content_type='application/ms-excel')
+        response['Content-Disposition'] = 'attachment; filename="responses.xls"'
+
+        wb = xlwt.Workbook(encoding='utf-8')
+        ws = wb.add_sheet('Responses ' + country.title)
+
+        # Sheet header, first row
+        row_num = 0
+
+        font_style = xlwt.XFStyle()
+        font_style.font.bold = True
+
+        columns = ['Questions', 'Answers', 'Remarks']
+
+        for col_num in range(len(columns)):
+            ws.write(row_num, col_num, columns[col_num], font_style)
+
+        # Sheet body, remaining rows
+        font_style = xlwt.XFStyle()
+
+        rows = QuestionList.objects.all().values_list("title").order_by('section_id', 'sort_order')
+        for row in rows:
+            row_num += 1
+            for col_num in range(len(row)):
+                ws.write(row_num, col_num, row[col_num], font_style)
+
+        wb.save(response)
+        return response      
+
