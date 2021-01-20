@@ -234,7 +234,7 @@ class QuestionBank(models.Model):
 class AnsBank(models.Model):
     created_by  = models.ForeignKey(User,related_name="created_by", on_delete=models.DO_NOTHING, blank=True, null=True)
     country     = models.ForeignKey(Country,related_name="ans_country", on_delete=models.DO_NOTHING, blank=True, null=True)
-    question    = models.ForeignKey(QuestionList, on_delete=models.CASCADE)
+    question    = models.ForeignKey(QuestionList, related_name="question", on_delete=models.CASCADE)
     answer      = models.TextField(null=False)
     remarks     = models.TextField(null=True)
     created_at  = models.DateTimeField(auto_now_add=True, editable=False)
