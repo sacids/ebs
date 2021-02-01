@@ -40,6 +40,17 @@ def get_qn_remarks(qn_id, user):
     except AnsBank.DoesNotExist:
         return ""
 
+@register.filter
+def get_qn_attachments(qn_id, user):
+    try:
+        answers = AnsBank.objects.get(country_id=user.profiles.country_id, question_id=qn_id)
+        
+        #query attachment based on answers
+        attachments = ''
+
+        return answers.remarks
+    except AnsBank.DoesNotExist:
+        return ""
 
 @register.filter
 def get_sub_questions(qn_id):

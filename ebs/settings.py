@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #installed packages
-    #'modeltranslation',
+    'modeltranslation',
 
     # custom apps
     'modules.accounts',
