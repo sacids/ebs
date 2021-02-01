@@ -64,6 +64,7 @@ def section_one(request, **kwargs):
         "profile": profile,
         "user": user
     }
+
     # render view
     return render(request, "sections/one.html", context)
 

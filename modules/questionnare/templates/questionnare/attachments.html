@@ -1,0 +1,11 @@
+{% load ebs_tags %}
+
+{% if attachments %}
+<ul>
+    {% for val in attachments %}
+    <li><a href="{{ '/static/media/' }}{{ val.uploads }}" >{{ val.uploads }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No attachment available</p>
+{% endif %}
