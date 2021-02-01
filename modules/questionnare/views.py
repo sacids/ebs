@@ -44,7 +44,7 @@ def section_one(request):
 
     # context
     context = {
-        "section" : section,
+        "section": section,
         "questions": questions
     }
 
@@ -52,7 +52,7 @@ def section_one(request):
     if request.method == "POST":
         # first change country status
         country = Country.objects.get(pk=request.user.profiles.country_id)
-        if country.status == "NEW":
+        if country.status == "NEW" or country.status == "NO":
             country.status = "NO"
             country.save()
 
