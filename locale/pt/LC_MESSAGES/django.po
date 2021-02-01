@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-29 09:09+0000\n"
+"POT-Creation-Date: 2021-02-01 09:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: modules/accounts/templates/accounts/login.html:16
+#: modules/accounts/templates/accounts/login.html:17
 msgid "Change Language"
 msgstr "Mudar idioma"
 
@@ -58,14 +58,48 @@ msgstr "O nome de usuário OU a senha estão incorretos"
 msgid "Log out successfully"
 msgstr "Sair com sucesso"
 
-#: modules/questionnare/templates/questionnare/section_one.html:23
-msgid "Policy and legislative framework for implementation of EBS"
-msgstr "Estrutura política e legislativa para a implementação do EBS"
+#: modules/questionnare/templates/questionnare/section_five.html:23
+msgid "Section 5 of 6"
+msgstr "Seção 5 de 6"
 
-#: modules/questionnare/templates/questionnare/section_one.html:25
-msgid "Section 1 of 6"
-msgstr "Seção 1 de 6"
+#: modules/questionnare/templates/questionnare/section_five.html:33
+msgid "Information gathering and reporting"
+msgstr "Recolha de informações e relatórios"
 
+#: modules/questionnare/templates/questionnare/section_five.html:63
+#: modules/questionnare/templates/questionnare/section_five.html:111
+#: modules/questionnare/templates/questionnare/section_five.html:158
+#: modules/questionnare/templates/questionnare/section_five.html:215
+#: modules/questionnare/templates/questionnare/section_five.html:262
+#: modules/questionnare/templates/questionnare/section_five.html:309
+#: modules/questionnare/templates/questionnare/section_five.html:357
+#: modules/questionnare/templates/questionnare/section_five.html:484
+#: modules/questionnare/templates/questionnare/section_five.html:532
+#: modules/questionnare/templates/questionnare/section_five.html:614
+#: modules/questionnare/templates/questionnare/section_five.html:661
+#: modules/questionnare/templates/questionnare/section_five.html:709
+#: modules/questionnare/templates/questionnare/section_five.html:757
+#: modules/questionnare/templates/questionnare/section_five.html:815
+#: modules/questionnare/templates/questionnare/section_five.html:922
+#: modules/questionnare/templates/questionnare/section_five.html:988
+#: modules/questionnare/templates/questionnare/section_five.html:1018
+#: modules/questionnare/templates/questionnare/section_four.html:51
+#: modules/questionnare/templates/questionnare/section_four.html:194
+#: modules/questionnare/templates/questionnare/section_four.html:242
+#: modules/questionnare/templates/questionnare/section_four.html:271
+#: modules/questionnare/templates/questionnare/section_four.html:300
+#: modules/questionnare/templates/questionnare/section_four.html:329
+#: modules/questionnare/templates/questionnare/section_four.html:358
+#: modules/questionnare/templates/questionnare/section_four.html:387
+#: modules/questionnare/templates/questionnare/section_four.html:416
+#: modules/questionnare/templates/questionnare/section_four.html:445
+#: modules/questionnare/templates/questionnare/section_four.html:492
+#: modules/questionnare/templates/questionnare/section_four.html:521
+#: modules/questionnare/templates/questionnare/section_four.html:550
+#: modules/questionnare/templates/questionnare/section_four.html:596
+#: modules/questionnare/templates/questionnare/section_four.html:643
+#: modules/questionnare/templates/questionnare/section_four.html:691
+#: modules/questionnare/templates/questionnare/section_four.html:806
 #: modules/questionnare/templates/questionnare/section_one.html:53
 #: modules/questionnare/templates/questionnare/section_one.html:112
 #: modules/questionnare/templates/questionnare/section_one.html:162
@@ -75,9 +109,80 @@ msgstr "Seção 1 de 6"
 #: modules/questionnare/templates/questionnare/section_one.html:359
 #: modules/questionnare/templates/questionnare/section_one.html:408
 #: modules/questionnare/templates/questionnare/section_one.html:457
+#: modules/questionnare/templates/questionnare/section_six.html:68
+#: modules/questionnare/templates/questionnare/section_six.html:86
+#: modules/questionnare/templates/questionnare/section_six.html:104
+#: modules/questionnare/templates/questionnare/section_six.html:122
+#: modules/questionnare/templates/questionnare/section_six.html:141
+#: modules/questionnare/templates/questionnare/section_six.html:159
+#: modules/questionnare/templates/questionnare/section_three.html:50
+#: modules/questionnare/templates/questionnare/section_three.html:107
+#: modules/questionnare/templates/questionnare/section_three.html:176
+#: modules/questionnare/templates/questionnare/section_three.html:191
+#: modules/questionnare/templates/questionnare/section_three.html:206
+#: modules/questionnare/templates/questionnare/section_three.html:221
+#: modules/questionnare/templates/questionnare/section_three.html:236
+#: modules/questionnare/templates/questionnare/section_three.html:251
+#: modules/questionnare/templates/questionnare/section_three.html:281
+#: modules/questionnare/templates/questionnare/section_three.html:330
+#: modules/questionnare/templates/questionnare/section_three.html:370
+#: modules/questionnare/templates/questionnare/section_three.html:408
+#: modules/questionnare/templates/questionnare/section_three.html:466
+#: modules/questionnare/templates/questionnare/section_three.html:629
+#: modules/questionnare/templates/questionnare/section_three.html:708
+#: modules/questionnare/templates/questionnare/section_three.html:756
+#: modules/questionnare/templates/questionnare/section_three.html:800
+#: modules/questionnare/templates/questionnare/section_three.html:849
+#: modules/questionnare/templates/questionnare/section_three.html:894
+#: modules/questionnare/templates/questionnare/section_three.html:909
+#: modules/questionnare/templates/questionnare/section_three.html:924
+#: modules/questionnare/templates/questionnare/section_three.html:939
+#: modules/questionnare/templates/questionnare/section_three.html:954
+#: modules/questionnare/templates/questionnare/section_three.html:992
+#: modules/questionnare/templates/questionnare/section_three.html:1028
+#: modules/questionnare/templates/questionnare/section_three.html:1063
+#: modules/questionnare/templates/questionnare/section_two.html:50
+#: modules/questionnare/templates/questionnare/section_two.html:782
+#: modules/questionnare/templates/questionnare/section_two.html:829
+#: modules/questionnare/templates/questionnare/section_two.html:885
+#: modules/questionnare/templates/questionnare/section_two.html:1031
 msgid "Yes"
-msgstr "sim"
+msgstr "Sim"
 
+#: modules/questionnare/templates/questionnare/section_five.html:66
+#: modules/questionnare/templates/questionnare/section_five.html:114
+#: modules/questionnare/templates/questionnare/section_five.html:161
+#: modules/questionnare/templates/questionnare/section_five.html:218
+#: modules/questionnare/templates/questionnare/section_five.html:265
+#: modules/questionnare/templates/questionnare/section_five.html:312
+#: modules/questionnare/templates/questionnare/section_five.html:360
+#: modules/questionnare/templates/questionnare/section_five.html:487
+#: modules/questionnare/templates/questionnare/section_five.html:535
+#: modules/questionnare/templates/questionnare/section_five.html:617
+#: modules/questionnare/templates/questionnare/section_five.html:664
+#: modules/questionnare/templates/questionnare/section_five.html:712
+#: modules/questionnare/templates/questionnare/section_five.html:760
+#: modules/questionnare/templates/questionnare/section_five.html:818
+#: modules/questionnare/templates/questionnare/section_five.html:925
+#: modules/questionnare/templates/questionnare/section_five.html:991
+#: modules/questionnare/templates/questionnare/section_five.html:1021
+#: modules/questionnare/templates/questionnare/section_four.html:54
+#: modules/questionnare/templates/questionnare/section_four.html:197
+#: modules/questionnare/templates/questionnare/section_four.html:245
+#: modules/questionnare/templates/questionnare/section_four.html:274
+#: modules/questionnare/templates/questionnare/section_four.html:303
+#: modules/questionnare/templates/questionnare/section_four.html:332
+#: modules/questionnare/templates/questionnare/section_four.html:361
+#: modules/questionnare/templates/questionnare/section_four.html:390
+#: modules/questionnare/templates/questionnare/section_four.html:419
+#: modules/questionnare/templates/questionnare/section_four.html:448
+#: modules/questionnare/templates/questionnare/section_four.html:495
+#: modules/questionnare/templates/questionnare/section_four.html:524
+#: modules/questionnare/templates/questionnare/section_four.html:553
+#: modules/questionnare/templates/questionnare/section_four.html:599
+#: modules/questionnare/templates/questionnare/section_four.html:646
+#: modules/questionnare/templates/questionnare/section_four.html:694
+#: modules/questionnare/templates/questionnare/section_four.html:809
 #: modules/questionnare/templates/questionnare/section_one.html:57
 #: modules/questionnare/templates/questionnare/section_one.html:116
 #: modules/questionnare/templates/questionnare/section_one.html:166
@@ -87,9 +192,76 @@ msgstr "sim"
 #: modules/questionnare/templates/questionnare/section_one.html:363
 #: modules/questionnare/templates/questionnare/section_one.html:412
 #: modules/questionnare/templates/questionnare/section_one.html:461
+#: modules/questionnare/templates/questionnare/section_six.html:71
+#: modules/questionnare/templates/questionnare/section_six.html:89
+#: modules/questionnare/templates/questionnare/section_six.html:107
+#: modules/questionnare/templates/questionnare/section_six.html:125
+#: modules/questionnare/templates/questionnare/section_six.html:144
+#: modules/questionnare/templates/questionnare/section_six.html:162
+#: modules/questionnare/templates/questionnare/section_three.html:53
+#: modules/questionnare/templates/questionnare/section_three.html:110
+#: modules/questionnare/templates/questionnare/section_three.html:179
+#: modules/questionnare/templates/questionnare/section_three.html:194
+#: modules/questionnare/templates/questionnare/section_three.html:209
+#: modules/questionnare/templates/questionnare/section_three.html:224
+#: modules/questionnare/templates/questionnare/section_three.html:239
+#: modules/questionnare/templates/questionnare/section_three.html:254
+#: modules/questionnare/templates/questionnare/section_three.html:284
+#: modules/questionnare/templates/questionnare/section_three.html:333
+#: modules/questionnare/templates/questionnare/section_three.html:373
+#: modules/questionnare/templates/questionnare/section_three.html:411
+#: modules/questionnare/templates/questionnare/section_three.html:469
+#: modules/questionnare/templates/questionnare/section_three.html:632
+#: modules/questionnare/templates/questionnare/section_three.html:711
+#: modules/questionnare/templates/questionnare/section_three.html:759
+#: modules/questionnare/templates/questionnare/section_three.html:803
+#: modules/questionnare/templates/questionnare/section_three.html:852
+#: modules/questionnare/templates/questionnare/section_three.html:897
+#: modules/questionnare/templates/questionnare/section_three.html:912
+#: modules/questionnare/templates/questionnare/section_three.html:927
+#: modules/questionnare/templates/questionnare/section_three.html:942
+#: modules/questionnare/templates/questionnare/section_three.html:957
+#: modules/questionnare/templates/questionnare/section_three.html:995
+#: modules/questionnare/templates/questionnare/section_three.html:1031
+#: modules/questionnare/templates/questionnare/section_three.html:1066
+#: modules/questionnare/templates/questionnare/section_two.html:53
+#: modules/questionnare/templates/questionnare/section_two.html:785
+#: modules/questionnare/templates/questionnare/section_two.html:832
+#: modules/questionnare/templates/questionnare/section_two.html:888
+#: modules/questionnare/templates/questionnare/section_two.html:1034
 msgid "No"
 msgstr "Não"
 
+#: modules/questionnare/templates/questionnare/section_five.html:75
+#: modules/questionnare/templates/questionnare/section_five.html:123
+#: modules/questionnare/templates/questionnare/section_five.html:170
+#: modules/questionnare/templates/questionnare/section_five.html:227
+#: modules/questionnare/templates/questionnare/section_five.html:274
+#: modules/questionnare/templates/questionnare/section_five.html:321
+#: modules/questionnare/templates/questionnare/section_five.html:369
+#: modules/questionnare/templates/questionnare/section_five.html:496
+#: modules/questionnare/templates/questionnare/section_five.html:544
+#: modules/questionnare/templates/questionnare/section_five.html:626
+#: modules/questionnare/templates/questionnare/section_five.html:673
+#: modules/questionnare/templates/questionnare/section_five.html:721
+#: modules/questionnare/templates/questionnare/section_five.html:769
+#: modules/questionnare/templates/questionnare/section_five.html:827
+#: modules/questionnare/templates/questionnare/section_four.html:63
+#: modules/questionnare/templates/questionnare/section_four.html:206
+#: modules/questionnare/templates/questionnare/section_four.html:254
+#: modules/questionnare/templates/questionnare/section_four.html:283
+#: modules/questionnare/templates/questionnare/section_four.html:312
+#: modules/questionnare/templates/questionnare/section_four.html:341
+#: modules/questionnare/templates/questionnare/section_four.html:370
+#: modules/questionnare/templates/questionnare/section_four.html:399
+#: modules/questionnare/templates/questionnare/section_four.html:428
+#: modules/questionnare/templates/questionnare/section_four.html:457
+#: modules/questionnare/templates/questionnare/section_four.html:504
+#: modules/questionnare/templates/questionnare/section_four.html:533
+#: modules/questionnare/templates/questionnare/section_four.html:562
+#: modules/questionnare/templates/questionnare/section_four.html:608
+#: modules/questionnare/templates/questionnare/section_four.html:655
+#: modules/questionnare/templates/questionnare/section_four.html:703
 #: modules/questionnare/templates/questionnare/section_one.html:66
 #: modules/questionnare/templates/questionnare/section_one.html:125
 #: modules/questionnare/templates/questionnare/section_one.html:176
@@ -99,9 +271,55 @@ msgstr "Não"
 #: modules/questionnare/templates/questionnare/section_one.html:372
 #: modules/questionnare/templates/questionnare/section_one.html:421
 #: modules/questionnare/templates/questionnare/section_one.html:470
+#: modules/questionnare/templates/questionnare/section_three.html:62
+#: modules/questionnare/templates/questionnare/section_three.html:119
+#: modules/questionnare/templates/questionnare/section_three.html:420
+#: modules/questionnare/templates/questionnare/section_three.html:535
+#: modules/questionnare/templates/questionnare/section_three.html:641
+#: modules/questionnare/templates/questionnare/section_three.html:720
+#: modules/questionnare/templates/questionnare/section_three.html:768
+#: modules/questionnare/templates/questionnare/section_three.html:812
+#: modules/questionnare/templates/questionnare/section_three.html:861
+#: modules/questionnare/templates/questionnare/section_three.html:1075
+#: modules/questionnare/templates/questionnare/section_two.html:62
+#: modules/questionnare/templates/questionnare/section_two.html:748
+#: modules/questionnare/templates/questionnare/section_two.html:794
+#: modules/questionnare/templates/questionnare/section_two.html:841
+#: modules/questionnare/templates/questionnare/section_two.html:897
+#: modules/questionnare/templates/questionnare/section_two.html:1043
 msgid "Remarks"
 msgstr "Observações"
 
+#: modules/questionnare/templates/questionnare/section_five.html:78
+#: modules/questionnare/templates/questionnare/section_five.html:126
+#: modules/questionnare/templates/questionnare/section_five.html:173
+#: modules/questionnare/templates/questionnare/section_five.html:230
+#: modules/questionnare/templates/questionnare/section_five.html:277
+#: modules/questionnare/templates/questionnare/section_five.html:324
+#: modules/questionnare/templates/questionnare/section_five.html:372
+#: modules/questionnare/templates/questionnare/section_five.html:499
+#: modules/questionnare/templates/questionnare/section_five.html:547
+#: modules/questionnare/templates/questionnare/section_five.html:629
+#: modules/questionnare/templates/questionnare/section_five.html:676
+#: modules/questionnare/templates/questionnare/section_five.html:724
+#: modules/questionnare/templates/questionnare/section_five.html:772
+#: modules/questionnare/templates/questionnare/section_five.html:830
+#: modules/questionnare/templates/questionnare/section_four.html:66
+#: modules/questionnare/templates/questionnare/section_four.html:209
+#: modules/questionnare/templates/questionnare/section_four.html:257
+#: modules/questionnare/templates/questionnare/section_four.html:286
+#: modules/questionnare/templates/questionnare/section_four.html:315
+#: modules/questionnare/templates/questionnare/section_four.html:344
+#: modules/questionnare/templates/questionnare/section_four.html:373
+#: modules/questionnare/templates/questionnare/section_four.html:402
+#: modules/questionnare/templates/questionnare/section_four.html:431
+#: modules/questionnare/templates/questionnare/section_four.html:460
+#: modules/questionnare/templates/questionnare/section_four.html:507
+#: modules/questionnare/templates/questionnare/section_four.html:536
+#: modules/questionnare/templates/questionnare/section_four.html:565
+#: modules/questionnare/templates/questionnare/section_four.html:611
+#: modules/questionnare/templates/questionnare/section_four.html:658
+#: modules/questionnare/templates/questionnare/section_four.html:706
 #: modules/questionnare/templates/questionnare/section_one.html:69
 #: modules/questionnare/templates/questionnare/section_one.html:128
 #: modules/questionnare/templates/questionnare/section_one.html:179
@@ -111,25 +329,181 @@ msgstr "Observações"
 #: modules/questionnare/templates/questionnare/section_one.html:375
 #: modules/questionnare/templates/questionnare/section_one.html:424
 #: modules/questionnare/templates/questionnare/section_one.html:473
+#: modules/questionnare/templates/questionnare/section_three.html:65
+#: modules/questionnare/templates/questionnare/section_three.html:122
+#: modules/questionnare/templates/questionnare/section_three.html:423
+#: modules/questionnare/templates/questionnare/section_three.html:644
+#: modules/questionnare/templates/questionnare/section_three.html:723
+#: modules/questionnare/templates/questionnare/section_three.html:771
+#: modules/questionnare/templates/questionnare/section_three.html:815
+#: modules/questionnare/templates/questionnare/section_three.html:864
+#: modules/questionnare/templates/questionnare/section_three.html:1078
+#: modules/questionnare/templates/questionnare/section_two.html:65
+#: modules/questionnare/templates/questionnare/section_two.html:751
+#: modules/questionnare/templates/questionnare/section_two.html:797
+#: modules/questionnare/templates/questionnare/section_two.html:844
+#: modules/questionnare/templates/questionnare/section_two.html:900
+#: modules/questionnare/templates/questionnare/section_two.html:1046
 msgid "Write remarks..."
 msgstr "Escreva comentários ..."
 
+#: modules/questionnare/templates/questionnare/section_five.html:181
+#: modules/questionnare/templates/questionnare/section_five.html:780
+#: modules/questionnare/templates/questionnare/section_four.html:74
 #: modules/questionnare/templates/questionnare/section_one.html:78
+#: modules/questionnare/templates/questionnare/section_three.html:73
+#: modules/questionnare/templates/questionnare/section_three.html:130
+#: modules/questionnare/templates/questionnare/section_three.html:293
+#: modules/questionnare/templates/questionnare/section_three.html:431
+#: modules/questionnare/templates/questionnare/section_three.html:478
+#: modules/questionnare/templates/questionnare/section_two.html:852
 msgid "Attachments"
 msgstr "Anexos"
 
+#: modules/questionnare/templates/questionnare/section_five.html:405
+#: modules/questionnare/templates/questionnare/section_five.html:439
+#: modules/questionnare/templates/questionnare/section_five.html:860
+#: modules/questionnare/templates/questionnare/section_five.html:872
+#: modules/questionnare/templates/questionnare/section_five.html:884
+#: modules/questionnare/templates/questionnare/section_five.html:896
+#: modules/questionnare/templates/questionnare/section_five.html:908
+#: modules/questionnare/templates/questionnare/section_five.html:938
+#: modules/questionnare/templates/questionnare/section_five.html:950
+#: modules/questionnare/templates/questionnare/section_five.html:962
+#: modules/questionnare/templates/questionnare/section_five.html:974
+#: modules/questionnare/templates/questionnare/section_five.html:1004
+#: modules/questionnare/templates/questionnare/section_three.html:676
+#: modules/questionnare/templates/questionnare/section_two.html:932
+#: modules/questionnare/templates/questionnare/section_two.html:1077
+msgid "Write answer..."
+msgstr "Escreva a senha ..."
+
+#: modules/questionnare/templates/questionnare/section_five.html:454
+msgid "Epidemic intelligence and feedback"
+msgstr "Informação epidemiológica e retroinformação"
+
+#: modules/questionnare/templates/questionnare/section_five.html:1033
+#: modules/questionnare/templates/questionnare/section_four.html:821
+#: modules/questionnare/templates/questionnare/section_six.html:190
+#: modules/questionnare/templates/questionnare/section_three.html:1121
+#: modules/questionnare/templates/questionnare/section_two.html:1089
+msgid "Previous"
+msgstr "Anterior"
+
+#: modules/questionnare/templates/questionnare/section_five.html:1034
+#: modules/questionnare/templates/questionnare/section_four.html:822
 #: modules/questionnare/templates/questionnare/section_one.html:486
+#: modules/questionnare/templates/questionnare/section_six.html:191
+#: modules/questionnare/templates/questionnare/section_three.html:1122
+#: modules/questionnare/templates/questionnare/section_two.html:1090
 msgid "Save and Exit"
 msgstr "Salvar e sair"
 
+#: modules/questionnare/templates/questionnare/section_five.html:1035
+#: modules/questionnare/templates/questionnare/section_four.html:823
 #: modules/questionnare/templates/questionnare/section_one.html:488
+#: modules/questionnare/templates/questionnare/section_three.html:1123
+#: modules/questionnare/templates/questionnare/section_two.html:1091
 msgid "Save and Continue"
 msgstr "Salve e continue"
 
+#: modules/questionnare/templates/questionnare/section_five.html:1037
+#: modules/questionnare/templates/questionnare/section_four.html:825
 #: modules/questionnare/templates/questionnare/section_one.html:490
+#: modules/questionnare/templates/questionnare/section_six.html:194
+#: modules/questionnare/templates/questionnare/section_three.html:1125
+#: modules/questionnare/templates/questionnare/section_two.html:1093
 msgid "Print/Save"
 msgstr "Imprimir / Salvar"
 
+#: modules/questionnare/templates/questionnare/section_four.html:23
+msgid "Section 4 of 6"
+msgstr "Seção 4 de 6"
+
+#: modules/questionnare/templates/questionnare/section_four.html:108
+msgid "Funding Level"
+msgstr "Nível de Financiamento"
+
+#: modules/questionnare/templates/questionnare/section_four.html:109
+msgid "Amount"
+msgstr "Montante"
+
+#: modules/questionnare/templates/questionnare/section_four.html:110
+msgid "Proportion"
+msgstr "Proporção"
+
+#: modules/questionnare/templates/questionnare/section_one.html:25
+msgid "Section 1 of 6"
+msgstr "Seção 1 de 6"
+
+#: modules/questionnare/templates/questionnare/section_six.html:24
+msgid "Section 6 of 6"
+msgstr "Seção 6 de 6"
+
+#: modules/questionnare/templates/questionnare/section_six.html:192
+msgid "Save and Complete"
+msgstr "Salvar e completar"
+
+#: modules/questionnare/templates/questionnare/section_three.html:23
+msgid "Section 3 of 6"
+msgstr "Seção 3 de 6"
+
+#: modules/questionnare/templates/questionnare/section_two.html:24
+msgid "Section 2 of 6"
+msgstr "Seção 2 de 6"
+
+#: modules/questionnare/templates/questionnare/section_two.html:99
+#: modules/questionnare/templates/questionnare/section_two.html:283
+#: modules/questionnare/templates/questionnare/section_two.html:395
+#: modules/questionnare/templates/questionnare/section_two.html:507
+#: modules/questionnare/templates/questionnare/section_two.html:619
+msgid "PhD"
+msgstr "PhD"
+
+#: modules/questionnare/templates/questionnare/section_two.html:100
+#: modules/questionnare/templates/questionnare/section_two.html:284
+#: modules/questionnare/templates/questionnare/section_two.html:396
+#: modules/questionnare/templates/questionnare/section_two.html:508
+#: modules/questionnare/templates/questionnare/section_two.html:620
+msgid "Masters"
+msgstr "Masters"
+
+#: modules/questionnare/templates/questionnare/section_two.html:101
+#: modules/questionnare/templates/questionnare/section_two.html:285
+#: modules/questionnare/templates/questionnare/section_two.html:397
+#: modules/questionnare/templates/questionnare/section_two.html:509
+#: modules/questionnare/templates/questionnare/section_two.html:621
+msgid "Degree"
+msgstr "Degree"
+
+#: modules/questionnare/templates/questionnare/section_two.html:102
+#: modules/questionnare/templates/questionnare/section_two.html:286
+#: modules/questionnare/templates/questionnare/section_two.html:398
+#: modules/questionnare/templates/questionnare/section_two.html:510
+#: modules/questionnare/templates/questionnare/section_two.html:622
+msgid "Diploma"
+msgstr "Diploma"
+
+#: modules/questionnare/templates/questionnare/section_two.html:103
+#: modules/questionnare/templates/questionnare/section_two.html:287
+#: modules/questionnare/templates/questionnare/section_two.html:399
+#: modules/questionnare/templates/questionnare/section_two.html:511
+#: modules/questionnare/templates/questionnare/section_two.html:623
+msgid "Certification"
+msgstr "Certification"
+
+#: modules/questionnare/templates/questionnare/section_two.html:968
+msgid "Number"
+msgstr "Número"
+
+#: modules/questionnare/templates/questionnare/section_two.html:969
+msgid "Location in country"
+msgstr "Localização no país"
+
+#: modules/questionnare/templates/questionnare/section_two.html:970
+msgid "Level of care serving"
+msgstr "Nível de atendimento ao serviço"
+
 #: templates/frontend/base.html:55
 msgid "Events Based Surveillance Situational analysis questionnaire"
-msgstr "Questionário de análise situacional de vigilância baseada em eventos"
+msgstr "Questionário da análise situacional da vigilância baseada em eventos"
