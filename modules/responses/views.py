@@ -250,7 +250,7 @@ def export_xls(request, **kwargs):
     writer.writerow(['Questions', 'Answers', 'Remarks'])
 
     #query questions
-    questions = QuestionList.objects.order_by('section', 'sort_order')
+    questions = QuestionList.objects.order_by('section', 'code', 'sort_order')
 
     for qn in questions:
         #ansbank

@@ -57,10 +57,12 @@
                         <i class="fa fa-envelope-open"></i>
                     </a>&nbsp;
 
+                    {% if country.status == 'YES' %}
                     <a href="/responses/export_xls/{{country.id}}" class="text-success"
                         title="Export XLS">
                         <i class="fa fa-file-excel"></i>
                     </a>&nbsp;
+                    {% endif %}
                 </td>
             </tr>
             {% endfor %}
