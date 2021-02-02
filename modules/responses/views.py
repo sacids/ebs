@@ -244,17 +244,19 @@ def export_xls(request, **kwargs):
 
     # response
     response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename=' + country.title + '-Response.csv'
+    response['Content-Disposition'] = 'attachment; filename=' + \
+        country.title + '-Response.csv'
 
     writer = csv.writer(response)
     writer.writerow(['Questions', 'Answers', 'Remarks'])
 
-    #query questions
+    # query questions
     questions = QuestionList.objects.order_by('section', 'code', 'sort_order')
 
     for qn in questions:
-        #ansbank
-        ansbank = AnsBank.objects.filter(question=qn.id,country=country.id).first()
+        # ansbank
+        ansbank = AnsBank.objects.filter(
+            question=qn.id, country=country.id).first()
 
         if ansbank:
             writer.writerow([qn.title, ansbank.answer, ansbank.remarks])
@@ -262,3 +264,29 @@ def export_xls(request, **kwargs):
             writer.writerow([qn.title, '', ''])
 
     return response
+
+
+# update section
+@login_required(login_url='/login')
+def update_sections(request):
+    sections = Section.objects.all()
+
+    for section in sections:
+        print(section.title)
+        up_section = Section.objects.get(id=section.id)
+        up_section.title_en_us = section.title
+        up_section.description_en_us = section.description
+        up_section.save()
+    return HttpResponse('section data updated')
+
+# update question
+@login_required(login_url='/login')
+def update_questions(request):
+    questions = QuestionList.objects.all()
+
+    for qn in questions:
+        up_qn = QuestionList.objects.get(pk=qn.id)
+        up_qn.title_en_us = qn.title
+        up_qn.hints_en_us = qn.hints
+        up_qn.save()
+    return HttpResponse('question data updated')

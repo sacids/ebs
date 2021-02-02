@@ -18,5 +18,9 @@ urlpatterns = [
          views.send_incomplete_submission_alert, name="send_incomplete_submission_alert"),
 
     #export xls
-    path("export_xls/<int:country_id>", views.export_xls, name="export_xls")     
+    path("export_xls/<int:country_id>", views.export_xls, name="export_xls"),
+
+    #update  
+    path("update_sections", views.update_sections, name="update_sections"),
+    path("update_questions", views.update_questions, name="update_questions"),
 ]
