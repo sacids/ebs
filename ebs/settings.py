@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #installed packages
-    'reset_migrations',
     'modeltranslation',
 
     # custom apps
