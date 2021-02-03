@@ -1,8 +1,12 @@
+{% load ebs_tags %}
+
 <div class="mb-3">
     <ul class="nav justify-content-center">
+        {% if request.user|has_group:"Reviewers" %} 
         <li class="nav-item">
             <a class="nav-link font-weight-bold" href="/responses/countries">Responses</a>
         </li>
+        {% endif %}
 
         <li class="nav-item">
             <a class="nav-link font-weight-bold" href="/logout">Logout
