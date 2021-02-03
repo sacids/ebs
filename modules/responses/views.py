@@ -264,29 +264,3 @@ def export_xls(request, **kwargs):
             writer.writerow([qn.title, '', ''])
 
     return response
-
-
-# update section
-@login_required(login_url='/login')
-def update_sections(request):
-    sections = Section.objects.all()
-
-    for section in sections:
-        print(section.title)
-        up_section = Section.objects.get(id=section.id)
-        up_section.title_en_us = section.title
-        up_section.description_en_us = section.description
-        up_section.save()
-    return HttpResponse('section data updated')
-
-# update question
-@login_required(login_url='/login')
-def update_questions(request):
-    questions = QuestionList.objects.all()
-
-    for qn in questions:
-        up_qn = QuestionList.objects.get(pk=qn.id)
-        up_qn.title_en_us = qn.title
-        up_qn.hints_en_us = qn.hints
-        up_qn.save()
-    return HttpResponse('question data updated')
