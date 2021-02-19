@@ -1,5 +1,4 @@
 import csv
-import xlwt
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -295,39 +294,4 @@ def export_csv(request, **kwargs):
     # write to column2
     writer.writerow(column2)
 
-    return response
-
-
-# export xls
-def export_xls2(request, **kwargs):
-    country = Country.objects.get(pk=kwargs['country_id'])
-
-    response = HttpResponse(content_type='application/ms-excel')
-    response['Content-Disposition'] = 'attachment; filename="' + \
-        country.title + '.xls"'
-
-    wb = xlwt.Workbook(encoding='utf-8')
-    ws = wb.add_sheet(country.title)
-
-    # Sheet header, first row
-    row_num = 0
-
-    font_style = xlwt.XFStyle()
-    font_style.font.bold = True
-
-    # deals with title row
-    columns = ['Name of the Country', 'RCC', 'Respondent Name', ]
-
-    # query questions
-    questions = QuestionList.objects.order_by('section', 'code', 'sort_order')
-
-    for qn in questions:
-        columns.append(qn.code)
-        columns.append('Remarks')
-        columns.append('Attachments')
-
-    for col_num in range(len(columns)):
-        ws.write(row_num, col_num, columns[col_num], font_style)
-
-    wb.save(response)
     return response
