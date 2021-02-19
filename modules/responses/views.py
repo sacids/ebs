@@ -1,4 +1,5 @@
 import csv
+import xlwt
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -239,7 +240,7 @@ def send_incomplete_submission_alert(request, **kwargs):
 
 
 # export xls
-def export_xls(request, **kwargs):
+def export_csv(request, **kwargs):
     country = Country.objects.get(pk=kwargs['country_id'])
 
     # response
@@ -248,10 +249,28 @@ def export_xls(request, **kwargs):
         country.title + '-Response.csv'
 
     writer = csv.writer(response)
-    writer.writerow(['Questions', 'Answers', 'Remarks'])
+
+    # column
+    # deals with title row
+    columns = ['Name of the Country', 'RCC', 'Respondent Name', ]
 
     # query questions
     questions = QuestionList.objects.order_by('section', 'code', 'sort_order')
+
+    for qn in questions:
+        columns.append(qn.code)
+        columns.append('Remarks')
+        columns.append('Attachments')
+
+    # write to row
+    writer.writerow(columns)
+
+    # profile
+    profile = Profiles.objects.get(country_id=country.id)
+
+    # deals with row 2
+    column2 = [country.title, country.council.title,
+               profile.user.get_full_name(), ]
 
     for qn in questions:
         # ansbank
@@ -259,8 +278,56 @@ def export_xls(request, **kwargs):
             question=qn.id, country=country.id).first()
 
         if ansbank:
-            writer.writerow([qn.title, ansbank.answer, ansbank.remarks])
-        else:
-            writer.writerow([qn.title, '', ''])
+            column2.append(ansbank.answer)
+            column2.append(ansbank.remarks)
 
+            # check for attachment
+            attachments = Attachments.objects.filter(ansbank_id=ansbank.id)
+            if attachments:
+                column2.append('YES')
+            else:
+                column2.append('NO')
+        else:
+            column2.append('')
+            column2.append('')
+            column2.append('')
+
+    # write to column2
+    writer.writerow(column2)
+
+    return response
+
+
+# export xls
+def export_xls2(request, **kwargs):
+    country = Country.objects.get(pk=kwargs['country_id'])
+
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="' + \
+        country.title + '.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet(country.title)
+
+    # Sheet header, first row
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    # deals with title row
+    columns = ['Name of the Country', 'RCC', 'Respondent Name', ]
+
+    # query questions
+    questions = QuestionList.objects.order_by('section', 'code', 'sort_order')
+
+    for qn in questions:
+        columns.append(qn.code)
+        columns.append('Remarks')
+        columns.append('Attachments')
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+
+    wb.save(response)
     return response
