@@ -6,10 +6,14 @@
         <li class="nav-item">
             <a class="nav-link font-weight-bold" href="/responses/countries">Responses</a>
         </li>
+        {% elif request.user|has_group:"Respondents" %}
+        <li class="nav-item">
+            <a class="nav-link font-weight-bold" href="/questionnare"><i class="fa fa-home"></i> Home</a>
+        </li>
         {% endif %}
 
         <li class="nav-item">
-            <a class="nav-link font-weight-bold" href="/logout">Logout
+            <a class="nav-link font-weight-bold" href="/logout"> Logout
             </a>
         </li>
     </ul>

@@ -1,0 +1,180 @@
+{% extends 'frontend/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load ebs_tags %}
+{% block title %} EBS - Metrics {% endblock %}
+
+{% block content %}
+
+{% include 'frontend/menu.html' %}
+<!-- Page content -->
+<div class="page-content bg-grey">
+    <div class="container">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content" id="metrics">
+                <form id="msform" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <fieldset>
+                        <div class="card-h1 m-0">
+                            <div class="col-md-12">
+                                <h5 class="font-weight-600">
+                                    {{ section.title }}
+                                </h5>
+                                <span>{% trans 'Section 1 of 3' %}</span>
+                            </div>
+                            <!--./col-->
+                        </div>
+                        <!--./row-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 436|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[436]" class="textarea form-control"
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 436|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 437|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[437]" class="textarea form-control"
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 437|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 438|get_qn_title }}</label>
+                                        <input type="file" name="attachments[438]" class="form-control" multiple />
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 439|get_qn_title }}</label>
+                                        <input type="file" name="attachments[439]" class="form-control" multiple />
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 440|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 440|get_qn_hint|default:"" }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 441|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[441]" class="textarea form-control"
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 441|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 442|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[442]" class="textarea form-control"
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 442|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 443|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[443]" class="textarea form-control"
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 443|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 444|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[444]" class="textarea form-control"
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 444|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--./buttons -->
+                        <input type="submit" name="post_exit" class="btn btn-secondary btn-sm"
+                            value="{% trans 'Save and Exit' %}" />
+                        <input type="submit" name="post_next" class="btn btn-primary btn-sm"
+                            value="{% trans 'Save and Continue' %}" />
+                        <button class="btn btn-success btn-sm" onclick="printDiv('metrics');">
+                            <i class="fa fa-print"></i> {% trans 'Print/Save' %}
+                        </button>
+                    </fieldset>
+                </form>
+
+            </div><!-- /content area -->
+        </div><!-- /main content -->
+    </div>
+    <!--./container-->
+</div><!-- /page content -->
+
+{% endblock %}

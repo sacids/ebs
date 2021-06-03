@@ -59,6 +59,7 @@ class SurveyAdmin(admin.ModelAdmin):
 @admin.register(Section)
 class SectionAdmin(admin.ModelAdmin):
     list_display = ['id','title']
+    list_filter = ['survey']
     ordering = ("id",)  
 
 
@@ -67,12 +68,5 @@ class SectionAdmin(admin.ModelAdmin):
 class QuestionListAdmin(admin.ModelAdmin):
     list_display = ['id','code','title', 'required']
     list_filter = ['section']
-    ordering = ("section","code",)
+    ordering = ("section", "id" ,"code", )
 
-
-#Question Bank  
-# @admin.register(QuestionBank)
-# class QuestionBankAdmin(admin.ModelAdmin):
-#     list_display = ['sort_order','question']  
-#     list_filter  = ['section']
-#     ordering = ("section", "sort_order")

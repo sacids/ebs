@@ -13,6 +13,11 @@ urlpatterns = [
     path("section_six/", views.section_six, name="section_six"),
     path('success/', views.success, name='success'),
 
+    #new survey
+    path("metrics/", views.metrics, name="metrics"),
+    path("preference/", views.preference, name="preference"),
+    path("information/", views.information, name="information"),
+
     # filters
     path('get_countries/', views.get_countries, name='get_countries'),
     path('show_question/', views.show_question, name='show_question'),

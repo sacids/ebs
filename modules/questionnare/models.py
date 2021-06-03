@@ -129,8 +129,12 @@ class Survey(models.Model):
         verbose_name_plural = "Surveys"
         managed = True
 
+    def __str__(self):
+        return self.title
+
 # section
 class Section(models.Model):
+    survey = ForeignKey(Survey, related_name="sections", on_delete=models.CASCADE, null=True, default=1)
     code = models.PositiveIntegerField(null=True)
     title = models.CharField(max_length=255)
     description = models.TextField(null=True)
