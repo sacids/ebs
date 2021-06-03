@@ -49,6 +49,12 @@ class CountryAdmin(admin.ModelAdmin):
 #     ordering = ("sort_order",)
 #     inlines = [SubQuestionInline]
 
+#Survey
+@admin.register(Survey)
+class SurveyAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title']
+    ordering = ("id",)
+
 #section
 @admin.register(Section)
 class SectionAdmin(admin.ModelAdmin):

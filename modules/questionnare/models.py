@@ -120,62 +120,14 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
-
-# questions
-class Question(models.Model):
-    category = models.ForeignKey(Category, related_name="questions", on_delete=models.CASCADE)
+#survey
+class Survey(models.Model):
     title = models.TextField(null=False)
-    code = models.CharField(max_length=10, null=False)
-    placeholder = models.TextField(null=True)
-    has_sub = models.CharField(choices=ANSWER, verbose_name="Has sub question?", max_length=10, null=True, default="NO")
-    qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
-    sort_order = models.IntegerField(default=1)
 
     class Meta:
-        db_table = "questions"
-        verbose_name_plural = "Questions"
+        db_table = 'surveys'
+        verbose_name_plural = "Surveys"
         managed = True
-
-    def __str__(self):
-        return self.title
-
-
-# sub question
-class SubQuestion(models.Model):
-    question = ForeignKey(Question, related_name="sub_questions", on_delete=models.CASCADE)
-    title = models.TextField(null=False)
-    code = models.CharField(max_length=10, null=False)
-    placeholder = models.TextField(null=True)
-    qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='NONE')
-    sort_order = models.IntegerField(default=1)
-
-    class Meta:
-        db_table = "sub_questions"
-        verbose_name_plural = "Sub Questions"
-        managed = True
-
-    def __str__(self):
-        return self.title
-
-# answer
-
-
-class Answer(models.Model):
-    respondent = models.ForeignKey(Respondent, related_name="respondents", on_delete=models.SET_NULL, null=True)
-    question = models.ForeignKey(Question, related_name="answers", on_delete=models.CASCADE)
-    sub_question = models.ForeignKey(SubQuestion, on_delete=models.SET_NULL, null=True)
-    answer = models.CharField(max_length=200, null=False)
-    remarks = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True, editable=False)
-
-    class Meta:
-        db_table = "answers"
-        verbose_name_plural = "Answers"
-        managed = True
-
-    def __str__(self):
-        return self.question
-
 
 # section
 class Section(models.Model):
@@ -212,23 +164,6 @@ class QuestionList(models.Model):
     def __str__(self):
         return self.code + ": " + self.title
 
-
-
-# questions banks
-class QuestionBank(models.Model):
-    sort_order = models.IntegerField(default=1)
-    section = models.ForeignKey(Section, related_name="question_banks", on_delete=models.CASCADE)
-    question = models.OneToOneField(QuestionList, related_name="sub_question_banks", on_delete=CASCADE)
-    sub_questions = models.ManyToManyField(
-        QuestionList, blank=True)
-
-    class Meta:
-        db_table = "question_banks"
-        verbose_name_plural = "Question Banks"
-        managed = True
-
-    def __str__(self):
-        return self.section.title + str(self.question.id)
 
 
 class AnsBank(models.Model):
