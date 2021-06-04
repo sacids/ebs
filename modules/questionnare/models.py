@@ -29,7 +29,6 @@ ANSWER = (
 )
 
 STATUS = (
-    ("NEW", "New"),
     ("INCOMPLETE", "Incomplete"),
     ("SUBMITTED", "Submitted"),
     ("VERIFIED", "Verified")
@@ -57,10 +56,10 @@ class Country(models.Model):
     """A class to create country table."""
     title   = models.CharField(max_length=100)
     council = models.ForeignKey(Council, on_delete=models.SET_NULL, null=True)
-    status  = models.CharField(choices=STATUS, verbose_name="Has sub question?", max_length=10, null=True, default="NO")
+    status  = models.CharField(choices=STATUS, max_length=20, null=True, default="NO")
 
     class Meta:
-        db_table = "contries"
+        db_table = "countries"
         verbose_name_plural = "Countries"
         managed = True
 
@@ -132,6 +131,22 @@ class Survey(models.Model):
     def __str__(self):
         return self.title
 
+
+class CountrySurvey(models.Model):
+    country = models.ForeignKey(Country, related_name="country_survey", on_delete=models.DO_NOTHING, blank=True, null=True)
+    survey = ForeignKey(Survey, related_name="survey_status", on_delete=models.DO_NOTHING, null=True)
+    status  = models.CharField(choices=STATUS, max_length=20, null=True, default="INCOMPLETE")
+    created_at  = models.DateTimeField(auto_now_add=True, editable=False)
+    updated_at  = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        db_table = "country_surveys"
+        verbose_name_plural = "Country Survey Status"
+        managed = True
+
+    def __str__(self):
+        return self.status
+
 # section
 class Section(models.Model):
     survey = ForeignKey(Survey, related_name="sections", on_delete=models.CASCADE, null=True, default=1)
@@ -189,8 +204,8 @@ class AnsBank(models.Model):
 
 def get_upload_to(instance, filename):
     return 'attachments/%s/%s' % (instance.ansbank.country.title, filename)
-
     
+
 class Attachments(models.Model):
     ansbank     = models.ForeignKey(AnsBank, related_name="uploads", on_delete=models.CASCADE)
     uploads     = models.FileField(upload_to=get_upload_to)

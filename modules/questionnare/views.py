@@ -44,8 +44,6 @@ def default(request):
 # EBS Survey
 #================================================================#
 
-# section one
-
 
 @login_required(login_url='/login')
 def section_one(request):
@@ -66,11 +64,18 @@ def section_one(request):
 
     # post data
     if request.method == "POST":
-        # first change country status
-        country = Country.objects.get(pk=request.user.profiles.country_id)
-        if country.status == "NEW" or country.status == "NO":
-            country.status = "NO"
-            country.save()
+        # first save country survey status
+        try:
+            country_survey = CountrySurvey.objects.get(
+                country_id =request.user.profiles.country_id, survey_id=1)
+            # do nothing
+        except:
+            # save new country survey
+            country_survey = CountrySurvey()
+            country_survey.country_id = request.user.profiles.country_id
+            country_survey.survey_id = 1
+            country_survey.status = "INCOMPLETE"
+            country_survey.save()
 
         # query questions
         questions = QuestionList.objects.filter(
@@ -380,7 +385,6 @@ def section_six(request):
             required_questions = QuestionList.objects.filter(
                 (Q(section=1) | Q(section=2) | Q(section=3) | Q(section=4) | Q(section=5) | Q(section=6)) & Q(required='YES')).order_by('sort_order', 'code')
 
-
             j = 0
             for req_qn in required_questions:
                 # query in answer bank
@@ -394,12 +398,15 @@ def section_six(request):
 
             # check if there no required question
             if(j == 0):
-                # country
-                country = Country.objects.get(pk=request.user.profiles.country_id)
+                # change country survey survey
+                country_survey = CountrySurvey.objects.get(
+                    country=request.user.profiles.country_id, survey=1)
+                country_survey.status = "COMPLETE"
+                country_survey.save()
 
-                # change status of country
-                country.status = "YES"
-                country.save()
+                # country
+                country = Country.objects.get(
+                    pk=request.user.profiles.country_id)
 
                 # send message
                 subject = 'Submission Alert: Situation analysis of EBS implementation in Africa'
@@ -448,11 +455,18 @@ def metrics(request):
 
     # post data
     if request.method == "POST":
-        # first change country status
-        country = Country.objects.get(pk=request.user.profiles.country_id)
-        if country.status == "NEW" or country.status == "NO":
-            country.status = "NO"
-            country.save()
+        # first save country survey status
+        try:
+            country_survey = CountrySurvey.objects.get(
+                country=request.user.profiles.country_id, survey=2)
+            # do nothing
+        except:
+            # save new country survey
+            country_survey = CountrySurvey()
+            country_survey.country_id = request.user.profiles.country_id
+            country_survey.survey_id = 2
+            country_survey.status = "INCOMPLETE"
+            country_survey.save()
 
         # query questions
         questions = QuestionList.objects.filter(
@@ -508,12 +522,6 @@ def preference(request):
 
     # post data
     if request.method == "POST":
-        # first change country status
-        country = Country.objects.get(pk=request.user.profiles.country_id)
-        if country.status == "NEW" or country.status == "NO":
-            country.status = "NO"
-            country.save()
-
         # query questions
         questions = QuestionList.objects.filter(
             section_id=section_id).order_by('sort_order', 'code')
@@ -568,12 +576,6 @@ def information(request):
 
     # post data
     if request.method == "POST":
-        # first change country status
-        country = Country.objects.get(pk=request.user.profiles.country_id)
-        if country.status == "NEW" or country.status == "NO":
-            country.status = "NO"
-            country.save()
-
         # query questions
         questions = QuestionList.objects.filter(
             section_id=section_id).order_by('sort_order', 'code')
@@ -620,16 +622,18 @@ def information(request):
 
             # check if there no required question
             if(j == 0):
+                # change country survey survey
+                country_survey = CountrySurvey.objects.get(
+                    country=request.user.profiles.country_id, survey=2)
+                country_survey.status = "COMPLETE"
+                country_survey.save()
+
                 # country
                 country = Country.objects.get(
                     pk=request.user.profiles.country_id)
 
-                # change status of country
-                country.status = "YES"
-                country.save()
-
                 # send message
-                subject = 'Submission Alert: Situation analysis of EBS implementation in Africa'
+                subject = 'Submission Alert: Preliminary needs identification form'
 
                 message = '<p>Dear Reviewers,</p>'
                 message += '<p>Data for <b>' + country.title + '</b>' + \
