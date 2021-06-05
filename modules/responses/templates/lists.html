@@ -66,9 +66,15 @@
                     {% endif %}
 
                     {% if survey.id|get_country_survey_status:country.id == 'COMPLETE' %}
-                        <a href="/responses/export_csv/{{survey.id}}/{{country.id}}" class="text-success" title="Export csv">
-                            <i class="fa fa-file-excel"></i>
-                        </a>&nbsp;
+                        {% if survey.id == 1 %}
+                            <a href="/responses/export_csv/{{survey.id}}/{{country.id}}" class="text-success" title="Export csv">
+                                <i class="fa fa-file-excel"></i>
+                            </a>&nbsp;
+                        {% elif survey.id == 2 %}
+                            <a href="/responses/export_xls/{{survey.id}}/{{country.id}}" class="text-success" title="Export csv">
+                                <i class="fa fa-file-excel"></i>
+                            </a>&nbsp;
+                        {% endif %}
                     {% endif %}
                 </td>
             </tr>

@@ -387,7 +387,7 @@ def send_incomplete_submission_alert(request, **kwargs):
     return redirect('/responses/countries')
 
 
-# export xls
+# export csv
 def export_csv(request, **kwargs):
     # survey
     survey = Survey.objects.get(pk=kwargs['survey_id'])
@@ -447,5 +447,66 @@ def export_csv(request, **kwargs):
 
     # write to column2
     writer.writerow(column2)
+
+    return response
+
+# export csv
+def export_xls(request, **kwargs):
+    # survey
+    survey = Survey.objects.get(pk=kwargs['survey_id'])
+
+    # country
+    country = Country.objects.get(pk=kwargs['country_id'])
+
+    # response
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=' + \
+        country.title + '-Response.csv'
+
+    writer = csv.writer(response)
+
+    # profile
+    profile = Profiles.objects.get(country_id=country.id)
+
+    #first row
+    writer.writerow([]) 
+    writer.writerow(['Name of the Country', country.title])           
+    writer.writerow(['Supporting Regional Cordinating Centre (RCC)', country.council.title])           
+    writer.writerow(['Respondent Name', profile.user.get_full_name()])           
+    writer.writerow(['Respondent Institution', profile.institution])           
+    writer.writerow(['Respondent designation', profile.designation]) 
+    writer.writerow([])          
+
+    # column
+    # deals with title row
+    rows = ['Code', 'Question', 'Answer', 'Attachments']
+
+    # write to row
+    writer.writerow(rows)
+
+    # query questions
+    questions = QuestionList.objects.select_related("section").filter(
+        section__survey=survey.id).order_by('sections.id', 'code', 'sort_order')
+
+    rows2 = []
+    for qn in questions:
+        # ansbank
+        ansbank = AnsBank.objects.filter(
+            question=qn.id, country=country.id).first()
+
+        answer = ''
+        ans_attach = ''
+        if ansbank:
+            answer = ansbank.answer
+
+            # check for attachment
+            attachments = Attachments.objects.filter(ansbank_id=ansbank.id)
+            if attachments:
+                ans_attach = 'Yes'
+        #rows
+        rows2 = [qn.code, qn.title, answer, ans_attach]    
+
+        # write to column2
+        writer.writerow(rows2)
 
     return response

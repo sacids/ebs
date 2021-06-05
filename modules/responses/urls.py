@@ -28,5 +28,6 @@ urlpatterns = [
 
     #export xls and csv
     path("export_csv/<int:survey_id>/<int:country_id>", views.export_csv, name="export_csv"),
+    path("export_xls/<int:survey_id>/<int:country_id>", views.export_xls, name="export_xls"),
 
 ]
