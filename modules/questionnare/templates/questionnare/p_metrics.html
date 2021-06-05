@@ -35,7 +35,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 436|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[436]" class="textarea form-control"
+                                        <textarea rows="3" cols="40" name="answer[436]" class="textarea form-control" required
                                             placeholder="{% trans 'Write answer...' %}" id="answer">{{ 436|get_qn_answer:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
@@ -48,7 +48,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 437|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[437]" class="textarea form-control"
+                                        <textarea rows="3" cols="40" name="answer[437]" class="textarea form-control" required
                                             placeholder="{% trans 'Write answer...' %}" id="answer">{{ 437|get_qn_answer:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
@@ -61,7 +61,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 500|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[500]" class="textarea form-control"
+                                        <textarea rows="3" cols="40" name="answer[500]" class="textarea form-control" required
                                             placeholder="{% trans 'Write answer...' %}" id="answer">{{ 500|get_qn_answer:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
@@ -74,7 +74,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 501|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[501]" class="textarea form-control"
+                                        <textarea rows="3" cols="40" name="answer[501]" class="textarea form-control" required
                                             placeholder="{% trans 'Write answer...' %}" id="answer">{{ 501|get_qn_answer:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
@@ -108,6 +108,20 @@
                                 <!--./col-->
                             </div>
                             <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 502|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[502]" class="textarea form-control"
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 502|get_qn_answer:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
                         </div>
                         <!--./form-card-->
 
@@ -177,9 +191,34 @@
                                 <!--./col-->
                             </div>
                             <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 503|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[503]" class="textarea form-control"
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 503|get_qn_answer:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 504|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[504]" class="textarea form-control"
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 504|get_qn_answer:user }}</textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
                         </div>
                         <!--./form-card-->
-
 
                         <!--./buttons -->
                         <input type="submit" name="post_exit" class="btn btn-secondary btn-sm"
@@ -191,7 +230,7 @@
                         </button>
                     </fieldset>
                 </form>
-
+                <div class="mt-4"></div><!--./mt-4-->
             </div><!-- /content area -->
         </div><!-- /main content -->
     </div>
