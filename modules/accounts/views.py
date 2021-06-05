@@ -63,7 +63,7 @@ def loginPage(request):
                 if(is_respondent(user)):
                     return redirect('/questionnare')
                 elif(is_reviewer(user)):
-                    return redirect('/responses/countries/')
+                    return redirect('/responses/surveys/')
             else:
                 messages.error(request, _('Username OR Password is incorectly'))
 
