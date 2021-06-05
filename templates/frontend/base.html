@@ -51,8 +51,14 @@
                         <img src="{% static 'img/africacdc.png' %}" alt="AfricaCDC" height="80" />
                     </a>
                 </div>
+                <div class="p-4"></div>
                 <div class="pt-4">
-                    <h4>{% trans 'Events Based Surveillance Situational analysis questionnaire' %}</h4>
+                    <h5 class="font-weight-600">{% if survey.title is not None %}
+                        {{ survey.title }}
+                        {% else %}
+                        {% trans 'AFRICAN CDC' %}
+                        {% endif %}
+                    </h5>
                 </div>
                 <!--./col-md-12-->
             </div>

@@ -39,11 +39,14 @@
                 <td>{{country.title}}</td>
                 <td>{{last_update|get_by_index:country.id}}</td>
                 <td>
-                    {% if country.status == 'NEW' %}
+                    {{ country.country_survey.status }}
+
+
+                    {% if country.country_survey.status == 'NEW' %}
                     <span class="badge badge-warning">NOT STARTED</span>
-                    {% elif country.status == 'NO' %}
+                    {% elif country.country_survey.status == 'NO' %}
                     <span class="badge badge-danger">INCOMPLETE</span>
-                    {% elif country.status == 'YES' %}
+                    {% elif country.country_survey.status == 'YES' %}
                     <span class="badge badge-success">COMPLETE</span>
                     {% endif %}
                 </td>
@@ -58,8 +61,7 @@
                     </a>&nbsp;
 
                     {% if country.status == 'YES' %}
-                    <a href="/responses/export_csv/{{country.id}}" class="text-success"
-                        title="Export csv">
+                    <a href="/responses/export_csv/{{country.id}}" class="text-success" title="Export csv">
                         <i class="fa fa-file-excel"></i>
                     </a>&nbsp;
                     {% endif %}

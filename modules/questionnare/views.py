@@ -27,7 +27,7 @@ def default(request):
     if request.user.is_authenticated:
 
         # get all survey
-        surveys = Survey.objects.all()
+        surveys = Survey.objects.all().order_by('id')
 
         # country
         country = Country.objects.get(pk=request.user.profiles.country_id)
@@ -47,6 +47,9 @@ def default(request):
 
 @login_required(login_url='/login')
 def section_one(request):
+    #survey
+    survey = Survey.objects.get(pk=1)
+
     # section_id
     section_id = 1
 
@@ -58,6 +61,7 @@ def section_one(request):
 
     # context
     context = {
+        "survey": survey,
         "section": section,
         "questions": questions
     }
@@ -116,6 +120,9 @@ def section_one(request):
 # section two
 @login_required(login_url='/login')
 def section_two(request):
+    #survey
+    survey = Survey.objects.get(pk=1)
+
     # section_id
     section_id = 2
 
@@ -127,6 +134,7 @@ def section_two(request):
 
     # context
     context = {
+        "survey": survey,
         "section": section,
         "questions": questions
     }
@@ -171,6 +179,9 @@ def section_two(request):
 # section three
 @login_required(login_url='/login')
 def section_three(request):
+    #survey
+    survey = Survey.objects.get(pk=1)
+
     # section
     section_id = 3
 
@@ -182,6 +193,7 @@ def section_three(request):
 
     # context
     context = {
+        "survey": survey,
         "section": section,
         "questions": questions
     }
@@ -226,6 +238,9 @@ def section_three(request):
 # section four
 @login_required(login_url='/login')
 def section_four(request):
+    #survey
+    survey = Survey.objects.get(pk=1)
+
     # section
     section_id = 4
 
@@ -237,6 +252,7 @@ def section_four(request):
 
     # context
     context = {
+        "survey": survey,
         "section": section,
         "questions": questions
     }
@@ -281,6 +297,9 @@ def section_four(request):
 # section five
 @login_required(login_url='/login')
 def section_five(request):
+    #survey
+    survey = Survey.objects.get(pk=1)
+
     # section
     section_id = 5
 
@@ -292,6 +311,7 @@ def section_five(request):
 
     # context
     context = {
+        "survey": survey,
         "section": section,
         "questions": questions
     }
@@ -336,6 +356,9 @@ def section_five(request):
 # section six
 @login_required(login_url='/login')
 def section_six(request):
+    #survey
+    survey = Survey.objects.get(pk=1)
+
     # section
     section_id = 6
 
@@ -347,6 +370,7 @@ def section_six(request):
 
     # context
     context = {
+        "survey": survey,
         "section": section,
         "questions": questions
     }
@@ -438,6 +462,9 @@ def success(request):
 # section one
 @login_required(login_url='/login')
 def metrics(request):
+    #survey
+    survey = Survey.objects.get(pk=2)
+
     # metrics
     section_id = 7
 
@@ -449,6 +476,7 @@ def metrics(request):
 
     # context
     context = {
+        "survey": survey,
         "section": section,
         "questions": questions
     }
@@ -505,6 +533,9 @@ def metrics(request):
 
 @login_required(login_url='/login')
 def preference(request):
+    #survey
+    survey = Survey.objects.get(pk=2)
+
     # section_id
     section_id = 8
 
@@ -516,6 +547,7 @@ def preference(request):
 
     # context
     context = {
+        "survey": survey,
         "section": section,
         "questions": questions
     }
@@ -559,6 +591,9 @@ def preference(request):
 
 @login_required(login_url='/login')
 def information(request):
+    #survey
+    survey = Survey.objects.get(pk=2)
+
     # section_id
     section_id = 9
 
@@ -570,6 +605,7 @@ def information(request):
 
     # context
     context = {
+        "survey": survey,
         "section": section,
         "questions": questions
     }

@@ -29,7 +29,8 @@ class CountryList(LoginRequiredMixin, generic.ListView):
         context = super(CountryList, self).get_context_data(**kwargs)
         last_update = AnsBank.objects.all().order_by(
             'country', '-created_at').distinct('country').values()
-        context['countries'] = Country.objects.all().order_by('title').values()
+        context['countries'] = Country.objects.select_related(
+            'country_survey').all().order_by('title').values()
 
         tmp = [0] * 100
         for update in last_update:
