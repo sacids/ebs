@@ -18,31 +18,53 @@ from datetime import timedelta
 
 
 # Create your views here.
-class CountryList(LoginRequiredMixin, generic.ListView):
-    login_url = '/login'
-    redirect_field_name = 'redirect_to'
-    model = Country
-    context_object_name = 'countries'
-    template_name = "lists.html"
+# =====================================================
+# SURVEYS
+# =====================================================
+# surveys
+@login_required(login_url='/login')
+def surveys(request):
+    # get all survey
+    surveys = Survey.objects.all().order_by('id')
 
-    def get_context_data(self, **kwargs):
-        context = super(CountryList, self).get_context_data(**kwargs)
-        last_update = AnsBank.objects.all().order_by(
-            'country', '-created_at').distinct('country').values()
-        context['countries'] = Country.objects.select_related(
-            'country_survey').all().order_by('title').values()
+    context = {
+        'surveys': surveys
+    }
 
-        tmp = [0] * 100
-        for update in last_update:
-            tmp[update['country_id']] = update['created_at']
-
-        context['last_update'] = tmp
-        return context
+    # render view
+    return render(request, "surveys.html", context)
 
 
+# countries
+@login_required(login_url='/login')
+def countries(request, **kwargs):
+    # survey
+    try:
+        survey = Survey.objects.get(pk=kwargs['survey_id'])
+
+        # countries
+        countries = Country.objects.all().order_by('id')
+
+        # context
+        context = {
+            "survey": survey,
+            "countries": countries
+        }
+        # render view
+        return render(request, "lists.html", context)
+    except:
+        pass
+
+
+# ===========================================================
+# SURVEY 1
+# ===========================================================
 # section one
 @login_required(login_url='/login')
 def section_one(request, **kwargs):
+    #survey
+    survey = Survey.objects.get(pk=1)
+
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
 
@@ -60,6 +82,7 @@ def section_one(request, **kwargs):
 
     # context
     context = {
+        "survey": survey,
         "questions": questions,
         "country": country,
         "profile": profile,
@@ -73,6 +96,9 @@ def section_one(request, **kwargs):
 # section two
 @login_required(login_url='/login')
 def section_two(request, **kwargs):
+    #survey
+    survey = Survey.objects.get(pk=1)
+
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
 
@@ -88,6 +114,7 @@ def section_two(request, **kwargs):
 
     # context
     context = {
+        "survey": survey,
         "questions": questions,
         "country": country,
         "profile": profile,
@@ -100,6 +127,9 @@ def section_two(request, **kwargs):
 # section three
 @login_required(login_url='/login')
 def section_three(request, **kwargs):
+    #survey
+    survey = Survey.objects.get(pk=1)
+
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
 
@@ -115,6 +145,7 @@ def section_three(request, **kwargs):
 
     # context
     context = {
+        "survey": survey,
         "questions": questions,
         "country": country,
         "profile": profile,
@@ -127,6 +158,9 @@ def section_three(request, **kwargs):
 # section four
 @login_required(login_url='/login')
 def section_four(request, **kwargs):
+    #survey
+    survey = Survey.objects.get(pk=1)
+
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
 
@@ -142,6 +176,7 @@ def section_four(request, **kwargs):
 
     # context
     context = {
+        "survey": survey,
         "questions": questions,
         "country": country,
         "profile": profile,
@@ -154,6 +189,9 @@ def section_four(request, **kwargs):
 # section five
 @login_required(login_url='/login')
 def section_five(request, **kwargs):
+    #survey
+    survey = Survey.objects.get(pk=1)
+
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
 
@@ -169,6 +207,7 @@ def section_five(request, **kwargs):
 
     # context
     context = {
+        "survey": survey,
         "questions": questions,
         "country": country,
         "profile": profile,
@@ -181,6 +220,9 @@ def section_five(request, **kwargs):
 # section six
 @login_required(login_url='/login')
 def section_six(request, **kwargs):
+    #survey
+    survey = Survey.objects.get(pk=1)
+
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
 
@@ -196,6 +238,7 @@ def section_six(request, **kwargs):
 
     # context
     context = {
+        "survey": survey,
         "questions": questions,
         "country": country,
         "profile": profile,
@@ -204,34 +247,139 @@ def section_six(request, **kwargs):
     # render view
     return render(request, "sections/six.html", context)
 
+# ===========================================================
+# SURVEY 2
+# ===========================================================
+# metrics
+@login_required(login_url='/login')
+def metrics(request, **kwargs):
+    #survey
+    survey = Survey.objects.get(pk=2) 
 
+    #section
+    section = Section.objects.get(pk = 7)
+
+    # country
+    country = Country.objects.get(pk=kwargs['country_id'])
+
+    # profile
+    try:
+        profile = Profiles.objects.get(country_id=country.id)
+        user = profile.user
+    except:
+        profile = []
+        user = []
+        pass
+
+    # context
+    context = {
+        "survey": survey,
+        "section" : section,
+        "country": country,
+        "profile": profile,
+        "user": user
+    }
+    # render view
+    return render(request, "sections/p_metrics.html", context)
+
+# preference
+@login_required(login_url='/login')
+def preference(request, **kwargs):
+    #survey
+    survey = Survey.objects.get(pk=2) 
+
+    #section
+    section = Section.objects.get(pk = 8)
+
+    # country
+    country = Country.objects.get(pk=kwargs['country_id'])
+
+    # profile
+    try:
+        profile = Profiles.objects.get(country_id=country.id)
+        user = profile.user
+    except:
+        profile = []
+        user = []
+        pass
+
+    # context
+    context = {
+        "survey": survey,
+        "section" : section,
+        "country": country,
+        "profile": profile,
+        "user": user
+    }
+    # render view
+    return render(request, "sections/p_preference.html", context)
+
+
+# information
+@login_required(login_url='/login')
+def information(request, **kwargs):
+    #survey
+    survey = Survey.objects.get(pk=2) 
+
+    #section
+    section = Section.objects.get(pk = 9)
+
+    # country
+    country = Country.objects.get(pk=kwargs['country_id'])
+
+    # profile
+    try:
+        profile = Profiles.objects.get(country_id=country.id)
+        user = profile.user
+    except:
+        profile = []
+        user = []
+        pass
+
+    # context
+    context = {
+        "survey": survey,
+        "section" : section,
+        "country": country,
+        "profile": profile,
+        "user": user
+    }
+    # render view
+    return render(request, "sections/p_information.html", context)    
+
+# ==========================================================
+# MANAGEMENT CALLBACK FUNCTIONS
+# ==========================================================
 # send incomplete submission alert
 @login_required(login_url='/login')
 def send_incomplete_submission_alert(request, **kwargs):
     # check for incomplete submission
     try:
+        # survey
+        survey = Survey.objects.get(pk=kwargs['survey_id'])
+
+        #country
         country = Country.objects.get(pk=kwargs['country_id'])
 
         # profile
         profile = Profiles.objects.get(country_id=country.id)
 
         if profile is not None:
-            if(country.status == 'NO'):
-                subject = 'Incomplete Submission Alert: Situation analysis of EBS implementation in Africa'
+            subject = 'Incomplete Submission Alert: ' + survey.title
 
-                message = '<p>Dear <b>' + profile.user.last_name + '</b>, </p>'
-                message += '<p>Data for <b>' + country.title + \
-                    '</b> are incomplete, please find sometime to complete the form.</p>'
+            message = '<p>Dear <b>' + profile.user.last_name + '</b>, </p>'
+            message += '<p>Data for <b>' + country.title + \
+                '</b> are incomplete, please find sometime to complete the form.</p>'
 
-                message += '<p>To continue where you left off  please <a href="https://ebs-survey.africacdc.org/">click here</a></p>'
+            message += '<p>To continue where you left off please <a href="https://ebs-survey.africacdc.org/">click here</a></p>'
 
-                # send email notification
-                send_notification(subject, message, from_email="chris@ecsahc.org",
-                                  to_email=[profile.user.email])
+            # send email notification
+            send_notification(subject, message, from_email="chris@ecsahc.org",
+                                to_email=[profile.user.email])
 
-                # message
-                messages.add_message(
-                    request, messages.SUCCESS, 'Email notification sent')
+            # message
+            messages.add_message(
+                request, messages.SUCCESS, 'Email notification sent')
     except:
         pass
 
@@ -241,6 +389,10 @@ def send_incomplete_submission_alert(request, **kwargs):
 
 # export xls
 def export_csv(request, **kwargs):
+    # survey
+    survey = Survey.objects.get(pk=kwargs['survey_id'])
+
+    # country
     country = Country.objects.get(pk=kwargs['country_id'])
 
     # response
@@ -255,7 +407,8 @@ def export_csv(request, **kwargs):
     columns = ['Name of the Country', 'RCC', 'Respondent Name', ]
 
     # query questions
-    questions = QuestionList.objects.order_by('section', 'code', 'sort_order')
+    questions = QuestionList.objects.select_related("section").filter(
+        section__survey=survey.id).order_by('sections.id', 'code', 'sort_order')
 
     for qn in questions:
         columns.append(qn.code)

@@ -1,0 +1,485 @@
+{% extends 'frontend/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load ebs_tags %}
+{% block title %} EBS - Further Information {% endblock %}
+
+{% block content %}
+
+{% include 'frontend/menu.html' %}
+<!-- Page content -->
+<div class="page-content bg-grey">
+    <div class="container">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content" id="information">
+                <form id="msform" action="" method="POST" enctype="multipart/form-data">
+
+                    <fieldset>
+                        <div class="card-h1 m-0">
+                            <div class="col-md-12">
+                                <h5 class="font-weight-600">
+                                    {{ section.title }}
+                                </h5>
+                                <span>Section 3 of 3</span>
+                            </div>
+                            <!--./col-->
+                        </div>
+                        <!--./row-->
+
+                        <!--start : check if question 446 is 1-4 -->
+                      {% if 446|get_qn_answer:user == '1' or 446|get_qn_answer:user == '2' or 446|get_qn_answer:user == '3' or 446|get_qn_answer:user == '4' %}
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 473|get_qn_title }}</label>
+                                        <p class="small">
+                                            {{ 473|get_qn_hint|default:"" }}
+                                        </p>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 474|get_qn_title }}</label>
+                                        <!--question type-->
+                                        <input id="answer" name="answer[474]" type="radio" class="" value="YES" disabled 
+                                        {% if 474|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{% trans 'Yes' %}</label>
+                                        <br />
+                                        <input id="answer" name="answer[474]" type="radio" class="" value="NO" disabled
+                                        {% if 474|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{% trans 'No' %}</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 475|get_qn_title }}</label>
+                                        <!--question type-->
+                                        <input id="answer" name="answer[475]" type="radio" class="" value="YES" disabled
+                                        {% if 474|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{% trans 'Yes' %}</label>
+                                        <br />
+                                        <input id="answer" name="answer[475]" type="radio" class="" value="NO" disabled
+                                        {% if 474|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{% trans 'No' %}</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 476|get_qn_title }}</label>
+                                        <!--question type-->
+                                        <input id="answer" name="answer[476]" type="radio" class="" value="YES" disabled 
+                                        {% if 474|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{% trans 'Yes' %}</label>
+                                        <br />
+                                        <input id="answer" name="answer[476]" type="radio" class="" value="NO"  disabled
+                                        {% if 474|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{% trans 'No' %}</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 477|get_qn_title }}</label>
+                                        <!--question type-->
+                                        <input id="answer" name="answer[477]" type="radio" class="" value="YES" disabled
+                                        {% if 474|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{% trans 'Yes' %}</label>
+                                        <br />
+                                        <input id="answer" name="answer[477]" type="radio" class="" value="NO" disabled
+                                        {% if 474|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{% trans 'No' %}</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 478|get_qn_title }}</label>
+                                        <!--question type-->
+                                        <input id="answer" name="answer[478]" type="radio" class="" value="YES" disabled
+                                        {% if 474|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{% trans 'Yes' %}</label>
+                                        <br />
+                                        <input id="answer" name="answer[478]" type="radio" class="" value="NO" disabled
+                                        {% if 474|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{% trans 'No' %}</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 479|get_qn_title }}</label>
+                                        <!--question type-->
+                                        <input id="answer" name="answer[479]" type="radio" class="" value="YES" disabled
+                                        {% if 474|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{% trans 'Yes' %}</label>
+                                        <br />
+                                        <input id="answer" name="answer[479]" type="radio" class="" value="NO" disabled
+                                        {% if 474|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                        <label for="answer" class="">&nbsp;{% trans 'No' %}</label>
+                                        <!--./question type-->
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 480|get_qn_title }}</label>
+                                        {% show_attachments 480 user %}
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+                        {% endif %}
+
+                        <!--start : check if question 450 is 1-4 -->
+                        {% if 450|get_qn_answer:user == '1' or 450|get_qn_answer:user == '2' or 450|get_qn_answer:user == '3' or 450|get_qn_answer:user == '4' %}
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 481|get_qn_title }}</label>
+                                        {% show_attachments 481 user %}
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 482|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[482]" class="textarea form-control" readonly
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 482|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+                        {% endif %}
+
+
+                        <!--start : check if question 454 is 1-4 -->
+                        {% if 454|get_qn_answer:user == '1' or 454|get_qn_answer:user == '2' or 454|get_qn_answer:user == '3' or 454|get_qn_answer:user == '4' %}
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 483|get_qn_title }}</label>
+                                        {% show_attachments 483 user %}
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 484|get_qn_title }}</label>
+                                        {% show_attachments 484 user %}
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 485|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[485]" class="textarea form-control" readonly
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 485|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+                        {% endif %}
+
+                        <!--start : check if question 458 is 1-4 -->
+                        {% if 458|get_qn_answer:user == '1' or 458|get_qn_answer:user == '2' or 458|get_qn_answer:user == '3' or 458|get_qn_answer:user == '4' %}
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 486|get_qn_title }}</label>
+                                        {% show_attachments 486 user %}
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 487|get_qn_title }}</label>
+                                        {% show_attachments 487 user %}
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 488|get_qn_title }}</label>
+                                        {% show_attachments 488 user %}
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 489|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[489]" class="textarea form-control" readonly
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 489|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+                        {% endif %}
+
+                        <!--start : check if question 462 is 1-4 -->
+                        {% if 462|get_qn_answer:user == '1' or 462|get_qn_answer:user == '2' or 462|get_qn_answer:user == '3' or 462|get_qn_answer:user == '4' %}
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 490|get_qn_title }}</label>
+                                        {% show_attachments 490 user %}
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 491|get_qn_title }}</label>
+                                        {% show_attachments 491 user %}
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 492|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[492]" class="textarea form-control" readonly
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 492|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+                        {% endif %}
+
+                        <!--start : check if question 466 is 1-4 -->
+                        {% if 466|get_qn_answer:user == '1' or 466|get_qn_answer:user == '2' or 466|get_qn_answer:user == '3' or 466|get_qn_answer:user == '4' %}
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 493|get_qn_title }}</label>
+                                        {% show_attachments 493 user %}
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 494|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[494]" class="textarea form-control" readonly
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 494|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 495|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[495]" class="textarea form-control" readonly
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 495|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+                        {% endif %}
+
+                        <!--start : check if question 470 is 1-4 -->
+                        {% if 470|get_qn_answer:user == '1' or 470|get_qn_answer:user == '2' or 470|get_qn_answer:user == '3' or 470|get_qn_answer:user == '4' %}
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 496|get_qn_title }}</label>
+                                        {% show_attachments 496 user %}
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 497|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[497]" class="textarea form-control" readonly
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 497|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+                        {% endif %}
+
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 498|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[498]" class="textarea form-control" readonly
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 498|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ 499|get_qn_title }}</label>
+                                        <textarea rows="3" cols="40" name="answer[499]" class="textarea form-control" readonly
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 499|get_qn_answer:user }}
+                                        </textarea>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+                        <!--./buttons -->
+                        <a href="/responses/preference/{{country.id}}" class="btn btn-danger btn-sm">
+                            <i class="fa fa-angle-left"></i> Previous
+                        </a>
+                        <button class="btn btn-success btn-sm" onclick="printDiv('information');">
+                            <i class="fa fa-print"></i> Print/Save
+                        </button>
+                    </fieldset>
+                </form>
+
+            </div><!-- /content area -->
+        </div><!-- /main content -->
+    </div>
+    <!--./container-->
+</div><!-- /page content -->
+
+{% endblock %}

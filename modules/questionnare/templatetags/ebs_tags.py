@@ -16,6 +16,14 @@ def get_by_index(l, i):
 def has_group(user, group_name):
     return user.groups.filter(name=group_name).exists()
 
+@register.filter
+def get_country_survey_status(survey_id, country_id):
+    try:
+        country_survey = CountrySurvey.objects.get(country = country_id, survey = survey_id)
+        return country_survey.status
+    except:
+        return "NOT STARTED"
+
 
 @register.filter
 def get_qn_title(qn_id):

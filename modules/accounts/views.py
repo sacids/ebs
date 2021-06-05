@@ -47,7 +47,7 @@ def loginPage(request):
         if(is_respondent(request.user)):
             return redirect('/questionnare')
         elif(is_reviewer(request.user)):
-            return redirect('/responses/countries/')
+            return redirect('/responses/surveys/')
     else:
         if request.method == 'POST':
             username = request.POST.get('username')

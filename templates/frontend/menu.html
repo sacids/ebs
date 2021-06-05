@@ -4,7 +4,7 @@
     <ul class="nav justify-content-center">
         {% if request.user|has_group:"Reviewers" %} 
         <li class="nav-item">
-            <a class="nav-link font-weight-bold" href="/responses/countries">Responses</a>
+            <a class="nav-link font-weight-bold" href="/responses/surveys"><i class="fa fa-home"></i> Home</a>
         </li>
         {% elif request.user|has_group:"Respondents" %}
         <li class="nav-item">

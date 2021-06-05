@@ -1,0 +1,48 @@
+{% extends 'frontend/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load ebs_tags %}
+{% block title %} EBS - Survey {% endblock %}
+
+{% block content %}
+
+{% include 'frontend/menu.html' %}
+
+<div class="bg-white p-3 rounded-sm border-light">
+    {% if messages %}
+    <div class="row">
+        <div class="col-md-12">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }}" role="alert">
+                <p>{{ message }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th width="5%">#</th>
+                <th width="90%">Survey</th>
+                <th style="width: 40px;">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for survey in surveys %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{survey.title}}</td>
+                <td>
+                    <a href="/responses/countries/{{survey.id}}" class="text-primary" title="Survey Info">
+                        <i class="fa fa-folder-open"></i>
+                    </a>&nbsp;
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
