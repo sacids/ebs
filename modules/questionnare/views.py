@@ -442,7 +442,7 @@ def section_six(request):
 
                 # send email notification
                 send_notification(subject, message, from_email=request.user.email,
-                                  to_email=['chris@ecsahc.org', 'werew@ecsahc.org', 'eric.beda@sacids.org'])
+                                  to_email=['renfrid.ngolongolo@sacids.org','eric.beda@sacids.org'])
 
                 # redirect to success
                 return redirect('/questionnare/success')
