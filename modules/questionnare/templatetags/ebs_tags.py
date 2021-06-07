@@ -3,6 +3,7 @@ from django import template
 from django.http import request
 from ..models import *
 from django.http import Http404
+from django.utils.safestring import mark_safe
 
 # template
 register = template.Library()
@@ -28,7 +29,7 @@ def get_country_survey_status(survey_id, country_id):
 @register.filter
 def get_qn_title(qn_id):
     question = QuestionList.objects.get(pk=qn_id)
-    return question.code + '. ' + question.title
+    return mark_safe('<b>' + question.code + '</b>. ' + question.title)
 
 
 @register.filter
