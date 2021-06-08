@@ -404,5 +404,12 @@
     </div>
     <!--./container-->
 </div><!-- /page content -->
+<script>
+    function removeTextAreaWhiteSpace() 
+    {
+        var myTxtArea = document.getElementById('answer');
+        myTxtArea.value = myTxtArea.value.replace(/^\s*|\s*$/g,'');
+    }
+</script>
 
 {% endblock %}
