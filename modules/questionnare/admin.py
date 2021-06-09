@@ -58,9 +58,9 @@ class SurveyAdmin(admin.ModelAdmin):
 #section
 @admin.register(Section)
 class SectionAdmin(admin.ModelAdmin):
-    list_display = ['id','title']
+    list_display = ['id', 'code', 'title']
     list_filter = ['survey']
-    ordering = ("id",)  
+    ordering = ('id', )  
 
 
 #Question List

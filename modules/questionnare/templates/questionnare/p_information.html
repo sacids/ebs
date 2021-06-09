@@ -23,7 +23,12 @@
                                 <h5 class="font-weight-600">
                                     {{ section.title }}
                                 </h5>
-                                <span>{% trans 'Section 3 of 3' %}</span>
+                                <span>{% trans 'Section 4 of 4' %}</span>
+                            </div>
+                            <!--./col-->
+
+                            <div class="col-md-12 mt-2">
+                                <i>{{ section.description|safe }}</i>
                             </div>
                             <!--./col-->
                         </div>
@@ -354,8 +359,7 @@
                                     <div class="form-group">
                                         <label>{{ 489|get_qn_title }}</label>
                                         <textarea rows="3" cols="40" name="answer[489]" class="textarea form-control"
-                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 489|get_qn_answer:user }}
-                                        </textarea>
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 489|get_qn_answer:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -456,8 +460,7 @@
                                     <div class="form-group">
                                         <label>{{ 494|get_qn_title }}</label>
                                         <textarea rows="3" cols="40" name="answer[494]" class="textarea form-control"
-                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 494|get_qn_answer:user }}
-                                        </textarea>
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 494|get_qn_answer:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>

@@ -17,6 +17,7 @@ urlpatterns = [
     path("section_six/<int:country_id>", views.section_six, name="section_six"),
 
     #survey 2
+    path("general_info/<int:country_id>", views.general_info, name="general_info"),
     path("metrics/<int:country_id>", views.metrics, name="metrics"),
     path("preference/<int:country_id>", views.preference, name="preference"),
     path("information/<int:country_id>", views.information, name="information"),

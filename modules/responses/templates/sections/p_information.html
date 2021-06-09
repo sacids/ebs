@@ -22,7 +22,12 @@
                                 <h5 class="font-weight-600">
                                     {{ section.title }}
                                 </h5>
-                                <span>Section 3 of 3</span>
+                                <span>Section 4 of 4</span>
+                            </div>
+                            <!--./col-->
+
+                            <div class="col-md-12 mt-2">
+                                <i>{{ section.description|safe|default:"" }}</i>
                             </div>
                             <!--./col-->
                         </div>
@@ -31,8 +36,7 @@
                         <div class="mt-2"></div>
                         {% include 'sections/details.html' %}
 
-                        <!--start : check if question 446 is 1-4 -->
-                      {% if 446|get_qn_answer:user == '1' or 446|get_qn_answer:user == '2' or 446|get_qn_answer:user == '3' or 446|get_qn_answer:user == '4' %}
+
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-md-12">
@@ -193,10 +197,9 @@
                             <!--./row-->
                         </div>
                         <!--./form-card-->
-                        {% endif %}
+                     
 
                         <!--start : check if question 450 is 1-4 -->
-                        {% if 450|get_qn_answer:user == '1' or 450|get_qn_answer:user == '2' or 450|get_qn_answer:user == '3' or 450|get_qn_answer:user == '4' %}
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-md-12">
@@ -237,11 +240,8 @@
                             <!--./row-->
                         </div>
                         <!--./form-card-->
-                        {% endif %}
-
 
                         <!--start : check if question 454 is 1-4 -->
-                        {% if 454|get_qn_answer:user == '1' or 454|get_qn_answer:user == '2' or 454|get_qn_answer:user == '3' or 454|get_qn_answer:user == '4' %}
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-md-12">
@@ -294,10 +294,8 @@
                             <!--./row-->
                         </div>
                         <!--./form-card-->
-                        {% endif %}
 
                         <!--start : check if question 458 is 1-4 -->
-                        {% if 458|get_qn_answer:user == '1' or 458|get_qn_answer:user == '2' or 458|get_qn_answer:user == '3' or 458|get_qn_answer:user == '4' %}
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-md-12">
@@ -362,10 +360,8 @@
                             <!--./row-->
                         </div>
                         <!--./form-card-->
-                        {% endif %}
 
                         <!--start : check if question 462 is 1-4 -->
-                        {% if 462|get_qn_answer:user == '1' or 462|get_qn_answer:user == '2' or 462|get_qn_answer:user == '3' or 462|get_qn_answer:user == '4' %}
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-md-12">
@@ -418,10 +414,8 @@
                             <!--./row-->
                         </div>
                         <!--./form-card-->
-                        {% endif %}
 
                         <!--start : check if question 466 is 1-4 -->
-                        {% if 466|get_qn_answer:user == '1' or 466|get_qn_answer:user == '2' or 466|get_qn_answer:user == '3' or 466|get_qn_answer:user == '4' %}
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-md-12">
@@ -476,10 +470,8 @@
                             <!--./row-->
                         </div>
                         <!--./form-card-->
-                        {% endif %}
 
                         <!--start : check if question 470 is 1-4 -->
-                        {% if 470|get_qn_answer:user == '1' or 470|get_qn_answer:user == '2' or 470|get_qn_answer:user == '3' or 470|get_qn_answer:user == '4' %}
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-md-12">
@@ -520,7 +512,6 @@
                             <!--./row-->
                         </div>
                         <!--./form-card-->
-                        {% endif %}
 
                         <div class="form-card">
                             <div class="row">

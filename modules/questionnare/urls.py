@@ -14,6 +14,8 @@ urlpatterns = [
     path('success/', views.success, name='success'),
 
     #new survey
+    path("welcome_note/", views.welcome, name="welcome_note"),
+    path("general_info/", views.general_info, name="general_info"),
     path("metrics/", views.metrics, name="metrics"),
     path("preference/", views.preference, name="preference"),
     path("information/", views.information, name="information"),

@@ -41,11 +41,9 @@
                         <i class="fa fa-folder-open"></i>
                     </a>&nbsp;
                     {% elif survey.id == 2 %}
-                        {% if request.user.username == 'ACDC_Test' %}
-                            <a href="/questionnare/metrics" class="text-primary" title="Survey Info">
-                                <i class="fa fa-folder-open"></i>
-                            </a>&nbsp;
-                        {% endif %}
+                        <a href="/questionnare/welcome_note" class="text-primary" title="Survey Info">
+                            <i class="fa fa-folder-open"></i>
+                        </a>
                     {% endif %}
                 </td>
             </tr>

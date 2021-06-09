@@ -250,6 +250,39 @@ def section_six(request, **kwargs):
 # ===========================================================
 # SURVEY 2
 # ===========================================================
+#general information
+@login_required(login_url='/login')
+def general_info(request, **kwargs):
+        #survey
+    survey = Survey.objects.get(pk=2) 
+
+    #section
+    section = Section.objects.get(pk = 10)
+
+    # country
+    country = Country.objects.get(pk=kwargs['country_id'])
+
+    # profile
+    try:
+        profile = Profiles.objects.get(country_id=country.id)
+        user = profile.user
+    except:
+        profile = []
+        user = []
+        pass
+
+    # context
+    context = {
+        "survey": survey,
+        "section" : section,
+        "country": country,
+        "profile": profile,
+        "user": user
+    }
+    # render view
+    return render(request, "sections/p_general_info.html", context)
+
+
 # metrics
 @login_required(login_url='/login')
 def metrics(request, **kwargs):
@@ -458,7 +491,7 @@ def export_xls(request, **kwargs):
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
 
-    # response
+    # # response
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename=' + \
         country.title + '-Response.csv'
@@ -486,7 +519,7 @@ def export_xls(request, **kwargs):
 
     # query questions
     questions = QuestionList.objects.select_related("section").filter(
-        section__survey=survey.id).order_by('sections.id', 'code', 'sort_order')
+        section__survey=survey.id).order_by('sections.code', 'sort_order', 'code')  
 
     rows2 = []
     for qn in questions:

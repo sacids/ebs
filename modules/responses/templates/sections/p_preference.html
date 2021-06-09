@@ -21,16 +21,12 @@
                                 <h5 class="font-weight-600">
                                     {{ section.title }}
                                 </h5>
-                                <span>Section 2 of 3</span>
+                                <span>Section 3 of 4</span>
                             </div>
                             <!--./col-->
 
                             <div class="col-md-12 mt-2">
-                                <i>{{ section.description }}</i>
-                            </div>
-                            <!--./col-->
-                            <div class="col-md-12 mt-2">
-                                <p>Then, <b>please rank value to Member State (from 1 to 7).</b></p>
+                                <i>{{ section.description|safe|default:"" }}</i>
                             </div>
                             <!--./col-->
                         </div>

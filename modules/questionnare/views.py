@@ -459,29 +459,42 @@ def success(request):
 # =================================================================
 # Preliminary Survey
 #================================================================#
-# section one
+#section information
 @login_required(login_url='/login')
-def metrics(request):
+def welcome(request):
+    #survey
+    survey = Survey.objects.get(pk=2)
+
+    context = {
+        "survey" : survey,     
+    }
+
+    # render view
+    return render(request, "questionnare/p_welcome.html", context)
+
+
+#general information
+@login_required(login_url='/login')
+def general_info(request):
     #survey
     survey = Survey.objects.get(pk=2)
 
     # metrics
-    section_id = 7
+    section_id = 10
 
     # section
     section = Section.objects.get(pk=section_id)
 
-   # questions
-    questions = QuestionList.objects.filter(section_id=1)
+    #country
+    country = Country.objects.get(pk=request.user.profiles.country_id)
 
-    # context
     context = {
-        "survey": survey,
-        "section": section,
-        "questions": questions
+        "survey" : survey,  
+        "section": section, 
+        "country": country  
     }
 
-    # post data
+        # post data
     if request.method == "POST":
         # first save country survey status
         try:
@@ -496,6 +509,50 @@ def metrics(request):
             country_survey.status = "INCOMPLETE"
             country_survey.save()
 
+        # query questions
+        questions = QuestionList.objects.filter(
+            section_id=section_id).order_by('sort_order', 'code')
+
+        for question in questions:
+            answer = request.POST.get('answer[' + str(question.id) + ']')
+            remarks = request.POST.get('remarks[' + str(question.id) + ']')
+
+            if answer is not None:
+                # save or update
+                obj, created = AnsBank.objects.update_or_create(
+                    question_id=question.id, country_id=request.user.profiles.country_id,
+                    defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
+                              'question_id': question.id, 'answer': answer, 'remarks': remarks},)
+
+        # redirect
+        if(request.POST.get('post_exit')):
+            return redirect('/questionnare/success')  # return to exit page
+        elif(request.POST.get('post_next')):
+            return redirect('/questionnare/metrics')
+
+    # render view
+    return render(request, "questionnare/p_general_info.html", context)        
+
+# section one
+@login_required(login_url='/login')
+def metrics(request):
+    #survey
+    survey = Survey.objects.get(pk=2)
+
+    # metrics
+    section_id = 7
+
+    # section
+    section = Section.objects.get(pk=section_id)
+
+    # context
+    context = {
+        "survey": survey,
+        "section": section
+    }
+
+    # post data
+    if request.method == "POST":
         # query questions
         questions = QuestionList.objects.filter(
             section_id=section_id).order_by('sort_order', 'code')
@@ -542,14 +599,10 @@ def preference(request):
     # section
     section = Section.objects.get(pk=section_id)
 
-   # questions
-    questions = QuestionList.objects.filter(section_id=1)
-
     # context
     context = {
         "survey": survey,
-        "section": section,
-        "questions": questions
+        "section": section
     }
 
     # post data
@@ -600,14 +653,10 @@ def information(request):
     # section
     section = Section.objects.get(pk=section_id)
 
-   # questions
-    questions = QuestionList.objects.filter(section_id=1)
-
     # context
     context = {
         "survey": survey,
-        "section": section,
-        "questions": questions
+        "section": section
     }
 
     # post data
