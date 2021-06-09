@@ -512,7 +512,7 @@ def export_xls(request, **kwargs):
 
     # column
     # deals with title row
-    rows = ['Code', 'Question', 'Answer', 'Attachments']
+    rows = ['Code', 'Question', 'Answer', 'Remarks' , 'Attachments']
 
     # write to row
     writer.writerow(rows)
@@ -528,16 +528,23 @@ def export_xls(request, **kwargs):
             question=qn.id, country=country.id).first()
 
         answer = ''
-        ans_attach = ''
+        remarks = ''
+        arr_attachments = []
         if ansbank:
             answer = ansbank.answer
+            remarks = ansbank.remarks
 
             # check for attachment
             attachments = Attachments.objects.filter(ansbank_id=ansbank.id)
             if attachments:
-                ans_attach = 'Yes'
+                for attachment in attachments:    
+                    arr_attachments.append(str(attachment.uploads).rsplit('/', 1)[-1])
+
+        str_attach = '' 
+        if arr_attachments is not None:
+            str_attach = ', '.join(arr_attachments)
         #rows
-        rows2 = [qn.code, qn.title, answer, ans_attach]    
+        rows2 = [qn.code, qn.title, answer, remarks, str_attach]    
 
         # write to column2
         writer.writerow(rows2)
