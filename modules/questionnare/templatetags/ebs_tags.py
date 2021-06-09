@@ -44,8 +44,8 @@ def get_qn_answer(qn_id, user):
         answers = AnsBank.objects.get(
             country_id=user.profiles.country_id, question_id=qn_id)
 
-        if answers.answer is not None or "" or "\r+":    
-            return answers.answer
+        if answers.answer is not None or "":    
+            return answers.answer.replace('\n', ' ').replace('\r', '')
     except AnsBank.DoesNotExist:
         pass
 
@@ -55,8 +55,8 @@ def get_qn_remarks(qn_id, user):
     try:
         answers = AnsBank.objects.get(
             country_id=user.profiles.country_id, question_id=qn_id)
-        if answers.remarks is not None or "" or "\r+":  
-            return answers.remarks
+        if answers.remarks is not None or "":  
+            return answers.remarks.replace('\n', ' ').replace('\r', '')
     except AnsBank.DoesNotExist:
         pass
 
