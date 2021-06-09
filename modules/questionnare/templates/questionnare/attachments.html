@@ -3,7 +3,7 @@
 {% if attachments %}
 <ul>
     {% for val in attachments %}
-    <li><a href="{{ '/static/media/' }}{{ val.uploads }}" >{{ val.uploads }}</a></li>
+    <li><a href="{{ '/static/media/' }}{{ val.uploads }}" target="_blank">{{ val.uploads }}</a></li>
     {% endfor %}
 </ul>
 {% else %}
