@@ -54,7 +54,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <textarea rows="3" cols="40" name="answer[436]" class="textarea form-control" required
-                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 436|get_qn_answer:user }}</textarea>
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 436|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -80,7 +80,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <textarea rows="3" cols="40" name="answer[437]" class="textarea form-control" required
-                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 437|get_qn_answer:user }}</textarea>
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 437|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -106,7 +106,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <textarea rows="3" cols="40" name="answer[500]" class="textarea form-control" required
-                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 500|get_qn_answer:user }}</textarea>
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 500|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -132,7 +132,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <textarea rows="3" cols="40" name="answer[501]" class="textarea form-control" required
-                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 501|get_qn_answer:user }}</textarea>
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 501|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -210,7 +210,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <textarea rows="3" cols="40" name="answer[502]" class="textarea form-control"
-                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 502|get_qn_answer:user }}</textarea>
+                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 502|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -252,7 +252,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="number" name="answer[441]" id="answer" value="{{ 441|get_qn_answer:user }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />
+                                        <input type="number" name="answer[441]" id="answer" value="{{ 441|get_qn_answer:user|default:'' }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -280,7 +280,7 @@
                                         <p class="small">
                                             {{ 504|get_qn_title|default:"" }}
                                         </p> 
-                                        <input type="number" name="answer[504]" id="answer" value="{{ 504|get_qn_answer:user }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />   
+                                        <input type="number" name="answer[504]" id="answer" value="{{ 504|get_qn_answer:user|default:'' }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />   
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -294,7 +294,7 @@
                                         <p class="small">
                                             {{ 510|get_qn_title|default:"" }}
                                         </p> 
-                                        <input type="number" name="answer[510]" id="answer" value="{{ 510|get_qn_answer:user }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />   
+                                        <input type="number" name="answer[510]" id="answer" value="{{ 510|get_qn_answer:user|default:'' }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />   
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -319,7 +319,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="number" name="answer[443]" id="answer" value="{{ 443|get_qn_answer:user }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />  
+                                        <input type="number" name="answer[443]" id="answer" value="{{ 443|get_qn_answer:user|default:'' }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />  
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -347,7 +347,7 @@
                                         <p class="small">
                                             {{ 511|get_qn_title|default:"" }}
                                         </p> 
-                                        <input type="number" name="answer[511]" id="answer" value="{{ 511|get_qn_answer:user }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />   
+                                        <input type="number" name="answer[511]" id="answer" value="{{ 511|get_qn_answer:user|default:'' }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />   
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -361,7 +361,7 @@
                                         <p class="small">
                                             {{ 512|get_qn_title|default:"" }}
                                         </p> 
-                                        <input type="number" name="answer[512]" id="answer" value="{{ 512|get_qn_answer:user }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />   
+                                        <input type="number" name="answer[512]" id="answer" value="{{ 512|get_qn_answer:user|default:'' }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />   
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -389,7 +389,7 @@
                                         <p class="small">
                                             {{ 513|get_qn_title|default:"" }}
                                         </p> 
-                                        <input type="number" name="answer[513]" id="answer" value="{{ 513|get_qn_answer:user }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />   
+                                        <input type="number" name="answer[513]" id="answer" value="{{ 513|get_qn_answer:user|default:'' }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />   
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -403,7 +403,7 @@
                                         <p class="small">
                                             {{ 514|get_qn_title|default:"" }}
                                         </p> 
-                                        <input type="number" name="answer[514]" id="answer" value="{{ 514|get_qn_answer:user }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />   
+                                        <input type="number" name="answer[514]" id="answer" value="{{ 514|get_qn_answer:user|default:'' }}" placeholder="{% trans 'Write answer...' %}" class="form-control" />   
                                     </div>
                                     <!--./form-group-->
                                 </div>

@@ -74,7 +74,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 447|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[447]" class="form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>Write answer...</textarea>
+                                        <textarea rows="3" cols="40" name="answer[447]" class="form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 447|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -86,7 +86,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 448|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[448]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 448|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[448]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 448|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -136,7 +136,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 451|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[451]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 451|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[451]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 451|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -148,7 +148,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 452|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[452]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 452|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[452]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 452|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -198,7 +198,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 455|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[455]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 455|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[455]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 455|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -210,7 +210,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 456|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[456]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 456|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[456]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 456|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -260,7 +260,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 459|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[459]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 459|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[459]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 459|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -272,7 +272,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 460|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[460]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 460|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[460]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 460|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -322,7 +322,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 463|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[463]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 463|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[463]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 463|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -334,7 +334,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 464|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[464]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 464|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[464]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 464|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -384,7 +384,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 467|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[467]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 467|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[467]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 467|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -396,7 +396,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 468|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[468]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 468|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[468]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 468|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -446,7 +446,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 471|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[471]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 471|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[471]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 471|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -458,7 +458,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{ 472|get_qn_title }}</label>
-                                        <textarea rows="3" cols="40" name="answer[472]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 472|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[472]" class="textarea form-control" placeholder="{% trans 'Write answer...' %}" id="answer" required>{{ 472|get_qn_answer:user|default:"" }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>

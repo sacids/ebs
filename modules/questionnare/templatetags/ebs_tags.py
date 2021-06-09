@@ -45,7 +45,7 @@ def get_qn_answer(qn_id, user):
             country_id=user.profiles.country_id, question_id=qn_id)
         return answers.answer
     except AnsBank.DoesNotExist:
-        return ""
+        pass
 
 
 @register.filter
@@ -55,7 +55,7 @@ def get_qn_remarks(qn_id, user):
             country_id=user.profiles.country_id, question_id=qn_id)
         return answers.remarks
     except AnsBank.DoesNotExist:
-        return ""
+        pass
 
 
 @register.filter
