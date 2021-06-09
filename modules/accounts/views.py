@@ -3,10 +3,13 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 from django.conf import settings
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
 from .utils import *
+from ..profiles.models import Profiles
 
 # Create your views here.
 
@@ -43,11 +46,15 @@ def loginPage(request):
     print("current language => " + translation.get_language())
 
     if request.user.is_authenticated:
-        # redirect
-        if(is_respondent(request.user)):
-            return redirect('/questionnare')
-        elif(is_reviewer(request.user)):
-            return redirect('/responses/surveys/')
+        if(request.user.profiles.first_login == 1):
+            # redirect to change password
+            return redirect('/change_password')
+        else:
+            # redirect
+            if(is_respondent(request.user)):
+                return redirect('/questionnare')
+            elif(is_reviewer(request.user)):
+                return redirect('/responses/surveys/')
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -59,16 +66,43 @@ def loginPage(request):
             if user is not None:
                 login(request, user)
 
-                # redirect
-                if(is_respondent(user)):
-                    return redirect('/questionnare')
-                elif(is_reviewer(user)):
-                    return redirect('/responses/surveys/')
+                if(user.profiles.first_login == 1):
+                    # redirect to change password
+                    return redirect('/change_password')
+                else:
+                    # redirect
+                    if(is_respondent(user)):
+                        return redirect('/questionnare')
+                    elif(is_reviewer(user)):
+                        return redirect('/responses/surveys/')
             else:
-                messages.error(request, _('Username OR Password is incorectly'))
+                messages.error(request, _(
+                    'Username OR Password is incorectly'))
 
         context = {}
         return render(request, 'accounts/login.html', context)
+
+
+# change password
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+
+            #update profile
+            profile = Profiles.objects.get(user=user.id)
+            profile.first_login = 2
+            profile.save()
+
+            messages.success(request, 'Password successfully updated!')
+            return redirect('/login')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'accounts/change_password.html', {'form': form})
 
 
 # logout

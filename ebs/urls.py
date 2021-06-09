@@ -19,7 +19,8 @@ from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = i18n_patterns(
     path('', include("modules.accounts.urls")),
-    path('admin/', admin.site.urls),
+    #path('accounts/', include('modules.accounts.urls', namespace='accounts')),  # accounts url 
+    path('admin/', admin.site.urls),   
     path('questionnare/', include("modules.questionnare.urls")),
     path('dashboard/', include("modules.dashboard.urls")),
     path('responses/', include("modules.responses.urls")),

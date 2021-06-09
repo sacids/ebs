@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     #installed packages
     'modeltranslation',
+    'crispy_forms',
 
     # custom apps
     'modules.accounts',

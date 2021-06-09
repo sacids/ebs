@@ -10,9 +10,10 @@ class Profiles(models.Model):
     """A class to create profiles table"""
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     country = models.ForeignKey(
-        Country, related_name="profile_country", on_delete=models.SET_NULL, null=True)
+        Country, related_name="profile_country", on_delete=models.SET_NULL, null=True, blank=True)
     designation = models.CharField(max_length=150)
     institution = models.CharField(max_length=255, null=True)
+    first_login = models.PositiveIntegerField(null=False, default=1)
 
     class Meta:
         db_table = "profiles"
