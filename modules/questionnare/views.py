@@ -453,6 +453,10 @@ def section_six(request):
 
 @login_required(login_url='/login')
 def success(request):
+
+    #country
+    country = Country.objects.get(pk=request.user.profiles.country_id)
+
     return render(None, "questionnare/success.html", {})
 
 
