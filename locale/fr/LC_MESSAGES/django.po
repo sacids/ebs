@@ -183,7 +183,7 @@ msgstr "Imprimer / enregistrer"
 
 #: modules/questionnare/templates/questionnare/p_information.html:26
 msgid "Section 4 of 4"
-msgstr "Section 4 sur 6"
+msgstr "Section 4 sur 4"
 
 #: modules/questionnare/templates/questionnare/p_information.html:43
 msgid ""
@@ -467,7 +467,7 @@ msgstr "Enregistrer et terminer"
 
 #: modules/questionnare/templates/questionnare/p_metrics.html:26
 msgid "Section 2 of 4"
-msgstr "Section 2 sur 6"
+msgstr "Section 2 sur 4"
 
 #: modules/questionnare/templates/questionnare/p_metrics.html:267
 #: modules/questionnare/templates/questionnare/p_metrics.html:323
