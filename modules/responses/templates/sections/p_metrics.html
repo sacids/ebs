@@ -289,12 +289,28 @@
                                     <div class="form-group">
                                         <p class="small">
                                             {{ 504|get_qn_title|default:"" }}
-                                        </p> 
+                                        </p>
+                                    </div><!--./form-group-->
+                                </div><!--./col-12-->
+
+                                <div class="col-md-8">
+                                    <div class="form-group">
                                         <input type="number" name="answer[504]" id="answer" value="{{ 504|get_qn_answer:user }}" class="form-control" readonly />   
                                     </div>
                                     <!--./form-group-->
                                 </div>
                                 <!--./col-->
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <select name="answer[515]" class="form-control" disabled>
+                                            <option value="">{% trans '-- Select --' %}</option>
+                                            <option value="Number of doses" {% if 515|get_qn_answer:user == "Number of doses" %} selected {% endif %}>{% trans 'Number of doses' %}</option>
+                                            <option value="Litres" {% if 515|get_qn_answer:user == "Litres" %} selected {% endif %}>{% trans 'Litres' %}</option>
+                                            <option value="m3" {% if 515|get_qn_answer:user == "m3" %} selected {% endif %}>{% trans 'm3' %}</option>
+                                        </select>
+                                    </div><!--./form-group-->
+                                </div><!--./col-md-4-->
 
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -315,12 +331,28 @@
                                     <div class="form-group">
                                         <p class="small">
                                             {{ 510|get_qn_title|default:"" }}
-                                        </p> 
+                                        </p>
+                                    </div><!--./form-group-->
+                                </div><!--./col-12-->
+
+                                <div class="col-md-8">
+                                    <div class="form-group">
                                         <input type="number" name="answer[510]" id="answer" value="{{ 510|get_qn_answer:user }}" class="form-control" readonly/>   
                                     </div>
                                     <!--./form-group-->
                                 </div>
                                 <!--./col-->
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <select name="answer[516]" class="form-control" disabled>
+                                            <option value="">{% trans '-- Select --' %}</option>
+                                            <option value="Number of doses" {% if 516|get_qn_answer:user == "Number of doses" %} selected {% endif %}>{% trans 'Number of doses' %}</option>
+                                            <option value="Litres" {% if 516|get_qn_answer:user == "Litres" %} selected {% endif %}>{% trans 'Litres' %}</option>
+                                            <option value="m3" {% if 516|get_qn_answer:user == "m3" %} selected {% endif %}>{% trans 'm3' %}</option>
+                                        </select>
+                                    </div><!--./form-group-->
+                                </div><!--./col-md-4-->
 
                                 <div class="col-md-12">
                                     <div class="form-group">
