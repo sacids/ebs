@@ -53,10 +53,11 @@
                 </div>
                 <div class="p-4"></div>
                 <div class="pt-4">
-                    <h5 class="font-weight-600">{% if survey.title is not None %}
-                        {{ survey.title }}
+                    <h5 class="font-weight-600">
+                        {% if survey.title is not None %}
+                            {{ survey.title }}
                         {% else %}
-                        {% trans 'AFRICAN CDC' %}
+                            AFRICA CDC
                         {% endif %}
                     </h5>
                 </div>
