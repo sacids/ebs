@@ -11,7 +11,7 @@ class QuestionListTransalationOptions(TranslationOptions):
 
 
 class SurveyTransalationOptions(TranslationOptions):
-    fields = ("title",)    
+    fields = ("title", 'description', )    
 
 
 translator.register(Section, SectionTranslationOptions)    
