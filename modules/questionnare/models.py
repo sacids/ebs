@@ -122,6 +122,7 @@ class Category(models.Model):
 #survey
 class Survey(models.Model):
     title = models.TextField(null=False)
+    description = models.TextField(null=True)
 
     class Meta:
         db_table = 'surveys'
