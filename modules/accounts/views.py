@@ -29,6 +29,8 @@ def change_language(request, **kwargs):
         language = "fr"
     elif language_code == 'pt':
         language = "pt"
+    elif language_code == 'ar':
+        language = "ar"    
 
     # response
     response = HttpResponseRedirect('/')

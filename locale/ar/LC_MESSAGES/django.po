@@ -1,0 +1,837 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-20 08:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: ebs/settings.py:135
+msgid "Arabic"
+msgstr ""
+
+#: modules/accounts/templates/accounts/login.html:17
+msgid "Change Language"
+msgstr "تغيير اللغة"
+
+#: modules/accounts/templates/accounts/login.html:33
+msgid "Login to your account"
+msgstr "تسجيل الدخول إلى حسابك"
+
+#: modules/accounts/templates/accounts/login.html:34
+msgid "Enter your credentials below"
+msgstr "أدخل بيانات الاعتماد أدناه"
+
+#: modules/accounts/templates/accounts/login.html:57
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: modules/accounts/templates/accounts/login.html:58
+msgid "Write username..."
+msgstr "اكتب اسم المستخدم"
+
+#: modules/accounts/templates/accounts/login.html:64
+msgid "Password"
+msgstr "كلمه السر"
+
+#: modules/accounts/templates/accounts/login.html:65
+msgid "Write password..."
+msgstr "اكتب كلمة المرور"
+
+#: modules/accounts/templates/accounts/login.html:72
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: modules/accounts/templates/accounts/login.html:80
+msgid ""
+" \n"
+"                                If you forgot password please send email to "
+"<a class=\"text-primary text-underline\">mohammedab@africa-union.org</a> or "
+"<a class=\"text-primary text-underline\">MerawiA@africa-union.org</a> for "
+"assistance.\n"
+"                            "
+msgstr ""
+" \n"
+"إذا نسيت كلمة المرور ، يرجى "
+"إرسال بريد إلكتروني إلى"
+"<a class=\"text-primary text-underline\">mohammedab@africa-union.org</a> أو "
+"<a class=\"text-primary text-underline\">MerawiA@africa-union.org</a> للمساعدة"
+"\n"
+"                            "
+
+#: modules/accounts/views.py:80
+msgid "Username OR Password is incorectly"
+msgstr "صحيحةاسم المستخدم أو كلمة المرور غير "
+
+#: modules/accounts/views.py:111
+msgid "Log out successfully"
+msgstr "تسجيل الخروج بنجاح"
+
+#: modules/questionnare/templates/questionnare/p_general_info.html:26
+msgid "Section 1 of 4"
+msgstr "القسم 1 من 4"
+
+#: modules/questionnare/templates/questionnare/p_general_info.html:107
+#: modules/questionnare/templates/questionnare/p_general_info.html:133
+#: modules/questionnare/templates/questionnare/p_general_info.html:159
+#: modules/questionnare/templates/questionnare/p_information.html:239
+#: modules/questionnare/templates/questionnare/p_information.html:300
+#: modules/questionnare/templates/questionnare/p_information.html:376
+#: modules/questionnare/templates/questionnare/p_information.html:437
+#: modules/questionnare/templates/questionnare/p_information.html:482
+#: modules/questionnare/templates/questionnare/p_information.html:495
+#: modules/questionnare/templates/questionnare/p_information.html:541
+#: modules/questionnare/templates/questionnare/p_information.html:558
+#: modules/questionnare/templates/questionnare/p_metrics.html:57
+#: modules/questionnare/templates/questionnare/p_metrics.html:83
+#: modules/questionnare/templates/questionnare/p_metrics.html:109
+#: modules/questionnare/templates/questionnare/p_metrics.html:135
+#: modules/questionnare/templates/questionnare/p_metrics.html:217
+#: modules/questionnare/templates/questionnare/p_metrics.html:259
+#: modules/questionnare/templates/questionnare/p_metrics.html:304
+#: modules/questionnare/templates/questionnare/p_metrics.html:346
+#: modules/questionnare/templates/questionnare/p_metrics.html:394
+#: modules/questionnare/templates/questionnare/p_metrics.html:434
+#: modules/questionnare/templates/questionnare/p_metrics.html:460
+#: modules/questionnare/templates/questionnare/p_metrics.html:500
+#: modules/questionnare/templates/questionnare/p_metrics.html:526
+#: modules/questionnare/templates/questionnare/p_preference.html:77
+#: modules/questionnare/templates/questionnare/p_preference.html:89
+#: modules/questionnare/templates/questionnare/p_preference.html:139
+#: modules/questionnare/templates/questionnare/p_preference.html:151
+#: modules/questionnare/templates/questionnare/p_preference.html:201
+#: modules/questionnare/templates/questionnare/p_preference.html:213
+#: modules/questionnare/templates/questionnare/p_preference.html:263
+#: modules/questionnare/templates/questionnare/p_preference.html:275
+#: modules/questionnare/templates/questionnare/p_preference.html:325
+#: modules/questionnare/templates/questionnare/p_preference.html:337
+#: modules/questionnare/templates/questionnare/p_preference.html:387
+#: modules/questionnare/templates/questionnare/p_preference.html:399
+#: modules/questionnare/templates/questionnare/p_preference.html:449
+#: modules/questionnare/templates/questionnare/p_preference.html:461
+#: modules/questionnare/templates/questionnare/section_five.html:407
+#: modules/questionnare/templates/questionnare/section_five.html:441
+#: modules/questionnare/templates/questionnare/section_five.html:862
+#: modules/questionnare/templates/questionnare/section_five.html:874
+#: modules/questionnare/templates/questionnare/section_five.html:886
+#: modules/questionnare/templates/questionnare/section_five.html:898
+#: modules/questionnare/templates/questionnare/section_five.html:910
+#: modules/questionnare/templates/questionnare/section_five.html:940
+#: modules/questionnare/templates/questionnare/section_five.html:952
+#: modules/questionnare/templates/questionnare/section_five.html:964
+#: modules/questionnare/templates/questionnare/section_five.html:976
+#: modules/questionnare/templates/questionnare/section_five.html:1006
+#: modules/questionnare/templates/questionnare/section_three.html:678
+#: modules/questionnare/templates/questionnare/section_two.html:930
+#: modules/questionnare/templates/questionnare/section_two.html:1075
+#: modules/responses/templates/sections/p_general_info.html:109
+#: modules/responses/templates/sections/p_general_info.html:135
+#: modules/responses/templates/sections/p_general_info.html:161
+#: modules/responses/templates/sections/p_information.html:233
+#: modules/responses/templates/sections/p_information.html:287
+#: modules/responses/templates/sections/p_information.html:353
+#: modules/responses/templates/sections/p_information.html:407
+#: modules/responses/templates/sections/p_information.html:449
+#: modules/responses/templates/sections/p_information.html:463
+#: modules/responses/templates/sections/p_information.html:505
+#: modules/responses/templates/sections/p_information.html:522
+#: modules/responses/templates/sections/p_information.html:536
+#: modules/responses/templates/sections/p_preference.html:79
+#: modules/responses/templates/sections/p_preference.html:93
+#: modules/responses/templates/sections/p_preference.html:145
+#: modules/responses/templates/sections/p_preference.html:159
+#: modules/responses/templates/sections/p_preference.html:211
+#: modules/responses/templates/sections/p_preference.html:225
+#: modules/responses/templates/sections/p_preference.html:277
+#: modules/responses/templates/sections/p_preference.html:291
+#: modules/responses/templates/sections/p_preference.html:343
+#: modules/responses/templates/sections/p_preference.html:357
+#: modules/responses/templates/sections/p_preference.html:409
+#: modules/responses/templates/sections/p_preference.html:423
+#: modules/responses/templates/sections/p_preference.html:475
+#: modules/responses/templates/sections/p_preference.html:489
+msgid "Write answer..."
+msgstr "اكتب الجواب"
+
+#: modules/questionnare/templates/questionnare/p_general_info.html:171
+#: modules/questionnare/templates/questionnare/p_information.html:572
+#: modules/questionnare/templates/questionnare/p_metrics.html:552
+#: modules/questionnare/templates/questionnare/p_preference.html:475
+#: modules/questionnare/templates/questionnare/section_five.html:1036
+#: modules/questionnare/templates/questionnare/section_four.html:824
+#: modules/questionnare/templates/questionnare/section_one.html:487
+#: modules/questionnare/templates/questionnare/section_six.html:193
+#: modules/questionnare/templates/questionnare/section_three.html:1124
+#: modules/questionnare/templates/questionnare/section_two.html:1088
+msgid "Save and Exit"
+msgstr "حفظ وخروج"
+
+#: modules/questionnare/templates/questionnare/p_general_info.html:173
+#: modules/questionnare/templates/questionnare/p_metrics.html:554
+#: modules/questionnare/templates/questionnare/p_preference.html:477
+#: modules/questionnare/templates/questionnare/section_five.html:1037
+#: modules/questionnare/templates/questionnare/section_four.html:825
+#: modules/questionnare/templates/questionnare/section_one.html:489
+#: modules/questionnare/templates/questionnare/section_three.html:1125
+#: modules/questionnare/templates/questionnare/section_two.html:1089
+msgid "Save and Continue"
+msgstr "حفظ ومتابعة"
+
+#: modules/questionnare/templates/questionnare/p_general_info.html:175
+#: modules/questionnare/templates/questionnare/p_information.html:576
+#: modules/questionnare/templates/questionnare/p_metrics.html:556
+#: modules/questionnare/templates/questionnare/p_preference.html:479
+#: modules/questionnare/templates/questionnare/section_five.html:1039
+#: modules/questionnare/templates/questionnare/section_four.html:827
+#: modules/questionnare/templates/questionnare/section_one.html:491
+#: modules/questionnare/templates/questionnare/section_six.html:196
+#: modules/questionnare/templates/questionnare/section_three.html:1127
+#: modules/questionnare/templates/questionnare/section_two.html:1091
+msgid "Print/Save"
+msgstr "طباعة / حفظ"
+
+#: modules/questionnare/templates/questionnare/p_information.html:26
+msgid "Section 4 of 4"
+msgstr "القسم 4 من 4"
+
+#: modules/questionnare/templates/questionnare/p_information.html:43
+msgid ""
+" \n"
+"                                            Because you ranked Activity 1 "
+"(Technical assistance to national vaccination programme management) with a "
+"score of 1-4, please fill out the following:\n"
+"                                        "
+msgstr "إذا كنت قد حددت درجة من 1 إلى 4 للنشاط 1 (المساعدة الفنية لإدارة برنامج التحصين الوطني)"
+
+#: modules/questionnare/templates/questionnare/p_information.html:73
+#: modules/questionnare/templates/questionnare/p_information.html:93
+#: modules/questionnare/templates/questionnare/p_information.html:113
+#: modules/questionnare/templates/questionnare/p_information.html:133
+#: modules/questionnare/templates/questionnare/p_information.html:153
+#: modules/questionnare/templates/questionnare/p_information.html:173
+#: modules/questionnare/templates/questionnare/section_five.html:65
+#: modules/questionnare/templates/questionnare/section_five.html:113
+#: modules/questionnare/templates/questionnare/section_five.html:160
+#: modules/questionnare/templates/questionnare/section_five.html:217
+#: modules/questionnare/templates/questionnare/section_five.html:264
+#: modules/questionnare/templates/questionnare/section_five.html:311
+#: modules/questionnare/templates/questionnare/section_five.html:359
+#: modules/questionnare/templates/questionnare/section_five.html:486
+#: modules/questionnare/templates/questionnare/section_five.html:534
+#: modules/questionnare/templates/questionnare/section_five.html:616
+#: modules/questionnare/templates/questionnare/section_five.html:663
+#: modules/questionnare/templates/questionnare/section_five.html:711
+#: modules/questionnare/templates/questionnare/section_five.html:759
+#: modules/questionnare/templates/questionnare/section_five.html:817
+#: modules/questionnare/templates/questionnare/section_five.html:924
+#: modules/questionnare/templates/questionnare/section_five.html:990
+#: modules/questionnare/templates/questionnare/section_five.html:1020
+#: modules/questionnare/templates/questionnare/section_four.html:53
+#: modules/questionnare/templates/questionnare/section_four.html:196
+#: modules/questionnare/templates/questionnare/section_four.html:244
+#: modules/questionnare/templates/questionnare/section_four.html:273
+#: modules/questionnare/templates/questionnare/section_four.html:302
+#: modules/questionnare/templates/questionnare/section_four.html:331
+#: modules/questionnare/templates/questionnare/section_four.html:360
+#: modules/questionnare/templates/questionnare/section_four.html:389
+#: modules/questionnare/templates/questionnare/section_four.html:418
+#: modules/questionnare/templates/questionnare/section_four.html:447
+#: modules/questionnare/templates/questionnare/section_four.html:494
+#: modules/questionnare/templates/questionnare/section_four.html:523
+#: modules/questionnare/templates/questionnare/section_four.html:552
+#: modules/questionnare/templates/questionnare/section_four.html:598
+#: modules/questionnare/templates/questionnare/section_four.html:645
+#: modules/questionnare/templates/questionnare/section_four.html:693
+#: modules/questionnare/templates/questionnare/section_four.html:808
+#: modules/questionnare/templates/questionnare/section_one.html:54
+#: modules/questionnare/templates/questionnare/section_one.html:113
+#: modules/questionnare/templates/questionnare/section_one.html:163
+#: modules/questionnare/templates/questionnare/section_one.html:213
+#: modules/questionnare/templates/questionnare/section_one.html:263
+#: modules/questionnare/templates/questionnare/section_one.html:312
+#: modules/questionnare/templates/questionnare/section_one.html:360
+#: modules/questionnare/templates/questionnare/section_one.html:409
+#: modules/questionnare/templates/questionnare/section_one.html:458
+#: modules/questionnare/templates/questionnare/section_six.html:70
+#: modules/questionnare/templates/questionnare/section_six.html:88
+#: modules/questionnare/templates/questionnare/section_six.html:106
+#: modules/questionnare/templates/questionnare/section_six.html:124
+#: modules/questionnare/templates/questionnare/section_six.html:143
+#: modules/questionnare/templates/questionnare/section_six.html:161
+#: modules/questionnare/templates/questionnare/section_three.html:52
+#: modules/questionnare/templates/questionnare/section_three.html:109
+#: modules/questionnare/templates/questionnare/section_three.html:178
+#: modules/questionnare/templates/questionnare/section_three.html:193
+#: modules/questionnare/templates/questionnare/section_three.html:208
+#: modules/questionnare/templates/questionnare/section_three.html:223
+#: modules/questionnare/templates/questionnare/section_three.html:238
+#: modules/questionnare/templates/questionnare/section_three.html:253
+#: modules/questionnare/templates/questionnare/section_three.html:283
+#: modules/questionnare/templates/questionnare/section_three.html:332
+#: modules/questionnare/templates/questionnare/section_three.html:372
+#: modules/questionnare/templates/questionnare/section_three.html:410
+#: modules/questionnare/templates/questionnare/section_three.html:468
+#: modules/questionnare/templates/questionnare/section_three.html:631
+#: modules/questionnare/templates/questionnare/section_three.html:710
+#: modules/questionnare/templates/questionnare/section_three.html:758
+#: modules/questionnare/templates/questionnare/section_three.html:802
+#: modules/questionnare/templates/questionnare/section_three.html:851
+#: modules/questionnare/templates/questionnare/section_three.html:896
+#: modules/questionnare/templates/questionnare/section_three.html:911
+#: modules/questionnare/templates/questionnare/section_three.html:926
+#: modules/questionnare/templates/questionnare/section_three.html:941
+#: modules/questionnare/templates/questionnare/section_three.html:956
+#: modules/questionnare/templates/questionnare/section_three.html:994
+#: modules/questionnare/templates/questionnare/section_three.html:1030
+#: modules/questionnare/templates/questionnare/section_three.html:1065
+#: modules/questionnare/templates/questionnare/section_two.html:52
+#: modules/questionnare/templates/questionnare/section_two.html:780
+#: modules/questionnare/templates/questionnare/section_two.html:827
+#: modules/questionnare/templates/questionnare/section_two.html:883
+#: modules/questionnare/templates/questionnare/section_two.html:1029
+#: modules/responses/templates/sections/p_information.html:74
+#: modules/responses/templates/sections/p_information.html:94
+#: modules/responses/templates/sections/p_information.html:114
+#: modules/responses/templates/sections/p_information.html:134
+#: modules/responses/templates/sections/p_information.html:154
+#: modules/responses/templates/sections/p_information.html:174
+msgid "Yes"
+msgstr "نعم"
+
+#: modules/questionnare/templates/questionnare/p_information.html:77
+#: modules/questionnare/templates/questionnare/p_information.html:97
+#: modules/questionnare/templates/questionnare/p_information.html:117
+#: modules/questionnare/templates/questionnare/p_information.html:137
+#: modules/questionnare/templates/questionnare/p_information.html:157
+#: modules/questionnare/templates/questionnare/p_information.html:177
+#: modules/questionnare/templates/questionnare/section_five.html:68
+#: modules/questionnare/templates/questionnare/section_five.html:116
+#: modules/questionnare/templates/questionnare/section_five.html:163
+#: modules/questionnare/templates/questionnare/section_five.html:220
+#: modules/questionnare/templates/questionnare/section_five.html:267
+#: modules/questionnare/templates/questionnare/section_five.html:314
+#: modules/questionnare/templates/questionnare/section_five.html:362
+#: modules/questionnare/templates/questionnare/section_five.html:489
+#: modules/questionnare/templates/questionnare/section_five.html:537
+#: modules/questionnare/templates/questionnare/section_five.html:619
+#: modules/questionnare/templates/questionnare/section_five.html:666
+#: modules/questionnare/templates/questionnare/section_five.html:714
+#: modules/questionnare/templates/questionnare/section_five.html:762
+#: modules/questionnare/templates/questionnare/section_five.html:820
+#: modules/questionnare/templates/questionnare/section_five.html:927
+#: modules/questionnare/templates/questionnare/section_five.html:993
+#: modules/questionnare/templates/questionnare/section_five.html:1023
+#: modules/questionnare/templates/questionnare/section_four.html:56
+#: modules/questionnare/templates/questionnare/section_four.html:199
+#: modules/questionnare/templates/questionnare/section_four.html:247
+#: modules/questionnare/templates/questionnare/section_four.html:276
+#: modules/questionnare/templates/questionnare/section_four.html:305
+#: modules/questionnare/templates/questionnare/section_four.html:334
+#: modules/questionnare/templates/questionnare/section_four.html:363
+#: modules/questionnare/templates/questionnare/section_four.html:392
+#: modules/questionnare/templates/questionnare/section_four.html:421
+#: modules/questionnare/templates/questionnare/section_four.html:450
+#: modules/questionnare/templates/questionnare/section_four.html:497
+#: modules/questionnare/templates/questionnare/section_four.html:526
+#: modules/questionnare/templates/questionnare/section_four.html:555
+#: modules/questionnare/templates/questionnare/section_four.html:601
+#: modules/questionnare/templates/questionnare/section_four.html:648
+#: modules/questionnare/templates/questionnare/section_four.html:696
+#: modules/questionnare/templates/questionnare/section_four.html:811
+#: modules/questionnare/templates/questionnare/section_one.html:58
+#: modules/questionnare/templates/questionnare/section_one.html:117
+#: modules/questionnare/templates/questionnare/section_one.html:167
+#: modules/questionnare/templates/questionnare/section_one.html:217
+#: modules/questionnare/templates/questionnare/section_one.html:267
+#: modules/questionnare/templates/questionnare/section_one.html:316
+#: modules/questionnare/templates/questionnare/section_one.html:364
+#: modules/questionnare/templates/questionnare/section_one.html:413
+#: modules/questionnare/templates/questionnare/section_one.html:462
+#: modules/questionnare/templates/questionnare/section_six.html:73
+#: modules/questionnare/templates/questionnare/section_six.html:91
+#: modules/questionnare/templates/questionnare/section_six.html:109
+#: modules/questionnare/templates/questionnare/section_six.html:127
+#: modules/questionnare/templates/questionnare/section_six.html:146
+#: modules/questionnare/templates/questionnare/section_six.html:164
+#: modules/questionnare/templates/questionnare/section_three.html:55
+#: modules/questionnare/templates/questionnare/section_three.html:112
+#: modules/questionnare/templates/questionnare/section_three.html:181
+#: modules/questionnare/templates/questionnare/section_three.html:196
+#: modules/questionnare/templates/questionnare/section_three.html:211
+#: modules/questionnare/templates/questionnare/section_three.html:226
+#: modules/questionnare/templates/questionnare/section_three.html:241
+#: modules/questionnare/templates/questionnare/section_three.html:256
+#: modules/questionnare/templates/questionnare/section_three.html:286
+#: modules/questionnare/templates/questionnare/section_three.html:335
+#: modules/questionnare/templates/questionnare/section_three.html:375
+#: modules/questionnare/templates/questionnare/section_three.html:413
+#: modules/questionnare/templates/questionnare/section_three.html:471
+#: modules/questionnare/templates/questionnare/section_three.html:634
+#: modules/questionnare/templates/questionnare/section_three.html:713
+#: modules/questionnare/templates/questionnare/section_three.html:761
+#: modules/questionnare/templates/questionnare/section_three.html:805
+#: modules/questionnare/templates/questionnare/section_three.html:854
+#: modules/questionnare/templates/questionnare/section_three.html:899
+#: modules/questionnare/templates/questionnare/section_three.html:914
+#: modules/questionnare/templates/questionnare/section_three.html:929
+#: modules/questionnare/templates/questionnare/section_three.html:944
+#: modules/questionnare/templates/questionnare/section_three.html:959
+#: modules/questionnare/templates/questionnare/section_three.html:997
+#: modules/questionnare/templates/questionnare/section_three.html:1033
+#: modules/questionnare/templates/questionnare/section_three.html:1068
+#: modules/questionnare/templates/questionnare/section_two.html:55
+#: modules/questionnare/templates/questionnare/section_two.html:783
+#: modules/questionnare/templates/questionnare/section_two.html:830
+#: modules/questionnare/templates/questionnare/section_two.html:886
+#: modules/questionnare/templates/questionnare/section_two.html:1032
+#: modules/responses/templates/sections/p_information.html:78
+#: modules/responses/templates/sections/p_information.html:98
+#: modules/responses/templates/sections/p_information.html:118
+#: modules/responses/templates/sections/p_information.html:138
+#: modules/responses/templates/sections/p_information.html:158
+#: modules/responses/templates/sections/p_information.html:178
+msgid "No"
+msgstr "لا"
+
+#: modules/questionnare/templates/questionnare/p_information.html:210
+msgid ""
+" \n"
+"                                            Because you ranked Activity 2 "
+"(Procurement and logistics to country) with a score of 1-4, please fill out "
+"the following:\n"
+"                                        "
+msgstr "إذا كنت قد قمت بتعيين النشاط 2 (الشراء والخدمات اللوجستية للنقل إلى الدولة) ، تحصل على درجة من 1 إلى 4"
+
+#: modules/questionnare/templates/questionnare/p_information.html:256
+msgid ""
+" \n"
+"                                            Because you ranked Activity 3 "
+"(In-country logistics) with a score of 1-4, please fill out the following:\n"
+"                                        "
+msgstr "إذا قمت بتعيين النشاط 3 (الخدمات اللوجستية في الدولة) ، درجة من 1 إلى 4"
+
+#: modules/questionnare/templates/questionnare/p_information.html:317
+msgid ""
+" \n"
+"                                            Because you ranked Activity 4 "
+"(Vaccination capacity) with a score of 1-4, please fill out the following:\n"
+"                                        "
+msgstr "إذا أعطيت النشاط 4 (قدرة التطعيم) درجة من 1 إلى 4"
+
+#: modules/questionnare/templates/questionnare/p_information.html:393
+msgid ""
+" \n"
+"                                            Because you ranked Activity 5 "
+"(Risk communication and community engagement) with a score of 1-4, please "
+"fill out the following:\n"
+"                                        "
+msgstr "إذا أعطيت النشاط 5 (المشاركة المجتمعية والتواصل بشأن المخاطر) درجة من 1 إلى 4"
+
+#: modules/questionnare/templates/questionnare/p_information.html:454
+msgid ""
+" \n"
+"                                            Because you ranked Activity 6 "
+"(Pharmacovigilance surveillance) with a score of 1-4, please fill out the "
+"following:\n"
+"                                        "
+msgstr "إذا قمت بتعيين النشاط 6 (مراقبة التيقظ الدوائي) ، درجة من 1 إلى 4"
+
+#: modules/questionnare/templates/questionnare/p_information.html:512
+msgid ""
+" \n"
+"                                            Because you ranked Activity 7 "
+"(Genomic sequencing) with a score of 1-4, please fill out the following:\n"
+"                                        "
+msgstr "إذا أعطيت النشاط 7 (التسلسل الجيني) درجة من 1 إلى 4"
+
+#: modules/questionnare/templates/questionnare/p_information.html:570
+#: modules/questionnare/templates/questionnare/p_metrics.html:550
+#: modules/questionnare/templates/questionnare/p_preference.html:473
+#: modules/questionnare/templates/questionnare/section_five.html:1035
+#: modules/questionnare/templates/questionnare/section_four.html:823
+#: modules/questionnare/templates/questionnare/section_six.html:192
+#: modules/questionnare/templates/questionnare/section_three.html:1123
+#: modules/questionnare/templates/questionnare/section_two.html:1087
+msgid "Previous"
+msgstr "سابق"
+
+#: modules/questionnare/templates/questionnare/p_information.html:574
+#: modules/questionnare/templates/questionnare/section_six.html:194
+msgid "Save and Complete"
+msgstr "حفظ وإكمال"
+
+#: modules/questionnare/templates/questionnare/p_metrics.html:26
+msgid "Section 2 of 4"
+msgstr "القسم 2 من 4"
+
+#: modules/questionnare/templates/questionnare/p_metrics.html:267
+#: modules/questionnare/templates/questionnare/p_metrics.html:323
+#: modules/questionnare/templates/questionnare/p_metrics.html:365
+#: modules/questionnare/templates/questionnare/p_metrics.html:402
+#: modules/questionnare/templates/questionnare/p_metrics.html:442
+#: modules/questionnare/templates/questionnare/p_metrics.html:468
+#: modules/questionnare/templates/questionnare/p_metrics.html:508
+#: modules/questionnare/templates/questionnare/p_metrics.html:534
+#: modules/questionnare/templates/questionnare/section_five.html:77
+#: modules/questionnare/templates/questionnare/section_five.html:125
+#: modules/questionnare/templates/questionnare/section_five.html:172
+#: modules/questionnare/templates/questionnare/section_five.html:229
+#: modules/questionnare/templates/questionnare/section_five.html:276
+#: modules/questionnare/templates/questionnare/section_five.html:323
+#: modules/questionnare/templates/questionnare/section_five.html:371
+#: modules/questionnare/templates/questionnare/section_five.html:498
+#: modules/questionnare/templates/questionnare/section_five.html:546
+#: modules/questionnare/templates/questionnare/section_five.html:628
+#: modules/questionnare/templates/questionnare/section_five.html:675
+#: modules/questionnare/templates/questionnare/section_five.html:723
+#: modules/questionnare/templates/questionnare/section_five.html:771
+#: modules/questionnare/templates/questionnare/section_five.html:829
+#: modules/questionnare/templates/questionnare/section_four.html:65
+#: modules/questionnare/templates/questionnare/section_four.html:208
+#: modules/questionnare/templates/questionnare/section_four.html:256
+#: modules/questionnare/templates/questionnare/section_four.html:285
+#: modules/questionnare/templates/questionnare/section_four.html:314
+#: modules/questionnare/templates/questionnare/section_four.html:343
+#: modules/questionnare/templates/questionnare/section_four.html:372
+#: modules/questionnare/templates/questionnare/section_four.html:401
+#: modules/questionnare/templates/questionnare/section_four.html:430
+#: modules/questionnare/templates/questionnare/section_four.html:459
+#: modules/questionnare/templates/questionnare/section_four.html:506
+#: modules/questionnare/templates/questionnare/section_four.html:535
+#: modules/questionnare/templates/questionnare/section_four.html:564
+#: modules/questionnare/templates/questionnare/section_four.html:610
+#: modules/questionnare/templates/questionnare/section_four.html:657
+#: modules/questionnare/templates/questionnare/section_four.html:705
+#: modules/questionnare/templates/questionnare/section_one.html:67
+#: modules/questionnare/templates/questionnare/section_one.html:126
+#: modules/questionnare/templates/questionnare/section_one.html:177
+#: modules/questionnare/templates/questionnare/section_one.html:226
+#: modules/questionnare/templates/questionnare/section_one.html:276
+#: modules/questionnare/templates/questionnare/section_one.html:325
+#: modules/questionnare/templates/questionnare/section_one.html:373
+#: modules/questionnare/templates/questionnare/section_one.html:422
+#: modules/questionnare/templates/questionnare/section_one.html:471
+#: modules/questionnare/templates/questionnare/section_three.html:64
+#: modules/questionnare/templates/questionnare/section_three.html:121
+#: modules/questionnare/templates/questionnare/section_three.html:422
+#: modules/questionnare/templates/questionnare/section_three.html:537
+#: modules/questionnare/templates/questionnare/section_three.html:643
+#: modules/questionnare/templates/questionnare/section_three.html:722
+#: modules/questionnare/templates/questionnare/section_three.html:770
+#: modules/questionnare/templates/questionnare/section_three.html:814
+#: modules/questionnare/templates/questionnare/section_three.html:863
+#: modules/questionnare/templates/questionnare/section_three.html:1077
+#: modules/questionnare/templates/questionnare/section_two.html:64
+#: modules/questionnare/templates/questionnare/section_two.html:746
+#: modules/questionnare/templates/questionnare/section_two.html:792
+#: modules/questionnare/templates/questionnare/section_two.html:839
+#: modules/questionnare/templates/questionnare/section_two.html:895
+#: modules/questionnare/templates/questionnare/section_two.html:1041
+#: modules/responses/templates/sections/p_metrics.html:261
+#: modules/responses/templates/sections/p_metrics.html:317
+#: modules/responses/templates/sections/p_metrics.html:359
+#: modules/responses/templates/sections/p_metrics.html:396
+#: modules/responses/templates/sections/p_metrics.html:436
+#: modules/responses/templates/sections/p_metrics.html:462
+#: modules/responses/templates/sections/p_metrics.html:502
+#: modules/responses/templates/sections/p_metrics.html:528
+msgid "Remarks"
+msgstr "ملاحظات"
+
+#: modules/questionnare/templates/questionnare/p_metrics.html:270
+#: modules/questionnare/templates/questionnare/p_metrics.html:326
+#: modules/questionnare/templates/questionnare/p_metrics.html:368
+#: modules/questionnare/templates/questionnare/p_metrics.html:405
+#: modules/questionnare/templates/questionnare/p_metrics.html:445
+#: modules/questionnare/templates/questionnare/p_metrics.html:471
+#: modules/questionnare/templates/questionnare/p_metrics.html:511
+#: modules/questionnare/templates/questionnare/p_metrics.html:537
+#: modules/questionnare/templates/questionnare/section_five.html:80
+#: modules/questionnare/templates/questionnare/section_five.html:128
+#: modules/questionnare/templates/questionnare/section_five.html:175
+#: modules/questionnare/templates/questionnare/section_five.html:232
+#: modules/questionnare/templates/questionnare/section_five.html:279
+#: modules/questionnare/templates/questionnare/section_five.html:326
+#: modules/questionnare/templates/questionnare/section_five.html:374
+#: modules/questionnare/templates/questionnare/section_five.html:501
+#: modules/questionnare/templates/questionnare/section_five.html:549
+#: modules/questionnare/templates/questionnare/section_five.html:631
+#: modules/questionnare/templates/questionnare/section_five.html:678
+#: modules/questionnare/templates/questionnare/section_five.html:726
+#: modules/questionnare/templates/questionnare/section_five.html:774
+#: modules/questionnare/templates/questionnare/section_five.html:832
+#: modules/questionnare/templates/questionnare/section_four.html:68
+#: modules/questionnare/templates/questionnare/section_four.html:211
+#: modules/questionnare/templates/questionnare/section_four.html:259
+#: modules/questionnare/templates/questionnare/section_four.html:288
+#: modules/questionnare/templates/questionnare/section_four.html:317
+#: modules/questionnare/templates/questionnare/section_four.html:346
+#: modules/questionnare/templates/questionnare/section_four.html:375
+#: modules/questionnare/templates/questionnare/section_four.html:404
+#: modules/questionnare/templates/questionnare/section_four.html:433
+#: modules/questionnare/templates/questionnare/section_four.html:462
+#: modules/questionnare/templates/questionnare/section_four.html:509
+#: modules/questionnare/templates/questionnare/section_four.html:538
+#: modules/questionnare/templates/questionnare/section_four.html:567
+#: modules/questionnare/templates/questionnare/section_four.html:613
+#: modules/questionnare/templates/questionnare/section_four.html:660
+#: modules/questionnare/templates/questionnare/section_four.html:708
+#: modules/questionnare/templates/questionnare/section_one.html:70
+#: modules/questionnare/templates/questionnare/section_one.html:129
+#: modules/questionnare/templates/questionnare/section_one.html:180
+#: modules/questionnare/templates/questionnare/section_one.html:229
+#: modules/questionnare/templates/questionnare/section_one.html:279
+#: modules/questionnare/templates/questionnare/section_one.html:328
+#: modules/questionnare/templates/questionnare/section_one.html:376
+#: modules/questionnare/templates/questionnare/section_one.html:425
+#: modules/questionnare/templates/questionnare/section_one.html:474
+#: modules/questionnare/templates/questionnare/section_three.html:67
+#: modules/questionnare/templates/questionnare/section_three.html:124
+#: modules/questionnare/templates/questionnare/section_three.html:425
+#: modules/questionnare/templates/questionnare/section_three.html:646
+#: modules/questionnare/templates/questionnare/section_three.html:725
+#: modules/questionnare/templates/questionnare/section_three.html:773
+#: modules/questionnare/templates/questionnare/section_three.html:817
+#: modules/questionnare/templates/questionnare/section_three.html:866
+#: modules/questionnare/templates/questionnare/section_three.html:1080
+#: modules/questionnare/templates/questionnare/section_two.html:67
+#: modules/questionnare/templates/questionnare/section_two.html:749
+#: modules/questionnare/templates/questionnare/section_two.html:795
+#: modules/questionnare/templates/questionnare/section_two.html:842
+#: modules/questionnare/templates/questionnare/section_two.html:898
+#: modules/questionnare/templates/questionnare/section_two.html:1044
+#: modules/responses/templates/sections/p_metrics.html:264
+#: modules/responses/templates/sections/p_metrics.html:320
+#: modules/responses/templates/sections/p_metrics.html:362
+#: modules/responses/templates/sections/p_metrics.html:399
+#: modules/responses/templates/sections/p_metrics.html:439
+#: modules/responses/templates/sections/p_metrics.html:465
+#: modules/responses/templates/sections/p_metrics.html:505
+#: modules/responses/templates/sections/p_metrics.html:531
+msgid "Write remarks..."
+msgstr "اكتب الملاحظات"
+
+#: modules/questionnare/templates/questionnare/p_metrics.html:313
+#: modules/questionnare/templates/questionnare/p_metrics.html:355
+#: modules/questionnare/templates/questionnare/p_preference.html:57
+#: modules/questionnare/templates/questionnare/p_preference.html:119
+#: modules/questionnare/templates/questionnare/p_preference.html:181
+#: modules/questionnare/templates/questionnare/p_preference.html:243
+#: modules/questionnare/templates/questionnare/p_preference.html:305
+#: modules/questionnare/templates/questionnare/p_preference.html:367
+#: modules/questionnare/templates/questionnare/p_preference.html:429
+msgid "-- Select --"
+msgstr "يختار"
+
+#: modules/questionnare/templates/questionnare/p_metrics.html:314
+#: modules/questionnare/templates/questionnare/p_metrics.html:356
+#: modules/responses/templates/sections/p_metrics.html:308
+#: modules/responses/templates/sections/p_metrics.html:350
+msgid "Number of doses"
+msgstr "عدد الجرعات"
+
+#: modules/questionnare/templates/questionnare/p_metrics.html:315
+#: modules/questionnare/templates/questionnare/p_metrics.html:357
+#: modules/responses/templates/sections/p_metrics.html:309
+#: modules/responses/templates/sections/p_metrics.html:351
+msgid "Litres"
+msgstr "لتر"
+
+#: modules/questionnare/templates/questionnare/p_metrics.html:316
+#: modules/questionnare/templates/questionnare/p_metrics.html:358
+#: modules/responses/templates/sections/p_metrics.html:310
+#: modules/responses/templates/sections/p_metrics.html:352
+msgid "m3"
+msgstr "مع"
+
+#: modules/questionnare/templates/questionnare/p_preference.html:26
+msgid "Section 3 of 4"
+msgstr "القسم 3 من 4"
+
+#: modules/questionnare/templates/questionnare/p_welcome.html:33
+msgid "Description"
+msgstr "وصف"
+
+#: modules/questionnare/templates/questionnare/p_welcome.html:47
+msgid "Next"
+msgstr "التالي"
+
+#: modules/questionnare/templates/questionnare/section_five.html:25
+msgid "Section 5 of 6"
+msgstr "القسم 5 من 6"
+
+#: modules/questionnare/templates/questionnare/section_five.html:35
+msgid "Information gathering and reporting"
+msgstr "جمع المعلومات وإعداد التقارير"
+
+#: modules/questionnare/templates/questionnare/section_five.html:183
+#: modules/questionnare/templates/questionnare/section_five.html:782
+#: modules/questionnare/templates/questionnare/section_four.html:76
+#: modules/questionnare/templates/questionnare/section_one.html:79
+#: modules/questionnare/templates/questionnare/section_three.html:75
+#: modules/questionnare/templates/questionnare/section_three.html:132
+#: modules/questionnare/templates/questionnare/section_three.html:295
+#: modules/questionnare/templates/questionnare/section_three.html:433
+#: modules/questionnare/templates/questionnare/section_three.html:480
+#: modules/questionnare/templates/questionnare/section_two.html:850
+msgid "Attachments"
+msgstr "المرفقات"
+
+#: modules/questionnare/templates/questionnare/section_five.html:456
+msgid "Epidemic intelligence and feedback"
+msgstr "الذكاء الوبائي وردود الفعل"
+
+#: modules/questionnare/templates/questionnare/section_four.html:25
+msgid "Section 4 of 6"
+msgstr "القسم 4 من 6"
+
+#: modules/questionnare/templates/questionnare/section_four.html:110
+msgid "Funding Level"
+msgstr "مستوى التمويل"
+
+#: modules/questionnare/templates/questionnare/section_four.html:111
+msgid "Amount"
+msgstr "كمية"
+
+#: modules/questionnare/templates/questionnare/section_four.html:112
+msgid "Proportion"
+msgstr "حجم"
+
+#: modules/questionnare/templates/questionnare/section_one.html:26
+msgid "Section 1 of 6"
+msgstr "القسم 1 من 6"
+
+#: modules/questionnare/templates/questionnare/section_six.html:26
+msgid "Section 6 of 6"
+msgstr "القسم 6 من 6"
+
+#: modules/questionnare/templates/questionnare/section_three.html:25
+msgid "Section 3 of 6"
+msgstr "القسم 3 من 6"
+
+#: modules/questionnare/templates/questionnare/section_two.html:26
+msgid "Section 2 of 6"
+msgstr "القسم 2 من 6"
+
+#: modules/questionnare/templates/questionnare/section_two.html:97
+#: modules/questionnare/templates/questionnare/section_two.html:281
+#: modules/questionnare/templates/questionnare/section_two.html:393
+#: modules/questionnare/templates/questionnare/section_two.html:505
+#: modules/questionnare/templates/questionnare/section_two.html:617
+msgid "PhD"
+msgstr "دكتوراه"
+
+#: modules/questionnare/templates/questionnare/section_two.html:98
+#: modules/questionnare/templates/questionnare/section_two.html:282
+#: modules/questionnare/templates/questionnare/section_two.html:394
+#: modules/questionnare/templates/questionnare/section_two.html:506
+#: modules/questionnare/templates/questionnare/section_two.html:618
+msgid "Masters"
+msgstr "سادة"
+
+#: modules/questionnare/templates/questionnare/section_two.html:99
+#: modules/questionnare/templates/questionnare/section_two.html:283
+#: modules/questionnare/templates/questionnare/section_two.html:395
+#: modules/questionnare/templates/questionnare/section_two.html:507
+#: modules/questionnare/templates/questionnare/section_two.html:619
+msgid "Degree"
+msgstr "الدرجة العلمية"
+
+#: modules/questionnare/templates/questionnare/section_two.html:100
+#: modules/questionnare/templates/questionnare/section_two.html:284
+#: modules/questionnare/templates/questionnare/section_two.html:396
+#: modules/questionnare/templates/questionnare/section_two.html:508
+#: modules/questionnare/templates/questionnare/section_two.html:620
+msgid "Diploma"
+msgstr "شهادة دبلوم"
+
+#: modules/questionnare/templates/questionnare/section_two.html:101
+#: modules/questionnare/templates/questionnare/section_two.html:285
+#: modules/questionnare/templates/questionnare/section_two.html:397
+#: modules/questionnare/templates/questionnare/section_two.html:509
+#: modules/questionnare/templates/questionnare/section_two.html:621
+msgid "Certification"
+msgstr "شهادة"
+
+#: modules/questionnare/templates/questionnare/section_two.html:966
+msgid "Number"
+msgstr "عدد"
+
+#: modules/questionnare/templates/questionnare/section_two.html:967
+msgid "Location in country"
+msgstr "الموقع في البلد"
+
+#: modules/questionnare/templates/questionnare/section_two.html:968
+msgid "Level of care serving"
+msgstr "مستوى خدمة الرعاية"
+
+#: modules/responses/templates/sections/p_information.html:44
+msgid ""
+" \n"
+"                                            Because respondent ranked "
+"Activity 1 (Technical assistance to national vaccination programme "
+"management) with a score of 1-4:\n"
+"                                        "
+msgstr ""
+
+#: modules/responses/templates/sections/p_information.html:207
+msgid ""
+" \n"
+"                                            Because respondent ranked "
+"Activity 2 (Procurement and logistics to country) with a score of 1-4:\n"
+"                                        "
+msgstr ""
+
+#: modules/responses/templates/sections/p_information.html:249
+msgid ""
+" \n"
+"                                            Because respondent ranked "
+"Activity 3 (In-country logistics) with a score of 1-4:\n"
+"                                        "
+msgstr ""
+
+#: modules/responses/templates/sections/p_information.html:303
+msgid ""
+" \n"
+"                                            Because respondent ranked "
+"Activity 4 (Vaccination capacity) with a score of 1-4:\n"
+"                                        "
+msgstr ""
+
+#: modules/responses/templates/sections/p_information.html:369
+msgid ""
+" \n"
+"                                            Because respondent ranked "
+"Activity 5 (Risk communication and community engagement) with a score of "
+"1-4:\n"
+"                                        "
+msgstr ""
+
+#: modules/responses/templates/sections/p_information.html:423
+msgid ""
+" \n"
+"                                            Because respondent ranked "
+"Activity 6 (Pharmacovigilance surveillance) with a score of 1-4:\n"
+"                                        "
+msgstr ""
+
+#: modules/responses/templates/sections/p_information.html:479
+msgid ""
+" \n"
+"                                            Because respondent ranked "
+"Activity 7 (Genomic sequencing) with a score of 1-4:\n"
+"                                        "
+msgstr ""
