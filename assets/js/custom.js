@@ -1,5 +1,62 @@
 //jquery
 $(document).ready(function () {
+    //handle select questions 446
+    $('#answer-446').on('change', function (e) {
+        let arr_unselected = $('#answer-446 option').not(':selected')
+
+        console.log(arr_unselected[3]);
+
+        // $.each(arr_unselected, function (index, val) {
+        //     $('#answer-450').append(val);
+        // });
+    });
+
+    //handle select question 450
+    $('#answer-450').on('change', function (e) {
+        let arr_unselected = $('#answer-450 option').not(':selected');
+
+        $.each(arr_unselected, function (index, val) {
+            $('#answer-454').append(val);
+        });
+    });
+
+    //handle select question 454
+    $('#answer-454').on('change', function (e) {
+        let arr_unselected = $('#answer-454 option').not(':selected');
+
+        $.each(arr_unselected, function (index, val) {
+            $('#answer-458').append(val);
+        });
+    });
+
+    //handle select question 458
+    $('#answer-458').on('change', function (e) {
+        let arr_unselected = $('#answer-458 option').not(':selected');
+
+        $.each(arr_unselected, function (index, val) {
+            $('#answer-462').append(val);
+        });
+    });
+
+    //handle select question 462
+    $('#answer-462').on('change', function (e) {
+        let arr_unselected = $('#answer-462 option').not(':selected');
+
+        $.each(arr_unselected, function (index, val) {
+            $('#answer-466').append(val);
+        });
+    });
+
+    //handle select question 466
+    $('#answer-466').on('change', function (e) {
+        let arr_unselected = $('#answer-466 option').not(':selected');
+
+        $.each(arr_unselected, function (index, val) {
+            $('#answer-470').append(val);
+        });
+    });
+
+
     //show council
     $('#id_council').on('change', function () {
         council = $(this).val();
