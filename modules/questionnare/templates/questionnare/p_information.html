@@ -34,6 +34,21 @@
                         </div>
                         <!--./row-->
 
+                        {% if messages %}
+                            <div class="row mt-2">
+                                <div class="col-md-12">
+                                    <div class="alert alert-danger">
+                                        <a class="close" href="#" data-dismiss="alert">×</a>
+                                        {% for message in messages %}
+                                            <p>{{ message }}</p>
+                                        {% endfor %}
+                                    </div><!--./alert-danger-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->   
+                        {% endif %}
+
                         <!--start : check if question 446 is 1-4 -->
                       {% if 446|get_qn_answer:user == '1' or 446|get_qn_answer:user == '2' or 446|get_qn_answer:user == '3' or 446|get_qn_answer:user == '4' %}
                         <div class="form-card">

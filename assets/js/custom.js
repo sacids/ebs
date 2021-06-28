@@ -1,127 +1,112 @@
 //jquery
 $(document).ready(function () {
-    //handle select questions 446
-    $('#answer-446').on('change', function (e) {
-        let arr_unselected = $('#answer-446 option').not(':selected')
+    //form-preference
+    // $('.form-preference').on('submit', function (e) {
+    //     e.preventDefault();
+    //     $('#form-error').html('');
 
-        console.log(arr_unselected[3]);
+    //     //values
+    //     answer446 = $('#answer-446').val();
+    //     answer450 = $('#answer-450').val();
+    //     answer454 = $('#answer-454').val();
+    //     answer458 = $('#answer-458').val();
+    //     answer462 = $('#answer-462').val();
+    //     answer466 = $('#answer-466').val();
+    //     answer470 = $('#answer-470').val();
 
-        // $.each(arr_unselected, function (index, val) {
-        //     $('#answer-450').append(val);
-        // });
-    });
-
-    //handle select question 450
-    $('#answer-450').on('change', function (e) {
-        let arr_unselected = $('#answer-450 option').not(':selected');
-
-        $.each(arr_unselected, function (index, val) {
-            $('#answer-454').append(val);
-        });
-    });
-
-    //handle select question 454
-    $('#answer-454').on('change', function (e) {
-        let arr_unselected = $('#answer-454 option').not(':selected');
-
-        $.each(arr_unselected, function (index, val) {
-            $('#answer-458').append(val);
-        });
-    });
-
-    //handle select question 458
-    $('#answer-458').on('change', function (e) {
-        let arr_unselected = $('#answer-458 option').not(':selected');
-
-        $.each(arr_unselected, function (index, val) {
-            $('#answer-462').append(val);
-        });
-    });
-
-    //handle select question 462
-    $('#answer-462').on('change', function (e) {
-        let arr_unselected = $('#answer-462 option').not(':selected');
-
-        $.each(arr_unselected, function (index, val) {
-            $('#answer-466').append(val);
-        });
-    });
-
-    //handle select question 466
-    $('#answer-466').on('change', function (e) {
-        let arr_unselected = $('#answer-466 option').not(':selected');
-
-        $.each(arr_unselected, function (index, val) {
-            $('#answer-470').append(val);
-        });
-    });
+    //     if ((answer446 === answer450) || (answer446 === answer454) || (answer446 === answer458) || (answer446 === answer462) || (answer446 === answer466) || (answer446 === answer470)) {
+    //         console.log('Answer for qn 2.1.i should not be the same');
+    //         $('#form-error').html('<div class="alert alert-danger">Answer for question 2.1.i should not be the same with other answers.</div>');
+    //         return false;
+    //     } else if ((answer450 === answer454) || (answer450 === answer458) || (answer450 === answer462) || (answer450 === answer466) || (answer450 === answer470)) {
+    //         console.log('Answer for qn 2.2.i should not be the same');
+    //         $('#form-error').html('<div class="alert alert-danger">Answer for question 2.2.i should not be the same with other answers.</div>');
+    //         return false;
+    //     } else if ((answer454 === answer458) || (answer454 === answer462) || (answer454 === answer466) || (answer454 === answer470)) {
+    //         console.log('Answer for qn 2.3.i should not be the same');
+    //         $('#form-error').html('<div class="alert alert-danger">Answer for question 2.3.i should not be the same with other answers.</div>');
+    //         return false;
+    //     } else if ((answer458 === answer462) || (answer458 === answer466) || (answer458 === answer470)) {
+    //         console.log('Answer for qn 2.4.i should not be the same');
+    //         $('#form-error').html('<div class="alert alert-danger">Answer for question 2.4.i should not be the same with other answers.</div>');
+    //         return false;
+    //     } else if ((answer462 === answer466) || (answer462 === answer470)) {
+    //         console.log('Answer for qn 2.5.i should not be the same');
+    //         $('#form-error').html('<div class="alert alert-danger">Answer for question 2.5.i should not be the same with other answers.</div>');
+    //         return false;
+    //     } else if (answer466 === answer470) {
+    //         console.log('Answer for qn 2.5.i should not be the same');
+    //         $('#form-error').html('<div class="alert alert-danger">Answer for question 2.6.i should not be the same with 2.7.i</div>');
+    //         return false;
+    //     } else {
+    //         console.log('All answers are not the same');
+    //         return true;
+    //     }
+    // });
 
 
-    //show council
-    $('#id_council').on('change', function () {
-        council = $(this).val();
-        base_url = window.location.origin;
+    // //show council
+    // $('#id_council').on('change', function () {
+    //     council = $(this).val();
+    //     base_url = window.location.origin;
 
-        //ajax get
-        $.ajax({
-            url: base_url + "/get_countries/?council_id=" + council,
-            type: "get",
+    //     //ajax get
+    //     $.ajax({
+    //         url: base_url + "/get_countries/?council_id=" + council,
+    //         type: "get",
 
-            success: function (data) {
-                $('#id_country').html(data);
-            }
-        });
-    });
+    //         success: function (data) {
+    //             $('#id_country').html(data);
+    //         }
+    //     });
+    // });
 
-    //delete
-    $("a.delete").click(function (e) {
-        var confirmDelete = confirm("Are you sure you want to delete?");
+    // //delete
+    // $("a.delete").click(function (e) {
+    //     var confirmDelete = confirm("Are you sure you want to delete?");
 
-        if (confirmDelete) {
-            return true;
-        } else {
-            e.preventDefault();
-        }
-    });
+    //     if (confirmDelete) {
+    //         return true;
+    //     } else {
+    //         e.preventDefault();
+    //     }
+    // });
 
-    //toggle modal
-    $(".qn-modal").on('click', function (e) {
-        var qn_id = $(this).attr('question-id');
-        var base_url = window.location.origin;
+    // //toggle modal
+    // $(".qn-modal").on('click', function (e) {
+    //     var qn_id = $(this).attr('question-id');
+    //     var base_url = window.location.origin;
 
-        $.ajax({
-            url: base_url + "/show_question/?question_id=" + qn_id,
-            type: "get",
-            dataType: "json",
+    //     $.ajax({
+    //         url: base_url + "/show_question/?question_id=" + qn_id,
+    //         type: "get",
+    //         dataType: "json",
 
-            //success
-            success: function (data) {
-                $('#qnModalBody').text(data.placeholder)
-            }
-        });
+    //         //success
+    //         success: function (data) {
+    //             $('#qnModalBody').text(data.placeholder)
+    //         }
+    //     });
 
-        // show modal
-        $("#qnModal").modal('show');
-    });
+    //     // show modal
+    //     $("#qnModal").modal('show');
+    // });
 
-    //hide or show question 107 (2.9)
-    let answer_105 = $('input:radio[name="answer[105]"]:checked').val();
-    if (answer_105 == "YES")
-        $("#qn_106").show();
-    else if (answer_105 == "NO")
-        $("#qn_106").hide();
+    // //hide or show question 107 (2.9)
+    // let answer_105 = $('input:radio[name="answer[105]"]:checked').val();
+    // if (answer_105 == "YES")
+    //     $("#qn_106").show();
+    // else if (answer_105 == "NO")
+    //     $("#qn_106").hide();
 
-    //on change value    
-    $('input:radio[name="answer[105]"]').change(function () {
-        if ($(this).val() == 'YES') {
-            $("#qn_106").show();
-        } else if ($(this).val() == 'NO') {
-            $("#qn_106").hide();
-        }
-    });
-
-
-
+    // //on change value    
+    // $('input:radio[name="answer[105]"]').change(function () {
+    //     if ($(this).val() == 'YES') {
+    //         $("#qn_106").show();
+    //     } else if ($(this).val() == 'NO') {
+    //         $("#qn_106").hide();
+    //     }
+    // });
 
     //form-wizard
     var current_fs, next_fs, previous_fs; //fieldsets

@@ -47,7 +47,7 @@ def default(request):
 
 @login_required(login_url='/login')
 def section_one(request):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=1)
 
     # section_id
@@ -71,7 +71,7 @@ def section_one(request):
         # first save country survey status
         try:
             country_survey = CountrySurvey.objects.get(
-                country_id =request.user.profiles.country_id, survey_id=1)
+                country_id=request.user.profiles.country_id, survey_id=1)
             # do nothing
         except:
             # save new country survey
@@ -120,7 +120,7 @@ def section_one(request):
 # section two
 @login_required(login_url='/login')
 def section_two(request):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=1)
 
     # section_id
@@ -179,7 +179,7 @@ def section_two(request):
 # section three
 @login_required(login_url='/login')
 def section_three(request):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=1)
 
     # section
@@ -238,7 +238,7 @@ def section_three(request):
 # section four
 @login_required(login_url='/login')
 def section_four(request):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=1)
 
     # section
@@ -297,7 +297,7 @@ def section_four(request):
 # section five
 @login_required(login_url='/login')
 def section_five(request):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=1)
 
     # section
@@ -356,7 +356,7 @@ def section_five(request):
 # section six
 @login_required(login_url='/login')
 def section_six(request):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=1)
 
     # section
@@ -442,7 +442,7 @@ def section_six(request):
 
                 # send email notification
                 send_notification(subject, message, from_email=request.user.email,
-                                  to_email=['renfrid.ngolongolo@sacids.org','eric.beda@sacids.org'])
+                                  to_email=['renfrid.ngolongolo@sacids.org', 'eric.beda@sacids.org'])
 
                 # redirect to success
                 return redirect('/questionnare/success')
@@ -454,7 +454,7 @@ def section_six(request):
 @login_required(login_url='/login')
 def success(request):
 
-    #country
+    # country
     country = Country.objects.get(pk=request.user.profiles.country_id)
 
     return render(None, "questionnare/success.html", {})
@@ -463,24 +463,24 @@ def success(request):
 # =================================================================
 # Preliminary Survey
 #================================================================#
-#section information
+# section information
 @login_required(login_url='/login')
 def welcome(request):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=2)
 
     context = {
-        "survey" : survey,     
+        "survey": survey,
     }
 
     # render view
     return render(request, "questionnare/p_welcome.html", context)
 
 
-#general information
+# general information
 @login_required(login_url='/login')
 def general_info(request):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=2)
 
     # metrics
@@ -489,16 +489,16 @@ def general_info(request):
     # section
     section = Section.objects.get(pk=section_id)
 
-    #country
+    # country
     country = Country.objects.get(pk=request.user.profiles.country_id)
 
     context = {
-        "survey" : survey,  
-        "section": section, 
-        "country": country  
+        "survey": survey,
+        "section": section,
+        "country": country
     }
 
-        # post data
+    # post data
     if request.method == "POST":
         # first save country survey status
         try:
@@ -535,12 +535,14 @@ def general_info(request):
             return redirect('/questionnare/metrics')
 
     # render view
-    return render(request, "questionnare/p_general_info.html", context)        
+    return render(request, "questionnare/p_general_info.html", context)
 
 # section one
+
+
 @login_required(login_url='/login')
 def metrics(request):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=2)
 
     # metrics
@@ -594,7 +596,7 @@ def metrics(request):
 
 @login_required(login_url='/login')
 def preference(request):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=2)
 
     # section_id
@@ -611,36 +613,69 @@ def preference(request):
 
     # post data
     if request.method == "POST":
-        # query questions
-        questions = QuestionList.objects.filter(
-            section_id=section_id).order_by('sort_order', 'code')
+        # get answers
+        answer446 = request.POST.get('answer[446]')
+        answer450 = request.POST.get('answer[450]')
+        answer454 = request.POST.get('answer[454]')
+        answer458 = request.POST.get('answer[458]')
+        answer462 = request.POST.get('answer[462]')
+        answer466 = request.POST.get('answer[466]')
+        answer470 = request.POST.get('answer[470]')
 
-        for question in questions:
-            answer = request.POST.get('answer[' + str(question.id) + ']')
-            remarks = request.POST.get('remarks[' + str(question.id) + ']')
+        if ((answer446 == answer450) or (answer446 == answer454) or (answer446 == answer458) or (answer446 == answer462) or (answer446 == answer466) or (answer446 == answer470)):
+            messages.add_message(
+                request, messages.ERROR, 'Answer for question 2.1.i should not be the same with other answers.')
 
-            if answer is not None:
-                # save or update
-                obj, created = AnsBank.objects.update_or_create(
-                    question_id=question.id, country_id=request.user.profiles.country_id,
-                    defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
-                              'question_id': question.id, 'answer': answer, 'remarks': remarks},)
+        elif ((answer450 == answer454) or (answer450 == answer458) or (answer450 == answer462) or (answer450 == answer466) or (answer450 == answer470)):
+            messages.add_message(
+                request, messages.ERROR, 'Answer for question 2.2.i should not be the same with other answers.')
 
-                # check for attachment and upload
-                if request.FILES is not None:
-                    attachment_files = request.FILES.getlist(
-                        'attachments[' + str(question.id) + ']')
-                    for f in attachment_files:
-                        newAttachment = Attachments()
-                        newAttachment.ansbank_id = obj.id
-                        newAttachment.uploads = f
-                        newAttachment.save()  # save
+        elif((answer454 == answer458) or (answer454 == answer462) or (answer454 == answer466) or (answer454 == answer470)):
+            messages.add_message(
+                request, messages.ERROR, 'Answer for question 2.3.i should not be the same with other answers.')
 
-        # redirect
-        if(request.POST.get('post_exit')):
-            return redirect('/questionnare/success')  # return to exit page
-        elif(request.POST.get('post_next')):
-            return redirect('/questionnare/information')
+        elif ((answer458 == answer462) or (answer458 == answer466) or (answer458 == answer470)):
+            messages.add_message(
+                request, messages.ERROR, 'Answer for question 2.4.i should not be the same with other answers.')
+
+        elif ((answer462 == answer466) or (answer462 == answer470)):
+            messages.add_message(
+                request, messages.ERROR, 'Answer for question 2.5.i should not be the same with other answers.')
+                
+        elif (answer466 == answer470):
+            messages.add_message(
+                request, messages.ERROR, 'Answer for question 2.6.i should not be the same with 2.7.i')
+        else:
+            # query questions
+            questions = QuestionList.objects.filter(
+                section_id=section_id).order_by('sort_order', 'code')
+
+            for question in questions:
+                answer = request.POST.get('answer[' + str(question.id) + ']')
+                remarks = request.POST.get('remarks[' + str(question.id) + ']')
+
+                if answer is not None:
+                    # save or update
+                    obj, created = AnsBank.objects.update_or_create(
+                        question_id=question.id, country_id=request.user.profiles.country_id,
+                        defaults={'created_by_id': request.user.id, 'country_id': request.user.profiles.country_id,
+                                  'question_id': question.id, 'answer': answer, 'remarks': remarks},)
+
+                    # check for attachment and upload
+                    if request.FILES is not None:
+                        attachment_files = request.FILES.getlist(
+                            'attachments[' + str(question.id) + ']')
+                        for f in attachment_files:
+                            newAttachment = Attachments()
+                            newAttachment.ansbank_id = obj.id
+                            newAttachment.uploads = f
+                            newAttachment.save()  # save
+
+            # redirect
+            if(request.POST.get('post_exit')):
+                return redirect('/questionnare/success')  # return to exit page
+            elif(request.POST.get('post_next')):
+                return redirect('/questionnare/information')
 
     # render view
     return render(request, "questionnare/p_preference.html", context)
@@ -648,7 +683,7 @@ def preference(request):
 
 @login_required(login_url='/login')
 def information(request):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=2)
 
     # section_id

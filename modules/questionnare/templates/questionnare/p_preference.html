@@ -16,7 +16,6 @@
             <div class="content" id="preference">
                 <form id="msform" action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-
                     <fieldset>
                         <div class="card-h1 m-0">
                             <div class="col-md-12">
@@ -33,6 +32,21 @@
                             <!--./col-->
                         </div>
                         <!--./row-->
+
+                        {% if messages %}
+                            <div class="row mt-2">
+                                <div class="col-md-12">
+                                    <div class="alert alert-danger">
+                                        <a class="close" href="#" data-dismiss="alert">×</a>
+                                        {% for message in messages %}
+                                            <p>{{ message }}</p>
+                                        {% endfor %}
+                                    </div><!--./alert-danger-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->   
+                        {% endif %}
 
                         <div class="form-card">
                             <div class="row">
@@ -116,14 +130,14 @@
                                     <div class="form-group">
                                         <label>{{ 450|get_qn_title }}</label>
                                         <select name="answer[450]" id="answer-450" class="form-control" required>
-                                            <!-- <option value="">{% trans '-- Select --' %}</option>
+                                            <option value="">{% trans '-- Select --' %}</option>
                                             <option value="1" {% if 450|get_qn_answer:user == "1" %} selected {% endif %}>1</option>
                                             <option value="2" {% if 450|get_qn_answer:user == "2" %} selected {% endif %}>2</option>
                                             <option value="3" {% if 450|get_qn_answer:user == "3" %} selected {% endif %}>3</option>
                                             <option value="4" {% if 450|get_qn_answer:user == "4" %} selected {% endif %}>4</option>
                                             <option value="5" {% if 450|get_qn_answer:user == "5" %} selected {% endif %}>5</option>
                                             <option value="6" {% if 450|get_qn_answer:user == "6" %} selected {% endif %}>6</option>
-                                            <option value="7" {% if 450|get_qn_answer:user == "7" %} selected {% endif %}>7</option> -->
+                                            <option value="7" {% if 450|get_qn_answer:user == "7" %} selected {% endif %}>7</option>
                                         </select>
                                     </div>
                                     <!--./form-group-->
@@ -179,13 +193,13 @@
                                         <label>{{ 454|get_qn_title }}</label>
                                         <select name="answer[454]" id="answer-454" class="form-control" required>
                                             <option value="">{% trans '-- Select --' %}</option>
-                                            <!-- <option value="1" {% if 454|get_qn_answer:user == "1" %} selected {% endif %}>1</option>
+                                            <option value="1" {% if 454|get_qn_answer:user == "1" %} selected {% endif %}>1</option>
                                             <option value="2" {% if 454|get_qn_answer:user == "2" %} selected {% endif %}>2</option>
                                             <option value="3" {% if 454|get_qn_answer:user == "3" %} selected {% endif %}>3</option>
                                             <option value="4" {% if 454|get_qn_answer:user == "4" %} selected {% endif %}>4</option>
                                             <option value="5" {% if 454|get_qn_answer:user == "5" %} selected {% endif %}>5</option>
                                             <option value="6" {% if 454|get_qn_answer:user == "6" %} selected {% endif %}>6</option>
-                                            <option value="7" {% if 454|get_qn_answer:user == "7" %} selected {% endif %}>7</option> -->
+                                            <option value="7" {% if 454|get_qn_answer:user == "7" %} selected {% endif %}>7</option>
                                         </select>
                                     </div>
                                     <!--./form-group-->
@@ -240,14 +254,14 @@
                                     <div class="form-group">
                                         <label>{{ 458|get_qn_title }}</label>
                                         <select name="answer[458]" id="answer-458" class="form-control" required>
-                                            <!-- <option value="">{% trans '-- Select --' %}</option>
+                                            <option value="">{% trans '-- Select --' %}</option>
                                             <option value="1" {% if 458|get_qn_answer:user == "1" %} selected {% endif %}>1</option>
                                             <option value="2" {% if 458|get_qn_answer:user == "2" %} selected {% endif %}>2</option>
                                             <option value="3" {% if 458|get_qn_answer:user == "3" %} selected {% endif %}>3</option>
                                             <option value="4" {% if 458|get_qn_answer:user == "4" %} selected {% endif %}>4</option>
                                             <option value="5" {% if 458|get_qn_answer:user == "5" %} selected {% endif %}>5</option>
                                             <option value="6" {% if 458|get_qn_answer:user == "6" %} selected {% endif %}>6</option>
-                                            <option value="7" {% if 458|get_qn_answer:user == "7" %} selected {% endif %}>7</option> -->
+                                            <option value="7" {% if 458|get_qn_answer:user == "7" %} selected {% endif %}>7</option>
                                         </select>
                                     </div>
                                     <!--./form-group-->
@@ -302,14 +316,14 @@
                                     <div class="form-group">
                                         <label>{{ 462|get_qn_title }}</label>
                                         <select name="answer[462]" id="answer-462" class="form-control" required>
-                                            <!-- <option value="">{% trans '-- Select --' %}</option>
+                                            <option value="">{% trans '-- Select --' %}</option>
                                             <option value="1" {% if 462|get_qn_answer:user == "1" %} selected {% endif %}>1</option>
                                             <option value="2" {% if 462|get_qn_answer:user == "2" %} selected {% endif %}>2</option>
                                             <option value="3" {% if 462|get_qn_answer:user == "3" %} selected {% endif %}>3</option>
                                             <option value="4" {% if 462|get_qn_answer:user == "4" %} selected {% endif %}>4</option>
                                             <option value="5" {% if 462|get_qn_answer:user == "5" %} selected {% endif %}>5</option>
                                             <option value="6" {% if 462|get_qn_answer:user == "6" %} selected {% endif %}>6</option>
-                                            <option value="7" {% if 462|get_qn_answer:user == "7" %} selected {% endif %}>7</option> -->
+                                            <option value="7" {% if 462|get_qn_answer:user == "7" %} selected {% endif %}>7</option>
                                         </select>
                                     </div>
                                     <!--./form-group-->
@@ -364,14 +378,14 @@
                                     <div class="form-group">
                                         <label>{{ 466|get_qn_title }}</label>
                                         <select name="answer[466]" id="answer-466" class="form-control" required>
-                                            <!-- <option value="">{% trans '-- Select --' %}</option>
+                                            <option value="">{% trans '-- Select --' %}</option>
                                             <option value="1" {% if 466|get_qn_answer:user == "1" %} selected {% endif %}>1</option>
                                             <option value="2" {% if 466|get_qn_answer:user == "2" %} selected {% endif %}>2</option>
                                             <option value="3" {% if 466|get_qn_answer:user == "3" %} selected {% endif %}>3</option>
                                             <option value="4" {% if 466|get_qn_answer:user == "4" %} selected {% endif %}>4</option>
                                             <option value="5" {% if 466|get_qn_answer:user == "5" %} selected {% endif %}>5</option>
                                             <option value="6" {% if 466|get_qn_answer:user == "6" %} selected {% endif %}>6</option>
-                                            <option value="7" {% if 466|get_qn_answer:user == "7" %} selected {% endif %}>7</option> -->
+                                            <option value="7" {% if 466|get_qn_answer:user == "7" %} selected {% endif %}>7</option>
                                         </select>
                                     </div>
                                     <!--./form-group-->
@@ -426,14 +440,14 @@
                                     <div class="form-group">
                                         <label>{{ 470|get_qn_title }}</label>
                                         <select name="answer[470]" id="answer-470" class="form-control" required>
-                                            <!-- <option value="">{% trans '-- Select --' %}</option>
+                                            <option value="">{% trans '-- Select --' %}</option>
                                             <option value="1" {% if 470|get_qn_answer:user == "1" %} selected {% endif %}>1</option>
                                             <option value="2" {% if 470|get_qn_answer:user == "2" %} selected {% endif %}>2</option>
                                             <option value="3" {% if 470|get_qn_answer:user == "3" %} selected {% endif %}>3</option>
                                             <option value="4" {% if 470|get_qn_answer:user == "4" %} selected {% endif %}>4</option>
                                             <option value="5" {% if 470|get_qn_answer:user == "5" %} selected {% endif %}>5</option>
                                             <option value="6" {% if 470|get_qn_answer:user == "6" %} selected {% endif %}>6</option>
-                                            <option value="7" {% if 470|get_qn_answer:user == "7" %} selected {% endif %}>7</option> -->
+                                            <option value="7" {% if 470|get_qn_answer:user == "7" %} selected {% endif %}>7</option>
                                         </select>
                                     </div>
                                     <!--./form-group-->
@@ -471,7 +485,7 @@
                         <!--./buttons -->
                         <a href="/questionnare/metrics" class="btn btn-danger btn-sm"><i class="fa fa-angle-left"></i>
                             {% trans 'Previous' %}</a>
-                        <input type="submit" name="post_exit" class="btn btn-secondary btn-sm"
+                        <input type="submit" name="post_exit" class="btn btn-secondary btn-sm" id="btn-save-exit"
                             value="{% trans 'Save and Exit' %}" />
                         <input type="submit" name="post_next" class="btn btn-primary btn-sm"
                             value="{% trans 'Save and Continue' %}" />
