@@ -55,7 +55,8 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="date" name="answer[505]" id="answer" value="{{ 505|get_qn_answer:user }}" class="form-control" readonly/>
+                                        <input type="date" name="answer[505]" id="answer"
+                                            value="{{ 505|get_qn_answer:user }}" class="form-control" readonly />
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -80,7 +81,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" name="answer[506]" id="answer" value="{{ 506|get_qn_answer:user|default:country.title }}" class="form-control" readonly/>
+                                        <input type="text" name="answer[506]" id="answer"
+                                            value="{{ 506|get_qn_answer:user|default:country.title }}"
+                                            class="form-control" readonly />
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -105,8 +108,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea rows="3" cols="40" name="answer[507]" class="textarea form-control" readonly
-                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 507|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[507]" class="textarea form-control"
+                                            readonly placeholder="{% trans 'Write answer...' %}"
+                                            id="answer">{{ 507|get_qn_answer:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -131,8 +135,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea rows="3" cols="40" name="answer[508]" class="textarea form-control" readonly
-                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 508|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[508]" class="textarea form-control"
+                                            readonly placeholder="{% trans 'Write answer...' %}"
+                                            id="answer">{{ 508|get_qn_answer:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
                                 </div>
@@ -157,10 +162,42 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea rows="3" cols="40" name="answer[509]" class="textarea form-control" readonly
-                                            placeholder="{% trans 'Write answer...' %}" id="answer">{{ 509|get_qn_answer:user }}</textarea>
+                                        <textarea rows="3" cols="40" name="answer[509]" class="textarea form-control"
+                                            readonly placeholder="{% trans 'Write answer...' %}"
+                                            id="answer">{{ 509|get_qn_answer:user }}</textarea>
                                     </div>
                                     <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Uploaded Attachments</label>
+                                    </div>
+                                    <!--./form-group-->
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {% if attachments %}
+                                    <ul>
+                                        {% for val in attachments %}
+                                        <li>
+                                            <a href="{{ '/static/media/' }}{{ val.uploads }}" download>
+                                                {{ val.uploads }}
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% else %}
+                                    <i style="color: red;">No attachment available</i>
+                                    {% endif %}
                                 </div>
                                 <!--./col-->
                             </div>
@@ -176,7 +213,8 @@
                         </button>
                     </fieldset>
                 </form>
-                <div class="mt-4"></div><!--./mt-4-->
+                <div class="mt-4"></div>
+                <!--./mt-4-->
             </div><!-- /content area -->
         </div><!-- /main content -->
     </div>

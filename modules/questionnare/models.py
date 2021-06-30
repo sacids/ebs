@@ -216,4 +216,4 @@ class Attachments(models.Model):
         managed = True
 
     def __str__(self):
-        return self.id
+        return str(self.id)

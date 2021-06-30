@@ -62,7 +62,7 @@ def countries(request, **kwargs):
 # section one
 @login_required(login_url='/login')
 def section_one(request, **kwargs):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=1)
 
     # country
@@ -96,7 +96,7 @@ def section_one(request, **kwargs):
 # section two
 @login_required(login_url='/login')
 def section_two(request, **kwargs):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=1)
 
     # country
@@ -127,7 +127,7 @@ def section_two(request, **kwargs):
 # section three
 @login_required(login_url='/login')
 def section_three(request, **kwargs):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=1)
 
     # country
@@ -158,7 +158,7 @@ def section_three(request, **kwargs):
 # section four
 @login_required(login_url='/login')
 def section_four(request, **kwargs):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=1)
 
     # country
@@ -189,7 +189,7 @@ def section_four(request, **kwargs):
 # section five
 @login_required(login_url='/login')
 def section_five(request, **kwargs):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=1)
 
     # country
@@ -220,7 +220,7 @@ def section_five(request, **kwargs):
 # section six
 @login_required(login_url='/login')
 def section_six(request, **kwargs):
-    #survey
+    # survey
     survey = Survey.objects.get(pk=1)
 
     # country
@@ -250,17 +250,23 @@ def section_six(request, **kwargs):
 # ===========================================================
 # SURVEY 2
 # ===========================================================
-#general information
+# general information
+
+
 @login_required(login_url='/login')
 def general_info(request, **kwargs):
-        #survey
-    survey = Survey.objects.get(pk=2) 
+    # survey
+    survey = Survey.objects.get(pk=2)
 
-    #section
-    section = Section.objects.get(pk = 10)
+    # section
+    section = Section.objects.get(pk=10)
 
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
+
+    # attachments
+    attachments = Attachments.objects.select_related(
+        'ansbank', 'ansbank__question', 'ansbank__question__section').filter(ansbank__question__section__survey_id=2, ansbank__country_id=country.id)
 
     # profile
     try:
@@ -274,23 +280,28 @@ def general_info(request, **kwargs):
     # context
     context = {
         "survey": survey,
-        "section" : section,
+        "section": section,
         "country": country,
         "profile": profile,
-        "user": user
+        "user": user, 
+        "attachments" : attachments
     }
     # render view
     return render(request, "sections/p_general_info.html", context)
 
 
+# download attachments
+# def download_attachments(request):
+
+
 # metrics
 @login_required(login_url='/login')
 def metrics(request, **kwargs):
-    #survey
-    survey = Survey.objects.get(pk=2) 
+    # survey
+    survey = Survey.objects.get(pk=2)
 
-    #section
-    section = Section.objects.get(pk = 7)
+    # section
+    section = Section.objects.get(pk=7)
 
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
@@ -307,7 +318,7 @@ def metrics(request, **kwargs):
     # context
     context = {
         "survey": survey,
-        "section" : section,
+        "section": section,
         "country": country,
         "profile": profile,
         "user": user
@@ -316,13 +327,15 @@ def metrics(request, **kwargs):
     return render(request, "sections/p_metrics.html", context)
 
 # preference
+
+
 @login_required(login_url='/login')
 def preference(request, **kwargs):
-    #survey
-    survey = Survey.objects.get(pk=2) 
+    # survey
+    survey = Survey.objects.get(pk=2)
 
-    #section
-    section = Section.objects.get(pk = 8)
+    # section
+    section = Section.objects.get(pk=8)
 
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
@@ -339,7 +352,7 @@ def preference(request, **kwargs):
     # context
     context = {
         "survey": survey,
-        "section" : section,
+        "section": section,
         "country": country,
         "profile": profile,
         "user": user
@@ -351,11 +364,11 @@ def preference(request, **kwargs):
 # information
 @login_required(login_url='/login')
 def information(request, **kwargs):
-    #survey
-    survey = Survey.objects.get(pk=2) 
+    # survey
+    survey = Survey.objects.get(pk=2)
 
-    #section
-    section = Section.objects.get(pk = 9)
+    # section
+    section = Section.objects.get(pk=9)
 
     # country
     country = Country.objects.get(pk=kwargs['country_id'])
@@ -372,18 +385,20 @@ def information(request, **kwargs):
     # context
     context = {
         "survey": survey,
-        "section" : section,
+        "section": section,
         "country": country,
         "profile": profile,
         "user": user
     }
     # render view
-    return render(request, "sections/p_information.html", context)    
+    return render(request, "sections/p_information.html", context)
 
 # ==========================================================
 # MANAGEMENT CALLBACK FUNCTIONS
 # ==========================================================
 # send incomplete submission alert
+
+
 @login_required(login_url='/login')
 def send_incomplete_submission_alert(request, **kwargs):
     # check for incomplete submission
@@ -391,7 +406,7 @@ def send_incomplete_submission_alert(request, **kwargs):
         # survey
         survey = Survey.objects.get(pk=kwargs['survey_id'])
 
-        #country
+        # country
         country = Country.objects.get(pk=kwargs['country_id'])
 
         # profile
@@ -408,7 +423,7 @@ def send_incomplete_submission_alert(request, **kwargs):
 
             # send email notification
             send_notification(subject, message, from_email="chris@ecsahc.org",
-                                to_email=[profile.user.email])
+                              to_email=[profile.user.email])
 
             # message
             messages.add_message(
@@ -484,6 +499,8 @@ def export_csv(request, **kwargs):
     return response
 
 # export csv
+
+
 def export_xls(request, **kwargs):
     # survey
     survey = Survey.objects.get(pk=kwargs['survey_id'])
@@ -501,25 +518,26 @@ def export_xls(request, **kwargs):
     # profile
     profile = Profiles.objects.get(country_id=country.id)
 
-    #first row
-    writer.writerow([]) 
-    writer.writerow(['Name of the Country', country.title])           
-    writer.writerow(['Supporting Regional Cordinating Centre (RCC)', country.council.title])           
-    writer.writerow(['Respondent Name', profile.user.get_full_name()])           
-    writer.writerow(['Respondent Institution', profile.institution])           
-    writer.writerow(['Respondent designation', profile.designation]) 
-    writer.writerow([])          
+    # first row
+    writer.writerow([])
+    writer.writerow(['Name of the Country', country.title])
+    writer.writerow(
+        ['Supporting Regional Cordinating Centre (RCC)', country.council.title])
+    writer.writerow(['Respondent Name', profile.user.get_full_name()])
+    writer.writerow(['Respondent Institution', profile.institution])
+    writer.writerow(['Respondent designation', profile.designation])
+    writer.writerow([])
 
     # column
     # deals with title row
-    rows = ['Code', 'Question', 'Answer', 'Remarks' , 'Attachments']
+    rows = ['Code', 'Question', 'Answer', 'Remarks', 'Attachments']
 
     # write to row
     writer.writerow(rows)
 
     # query questions
     questions = QuestionList.objects.select_related("section").filter(
-        section__survey=survey.id).order_by('sections.code', 'sort_order', 'code')  
+        section__survey=survey.id).order_by('sections.code', 'sort_order', 'code')
 
     rows2 = []
     for qn in questions:
@@ -537,14 +555,15 @@ def export_xls(request, **kwargs):
             # check for attachment
             attachments = Attachments.objects.filter(ansbank_id=ansbank.id)
             if attachments:
-                for attachment in attachments:    
-                    arr_attachments.append(str(attachment.uploads).rsplit('/', 1)[-1])
+                for attachment in attachments:
+                    arr_attachments.append(
+                        str(attachment.uploads).rsplit('/', 1)[-1])
 
-        str_attach = '' 
+        str_attach = ''
         if arr_attachments is not None:
             str_attach = ', '.join(arr_attachments)
-        #rows
-        rows2 = [qn.code, qn.title, answer, remarks, str_attach]    
+        # rows
+        rows2 = [qn.code, qn.title, answer, remarks, str_attach]
 
         # write to column2
         writer.writerow(rows2)
