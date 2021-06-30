@@ -186,7 +186,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     {% if attachments %}
-                                    <ul>
+                                    <ol type="a">
                                         {% for val in attachments %}
                                         <li>
                                             <a href="{{ '/assets/media/' }}{{ val.uploads }}" download>
@@ -194,7 +194,7 @@
                                             </a>
                                         </li>
                                         {% endfor %}
-                                    </ul>
+                                    </ol>
                                     {% else %}
                                     <i style="color: red;">No attachment available</i>
                                     {% endif %}
