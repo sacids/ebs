@@ -513,6 +513,8 @@ def export_xls(request, **kwargs):
     response['Content-Disposition'] = 'attachment; filename=' + \
         country.title + '-Response.csv'
 
+    #encoding
+    response.write(u'\ufeff'.encode('utf8'))  
     writer = csv.writer(response)
 
     # profile
