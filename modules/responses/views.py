@@ -563,7 +563,7 @@ def export_xls(request, **kwargs):
         if arr_attachments is not None:
             str_attach = ', '.join(arr_attachments)
         # rows
-        rows2 = [qn.code, qn.title, answer, remarks, str_attach]
+        rows2 = [qn.code, qn.title, answer.encode('utf-8-sig'), remarks.encode('utf-8-sig'), str_attach]
 
         # write to column2
         writer.writerow(rows2)
