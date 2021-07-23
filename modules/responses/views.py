@@ -459,7 +459,7 @@ def export_csv(request, **kwargs):
         section__survey=survey.id).order_by('sections.id', 'code', 'sort_order')
 
     for qn in questions:
-        columns.append(qn.code)
+        columns.append(qn.code + ':' + qn.title)
         columns.append('Remarks')
         columns.append('Attachments')
 
