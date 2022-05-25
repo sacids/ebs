@@ -25,7 +25,11 @@ def get_country_survey_status(survey_id, country_id):
     except:
         return "NOT STARTED"
 
-
+@register.filter
+def str_title(code, title):
+    return mark_safe('<b>' + code + '</b>. ' + title)
+   
+    
 @register.filter
 def get_qn_title(qn_id):
     question = QuestionList.objects.get(pk=qn_id)

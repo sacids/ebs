@@ -4,7 +4,11 @@ from . import views
 app_name = 'questionnare'
 
 urlpatterns = [
-    path("", views.default, name="index"),
+    path("", views.surveys, name="index"),
+    path("introduction/<int:pk>/", views.introduction, name="introduction"),
+    path("sections/<int:pk>/", views.sections, name="sections"),
+
+
     path("section_one/", views.section_one, name="section_one"),
     path("section_two/", views.section_two, name="section_two"),
     path("section_three/", views.section_three, name="section_three"),

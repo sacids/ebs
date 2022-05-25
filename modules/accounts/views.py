@@ -45,8 +45,6 @@ def change_language(request, **kwargs):
 
 # login
 def loginPage(request):
-    print("current language => " + translation.get_language())
-
     if request.user.is_authenticated:
         if(request.user.profiles.first_login == 1):
             # redirect to change password

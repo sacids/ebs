@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load static %}
 {% load ebs_tags %}
-{% block title %} EBS - Welcome Note {% endblock %}
+{% block title %} EBS - Introduction {% endblock %}
 
 {% block content %}
 
@@ -32,7 +32,6 @@
                                 <div class="col-md-12">
                                     <h6 class="text-uppercase font-weight-600">{% trans 'Description' %}</h6>
                                     <hr />
-
                                     {{ survey.description|safe|default:"" }}
                                 </div>
                                 <!--./col-->
@@ -43,7 +42,7 @@
 
 
                         <!--./buttons -->
-                        <a href="/questionnare/general_info" class="btn btn-primary btn-sm">
+                        <a href="/questionnare/sections/{{ survey.id }}" class="btn btn-primary btn-sm">
                             {% trans 'Next' %} <i class="fa fa-angle-right"></i>
                         </a>
                     </fieldset>

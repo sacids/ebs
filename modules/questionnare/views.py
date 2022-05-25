@@ -23,7 +23,7 @@ from ..notification.views import send_notification
 
 
 @login_required(login_url='/login')
-def default(request):
+def surveys(request):
     if request.user.is_authenticated:
 
         # get all survey
@@ -38,7 +38,38 @@ def default(request):
         }
 
         # render view
-        return render(request, "questionnare/survey.html", context)
+        return render(request, "questionnare/surveys.html", context)
+
+
+@login_required(login_url='/login')
+def introduction(request, **kwargs):
+    # survey
+    survey_id = kwargs['pk']
+    survey = Survey.objects.get(pk=survey_id)
+
+    context = {
+        "survey": survey,
+    }
+
+    # render view
+    return render(request, "questionnare/introduction.html", context)
+
+@login_required(login_url='/login')
+def sections(request, **kwargs):
+    # survey
+    survey_id = kwargs['pk']
+    survey = Survey.objects.get(pk=survey_id) 
+
+    sections = Section.objects.filter(survey_id=survey_id).order_by("code")
+
+    # context
+    context = {
+        "survey": survey,
+        "sections": sections
+    }  
+
+    # render view
+    return render(request, "questionnare/sections.html", context)
 
 # =================================================================
 # EBS Survey
@@ -641,7 +672,7 @@ def preference(request):
         elif ((answer462 == answer466) or (answer462 == answer470)):
             messages.add_message(
                 request, messages.ERROR, 'Answer for question 2.5.i should not be the same with other answers.')
-                
+
         elif (answer466 == answer470):
             messages.add_message(
                 request, messages.ERROR, 'Answer for question 2.6.i should not be the same with 2.7.i')
