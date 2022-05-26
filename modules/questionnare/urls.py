@@ -5,8 +5,8 @@ app_name = 'questionnare'
 
 urlpatterns = [
     path("", views.surveys, name="index"),
-    path("introduction/<int:pk>/", views.introduction, name="introduction"),
-    path("sections/<int:pk>/", views.sections, name="sections"),
+    path("introduction/", views.introduction, name="introduction"),
+    path("questions/", views.questions, name="questions"),
     path('success/', views.success, name='success'),
 
     # filters
