@@ -60,7 +60,7 @@
                             </div>
                             <!--./row-->
 
-                            {% if question.has_sub == "NO" and parent == null %}
+                            {% if question.has_sub == "NO" and parent == None %}
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -115,10 +115,64 @@
                             <!--./row-->
                             {% elif question.has_sub == "LEVEL1" %}
                             {% for sub_qn in question.sub_questions.all %}
-                            {% if sub_qn.has_sub == "NO" %}
+                            {% if sub_qn.has_sub == "NO" and parent == None %}
                             
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        {% if sub_qn.qn_type == 'RADIO' %}
+                                            <input id="answer" name="answer[{{sub_qn.id}}]" type="radio" class="" value="YES" {% if sub_qn.id|get_qn_answer:user == "YES" %} checked {% endif %} />
+                                            <label for="answer" class="">&nbsp;{% trans 'Yes' %}</label>
+                                            <br />
+                                            <input id="answer" name="answer[{{sub_qn.id}}]" type="radio" class="" value="NO" {% if sub_qn.id|get_qn_answer:user == "NO" %} checked {% endif %} />
+                                            <label for="answer" class="">&nbsp;{% trans 'No' %}</label>
+                                        {% elif question.qn_type == 'TEXT' %}
+                                            <input type="text" name="answer[{{sub_qn.id}}]" id="answer" value="{{ sub_qn.id|get_qn_answer:user }}" class="form-control" />
+                                        {% elif question.qn_type == 'NUMBER' %}
+                                            <input type="number" name="answer[{{sub_qn.id}}]" id="answer" value="{{ sub_qn.id|get_qn_answer:user }}" class="form-control" />
+                                        {% elif question.qn_type == 'DATE' %}
+                                            <input type="date" name="answer[{{sub_qn.id}}]" id="answer" value="{{ sub_qn.id|get_qn_answer:user }}" class="form-control" />
+                                        {% elif question.qn_type == 'TEXTAREA' %}
+                                            <textarea rows="4" cols="40" name="answer[{{sub_qn.id}}]" class="textarea form-control"
+                                            id="answer">{{ sub_qn.id|get_qn_answer:user }}</textarea>         
+                                        {% elif question.qn_type == 'ATTACHMENT' %}
+                                            <input type="hidden" name="answer[{{sub_qn.id}}]" id="answer" value="{{ sub_qn.id|get_qn_answer:user }}" class="form-control" />
+                                            <input type="file" name="attachments[{{sub_qn.id}}]" class="form-control" multiple />
+                                            {% show_attachments sub_qn.id user %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <!--./col-->
+
+                                {% if sub_qn.has_upload == 'YES' %}
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>{% trans 'Attachments' %}</label>
+                                            <input type="hidden" name="answer[{{ sub_qn.id }}]" id="answer" value="{{ sub_qn.id|get_qn_answer:user }}" class="form-control" />
+                                            <input type="file" name="attachments[{{ sub_qn.id }}]" class="form-control" multiple />
+                                            {% show_attachments sub_qn.id user %}
+                                        </div>
+                                    </div>
+                                    <!--./col-->
+                                {% endif %}
+
+                                {% if sub_qn.has_remarks == 'YES' %}
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>{% trans 'Remarks' %} hh</label>
+                                            <textarea rows="3" cols="40" name="remarks[{{ sub_qn.id}}]" class="form-control"
+                                                placeholder="{% trans 'Write remarks...' %}"
+                                                id="remarks">{{ sub_qn.id|get_qn_remarks:user }}</textarea>
+                                        </div>
+                                    </div>
+                                    <!--./col-->
+                                {% endif %}
+                            </div>
+                            <!--./row-->
+
                             {% elif question.has_sub == "LEVEL2" %}
                             {% for sub_qn_2 in sub_qn.sub_questions.all %}
+                            
 
                             {% endfor %}
                             {% endif %}
