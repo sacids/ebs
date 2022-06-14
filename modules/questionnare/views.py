@@ -63,7 +63,6 @@ def questions(request):
     section_id = request.GET.get('sc_id', -1)
 
     if section_id == -1:
-        #get first section
         section = Section.objects.filter(survey_id=survey_id).order_by("code")[0]
     else:
         section = get_object_or_404(Section.objects.all(), pk=section_id)  
@@ -74,6 +73,7 @@ def questions(request):
      # context
     context = {
         "survey": survey,
+        "section_id": section_id,
         "section": section,
         "questions": questions
     }    

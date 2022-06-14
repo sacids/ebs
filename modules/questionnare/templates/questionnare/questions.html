@@ -60,6 +60,7 @@
                             </div>
                             <!--./row-->
 
+                            {% if question.has_sub == "NO" and parent == null %}
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -72,10 +73,12 @@
                                         {% elif question.qn_type == 'TEXT' %}
                                             <input type="text" name="answer[{{question.id}}]" id="answer" value="{{ question.id|get_qn_answer:user }}" class="form-control" />
                                         {% elif question.qn_type == 'NUMBER' %}
-                                            <input type="number" name="answer[{{question.id}}]" id="answer" value="{{ 306|get_qn_answer:user }}" class="form-control" />
+                                            <input type="number" name="answer[{{question.id}}]" id="answer" value="{{ question.id|get_qn_answer:user }}" class="form-control" />
+                                        {% elif question.qn_type == 'DATE' %}
+                                            <input type="date" name="answer[{{question.id}}]" id="answer" value="{{ question.id|get_qn_answer:user }}" class="form-control" />
                                         {% elif question.qn_type == 'TEXTAREA' %}
                                             <textarea rows="4" cols="40" name="answer[{{question.id}}]" class="textarea form-control"
-                                            id="answer">{{ question.id|get_qn_answer:user }}</textarea>
+                                            id="answer">{{ question.id|get_qn_answer:user }}</textarea>         
                                         {% elif question.qn_type == 'ATTACHMENT' %}
                                             <input type="hidden" name="answer[{{question.id}}]" id="answer" value="{{ question.id|get_qn_answer:user }}" class="form-control" />
                                             <input type="file" name="attachments[{{question.id}}]" class="form-control" multiple />
@@ -86,48 +89,62 @@
                                 <!--./col-->
 
                                 {% if question.has_upload == 'YES' %}
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>{% trans 'Attachments' %}</label>
-                                        <input type="hidden" name="answer[{{question.id}}]" id="answer" value="{{ question.id|get_qn_answer:user }}" class="form-control" />
-                                        <input type="file" name="attachments[{{question.id}}]" class="form-control" multiple />
-                                        {% show_attachments question.id user %}
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>{% trans 'Attachments' %}</label>
+                                            <input type="hidden" name="answer[{{question.id}}]" id="answer" value="{{ question.id|get_qn_answer:user }}" class="form-control" />
+                                            <input type="file" name="attachments[{{question.id}}]" class="form-control" multiple />
+                                            {% show_attachments question.id user %}
+                                        </div>
                                     </div>
-                                </div>
-                                <!--./col-->
+                                    <!--./col-->
                                 {% endif %}
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>{% trans 'Remarks' %}</label>
-                                        <textarea rows="3" cols="40" name="remarks[{{question.id}}]" class="form-control"
-                                            placeholder="{% trans 'Write remarks...' %}"
-                                            id="remarks">{{ question.id|get_qn_remarks:user }}</textarea>
+                                {% if question.has_remarks == 'YES' %}
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>{% trans 'Remarks' %}</label>
+                                            <textarea rows="3" cols="40" name="remarks[{{question.id}}]" class="form-control"
+                                                placeholder="{% trans 'Write remarks...' %}"
+                                                id="remarks">{{ question.id|get_qn_remarks:user }}</textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                <!--./col-->
+                                    <!--./col-->
+                                {% endif %}
                             </div>
                             <!--./row-->
+                            {% elif question.has_sub == "LEVEL1" %}
+                            {% for sub_qn in question.sub_questions.all %}
+                            {% if sub_qn.has_sub == "NO" %}
+                            
+                            {% elif question.has_sub == "LEVEL2" %}
+                            {% for sub_qn_2 in sub_qn.sub_questions.all %}
+
+                            {% endfor %}
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
                         </div>
                         <!--./form-card-->
                         {% endfor %}
 
                         <div class="row mt-2 mb-4">
                             <div class="col-md-12">
-                                <input type="submit" name="post_exit" class="btn btn-danger btn-sm pr-2 pl-2"
-                                    value="{% trans 'Previous' %}" />
+                                <a href="#" class="btn btn-danger btn-xs pr-2 pl-2">
+                                    <i class="fa fa-angle-left"></i> {% trans 'Previous' %}
+                                </a>
 
-                                <input type="submit" name="post_exit" class="btn btn-secondary btn-sm pr-2 pl-2"
+                                <input type="submit" name="post_exit" class="btn btn-secondary btn-xs pr-2 pl-2"
                                     value="{% trans 'Save and Exit' %}" />
                                 {% if section.code < survey.sections.count %}
-                                    <input type="submit" name="post_next" class="btn btn-primary btn-sm pr-2 pl-2"
+                                    <input type="submit" name="post_next" class="btn btn-primary btn-xs pr-2 pl-2"
                                         value="{% trans 'Save and Next' %}" />
                                 {% elif section.code == survey.sections.count %}
-                                    <input type="submit" name="post_next" class="btn btn-primary btn-sm pr-2 pl-2"
+                                    <input type="submit" name="post_next" class="btn btn-primary btn-xs pr-2 pl-2"
                                         value="{% trans 'Save and Complete' %}" />
                                 {% endif %}
 
-                                <button class="btn btn-success btn-sm pr-2 pl-2" onclick="printDiv('section-data');">
+                                <button class="btn btn-success btn-xs pr-2 pl-2" onclick="printDiv('section-data');">
                                     <i class="fa fa-print"></i> {% trans 'Print/Save' %}
                                 </button>
                             </div>

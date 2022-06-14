@@ -13,13 +13,18 @@ QUESTION_TYPE = (
     ('FILE', 'File'),
     ('TEXT', "Normal Text"),
     ('TEXTAREA', "Text Area"),
+    ('DATE', "Date"),
 )
 
-SUB_QUESTION_TYPES = (
+SUB_QN = (
     ("NO", "No"),
-    ("SUB", "Sub"),
-    ("INNER", "Inner"),
-    ("END", "End")
+    ("LEVEL1", "Level 1"),
+    ("LEVEL2", "Level 2"),
+)
+
+YES_OR_NO = (
+    ("NO", "No"),
+    ("YES", "Yes")
 )
 
 ANSWER = (
@@ -38,7 +43,7 @@ STATUS = (
 
 class Council(models.Model):
     """A class to create council table"""
-    title = models.CharField(max_length=255)
+    title       = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
 
     class Meta:
@@ -71,11 +76,11 @@ class Country(models.Model):
 
 class Institution(models.Model):
     """A class to create institutions table."""
-    title = models.CharField(max_length=255)
-    initial = models.CharField(max_length=25, null=True)
+    title       = models.CharField(max_length=255)
+    initial     = models.CharField(max_length=25, null=True)
     description = models.TextField(null=True)
-    country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
-    logo = models.ImageField(upload_to='photos', null=True)
+    country     = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
+    logo        = models.ImageField(upload_to='photos', null=True)
 
     class Meta:
         db_table = "institutions"
@@ -89,10 +94,10 @@ class Institution(models.Model):
 
 
 class Respondent(models.Model):
-    name = models.CharField(max_length=200)
-    email = models.EmailField(max_length=200, null=True)
-    council = models.ForeignKey(Council, related_name="council", on_delete=models.SET_NULL, null=True)
-    country = models.ForeignKey(Country, related_name="country", on_delete=models.SET_NULL, null=True)
+    name        = models.CharField(max_length=200)
+    email       = models.EmailField(max_length=200, null=True)
+    council     = models.ForeignKey(Council, related_name="council", on_delete=models.SET_NULL, null=True)
+    country     = models.ForeignKey(Country, related_name="country", on_delete=models.SET_NULL, null=True)
     designation = models.CharField(max_length=150)
     institution = models.CharField(max_length=255, null=True)
 
@@ -107,8 +112,8 @@ class Respondent(models.Model):
 
 # categories
 class Category(models.Model):
-    code = models.PositiveIntegerField(null=True)
-    title = models.CharField(max_length=255)
+    code        = models.PositiveIntegerField(null=True)
+    title       = models.CharField(max_length=255)
     description = models.TextField(null=True)
 
     class Meta:
@@ -134,9 +139,9 @@ class Survey(models.Model):
 
 
 class CountrySurvey(models.Model):
-    country = models.ForeignKey(Country, related_name="country_survey", on_delete=models.DO_NOTHING, blank=True, null=True)
-    survey = ForeignKey(Survey, related_name="survey_status", on_delete=models.DO_NOTHING, null=True)
-    status  = models.CharField(choices=STATUS, max_length=20, null=True, default="INCOMPLETE")
+    country     = models.ForeignKey(Country, related_name="country_survey", on_delete=models.DO_NOTHING, blank=True, null=True)
+    survey      = ForeignKey(Survey, related_name="survey_status", on_delete=models.DO_NOTHING, null=True)
+    status      = models.CharField(choices=STATUS, max_length=20, null=True, default="INCOMPLETE")
     created_at  = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at  = models.DateTimeField(auto_now=True, null=True)
 
@@ -150,9 +155,9 @@ class CountrySurvey(models.Model):
 
 # section
 class Section(models.Model):
-    survey = ForeignKey(Survey, related_name="sections", on_delete=models.CASCADE, null=True, default=1)
-    code = models.PositiveIntegerField(null=True)
-    title = models.CharField(max_length=255)
+    survey      = ForeignKey(Survey, related_name="sections", on_delete=models.CASCADE, null=True, default=1)
+    code        = models.PositiveIntegerField(null=True)
+    title       = models.CharField(max_length=255)
     description = models.TextField(null=True)
 
     class Meta:
@@ -166,18 +171,21 @@ class Section(models.Model):
 
 # questions
 class QuestionList(models.Model):
-    section = models.ForeignKey(Section, related_name="questions", on_delete=models.CASCADE, null=True)
-    code = models.CharField(max_length=10, null=False)
-    title = models.TextField(null=False)
-    qn_type = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='RADIO')
-    required = models.CharField(choices=ANSWER, max_length=10, default="NO")
-    has_sub = models.CharField(choices=SUB_QUESTION_TYPES, verbose_name="Sub Question", max_length=10, null=True, default="NO")
-    sort_order = models.IntegerField(default=1)
-    hints  = models.TextField(null=True, blank=True)
-    has_upload = models.CharField(choices=ANSWER, max_length=10, default="NO")
+    section       = models.ForeignKey(Section, related_name="questions", on_delete=models.CASCADE, null=True)
+    code          = models.CharField(max_length=10, null=False)
+    title         = models.TextField(null=False)
+    qn_type       = models.CharField(choices=QUESTION_TYPE, verbose_name="Question type", max_length=50, default='RADIO')
+    required      = models.CharField(choices=ANSWER, max_length=10, default="NO")
+    has_sub       = models.CharField(choices=SUB_QN, verbose_name="Sub Question", max_length=10, null=True, default="NO")
+    parent        = models.ForeignKey('self', related_name="sub_questions", on_delete=models.CASCADE, null=True, blank=True)
+    has_remarks   = models.CharField(choices=YES_OR_NO, max_length=10, null=True, blank=True, default="YES")
+    sort_order    = models.IntegerField(default=1)
+    hints         = models.TextField(null=True, blank=True)
+    has_upload    = models.CharField(choices=ANSWER, max_length=10, default="NO")
 
     class Meta:
         db_table = "question_lists"
+        verbose_name = "Question"
         verbose_name_plural = "Questions"
         managed = True
 

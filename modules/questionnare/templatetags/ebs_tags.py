@@ -65,10 +65,10 @@ def get_qn_remarks(qn_id, user):
         pass
 
 
-@register.filter
-def get_sub_questions(qn_id):
-    qn_banks = QuestionBank.objects.filter(question_id=qn_id)
-    return qn_banks
+# @register.filter
+# def get_sub_questions(qn_id):
+#     qn_banks = QuestionBank.objects.filter(question_id=qn_id)
+#     return qn_banks
 
 
 def show_attachments(qn_id, user):
