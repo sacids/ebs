@@ -48,32 +48,26 @@
                     {% endif %}
                 </td>
                 <td>
-                    {% if survey.id == 1 %}
-                        <a href="/responses/section_one/{{country.id}}" class="text-primary" title="View Response">
-                            <i class="fa fa-folder-open"></i>
+                    {% if country.profile_country.count == 1 %}
+                        <a href="/responses/questions/?sv_id={{survey.id}}&c_id={{country.id}}" class="text-primary" title="Survey Info">
+                            <i class="fa fa-folder-open fa-lg"></i>
                         </a>&nbsp;
-                    {% elif survey.id == 2 %}
-                        <a href="/responses/general_info/{{country.id}}" class="text-primary" title="View Response">
-                            <i class="fa fa-folder-open"></i>
-                        </a>&nbsp;
-                    {% endif %}
 
-                    {% if survey.id|get_country_survey_status:country.id == 'NOT STARTED' or survey.id|get_country_survey_status:country.id == 'INCOMPLETE' %}
-                        <a href="/responses/send_incomplete_submission_alert/{{survey.id}}/{{country.id}}" class="text-danger"
-                            title="Send Incomplete Submission Alert">
-                            <i class="fa fa-envelope-open"></i>
-                        </a>&nbsp;
-                    {% endif %}
+                        {% if survey.id|get_country_survey_status:country.id == 'NOT STARTED' or survey.id|get_country_survey_status:country.id == 'INCOMPLETE' %}
+                            <a href="/responses/send_incomplete_submission_alert/{{survey.id}}/{{country.id}}" class="text-danger"
+                                title="Send Incomplete Submission Alert">
+                                <i class="fa fa-envelope-open fa-lg"></i>
+                            </a>&nbsp;
+                        {% endif %}
 
-                    {% if survey.id|get_country_survey_status:country.id == 'COMPLETE' %}
-                        {% if survey.id == 1 %}
-                            <a href="/responses/export_csv/{{survey.id}}/{{country.id}}" class="text-success" title="Export csv">
-                                <i class="fa fa-file-excel"></i>
-                            </a>&nbsp;
-                        {% elif survey.id == 2 %}
-                            <a href="/responses/export_xls/{{survey.id}}/{{country.id}}" class="text-success" title="Export csv">
-                                <i class="fa fa-file-excel"></i>
-                            </a>&nbsp;
+                        {% if survey.id|get_country_survey_status:country.id == 'COMPLETE' %}
+                        <a href="/responses/export_csv/{{survey.id}}/{{country.id}}" class="text-secondary" title="Export csv">
+                            <i class="fa fa-file fa-lg"></i>
+                        </a>&nbsp;
+
+                        <a href="/responses/export_xls/{{survey.id}}/{{country.id}}" class="text-success" title="Export xls">
+                            <i class="fa fa-file-excel fa-lg"></i>
+                        </a>&nbsp;
                         {% endif %}
                     {% endif %}
                 </td>

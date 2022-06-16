@@ -1,0 +1,56 @@
+{% extends 'frontend/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load ebs_tags %}
+{% block title %} EBS - Introduction {% endblock %}
+
+{% block content %}
+
+{% include 'frontend/menu.html' %}
+<!-- Page content -->
+<div class="page-content bg-grey">
+    <div class="container">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content" id="welcome">
+                <form id="msform" action="" method="POST" enctype="multipart/form-data">
+                    <fieldset>
+                        <div class="card-h1 m-0">
+                            <div class="col-md-12">
+                                <h5 class="font-weight-600">
+                                    {{ survey.title }}
+                                </h5>
+                            </div>
+                            <!--./col-->
+                        </div>
+                        <!--./row-->
+
+                        <!--start-->
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h6 class="text-uppercase font-weight-600">{% trans 'Description' %}</h6>
+                                    <hr />
+                                    {{ survey.description|safe|default:"" }}
+                                </div>
+                                <!--./col-->
+                            </div>
+                            <!--./row-->
+                        </div>
+                        <!--./form-card-->
+
+
+                        <!--./buttons -->
+                        <a href="/questionnare/questions/?sv_id={{ survey.id }}" class="btn btn-primary btn-xs pr-4 pl-4">
+                            {% trans 'Next' %} <i class="fa fa-angle-right"></i>
+                        </a>
+                    </fieldset>
+                </form>
+                <div class="mt-4"></div><!--./mt-4-->
+            </div><!-- /content area -->
+        </div><!-- /main content -->
+    </div>
+    <!--./container-->
+</div><!-- /page content -->
+{% endblock %}
